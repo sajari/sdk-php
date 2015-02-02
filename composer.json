@@ -1,0 +1,27 @@
+{
+  "name": "sajari/sajari-sdk-php",
+  "homepage": "https://www.sajari.com",
+  "description": "Sajari SDK for PHP - Use Sajari in your PHP project",
+  "keywords": [
+    "sajari",
+    "sdk"
+  ],
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Sajari",
+      "homepage": "https://www.sajari.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "guzzle/guzzle": "~3.7"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-0": {
+      "Sajari": "src/"
+    }
+  }
+}
