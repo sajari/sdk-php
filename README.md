@@ -63,3 +63,32 @@ try {
 }
 
 ```
+
+### Remove a document
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Sajari\Engine\EngineClient;
+use Sajari\Engine\Exception\EngineException;
+
+// Instantiate an engine client
+$c = new EngineClient(new Guzzle\Http\Client(), array(
+    'access_key' => '1234',
+    'secret_key' => '5678',
+    'company'    => 'acme',
+    'collection' => 'people',
+));
+
+// Remove the document with document ID "1-1".
+try {
+    $r = $c->remove(array(
+        'id' => '1-1',
+    ));
+    echo var_export($r, true), PHP_EOL;
+} catch (EngineException $e) {
+    echo "There was an error removing the document.", PHP_EOL;
+}
+
+```
