@@ -1,0 +1,5 @@
+{
+  "require": {
+    "sajari/sajari-sdk-php": "dev-master"
+  }
+}
