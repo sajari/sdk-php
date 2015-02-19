@@ -256,6 +256,32 @@ class EngineClient
         return false;
     }
 
+    /**
+     * Replace the document with the given ID.
+     *
+     * @param array $opts
+     *
+     * @return string|Boolean The ID of the replaced document, otherwise false if the replace failed
+     *
+     * @throws InvalidArgumentException When the option "id" is not provided
+     */
+    public function replace(array $opts)
+    {
+        if (!isset($opts['id'])) {
+            throw new InvalidArgumentException('The option "id" must be provided.');
+        }
+        $id = $opts['id'];
+        unset($opts['id']);
+
+        $response = $this->doRequest(array('replace', $id), $opts);
+
+        if ($response && isset($response['docId'])) {
+            return $response['docId'];
+        }
+
+        return false;
+    }
+
     public function search(array $opts)
     {
         if (isset($opts['meta'])) {
@@ -289,6 +315,11 @@ class EngineClient
         }
 
         return $emptyResult;
+    }
+
+    public function fingerprint(array $opts)
+    {
+        return $this->doFingerprint($opts);
     }
 
     public function getLastErrors()
@@ -447,5 +478,32 @@ class EngineClient
         }
 
         return implode('|', $output);
+    }
+
+    private function doFingerprint(array $opts, $depth = 0)
+    {
+        if ($depth >= $this->fingerprintRecursionDepth) {
+            return false;
+        }
+
+        $response = $this->doRequest(array('fingerprint'), $opts);
+
+        if (!$response) {
+            if (null !== $this->logger) {
+                $this->logger->error(sprintf(
+                    'Failed to fingerprint query. The request was: %s. The raw response was: %s.',
+                    var_export($this->lastRequest, true),
+                    var_export($this->lastRawResponse, true)
+                ));
+            }
+
+            return $this->doFingerprint($opts, $depth + 1);
+        }
+
+        if (isset($opts['decoded']) && true === $opts['decoded']) {
+            return $response;
+        }
+
+        return $response['fingerprint'];
     }
 }
