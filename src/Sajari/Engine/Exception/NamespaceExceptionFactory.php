@@ -27,11 +27,10 @@ class NamespaceExceptionFactory extends BaseNamespaceExceptionFactory
         }
 
         if ($ex instanceof DocumentAlreadyExistsException &&
-            1 === preg_match('/Duplicate document #(\d+)/', $parts['message'], $matches) &&
+            1 === preg_match('/Duplicate document #(\d+-\d+)/', $parts['message'], $matches) &&
             isset($matches[1])
         ) {
             $engineDocumentId = $matches[1];
-            $engineDocumentId = sprintf('1-%d', $engineDocumentId); // TODO remove when https://github.com/sajari/sjengine-v9/issues/163 is fixed
             $ex->setEngineDocumentId($engineDocumentId);
         }
 
