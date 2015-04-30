@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 
 use Sajari\Engine\EngineClient;
@@ -20,5 +21,5 @@ try {
     ));
     echo var_export($r, true), PHP_EOL;
 } catch (EngineException $e) {
-    echo "There was an error getting the best documents. ", $e->getMessage(), PHP_EOL;
+    echo 'There was an error getting the best documents. ', $e->getMessage(), PHP_EOL;
 }

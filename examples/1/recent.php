@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 
 use Sajari\Engine\EngineClient;
@@ -18,5 +19,5 @@ try {
     $r = $c->recent();
     echo var_export($r, true), PHP_EOL;
 } catch (EngineException $e) {
-    echo "There was an error getting recent documents. ", $e->getMessage(), PHP_EOL;
+    echo 'There was an error getting recent documents. ', $e->getMessage(), PHP_EOL;
 }
