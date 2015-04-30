@@ -404,6 +404,24 @@ class EngineClient
         return $this->doFingerprint($opts);
     }
 
+    /**
+     * Reset the given fingerprint.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     *
+     * @throws InvalidArgumentException When the option "fingerprint" is not provided
+     */
+    public function resetFingerprint(array $opts = array())
+    {
+        if (!isset($opts['fingerprint'])) {
+            throw new InvalidArgumentException('The option "fingerprint" must be provided.');
+        }
+
+        return $this->doRequest(array('fingerprint/reset'), $opts);
+    }
+
     public function getLastErrors()
     {
         return $this->lastErrors;
