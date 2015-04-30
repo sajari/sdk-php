@@ -366,8 +366,8 @@ class EngineClient
 
     public function search(array $opts)
     {
-        if (isset($opts['meta'])) {
-            $opts['meta'] = $this->encodeColumns($opts['meta']);
+        if (isset($opts['cols'])) {
+            $opts['cols'] = $this->encodeColumns($opts['meta']);
         }
         if (isset($opts['scales'])) {
             $opts['scales'] = $this->encodeScales($opts['scales']);
