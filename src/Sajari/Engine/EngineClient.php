@@ -316,6 +316,42 @@ class EngineClient
         return $this->doRequest(array('recent'), $opts);
     }
 
+    /**
+     * Get the best documents.
+     *
+     * @param array $opts
+     *
+     * @return array Array of documents
+     */
+    public function best(array $opts = array())
+    {
+        return $this->doRequest(array('best'), $opts);
+    }
+
+    /**
+     * Get the most popular documents.
+     *
+     * @param array $opts
+     *
+     * @return array Array of documents
+     */
+    public function popular(array $opts = array())
+    {
+        return $this->doRequest(array('popular'), $opts);
+    }
+
+    /**
+     * Get related documents.
+     *
+     * @param array $opts
+     *
+     * @return array Array of documents
+     */
+    public function related(array $opts = array())
+    {
+        return $this->doRequest(array('related'), $opts);
+    }
+
     public function search(array $opts)
     {
         if (isset($opts['meta'])) {
