@@ -16,7 +16,7 @@ interface ExceptionParserInterface
      * - code:       Exception code
      * - message:    Exception message
      * - errors:     Exception errors
-     * - parsed:     The parsed representation of the data (array, SimpleXMLElement, etc)
+     * - parsed:     The parsed representation of the data (array, SimpleXMLElement, etc).
      *
      * @param Response $response Unsuccessful response
      *

@@ -8,7 +8,7 @@ use Guzzle\Http\Message\Response;
 class NamespaceExceptionFactory extends BaseNamespaceExceptionFactory
 {
     /**
-     * Create an prepare an exception object
+     * Create an prepare an exception object.
      *
      * @param string   $className Name of the class to create
      * @param Response $response  Response received

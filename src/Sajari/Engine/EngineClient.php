@@ -29,12 +29,12 @@ class EngineClient
     const DEFAULT_PATH_PREFIX = 'api';
 
     /**
-     * @var integer
+     * @var int
      */
     const DEFAULT_PORT = 443;
 
     /**
-     * @var integer The default recursion depth for the fingerprint method
+     * @var int The default recursion depth for the fingerprint method
      */
     const DEFAULT_FINGEPRINT_RECURSION_DEPTH = 2;
 
@@ -54,7 +54,7 @@ class EngineClient
     private $host;
 
     /**
-     * @var integer
+     * @var int
      */
     private $port;
 
@@ -94,7 +94,7 @@ class EngineClient
     private $logger;
 
     /**
-     * @var integer
+     * @var int
      */
     private $fingerprintRecursionDepth;
 

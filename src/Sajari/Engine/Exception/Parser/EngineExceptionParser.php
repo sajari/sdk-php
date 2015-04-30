@@ -79,6 +79,7 @@ class EngineExceptionParser extends AbstractJsonExceptionParser
      * message-code map.
      *
      * @staticvar array $messageCodeMap
+     *
      * @param array $errors
      *
      * @return string|null

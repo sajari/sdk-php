@@ -14,7 +14,7 @@ use Guzzle\Http\Message\Response;
 class NamespaceExceptionFactory implements ExceptionFactoryInterface
 {
     /**
-     * @var ExceptionParserInterface $parser Parser used to parse responses
+     * @var ExceptionParserInterface Parser used to parse responses
      */
     protected $parser;
 
@@ -62,7 +62,7 @@ class NamespaceExceptionFactory implements ExceptionFactoryInterface
     }
 
     /**
-     * Create an prepare an exception object
+     * Create an prepare an exception object.
      *
      * @param string   $className Name of the class to create
      * @param Response $response  Response received
