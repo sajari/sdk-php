@@ -218,7 +218,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return Boolean True if destroyed
+     * @return Boolean True if removed
      *
      * @throws InvalidArgumentException When the option "id" is not provided
      */
