@@ -34,11 +34,6 @@ class EngineClient
     const DEFAULT_PORT = 443;
 
     /**
-     * @var int The default recursion depth for the fingerprint method
-     */
-    const DEFAULT_FINGEPRINT_RECURSION_DEPTH = 2;
-
-    /**
      * @var ClientInterface
      */
     private $httpClient;
@@ -92,11 +87,6 @@ class EngineClient
      * @var LoggerInterface
      */
     private $logger;
-
-    /**
-     * @var int
-     */
-    private $fingerprintRecursionDepth;
 
     /**
      * @var string
@@ -156,7 +146,6 @@ class EngineClient
         $this->options = $options;
 
         $this->logger = $logger;
-        $this->fingerprintRecursionDepth = static::DEFAULT_FINGEPRINT_RECURSION_DEPTH;
 
         $exceptionFactory = new NamespaceExceptionFactory(
             new EngineExceptionParser(),
@@ -391,7 +380,16 @@ class EngineClient
 
     public function fingerprint(array $opts)
     {
-        return $this->doFingerprint($opts);
+        $response = $this->doRequest(array('fingerprint'), $opts);
+
+        if (!$response) {
+            return false;
+        }
+        if (isset($opts['decoded']) && true === $opts['decoded']) {
+            return $response;
+        }
+
+        return $response['fingerprint'];
     }
 
     /**
@@ -603,32 +601,5 @@ class EngineClient
         }
 
         return implode('|', $output);
-    }
-
-    private function doFingerprint(array $opts, $depth = 0)
-    {
-        if ($depth >= $this->fingerprintRecursionDepth) {
-            return false;
-        }
-
-        $response = $this->doRequest(array('fingerprint'), $opts);
-
-        if (!$response) {
-            if (null !== $this->logger) {
-                $this->logger->error(sprintf(
-                    'Failed to fingerprint query. The request was: %s. The raw response was: %s.',
-                    var_export($this->lastRequest, true),
-                    var_export($this->lastRawResponse, true)
-                ));
-            }
-
-            return $this->doFingerprint($opts, $depth + 1);
-        }
-
-        if (isset($opts['decoded']) && true === $opts['decoded']) {
-            return $response;
-        }
-
-        return $response['fingerprint'];
     }
 }
