@@ -21,5 +21,5 @@ try {
     ));
     echo var_export($r, true), PHP_EOL;
 } catch (EngineException $e) {
-    echo "There was an error adding the document.", $e->getMessage(), PHP_EOL;
+    echo "There was an error adding the document. ", $e->getMessage(), PHP_EOL;
 }
