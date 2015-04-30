@@ -352,6 +352,18 @@ class EngineClient
         return $this->doRequest(array('related'), $opts);
     }
 
+    /**
+     * Find documents matching the given query (i.e. autocomplete / query completion).
+     *
+     * @param array $opts
+     *
+     * @return array Array of documents
+     */
+    public function autocomplete(array $opts = array())
+    {
+        return $this->doRequest(array('autocomplete'), $opts);
+    }
+
     public function search(array $opts)
     {
         if (isset($opts['meta'])) {
