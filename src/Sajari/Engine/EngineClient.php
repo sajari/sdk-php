@@ -366,16 +366,6 @@ class EngineClient
 
     public function search(array $opts)
     {
-        if (isset($opts['cols'])) {
-            $opts['cols'] = $this->encodeColumns($opts['meta']);
-        }
-        if (isset($opts['scales'])) {
-            $opts['scales'] = $this->encodeScales($opts['scales']);
-        }
-        if (isset($opts['filters'])) {
-            $opts['filters'] = $this->encodeFilters($opts['filters']);
-        }
-
         $response = $this->doRequest(
             array('search'),
             $opts
@@ -485,6 +475,15 @@ class EngineClient
             if (!isset($data[$key])) {
                 throw new InvalidArgumentException(sprintf('The option "%s" must be provided.', $key));
             }
+        }
+        if (isset($data['cols'])) {
+            $data['cols'] = $this->encodeColumns($data['meta']);
+        }
+        if (isset($data['scales'])) {
+            $data['scales'] = $this->encodeScales($data['scales']);
+        }
+        if (isset($opts['filters'])) {
+            $data['filters'] = $this->encodeFilters($data['filters']);
         }
 
         $uri = sprintf('%s/%s', $this->pathPrefix, implode('/', $uriParts));
