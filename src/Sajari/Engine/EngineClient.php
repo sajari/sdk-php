@@ -304,6 +304,18 @@ class EngineClient
         return false;
     }
 
+    /**
+     * Get the most recently added documents.
+     *
+     * @param array $opts
+     *
+     * @return array Array of documents
+     */
+    public function recent(array $opts = array())
+    {
+        return $this->doRequest(array('recent'), $opts);
+    }
+
     public function search(array $opts)
     {
         if (isset($opts['meta'])) {
