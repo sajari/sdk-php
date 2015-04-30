@@ -257,6 +257,28 @@ class EngineClient
     }
 
     /**
+     * Put the document with the ID given in the "id" field into the engine.
+     *
+     * @param array $opts
+     *
+     * @return Boolean True if put
+     *
+     * @throws InvalidArgumentException When the option "id" is not provided
+     */
+    public function put(array $opts)
+    {
+        if (!isset($opts['id'])) {
+            throw new InvalidArgumentException('The option "id" must be provided.');
+        }
+        $id = $opts['id'];
+        unset($opts['id']);
+
+        $response = $this->doRequest(array('put', $id), $opts);
+
+        return $response && true;
+    }
+
+    /**
      * Replace the document with the given ID.
      *
      * @param array $opts
