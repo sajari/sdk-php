@@ -309,7 +309,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return array Array of documents
+     * @return array The response
      */
     public function recent(array $opts = array())
     {
@@ -321,7 +321,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return array Array of documents
+     * @return array The response
      */
     public function best(array $opts = array())
     {
@@ -333,7 +333,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return array Array of documents
+     * @return array The response
      */
     public function popular(array $opts = array())
     {
@@ -345,7 +345,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return array Array of documents
+     * @return array The response
      */
     public function related(array $opts = array())
     {
@@ -357,7 +357,7 @@ class EngineClient
      *
      * @param array $opts
      *
-     * @return array Array of documents
+     * @return array The response
      */
     public function autocomplete(array $opts = array())
     {
