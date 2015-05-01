@@ -353,12 +353,16 @@ class EngineClient
         return $this->doRequest(array('autocomplete'), $opts);
     }
 
+    /**
+     * Search for documents matching the given query.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
     public function search(array $opts)
     {
-        $response = $this->doRequest(
-            array('search'),
-            $opts
-        );
+        $response = $this->doRequest(array('search'), $opts);
 
         $emptyResult = array(
             'results' => array(),
