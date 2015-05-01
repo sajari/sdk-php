@@ -342,7 +342,7 @@ class EngineClient
     }
 
     /**
-     * Find documents matching the given query (i.e. autocomplete / query completion).
+     * Find terms matching the given query prefix (i.e. autocomplete / query completion).
      *
      * @param array $opts
      *
