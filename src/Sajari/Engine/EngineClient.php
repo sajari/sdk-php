@@ -459,7 +459,7 @@ class EngineClient
     /**
      * @throws InvalidArgumentException When any of the options "company", "collection" are not provided
      */
-    private function doRequest(array $uriParts, $data = array(), $filePath = null)
+    private function doRequest(array $pathParts, $data = array())
     {
         $this->lastErrors = array();
 
@@ -484,21 +484,21 @@ class EngineClient
             $data['filters'] = $this->encodeFilters($data['filters']);
         }
 
-        $uri = sprintf('%s/%s', $this->pathPrefix, implode('/', $uriParts));
+        $url = sprintf('%s/%s', $this->pathPrefix, implode('/', $pathParts));
 
-        if (!count($data) && null === $filePath) {
-            $request = $this->httpClient->get($uri);
+        if (!count($data)) {
+            $request = $this->httpClient->get($url);
         } else {
-            $request = $this->httpClient->post($uri);
+            $request = $this->httpClient->post($url);
 
             if (count($data)) {
                 $request->addPostFields($data);
             }
 
-            if (null !== $filePath) {
-                $mimeType = MimeTypeGuesser::getInstance()->guess($filePath);
-
-                $request->addPostFile('inputfile', $filePath, $mimeType);
+            if (isset($data['inputfile']) && $data['inputfile']) {
+                $inputFile = $data['inputfile'];
+                $mimeType = MimeTypeGuesser::getInstance()->guess($inputFile);
+                $request->addPostFile('inputfile', $inputFile, $mimeType);
             }
         }
 
