@@ -436,6 +436,102 @@ class EngineClient
         return $this->doRequest(array('fingerprint/weight', $id, $pos, $neg), $opts);
     }
 
+    /**
+     * Get info about all models.
+     *
+     * Specify the "models" array option to get info about specific models.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function modelInfo(array $opts = array())
+    {
+        return $this->doRequest(array('model/info'), $opts);
+    }
+
+    /**
+     * Classify one or more models for given input text "q" or "inputfile".
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     *
+     * @throws InvalidArgumentException When the option "models" is not provided
+     */
+    public function classify(array $opts = array())
+    {
+        if (!isset($opts['models'])) {
+            throw new InvalidArgumentException('The option "models" must be provided.');
+        }
+
+        return $this->doRequest(array('model/classify'), $opts);
+    }
+
+    /**
+     * Load the model given by the "model" option (i.e. make it live, put it into an "active" state).
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     *
+     * @throws InvalidArgumentException When the option "model" is not provided
+     */
+    public function loadModel(array $opts = array())
+    {
+        if (!isset($opts['model'])) {
+            throw new InvalidArgumentException('The option "model" must be provided.');
+        }
+        $model = $opts['model'];
+        unset($opts['model']);
+
+        return $this->doRequest(array('model/load', $model), $opts);
+    }
+
+    /**
+     * Add a document given by the "inputfile" option to a particular class.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     *
+     * @throws InvalidArgumentException When the options "model" or "class" are not provided
+     */
+    public function trainModel(array $opts = array())
+    {
+        foreach (array('model', 'class') as $key) {
+            if (!isset($opts[$key])) {
+                throw new InvalidArgumentException(sprintf('The option "%s" must be provided.', $key));
+            }
+        }
+        $model = $opts['model'];
+        unset($opts['model']);
+        $class = $opts['class'];
+        unset($opts['class']);
+
+        return $this->doRequest(array('model/train', $model, $class), $opts);
+    }
+
+    /**
+     * Process the model given by the "model" option (i.e. initiates a re-crunch of the training data to create a new model).
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     *
+     * @throws InvalidArgumentException When the option "model" is not provided
+     */
+    public function processModel(array $opts = array())
+    {
+        if (!isset($opts['model'])) {
+            throw new InvalidArgumentException('The option "model" must be provided.');
+        }
+        $model = $opts['model'];
+        unset($opts['model']);
+
+        return $this->doRequest(array('model/process', $model), $opts);
+    }
+
     public function getLastErrors()
     {
         return $this->lastErrors;
@@ -485,6 +581,10 @@ class EngineClient
         }
 
         $url = sprintf('%s/%s', $this->pathPrefix, implode('/', $pathParts));
+
+        if (isset($data['models']) && count($data['models'])) {
+            $url = sprintf('%s/%s', $url, $this->encodeModels($data['models']));
+        }
 
         if (!count($data)) {
             $request = $this->httpClient->get($url);
@@ -551,6 +651,11 @@ class EngineClient
         $this->lastErrors = array_merge($this->lastErrors, $errors);
 
         return false;
+    }
+
+    private function encodeModels(array $models)
+    {
+        return implode(';', $models);
     }
 
     private function encodeColumns(array $columns)
