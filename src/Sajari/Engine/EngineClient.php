@@ -177,6 +177,19 @@ class EngineClient
     }
 
     /**
+     * Get info about the engine.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function info(array $opts = array())
+    {
+        $opts['_method'] = 'GET';
+        return $this->doRequest(array('info'), $opts);
+    }
+
+    /**
      * Get the document with the ID given in the "id" field.
      *
      * @param array $opts
@@ -590,8 +603,16 @@ class EngineClient
             $url = sprintf('%s/%s', $url, $this->encodeModels($data['models']));
         }
 
-        if (!count($data)) {
+        $useGET = !count($data);
+        if (isset($data['_method']) && $data['_method'] === 'GET') {
+            $useGET = true;
+            unset($data['_method']);
+        }
+
+        if ($useGET) {
             $request = $this->httpClient->get($url);
+            $query = $request->getQuery();
+            $query->merge($data);
         } else {
             $request = $this->httpClient->post($url);
 
