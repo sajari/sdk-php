@@ -549,6 +549,71 @@ class EngineClient
         return $this->doRequest(array('model/process', $model), $opts);
     }
 
+    /**
+     * Set an engine configuration option.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function setConfig(array $opts = array())
+    {
+        if (!isset($opts['option'])) {
+            throw new InvalidArgumentException('The option "option" must be provided.');
+        }
+        if (!isset($opts['value'])) {
+            throw new InvalidArgumentException('The option "value" must be provided.');
+        }
+        $opts['_method'] = 'POST';
+        return $this->doRequest(array('engine/config'), $opts);
+    }
+
+    /**
+     * Delete an engine configuration option.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function deleteConfig(array $opts = array())
+    {
+        if (!isset($opts['id'])) {
+            throw new InvalidArgumentException('The option "id" must be provided.');
+        }
+        $company = $this->companyName;
+        if (isset($data['company'])) {
+            $company = $data['company'];
+        }
+        if (!$company) {
+            throw new InvalidArgumentException('The option "company" must be provided.');
+        }
+        $collection = $this->collectionName;
+        if (isset($data['collection'])) {
+            $collection = $data['collection'];
+        }
+        if (!$collection) {
+            throw new InvalidArgumentException('The option "collection" must be provided.');
+        }
+        $id = $opts['id'];
+        unset($opts['id']);
+
+        $opts['_method'] = 'DELETE';
+        return $this->doRequest(array('engine', $company, $collection, 'config', $id), $opts);
+    }
+
+    /**
+     * List all engine configuration options.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function listConfig(array $opts = array())
+    {
+      $opts['_method'] = 'GET';
+        return $this->doRequest(array('engine/config'), $opts);
+    }
+
     public function getLastErrors()
     {
         return $this->lastErrors;
@@ -603,10 +668,14 @@ class EngineClient
             $url = sprintf('%s/%s', $url, $this->encodeModels($data['models']));
         }
 
-        $useGET = !count($data);
-        if (isset($data['_method']) && $data['_method'] === 'GET') {
-            $useGET = true;
+        $method = 'post';
+        if (isset($data['_method'])) {
+            $method = strtolower($data['_method']);
             unset($data['_method']);
+        }
+        $useGET = !count($data);
+        if ($method === 'get') {
+            $useGET = true;
         }
 
         if ($useGET) {
@@ -614,9 +683,9 @@ class EngineClient
             $query = $request->getQuery();
             $query->merge($data);
         } else {
-            $request = $this->httpClient->post($url);
+            $request = $this->httpClient->{$method}($url);
 
-            if (count($data)) {
+            if (count($data) && $method !== 'delete') {
                 $request->addPostFields($data);
             }
 
