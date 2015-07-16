@@ -593,7 +593,7 @@ class EngineClient
         if (isset($data['scales'])) {
             $data['scales'] = $this->encodeScales($data['scales']);
         }
-        if (isset($opts['filters'])) {
+        if (isset($data['filters'])) {
             $data['filters'] = $this->encodeFilters($data['filters']);
         }
 
