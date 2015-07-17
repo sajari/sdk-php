@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "9924db7b122e992c1fb03dff420c1942",
@@ -215,17 +215,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sajari/sajari-sdk-php.git",
-                "reference": "86ac6a61f1d8b2a8843e470f18778e8c925b8719"
+                "reference": "697108f1bab00ede143007ef99c6f59ee52af93c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sajari/sajari-sdk-php/zipball/86ac6a61f1d8b2a8843e470f18778e8c925b8719",
-                "reference": "86ac6a61f1d8b2a8843e470f18778e8c925b8719",
+                "url": "https://api.github.com/repos/sajari/sajari-sdk-php/zipball/697108f1bab00ede143007ef99c6f59ee52af93c",
+                "reference": "697108f1bab00ede143007ef99c6f59ee52af93c",
                 "shasum": ""
             },
             "require": {
                 "guzzle/guzzle": "~3.7",
-                "php": ">=5.3.3"
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
             },
             "type": "library",
             "autoload": {
@@ -249,7 +253,7 @@
                 "sajari",
                 "sdk"
             ],
-            "time": "2015-02-03 02:36:36"
+            "time": "2015-07-17 01:43:22"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -308,6 +312,59 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
             "time": "2015-01-05 14:28:40"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "88903c0531b90d4ecd90282b18f08c0c77bde0b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/88903c0531b90d4ecd90282b18f08c0c77bde0b2",
+                "reference": "88903c0531b90d4ecd90282b18f08c0c77bde0b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-09 16:07:40"
         }
     ],
     "packages-dev": [],
