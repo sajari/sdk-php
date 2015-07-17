@@ -186,6 +186,7 @@ class EngineClient
     public function info(array $opts = array())
     {
         $opts['_method'] = 'GET';
+
         return $this->doRequest(array('info'), $opts);
     }
 
@@ -565,6 +566,7 @@ class EngineClient
             throw new InvalidArgumentException('The option "value" must be provided.');
         }
         $opts['_method'] = 'POST';
+
         return $this->doRequest(array('engine/config'), $opts);
     }
 
@@ -598,6 +600,7 @@ class EngineClient
         unset($opts['id']);
 
         $opts['_method'] = 'DELETE';
+
         return $this->doRequest(array('engine', $company, $collection, 'config', $id), $opts);
     }
 
@@ -611,6 +614,7 @@ class EngineClient
     public function listConfig(array $opts = array())
     {
         $opts['_method'] = 'GET';
+
         return $this->doRequest(array('engine/config'), $opts);
     }
 
@@ -638,6 +642,7 @@ class EngineClient
             throw new InvalidArgumentException('The option "collection" must be provided.');
         }
         $opts['_method'] = 'GET';
+
         return $this->doRequest(array('engine', $company, $collection, 'flush'), $opts);
     }
 
