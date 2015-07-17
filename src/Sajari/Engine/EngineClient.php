@@ -610,8 +610,35 @@ class EngineClient
      */
     public function listConfig(array $opts = array())
     {
-      $opts['_method'] = 'GET';
+        $opts['_method'] = 'GET';
         return $this->doRequest(array('engine/config'), $opts);
+    }
+
+    /**
+     * Flush an engine.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function flushEngine(array $opts = array())
+    {
+        $company = $this->companyName;
+        if (isset($data['company'])) {
+            $company = $data['company'];
+        }
+        if (!$company) {
+            throw new InvalidArgumentException('The option "company" must be provided.');
+        }
+        $collection = $this->collectionName;
+        if (isset($data['collection'])) {
+            $collection = $data['collection'];
+        }
+        if (!$collection) {
+            throw new InvalidArgumentException('The option "collection" must be provided.');
+        }
+        $opts['_method'] = 'GET';
+        return $this->doRequest(array('engine', $company, $collection, 'flush'), $opts);
     }
 
     public function getLastErrors()
