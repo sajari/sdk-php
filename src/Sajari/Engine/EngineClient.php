@@ -425,6 +425,37 @@ class EngineClient
         return $emptyResult;
     }
 
+    /**
+     * Multi search.
+     *
+     * @param array $opts
+     *
+     * @return array The response
+     */
+    public function multiSearch(array $opts)
+    {
+        $response = $this->doRequest(array('multisearch'), $opts);
+
+        $emptyResult = array(
+            'results' => array(),
+            'totalMatches' => 0,
+            'time' => 0,
+            'queryId' => '',
+        );
+
+        // Since results could be null we use array_key_exists
+        if ($response && array_key_exists('results', $response)) {
+            return null === $response['results'] ? $emptyResult : array(
+                'results' => $response['results'],
+                'totalMatches' => isset($response['totalmatches']) ? $response['totalmatches'] : 0,
+                'time' => isset($response['msecs']) ? $response['msecs'] : 0,
+                'queryId' => isset($response['queryID']) ? $response['queryID'] : '',
+            );
+        }
+
+        return $emptyResult;
+    }
+
     public function fingerprint(array $opts)
     {
         $response = $this->doRequest(array('fingerprint'), $opts);
