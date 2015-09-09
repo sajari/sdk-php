@@ -218,6 +218,33 @@ class EngineClient
     }
 
     /**
+     * Patch the document with the ID given in the "id" field or in the given
+     * meta identity field.
+     *
+     * @param array $opts
+     *
+     * @return array|null The document or null if not successful
+     */
+    public function patch(array $opts)
+    {
+        $pathParts = array('patch');
+
+        if (isset($opts['id'])) {
+            $id = $opts['id'];
+            unset($opts['id']);
+            array_push($pathParts, $id);
+        }
+
+        $response = $this->doRequest($pathParts, $opts);
+
+        if ($response) {
+            return $response;
+        }
+
+        return;
+    }
+
+    /**
      * Remove the document with the ID given in the "id" field or in the given
      * meta identity field.
      *
