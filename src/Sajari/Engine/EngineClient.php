@@ -196,18 +196,18 @@ class EngineClient
      * @param array $opts
      *
      * @return array|null The document or null if not found
-     *
-     * @throws InvalidArgumentException When the option "id" is not provided
      */
     public function get(array $opts)
     {
-        if (!isset($opts['id'])) {
-            throw new InvalidArgumentException('The option "id" must be provided.');
-        }
-        $id = $opts['id'];
-        unset($opts['id']);
+        $pathParts = array('get');
 
-        $response = $this->doRequest(array('get', $id), $opts);
+        if (isset($opts['id'])) {
+            $id = $opts['id'];
+            unset($opts['id']);
+            array_push($pathParts, $id);
+        }
+
+        $response = $this->doRequest($pathParts, $opts);
 
         if ($response) {
             return $response;
@@ -222,18 +222,18 @@ class EngineClient
      * @param array $opts
      *
      * @return Boolean True if removed
-     *
-     * @throws InvalidArgumentException When the option "id" is not provided
      */
     public function remove(array $opts)
     {
-        if (!isset($opts['id'])) {
-            throw new InvalidArgumentException('The option "id" must be provided.');
-        }
-        $id = $opts['id'];
-        unset($opts['id']);
+        $pathParts = array('remove');
 
-        $response = $this->doRequest(array('remove', $id), $opts);
+        if (isset($opts['id'])) {
+            $id = $opts['id'];
+            unset($opts['id']);
+            array_push($pathParts, $id);
+        }
+
+        $response = $this->doRequest($pathParts, $opts);
 
         return $response && true;
     }
