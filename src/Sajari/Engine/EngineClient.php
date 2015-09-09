@@ -191,7 +191,8 @@ class EngineClient
     }
 
     /**
-     * Get the document with the ID given in the "id" field.
+     * Get the document with the ID given in the "id" field or in the given
+     * meta identity field.
      *
      * @param array $opts
      *
@@ -217,7 +218,8 @@ class EngineClient
     }
 
     /**
-     * Remove the document with the ID given in the "id" field.
+     * Remove the document with the ID given in the "id" field or in the given
+     * meta identity field.
      *
      * @param array $opts
      *
