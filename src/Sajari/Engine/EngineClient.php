@@ -7,6 +7,7 @@ use Guzzle\Http\Client as HttpClient;
 use Psr\Log\LoggerInterface;
 use Sajari\Common\Exception\ExceptionListener;
 use Sajari\Common\Exception\InvalidArgumentException;
+use Sajari\Common\Exception\RuntimeException;
 use Sajari\Engine\Exception\NamespaceExceptionFactory;
 use Sajari\Engine\Exception\Parser\EngineExceptionParser;
 use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
@@ -431,10 +432,11 @@ class EngineClient
      * @param array $opts
      *
      * @return array The response
+     *
+     * @throws RuntimeException When the given options cannot be JSON encoded
      */
     public function multiSearch(array $opts)
     {
-        $reqs = array();
         if (isset($opts['requests'])) {
             foreach ($opts['requests'] as $i => $r) {
                 $meta = array();
@@ -442,12 +444,19 @@ class EngineClient
                     $meta = $r['meta'];
                 }
                 foreach ($meta as $k => $v) {
-                    $opts['requests'][$i]['meta['.$k.']'] = $v;
+                    $opts['requests'][$i]['meta['.$k.']'] = (string) $v;
                 }
                 unset($opts['requests'][$i]['meta']);
             }
         }
-        $opts['json'] = json_encode($opts);
+        $encodedJson = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $lastErr = json_last_error();
+        if (JSON_ERROR_NONE !== $lastErr) {
+            throw new RuntimeException($lastErr);
+        }
+        $opts = array(
+          'json' => $encodedJson,
+        );
         $response = $this->doRequest(array('multisearch'), $opts);
 
         $emptyResult = array(
