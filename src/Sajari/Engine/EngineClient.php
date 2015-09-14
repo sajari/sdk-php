@@ -455,7 +455,7 @@ class EngineClient
             throw new RuntimeException($lastErr);
         }
         $opts = array(
-          'json' => $encodedJson,
+            'json' => $encodedJson,
         );
         $response = $this->doRequest(array('multisearch'), $opts);
 
