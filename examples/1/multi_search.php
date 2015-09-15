@@ -19,12 +19,20 @@ try {
     $results = $c->multiSearch(array(
         'requests' => array(
             array(
-              'collection' => getenv('SAJARI_COLLECTION'),
-              'q' => 'hey',
-              'meta' => array(
-                  'key1' => 'value1',
-                  'key2' => 'value2',
-              ),
+                'collection' => getenv('SAJARI_COLLECTION'),
+                'q' => 'hey',
+                'meta' => array(
+                    'key1' => 'value1',
+                    'key2' => 'value2',
+                    'created' => 1442293946,
+                ),
+                'filters' => array(
+                    array(
+                        'op' => '=',
+                        'key' => 'category',
+                        'val' => 'whatever',
+                    ),
+                ),
             ),
         ),
         'all' => array(

@@ -437,18 +437,6 @@ class EngineClient
      */
     public function multiSearch(array $opts)
     {
-        if (isset($opts['requests'])) {
-            foreach ($opts['requests'] as $i => $r) {
-                $meta = array();
-                if (isset($r['meta'])) {
-                    $meta = $r['meta'];
-                }
-                foreach ($meta as $k => $v) {
-                    $opts['requests'][$i]['meta['.$k.']'] = (string) $v;
-                }
-                unset($opts['requests'][$i]['meta']);
-            }
-        }
         $encodedJson = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $lastErr = json_last_error();
         if (JSON_ERROR_NONE !== $lastErr) {
