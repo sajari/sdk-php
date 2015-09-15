@@ -25,6 +25,10 @@ try {
                     'key1' => 'value1',
                     'key2' => 'value2',
                     'created' => 1442293946,
+                    'arrayField' => array(
+                        'boo',
+                        'yah',
+                    ),
                 ),
                 'filters' => array(
                     array(
