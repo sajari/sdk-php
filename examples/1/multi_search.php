@@ -36,6 +36,14 @@ try {
                         'key' => 'category',
                         'val' => 'whatever',
                     ),
+                    array(
+                        'op' => '~',
+                        'key' => 'category',
+                        'val' => array(
+                            'one',
+                            'two',
+                        ),
+                    ),
                 ),
             ),
         ),
