@@ -456,6 +456,14 @@ class EngineClient
                 if (isset($r['page'])) {
                     $r['page'] = (int) $r['page'];
                 }
+                if (isset($r['scales'])) {
+                    foreach ($r['scales'] as $scaleIndex => $scale) {
+                        foreach ($scale as $k => $v) {
+                            $scale[$k] = (string) $v;
+                        }
+                        $r['scales'][$scaleIndex] = $scale;
+                    }
+                }
                 $opts['requests'][$i] = $r;
             }
         }
