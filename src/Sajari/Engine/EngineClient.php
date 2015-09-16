@@ -437,6 +437,28 @@ class EngineClient
      */
     public function multiSearch(array $opts)
     {
+        if (isset($opts['timeout'])) {
+            $opts['timeout'] = (int) $opts['timeout'];
+        }
+        if (isset($opts['all']) && is_array($opts['all'])) {
+            if (isset($opts['all']['maxresults'])) {
+                $opts['all']['maxresults'] = (int) $opts['all']['maxresults'];
+            }
+            if (isset($opts['all']['page'])) {
+                $opts['all']['page'] = (int) $opts['all']['page'];
+            }
+        }
+        if (isset($opts['requests'])) {
+            foreach ($opts['requests'] as $i => $r) {
+                if (isset($r['maxresults'])) {
+                    $r['maxresults'] = (int) $r['maxresults'];
+                }
+                if (isset($r['page'])) {
+                    $r['page'] = (int) $r['page'];
+                }
+                $opts['requests'][$i] = $r;
+            }
+        }
         $encodedJson = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $lastErr = json_last_error();
         if (JSON_ERROR_NONE !== $lastErr) {
@@ -754,6 +776,12 @@ class EngineClient
             if (!isset($data[$key])) {
                 throw new InvalidArgumentException(sprintf('The option "%s" must be provided.', $key));
             }
+        }
+        if (isset($data['maxresults'])) {
+            $data['maxresults'] = (int) $data['maxresults'];
+        }
+        if (isset($data['page'])) {
+            $data['page'] = (int) $data['page'];
         }
         if (isset($data['meta'])) {
             $data['meta'] = $this->encodeMeta($data['meta']);
