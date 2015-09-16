@@ -52,28 +52,6 @@ class EngineClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string $expectedEncodedFilters
-     * @param array  $filters
-     *
-     * @dataProvider filterDataProvider
-     */
-    public function testFilters($expectedEncodedFilters, $filters)
-    {
-        $this->clientMocker->addResponse(new Response(
-            200,
-            null,
-            '{"statusCode":200,"response":{"results":[]},"msecs":1}'
-        ));
-
-        $this->engineClient->find(10, array(), array(), $filters);
-
-        $fields = current($this->clientMocker->getReceivedRequests())
-            ->getPostFields();
-
-        $this->assertEquals($expectedEncodedFilters, $fields['filters']);
-    }
-
-    /**
      * @param string $expectedEncodedScales
      * @param array  $scales
      *
@@ -140,39 +118,6 @@ class EngineClientTest extends \PHPUnit_Framework_TestCase
         ));
 
         $this->engineClient->add('dummy_input_data');
-    }
-
-    public function filterDataProvider()
-    {
-        return array(
-            array('', array()),
-            array('id,1', array(
-                array(
-                    'id' => 1,
-                ),
-            )),
-            array('id,1,2,3', array(
-                array(
-                    'id' => array(1, 2, 3),
-                ),
-            )),
-            array('id,1|name,foo', array(
-                array(
-                    'id' => 1,
-                ),
-                array(
-                    'name' => 'foo',
-                ),
-            )),
-            array('id,1|OR:name,foo', array(
-                array(
-                    'id' => 1,
-                ),
-                array(
-                    'OR:name' => 'foo',
-                ),
-            )),
-        );
     }
 
     public function scaleDataProvider()

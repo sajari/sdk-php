@@ -755,6 +755,9 @@ class EngineClient
                 throw new InvalidArgumentException(sprintf('The option "%s" must be provided.', $key));
             }
         }
+        if (isset($data['meta'])) {
+            $data['meta'] = $this->encodeMeta($data['meta']);
+        }
         if (isset($data['cols'])) {
             $data['cols'] = $this->encodeColumns($data['meta']);
         }
@@ -850,6 +853,26 @@ class EngineClient
         return false;
     }
 
+    private function encodeMeta(array $meta)
+    {
+        $output = array();
+
+        foreach ($meta as $key => $value) {
+            $output[$key] = $this->encodeMetaValue($value);
+        }
+
+        return $output;
+    }
+
+    private function encodeMetaValue($value)
+    {
+        if (is_array($value)) {
+            $value = implode($value, ';');
+        }
+
+        return $value;
+    }
+
     private function encodeModels(array $models)
     {
         return implode(';', $models);
@@ -893,15 +916,21 @@ class EngineClient
         $output = array();
 
         foreach ($filters as $filter) {
-            foreach ($filter as $key => $value) {
-                if (!is_array($value)) {
-                    $value = array((string) $value);
-                }
-
-                $output[] = implode(',', array($key, implode(',', $value)));
-            }
+            $output[] = $this->encodeFilter($filter);
         }
 
         return implode('|', $output);
+    }
+
+    private function encodeFilter(array $filter)
+    {
+        $operator = $filter['op'];
+        $key = $filter['key'];
+        $value = $filter['val'];
+        if (is_array($value)) {
+            $value = implode($value, ';');
+        }
+
+        return sprintf('%s%s,%s', $operator, $key, $value);
     }
 }
