@@ -317,18 +317,18 @@ class EngineClient
      * @param array $opts
      *
      * @return string|Boolean The ID of the replaced document, otherwise false if the replace failed
-     *
-     * @throws InvalidArgumentException When the option "id" is not provided
      */
     public function replace(array $opts)
     {
-        if (!isset($opts['id'])) {
-            throw new InvalidArgumentException('The option "id" must be provided.');
-        }
-        $id = $opts['id'];
-        unset($opts['id']);
+        $pathParts = array('replace');
 
-        $response = $this->doRequest(array('replace', $id), $opts);
+        if (isset($opts['id'])) {
+            $id = $opts['id'];
+            unset($opts['id']);
+            array_push($pathParts, $id);
+        }
+
+        $response = $this->doRequest($pathParts, $opts);
 
         if ($response && isset($response['docId'])) {
             return $response['docId'];
