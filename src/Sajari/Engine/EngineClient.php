@@ -536,23 +536,25 @@ class EngineClient
      *
      * @return array The response
      *
-     * @throws InvalidArgumentException When the options "id", "fingerprint", "pos" or "neg" are not provided
+     * @throws InvalidArgumentException When the options "fingerprint", "pos" or "neg" are not provided
      */
     public function weightFingerprint(array $opts = array())
     {
-        foreach (array('id', 'fingerprint', 'pos', 'neg') as $key) {
+        foreach (array('fingerprint', 'pos', 'neg') as $key) {
             if (!isset($opts[$key])) {
                 throw new InvalidArgumentException(sprintf('The option "%s" must be provided.', $key));
             }
         }
-        $id = $opts['id'];
-        unset($opts['id']);
-        $pos = $opts['pos'];
-        unset($opts['pos']);
-        $neg = $opts['neg'];
-        unset($opts['neg']);
 
-        return $this->doRequest(array('fingerprint/weight', $id, $pos, $neg), $opts);
+        $pathParts = array('fingerprint', 'weight');
+
+        if (isset($opts['id'])) {
+            $id = $opts['id'];
+            unset($opts['id']);
+            array_push($pathParts, $id);
+        }
+
+        return $this->doRequest($pathParts, $opts);
     }
 
     /**
