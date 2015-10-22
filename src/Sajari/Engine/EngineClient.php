@@ -447,6 +447,22 @@ class EngineClient
             if (isset($opts['all']['page'])) {
                 $opts['all']['page'] = (int) $opts['all']['page'];
             }
+            if (isset($opts['all']['meta'])) {
+                foreach ($opts['all']['meta'] as $key => $val) {
+                    if (!is_array($val)) {
+                        continue;
+                    }
+                    $newVal = array();
+                    foreach ($val as $k => $v) {
+                        if (!$v) {
+                            continue;
+                        }
+                        $newVal[$k] = $v;
+                    }
+                    $opts['all']['meta'][$key] = $newVal;
+                }
+                $opts['all']['page'] = (int) $opts['all']['page'];
+            }
         }
         if (isset($opts['requests'])) {
             foreach ($opts['requests'] as $i => $r) {
@@ -462,6 +478,21 @@ class EngineClient
                             $scale[$k] = (string) $v;
                         }
                         $r['scales'][$scaleIndex] = $scale;
+                    }
+                }
+                if (isset($r['meta'])) {
+                    foreach ($r['meta'] as $metaKey => $metaVal) {
+                        if (!is_array($metaVal)) {
+                            continue;
+                        }
+                        $newVal = array();
+                        foreach ($metaVal as $k => $v) {
+                            if (!$v) {
+                                continue;
+                            }
+                            $newVal[$k] = $v;
+                        }
+                        $r['meta'][$metaKey] = $newVal;
                     }
                 }
                 $opts['requests'][$i] = $r;
