@@ -1,5 +1,5 @@
 .DS_Store
-/composer.lock
-composer.phar
-vendor
+src/composer.lock
+src/composer.phar
+src/vendor
 .env
