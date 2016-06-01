@@ -1,6 +1,0 @@
-{
-  "require": {
-    "sajari/sajari-sdk-php": "dev-master",
-    "monolog/monolog": "~1.13"
-  }
-}
