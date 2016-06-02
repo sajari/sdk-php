@@ -1,0 +1,14 @@
+{
+  "name": "sajari/sajari-sdk-php",
+  "description": "Sajari SDK for PHP",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/stanley-cheung/Protobuf-PHP"
+    }
+  ],
+  "require": {
+    "grpc/grpc": "dev-release-0_14"
+  }
+}
