@@ -295,7 +295,10 @@ class Client
         foreach ($kms as $km) {
             $protoKeyMeta = new engine\store\doc\KeysMetas\KeyMeta();
             $protoKeyMeta->setKey($km->getKey()->Proto());
-            $protoKeyMeta->setMeta($km->getMeta()->Proto());
+
+            foreach ($km->getMeta() as $m) {
+                $protoKeyMeta->addMeta($m->Proto());
+            }
 
             $protoKeyMetas->addKeysMetas($protoKeyMeta);
         }

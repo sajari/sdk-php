@@ -14,7 +14,7 @@ $c = new Client('myproject', 'mycollection', $opts);
 
 $key = new Key("_id", "7f7a8658-a368-d6f9-5e19-791debb6bddb");
 
-$meta = new Meta("numericData", 25.2);
+$meta = [new Meta("numericData", 25.2)];
 
 $keyMeta = new KeyMeta($key, $meta);
 

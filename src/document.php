@@ -92,17 +92,17 @@ class Meta
 
 class KeyMeta
 {
-    /** @var $key Key */
+    /** @var Key $key */
     private $key;
-    /** @var $meta Meta */
+    /** @var Meta[] $meta */
     private $meta;
 
     /**
      * KeyMeta constructor.
      * @param Key $key
-     * @param Meta $meta
+     * @param Meta[] $meta
      */
-    public function __construct(Key $key, Meta $meta)
+    public function __construct(Key $key, array $meta)
     {
         $this->key = $key;
         $this->meta = $meta;
@@ -117,7 +117,7 @@ class KeyMeta
     }
 
     /**
-     * @return Meta
+     * @return Meta[]
      */
     public function getMeta()
     {
@@ -127,7 +127,7 @@ class KeyMeta
 
 class Document
 {
-    /** @var $meta Meta[] */
+    /** @var Meta[] $meta */
     private $meta;
 
     /**
