@@ -1,11 +1,11 @@
 <?php
 
-require  dirname(__FILE__) . '/../src/sajari.php';
+require  dirname(__FILE__) . '/vendor/autoload.php';
 
-use Sajari\WithEndpoint;
-use Sajari\Client;
-use Sajari\Document;
-use Sajari\Meta;
+use Sajari\Client\WithEndpoint;
+use Sajari\Client\Client;
+use Sajari\Document\Document;
+use Sajari\Document\Meta;
 
 $opts = [new WithEndpoint('server_address')];
 

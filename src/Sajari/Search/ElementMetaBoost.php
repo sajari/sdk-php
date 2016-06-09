@@ -1,0 +1,51 @@
+<?php
+
+namespace Sajari\Search;
+
+class ElementMetaBoost
+{
+    /** @var string $field */
+    private $field;
+    /** @var string[] $elements */
+    private $elements;
+
+    /**
+     * ElementMetaBoost constructor.
+     * @param string $field
+     * @param \string[] $elements
+     */
+    public function __construct($field, array $elements)
+    {
+        $this->field = $field;
+        $this->elts = $elements;
+    }
+
+    /**
+     * @return string
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getElements()
+    {
+        return $this->elts;
+    }
+
+    public function Proto()
+    {
+        $emb = new engine\query\MetaBoost\Element();
+        $emb->setField($this->field);
+        foreach ($this->elements as $element) {
+            $emb->addElts($element);
+        }
+
+        $mb = new engine\query\MetaBoost();
+        $mb->setElement($emb);
+        return $mb;
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../src/github.com/sajari/sajari-sdk-php/"
+    }
+  ],
+  "require": {
+    "sajari/sajari-sdk-php": "10.9999999.9999999.9999999-dev"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
