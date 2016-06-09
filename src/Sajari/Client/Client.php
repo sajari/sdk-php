@@ -1,57 +1,9 @@
 <?php
 
-namespace Sajari;
+namespace Sajari\Client;
 
-require dirname(__FILE__) . '/vendor/autoload.php';
-require dirname(__FILE__) . '/proto/doc.php';
-require dirname(__FILE__) . '/proto/query.php';
-require dirname(__FILE__) . '/document.php';
-require dirname(__FILE__) . '/search.php';
-
-interface Opt
-{
-    public function Apply(Client $c);
-}
-
-class WithEndpoint implements Opt
-{
-    /** @var $endpoint string */
-    private $endpoint;
-
-    /**
-     * WithEndpoint constructor.
-     * @param string $endpoint
-     */
-    public function __construct($endpoint)
-    {
-        $this->endpoint = $endpoint;
-    }
-
-    public function Apply(Client $c)
-    {
-        $c->setEndpoint($this->endpoint);
-    }
-}
-
-class WithCredentials implements Opt
-{
-    private $credentials;
-
-    /**
-     * WithCredentials constructor.
-     * @param $credentials
-     */
-    public function __construct($credentials)
-    {
-        $this->credentials = $credentials;
-    }
-
-    public function Apply(Client $c)
-    {
-        $c->setCredentials($this->credentials);
-    }
-
-}
+use Sajari\Document\Document;
+use sajari\engine\store\doc\Documents;
 
 class Client
 {
@@ -147,11 +99,11 @@ class Client
 
         $docs = array();
 
-        foreach($reply->getDocumentsList() as $doc) {
+        foreach ($reply->getDocumentsList() as $doc) {
             $meta = array();
 
             /** @var $m engine\store\doc\Documents\Document\MetaEntry */
-            foreach ( $doc->getMetaList() as $m ) {
+            foreach ($doc->getMetaList() as $m) {
                 $meta[] = new Meta($m->getKey(), json_decode($m->getValue()));
             }
 
@@ -207,11 +159,12 @@ class Client
      */
     public function AddMulti(array $docs)
     {
-        $protoDocs = new engine\store\doc\Documents();
+//        $protoDocs = new \sajari\engine\store\doc\Documents();
+        $protoDocs = new Documents();
 
         /** @var $d Document */
         foreach ($docs as $d) {
-            $protoDoc = new engine\store\doc\Documents\Document();
+            $protoDoc = new \sajari\engine\store\doc\Documents\Document();
             foreach ($d->getMeta() as $m) {
                 $meta = new engine\store\doc\Documents\Document\MetaEntry();
                 $meta->setKey($m->getKey());
@@ -240,7 +193,7 @@ class Client
         $keys = array();
 
         /** @var $k engine\store\doc\Keys\Key */
-        foreach ($reply->getKeysList() as $k ) {
+        foreach ($reply->getKeysList() as $k) {
             $keys[] = new Key($k->getField(), json_decode($k->getValue()));
         }
 

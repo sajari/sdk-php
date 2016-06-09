@@ -1,0 +1,34 @@
+{
+  "name": "sajari/sajari-sdk-php",
+  "homepage": "https://www.sajari.com",
+  "description": "Sajari SDK for PHP",
+  "keywords": [
+    "sajari",
+    "sdk",
+    "search"
+  ],
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Sajari",
+      "homepage": "https://www.sajari.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/stanley-cheung/Protobuf-PHP"
+    }
+  ],
+  "require": {
+    "grpc/grpc": "dev-release-0_14"
+  },
+  "autoload": {
+    "psr-0": {
+      "Sajari": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
