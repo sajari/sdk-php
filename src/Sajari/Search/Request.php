@@ -2,6 +2,11 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\Request as ProtoRequest;
+
 class Request
 {
     /** @var string $body */
@@ -186,12 +191,12 @@ class Request
     }
 
     /**
-     * @return engine\query\Request
+     * @return ProtoRequest
      * @throws Exception
      */
     public function Proto()
     {
-        $r = new engine\query\Request();
+        $r = new ProtoRequest();
 
         // Page
         if (isset($this->page)) {

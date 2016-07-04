@@ -2,12 +2,6 @@
 
 namespace Sajari\Search;
 
-abstract class MetaBoost
-{
-    /** @return engine\query\MetaBoost */
-    abstract public function Proto();
-}
-
 class FilterMetaBoost extends MetaBoost
 {
     /** @var Filter $filter */
