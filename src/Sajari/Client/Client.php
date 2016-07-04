@@ -2,8 +2,22 @@
 
 namespace Sajari\Client;
 
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
 use Sajari\Document\Document;
+use Sajari\Document\Key;
+use Sajari\Document\KeyMeta;
+use Sajari\Search\Request;
+
 use sajari\engine\store\doc\Documents;
+use sajari\engine\store\doc\Documents\Document\MetaEntry;
+use sajari\engine\store\doc\DocumentClient;
+use Sajari\engine\store\doc\Keys;
+use Sajari\engine\store\doc\Keys\Key as ProtoKey;
+use sajari\engine\store\doc\KeysMetas;
+use sajari\engine\store\doc\KeysMetas\KeyMeta as ProtoKeyMeta;
+use sajari\engine\query\QueryClient;
 
 class Client
 {
@@ -115,11 +129,11 @@ class Client
 
     private function protoKeysFromKeys(array $keys)
     {
-        $protoKeys = new engine\store\doc\Keys();
+        $protoKeys = new Keys();
 
         /** @var $k Key */
         foreach ($keys as $k) {
-            $protoKey = new engine\store\doc\Keys\Key();
+            $protoKey = new ProtoKey();
             $protoKey->setField($k->getField());
             $protoKey->setValue($k->getValue());
 
@@ -135,7 +149,7 @@ class Client
             return $this->documentClient;
         }
 
-        $this->documentClient = new engine\store\doc\DocumentClient($this->endpoint, [
+        $this->documentClient = new DocumentClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
 
@@ -166,7 +180,7 @@ class Client
         foreach ($docs as $d) {
             $protoDoc = new \sajari\engine\store\doc\Documents\Document();
             foreach ($d->getMeta() as $m) {
-                $meta = new engine\store\doc\Documents\Document\MetaEntry();
+                $meta = new MetaEntry();
                 $meta->setKey($m->getKey());
                 $meta->setValue(json_encode($m->getValue()));
 
@@ -242,11 +256,11 @@ class Client
      */
     public function PatchMulti(array $kms)
     {
-        $protoKeyMetas = new engine\store\doc\KeysMetas();
+        $protoKeyMetas = new KeysMetas();
 
         /** @var $km KeyMeta */
         foreach ($kms as $km) {
-            $protoKeyMeta = new engine\store\doc\KeysMetas\KeyMeta();
+            $protoKeyMeta = new ProtoKeyMeta();
             $protoKeyMeta->setKey($km->getKey()->Proto());
 
             foreach ($km->getMeta() as $m) {
@@ -386,7 +400,7 @@ class Client
             return $this->searchClient;
         }
 
-        $this->searchClient = new engine\query\QueryClient($this->endpoint, [
+        $this->searchClient = new QueryClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
 
