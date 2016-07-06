@@ -2,31 +2,11 @@
 
 namespace Sajari\Search;
 
-/**
- * @param string $fieldLat
- * @param string $fieldLng
- * @param float $lat
- * @param float $lng
- * @param float $radius
- * @param float $value
- * @return GeoMetaBoost
- */
-function BoostInsideRegion($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-    return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::INSIDE);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
 
-/**
- * @param string $fieldLat
- * @param string $fieldLng
- * @param float $lat
- * @param float $lng
- * @param float $radius
- * @param float $value
- * @return GeoMetaBoost
- */
-function BoostOutsideRegion($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-    return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::OUTSIDE);
-}
+use sajari\engine\query\MetaBoost\Geo as ProtoGeo;
+use sajari\engine\query\MetaBoost as ProtoMetaBoost;
 
 class GeoMetaBoost extends MetaBoost
 {
@@ -122,9 +102,35 @@ class GeoMetaBoost extends MetaBoost
         return $this->region;
     }
 
+    /**
+     * @param string $fieldLat
+     * @param string $fieldLng
+     * @param float $lat
+     * @param float $lng
+     * @param float $radius
+     * @param float $value
+     * @return GeoMetaBoost
+     */
+    public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
+        return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::INSIDE);
+    }
+
+    /**
+     * @param string $fieldLat
+     * @param string $fieldLng
+     * @param float $lat
+     * @param float $lng
+     * @param float $radius
+     * @param float $value
+     * @return GeoMetaBoost
+     */
+    public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
+        return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::OUTSIDE);
+    }
+
     public function Proto()
     {
-        $gmb = new engine\query\MetaBoost\Geo();
+        $gmb = new ProtoGeo();
         $gmb->setFieldLat($this->fieldLat);
         $gmb->setFieldLng($this->fieldLng);
         $gmb->setLat($this->lat);
@@ -133,7 +139,7 @@ class GeoMetaBoost extends MetaBoost
         $gmb->setValue($this->value);
         $gmb->setRegion($this->region);
 
-        $mb = new engine\query\MetaBoost();
+        $mb = new ProtoMetaBoost();
         $mb->setGeo($gmb);
         return $mb;
     }

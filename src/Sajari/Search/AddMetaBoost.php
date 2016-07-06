@@ -2,6 +2,12 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\MetaBoost\Add as ProtoAdd;
+use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+
 class AddMetaBoost extends MetaBoost
 {
     /** @var MetaBoost $metaBoost */
@@ -38,11 +44,11 @@ class AddMetaBoost extends MetaBoost
 
     public function Proto()
     {
-        $amb = new engine\query\MetaBoost\Add();
+        $amb = new ProtoAdd();
         $amb->setMetaBoost($this->metaBoost);
         $amb->setValue($this->value);
 
-        $mb = new engine\query\MetaBoost();
+        $mb = new ProtoMetaBoost();
         $mb->setAdd($amb);
         return $mb;
     }

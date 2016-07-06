@@ -2,14 +2,12 @@
 
 namespace Sajari\Search;
 
-/**
- * @param string $field
- * @return CountAggregate
- */
-function Count($field, $name)
-{
-    return new CountAggregate($field, $name);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\Aggregate\Count as ProtoCount;
+use sajari\engine\query\Aggregate as ProtoAggregate;
+use sajari\engine\query\Request\AggregatesEntry as ProtoAggregatesEntry;
 
 class CountAggregate extends Aggregate
 {
@@ -47,13 +45,13 @@ class CountAggregate extends Aggregate
 
     public function Proto()
     {
-        $ca = new engine\query\Aggregate\Count();
+        $ca = new ProtoCount();
         $ca->setField($this->field);
 
-        $a = new engine\query\Aggregate();
+        $a = new ProtoAggregate();
         $a->setCount($ca);
 
-        $ae = new engine\query\Request\AggregatesEntry();
+        $ae = new ProtoAggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

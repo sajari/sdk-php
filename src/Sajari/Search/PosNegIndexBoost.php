@@ -2,10 +2,11 @@
 
 namespace Sajari\Search;
 
-function PosNegBoost($value)
-{
-    return new PosNegIndexBoost($value);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\IndexBoost\PosNeg as ProtoPosNeg;
+use sajari\engine\query\IndexBoost as ProtoIndexBoost;
 
 class PosNegIndexBoost extends IndexBoost
 {
@@ -31,10 +32,10 @@ class PosNegIndexBoost extends IndexBoost
 
     public function Proto()
     {
-        $pn = new engine\query\IndexBoost\PosNeg();
+        $pn = new ProtoPosNeg();
         $pn->setValue($this->value);
 
-        $ib = new engine\query\IndexBoost();
+        $ib = new ProtoIndexBoost();
         $ib->setPosNeg($pn);
 
         return $ib;

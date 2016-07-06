@@ -2,41 +2,11 @@
 
 namespace Sajari\Search;
 
-/**
- * @param Filter[] $filters
- * @return CombinatorFilter
- */
-function All($filters)
-{
-    return new CombinatorFilter(CombinatorFilter::ALL, $filters);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
 
-/**
- * @param Filter[] $filters
- * @return CombinatorFilter
- */
-function Any($filters)
-{
-    return new CombinatorFilter(CombinatorFilter::ANY, $filters);
-}
-
-/**
- * @param Filter[] $filters
- * @return CombinatorFilter
- */
-function One($filters)
-{
-    return new CombinatorFilter(CombinatorFilter::ONE, $filters);
-}
-
-/**
- * @param Filter[] $filters
- * @return CombinatorFilter
- */
-function None($filters)
-{
-    return new CombinatorFilter(CombinatorFilter::NONE, $filters);
-}
+use sajari\engine\query\Filter\Combinator as ProtoCombinator;
+use sajari\engine\query\Filter as ProtoFilter;
 
 class CombinatorFilter extends Filter
 {
@@ -76,16 +46,52 @@ class CombinatorFilter extends Filter
         return $this->filters;
     }
 
+    /**
+     * @param Filter[] $filters
+     * @return CombinatorFilter
+     */
+    public static function All($filters)
+    {
+      return new CombinatorFilter(CombinatorFilter::ALL, $filters);
+    }
+
+    /**
+     * @param Filter[] $filters
+     * @return CombinatorFilter
+     */
+    public static function Any($filters)
+    {
+        return new CombinatorFilter(CombinatorFilter::ANY, $filters);
+    }
+
+    /**
+     * @param Filter[] $filters
+     * @return CombinatorFilter
+     */
+    public static function One($filters)
+    {
+        return new CombinatorFilter(CombinatorFilter::ONE, $filters);
+    }
+
+    /**
+     * @param Filter[] $filters
+     * @return CombinatorFilter
+     */
+    public static function None($filters)
+    {
+        return new CombinatorFilter(CombinatorFilter::NONE, $filters);
+    }
+
     public function Proto()
     {
-        $fc = new engine\query\Filter\Combinator();
+        $fc = new ProtoCombinator();
         $fc->setOperator($this->operator);
 
         foreach ($this->filters as $filter) {
             $fc->addFilters($filter->Proto());
         }
 
-        $f = new engine\query\Filter();
+        $f = new ProtoFilter();
         $f->setCombinator($fc);
 
         return $f;

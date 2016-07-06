@@ -2,10 +2,11 @@
 
 namespace Sajari\Search;
 
-function FieldBoost($field, $value)
-{
-    return new FieldIndexBoost($field, $value);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\IndexBoost\Field as ProtoField;
+use sajari\engine\query\IndexBoost as ProtoIndexBoost;
 
 class FieldIndexBoost extends IndexBoost
 {
@@ -43,11 +44,11 @@ class FieldIndexBoost extends IndexBoost
 
     public function Proto()
     {
-        $f = new engine\query\IndexBoost\Field();
+        $f = new ProtoField();
         $f->setField($this->field);
         $f->setValue($this->value);
 
-        $ib = new engine\query\IndexBoost();
+        $ib = new ProtoIndexBoost();
         $ib->setField($f);
 
         return $ib;

@@ -2,6 +2,12 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\MetaBoost\Distance as ProtoDistance;
+use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+
 class DistanceMetaBoost
 {
     /** @var float $min */
@@ -74,14 +80,14 @@ class DistanceMetaBoost
 
     public function Proto()
     {
-        $dmb = new engine\query\MetaBoost\Distance();
+        $dmb = new ProtoDistance();
         $dmb->setMin($this->min);
         $dmb->setMax($this->max);
         $dmb->setRef($this->ref);
         $dmb->setField($this->field);
         $dmb->setValue($this->value);
 
-        $mb = new engine\query\MetaBoost();
+        $mb = new ProtoMetaBoost();
         $mb->setDistance($dmb);
         return $mb;
     }

@@ -9,6 +9,9 @@ use Sajari\Document\Document;
 use Sajari\Document\Key;
 use Sajari\Document\KeyMeta;
 use Sajari\Search\Request;
+use Sajari\Document\Meta;
+use Sajari\Search\Result;
+use Sajari\Search\Response;
 
 use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
@@ -23,7 +26,8 @@ class Client
 {
     private $projectID = '';
     private $collection = '';
-    private $endpoint = 'https://www.sajari.com/api/v2';
+    private $endpoint = 'api.sajari.com:1234';
+    private $auth = '';
     private $credentials;
     private $documentClient;
     private $searchClient;
@@ -39,7 +43,7 @@ class Client
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
-        $this->credentials = \Grpc\ChannelCredentials::createInsecure();
+        $this->credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem")); // createDefault(); //createInsecure();
 
         /** @var $opt Opt */
         foreach ($dialOptions as $opt) {
@@ -61,6 +65,22 @@ class Client
     public function setEndpoint($endpoint)
     {
         $this->endpoint = $endpoint;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuth()
+    {
+        return $this->auth;
+    }
+
+    /**
+     * @param string $auth
+     */
+    public function setAuth($auth)
+    {
+        $this->auth = $auth;
     }
 
     /**
@@ -103,6 +123,7 @@ class Client
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
+                'authorization' => array($this->auth),
             )
         )->wait();
 
@@ -196,6 +217,7 @@ class Client
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
+                'authorization' => array($this->auth),
             )
         )->wait();
 
@@ -236,6 +258,7 @@ class Client
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
+                'authorization' => array($this->auth),
             )
         )->wait();
 
@@ -275,6 +298,7 @@ class Client
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
+                'authorization' => array($this->auth),
             )
         )->wait();
 
@@ -298,6 +322,7 @@ class Client
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
+                'authorization' => array($this->auth),
             )
         )->wait();
 
