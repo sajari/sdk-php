@@ -2,104 +2,11 @@
 
 namespace Sajari\Search;
 
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function EqualTo($field, $value)
-{
-    return new FieldFilter(FieldFilter::EQUAL_TO, $field, $value);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
 
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function DoesNotEqual($field, $value)
-{
-    return new FieldFilter(FieldFilter::DOES_NOT_EQUAL, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function GreaterThan($field, $value)
-{
-    return new FieldFilter(FieldFilter::GREATER_THAN, $field, $value);
-}
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function GreaterThanOrEqualTo($field, $value)
-{
-    return new FieldFilter(FieldFilter::GREATER_THAN_OR_EQUAL_TO, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function LessThan($field, $value)
-{
-    return new FieldFilter(FieldFilter::LESS_THAN, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function LessThanOrEqualTo($field, $value)
-{
-    return new FieldFilter(FieldFilter::LESS_THAN_OR_EQUAL_TO, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function Contains($field, $value)
-{
-    return new FieldFilter(FieldFilter::CONTAINS, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function DoesNotContain($field, $value)
-{
-    return new FieldFilter(FieldFilter::DOES_NOT_CONTAIN, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function EndsWith($field, $value)
-{
-    return new FieldFilter(FieldFilter::ENDS_WITH, $field, $value);
-}
-
-/**
- * @param string $field
- * @param $value
- * @return FieldFilter
- */
-function StartsWith($field, $value)
-{
-    return new FieldFilter(FieldFilter::STARTS_WITH, $field, $value);
-}
+use sajari\engine\query\Filter\Field as ProtoField;
+use sajari\engine\query\Filter as ProtoFilter;
 
 class FieldFilter extends Filter
 {
@@ -157,16 +64,115 @@ class FieldFilter extends Filter
     }
 
     /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function EqualTo($field, $value)
+    {
+        return new FieldFilter(FieldFilter::EQUAL_TO, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function DoesNotEqual($field, $value)
+    {
+        return new FieldFilter(FieldFilter::DOES_NOT_EQUAL, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function GreaterThan($field, $value)
+    {
+        return new FieldFilter(FieldFilter::GREATER_THAN, $field, $value);
+    }
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function GreaterThanOrEqualTo($field, $value)
+    {
+        return new FieldFilter(FieldFilter::GREATER_THAN_OR_EQUAL_TO, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function LessThan($field, $value)
+    {
+        return new FieldFilter(FieldFilter::LESS_THAN, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function LessThanOrEqualTo($field, $value)
+    {
+        return new FieldFilter(FieldFilter::LESS_THAN_OR_EQUAL_TO, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function Contains($field, $value)
+    {
+        return new FieldFilter(FieldFilter::CONTAINS, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function DoesNotContain($field, $value)
+    {
+        return new FieldFilter(FieldFilter::DOES_NOT_CONTAIN, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function EndsWith($field, $value)
+    {
+        return new FieldFilter(FieldFilter::ENDS_WITH, $field, $value);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return FieldFilter
+     */
+    public static function StartsWith($field, $value)
+    {
+        return new FieldFilter(FieldFilter::STARTS_WITH, $field, $value);
+    }
+
+    /**
      * @return engine\query\Filter\Field
      */
     public function Proto()
     {
-        $ff = new engine\query\Filter\Field();
+        $ff = new ProtoField();
         $ff->setField($this->field);
         $ff->setValue($this->value);
         $ff->setOperator($this->operator);
 
-        $f = new engine\query\Filter();
+        $f = new ProtoFilter();
         $f->setField($ff);
 
         return $f;

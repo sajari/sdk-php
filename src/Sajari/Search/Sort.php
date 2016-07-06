@@ -2,23 +2,10 @@
 
 namespace Sajari\Search;
 
-/**
- * @param $field
- * @return Sort
- */
-function Asc($field)
-{
-    return new Sort($field, Sort::ASC);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
 
-/**
- * @param $field
- * @return Sort
- */
-function Desc($field)
-{
-    return new Sort($field, Sort::DESC);
-}
+use sajari\engine\query\Sort as ProtoSort;
 
 class Sort
 {
@@ -57,11 +44,29 @@ class Sort
     }
 
     /**
+     * @param $field
+     * @return Sort
+     */
+    public static function Asc($field)
+    {
+        return new Sort($field, Sort::ASC);
+    }
+
+    /**
+     * @param $field
+     * @return Sort
+     */
+    public static function Desc($field)
+    {
+        return new Sort($field, Sort::DESC);
+    }
+
+    /**
      * @return engine\query\Sort
      */
     public function Proto()
     {
-        $s = new engine\query\Sort();
+        $s = new ProtoSort();
         $s->setField($this->field);
         $s->setOrder($this->order);
         return $s;

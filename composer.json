@@ -22,11 +22,13 @@
     }
   ],
   "require": {
+    "php": ">=5.5.0",
+    "ext-grpc": "0.1.0",
     "grpc/grpc": "dev-release-0_14"
   },
   "autoload": {
     "psr-0": {
-      "Sajari": "src/"
+      "Sajari\\": "src/"
     }
   },
   "minimum-stability": "dev",

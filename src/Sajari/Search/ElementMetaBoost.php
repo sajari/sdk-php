@@ -2,6 +2,12 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\MetaBoost\Element as ProtoElement;
+use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+
 class ElementMetaBoost
 {
     /** @var string $field */
@@ -38,13 +44,13 @@ class ElementMetaBoost
 
     public function Proto()
     {
-        $emb = new engine\query\MetaBoost\Element();
+        $emb = new ProtoElement();
         $emb->setField($this->field);
         foreach ($this->elements as $element) {
             $emb->addElts($element);
         }
 
-        $mb = new engine\query\MetaBoost();
+        $mb = new ProtoMetaBoost();
         $mb->setElement($emb);
         return $mb;
     }

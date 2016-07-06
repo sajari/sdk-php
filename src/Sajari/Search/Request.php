@@ -205,7 +205,7 @@ class Request
 
         // Body
         if (isset($this->body)) {
-            $r->setBody($this->body);
+            $r->setBody($this->body->Proto());
         }
 
         // Max Results

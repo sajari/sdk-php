@@ -2,15 +2,12 @@
 
 namespace Sajari\Search;
 
-/**
- * @param string $name
- * @param BucketAggregateEntry[] $buckets
- * @return BucketAggregate
- */
-function Bucket($name, $buckets)
-{
-    return new BucketAggregate($name, $buckets);
-}
+require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/query.php';
+
+use sajari\engine\query\Aggregate\Bucket as ProtoBucket;
+use sajari\engine\query\Aggregate as ProtoAggregate;
+use sajari\engine\query\Request\AggregatesEntry as ProtoAggregatesEntry;
 
 class BucketAggregate extends Aggregate
 {
@@ -48,16 +45,16 @@ class BucketAggregate extends Aggregate
 
     public function Proto()
     {
-        $b = new engine\query\Aggregate\Bucket();
+        $b = new ProtoBucket();
 
         foreach ($this->buckets as $bucket) {
             $b->addBuckets($bucket->Proto());
         }
 
-        $a = new engine\query\Aggregate();
+        $a = new ProtoAggregate();
         $a->setBucket($b);
 
-        $ae = new engine\query\Request\AggregatesEntry();
+        $ae = new ProtoAggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;
