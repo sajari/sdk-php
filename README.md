@@ -24,7 +24,7 @@ Add these sections to your `composer.json`
     }
   ],
   "require": {
-    "sajari/sajari-sdk-php": "dev-v10"
+    "sajari/sajari-sdk-php": "v10.x-dev"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
