@@ -7,7 +7,7 @@ namespace sajari\engine\store\doc {
 
   class XEmpty extends \DrSlump\Protobuf\Message {
 
-    public static function deserialize($data, DrSlump\Protobuf\CodecInterface $codec = NULL) {
+    public static function deserialize($data, \DrSlump\Protobuf\CodecInterface $codec = NULL) {
       $newResponse = new \sajari\engine\store\doc\XEmpty();
       $newResponse->parse($data);
       return $newResponse;
@@ -309,9 +309,9 @@ namespace sajari\engine\store\doc {
 
   class Documents extends \DrSlump\Protobuf\Message {
 
-    public static function deserialize($serialisedResponse) {
+    public static function deserialize($data, \DrSlump\Protobuf\CodecInterface $codec = NULL) {
       $newResponse = new \sajari\engine\store\doc\Documents();
-      $newResponse->parse($serialisedResponse);
+      $newResponse->parse($data);
       return $newResponse;
     }
 
@@ -591,9 +591,9 @@ namespace sajari\engine\store\doc {
 
   class Keys extends \DrSlump\Protobuf\Message {
 
-    public static function deserialize($serialisedResponse) {
+    public static function deserialize($data, \DrSlump\Protobuf\CodecInterface $codec = NULL) {
       $newResponse = new \sajari\engine\store\doc\Keys();
-      $newResponse->parse($serialisedResponse);
+      $newResponse->parse($data);
       return $newResponse;
     }
 

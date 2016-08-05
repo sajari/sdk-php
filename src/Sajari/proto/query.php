@@ -6155,9 +6155,9 @@ namespace sajari\engine\query {
 
   class Response extends \DrSlump\Protobuf\Message {
 
-    public static function deserialize($serialisedResponse) {
+    public static function deserialize($data, \DrSlump\Protobuf\CodecInterface $codec = NULL) {
       $newResponse = new \sajari\engine\query\Response();
-      $newResponse->parse($serialisedResponse);
+      $newResponse->parse($data);
       return $newResponse;
     }
 
