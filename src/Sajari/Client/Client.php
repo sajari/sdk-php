@@ -128,8 +128,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            var_dump($status);
-            throw new Exception('Error code not zero');
+            throw new \Exception('Error code not zero');
         }
 
         $docs = array();
@@ -222,8 +221,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            var_dump($status);
-            throw new Exception('Error code not zero');
+            throw new \Exception('Error code not zero');
         }
 
         $keys = array();
@@ -263,8 +261,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            var_dump($status);
-            throw new Exception('Error code not zero');
+            throw new \Exception('Error code not zero');
         }
     }
 
@@ -284,7 +281,9 @@ class Client
         /** @var $km KeyMeta */
         foreach ($kms as $km) {
             $protoKeyMeta = new ProtoKeyMeta();
-            $protoKeyMeta->setKey($km->getKey()->Proto());
+            //$protoKeyMeta->setKey($km->getKey()->Proto());
+
+            $protoKeyMeta->setKey($km->getKey());
 
             foreach ($km->getMeta() as $m) {
                 $protoKeyMeta->addMeta($m->Proto());
@@ -303,8 +302,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            var_dump($status);
-            throw new Exception('Error code not zero');
+            throw new \Exception('Error code not zero');
         }
     }
 
@@ -328,8 +326,7 @@ class Client
 
         // Check for server error
         if ($status->code != 0) {
-            var_dump($status);
-            throw new Exception('Error code not zero');
+            throw new \Exception('Error code not zero');
         }
 
         // Transform proto to user-friendly objects
