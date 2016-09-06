@@ -128,7 +128,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            throw new \Exception('Error code not zero');
+            throw new \Exception($status->details);
         }
 
         $docs = array();
@@ -221,7 +221,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            throw new \Exception('Error code not zero');
+            throw new \Exception($status->details);
         }
 
         $keys = array();
@@ -261,7 +261,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            throw new \Exception('Error code not zero');
+            throw new \Exception($status->details);
         }
     }
 
@@ -302,7 +302,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            throw new \Exception('Error code not zero');
+            throw new \Exception($status->details);
         }
     }
 
@@ -326,7 +326,7 @@ class Client
 
         // Check for server error
         if ($status->code != 0) {
-            throw new \Exception('Error code not zero');
+            throw new \Exception($status->details);
         }
 
         // Transform proto to user-friendly objects
