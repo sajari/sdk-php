@@ -281,9 +281,7 @@ class Client
         /** @var $km KeyMeta */
         foreach ($kms as $km) {
             $protoKeyMeta = new ProtoKeyMeta();
-            //$protoKeyMeta->setKey($km->getKey()->Proto());
-
-            $protoKeyMeta->setKey($km->getKey());
+            $protoKeyMeta->setKey($km->getKey()->Proto());
 
             foreach ($km->getMeta() as $m) {
                 $protoKeyMeta->addMeta($m->Proto());
