@@ -5,6 +5,8 @@ namespace Sajari\Client;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/key.php';
+require_once __DIR__.'/../proto/status.php';
 
 use Sajari\Document\Document;
 use Sajari\Document\Key;
@@ -16,12 +18,14 @@ use Sajari\Search\Response;
 
 use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
-use sajari\engine\store\doc\DocumentClient;
+use sajari\engine\store\doc\StoreClient;
 use Sajari\engine\store\doc\Keys;
 use Sajari\engine\store\doc\Keys\Key as ProtoKey;
 use sajari\engine\store\doc\KeysMetas;
 use sajari\engine\store\doc\KeysMetas\KeyMeta as ProtoKeyMeta;
 use sajari\engine\query\QueryClient;
+use sajari\engine\Key as PKey;
+use sajari\engine\Value as PValue;
 
 class Client
 {
@@ -129,6 +133,7 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
+            var_dump($status);
             throw new \Exception($status->details);
         }
 
@@ -137,9 +142,13 @@ class Client
         foreach ($reply->getDocumentsList() as $doc) {
             $meta = array();
 
-            /** @var $m engine\store\doc\Documents\Document\MetaEntry */
-            foreach ($doc->getMetaList() as $m) {
-                $meta[] = new Meta($m->getKey(), json_decode($m->getValue()));
+            foreach ($doc->getValuesList() as $m) {
+                $v = $m->getValue();
+                if ($v->hasSingle()) {
+                  $meta[] = new Meta($m->getKey(), $v->getSingle());
+                } else {
+                  $meta[] = new Meta($m->getKey(), $v->getMultiple());
+                }
             }
 
             $docs[] = new Document($meta);
@@ -152,13 +161,8 @@ class Client
     {
         $protoKeys = new Keys();
 
-        /** @var $k Key */
         foreach ($keys as $k) {
-            $protoKey = new ProtoKey();
-            $protoKey->setField($k->getField());
-            $protoKey->setValue($k->getValue());
-
-            $protoKeys->addKeys($protoKey);
+            $protoKeys->addKeys($k->Proto());
         }
 
         return $protoKeys;
@@ -170,7 +174,7 @@ class Client
             return $this->documentClient;
         }
 
-        $this->documentClient = new DocumentClient($this->endpoint, [
+        $this->documentClient = new StoreClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
 
