@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\MetaBoost\Geo as ProtoGeo;
-use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+use sajari\engine\query\FieldBoost\Geo as ProtoGeo;
+use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class GeoMetaBoost extends MetaBoost
+class GeoFieldBoost extends FieldBoost
 {
     /** @var string $fieldLat */
     private $fieldLat;
@@ -26,7 +26,7 @@ class GeoMetaBoost extends MetaBoost
     private $region;
 
     /**
-     * GeoMetaBoost constructor.
+     * GeoFieldBoost constructor.
      * @param string $fieldLat
      * @param string $fieldLng
      * @param float $lat
@@ -109,10 +109,10 @@ class GeoMetaBoost extends MetaBoost
      * @param float $lng
      * @param float $radius
      * @param float $value
-     * @return GeoMetaBoost
+     * @return GeoFieldBoost
      */
     public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-        return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::INSIDE);
+        return new GeoFieldBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\FieldBoost\Geo\Region::INSIDE);
     }
 
     /**
@@ -122,10 +122,10 @@ class GeoMetaBoost extends MetaBoost
      * @param float $lng
      * @param float $radius
      * @param float $value
-     * @return GeoMetaBoost
+     * @return GeoFieldBoost
      */
     public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-        return new GeoMetaBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\MetaBoost\Geo\Region::OUTSIDE);
+        return new GeoFieldBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\FieldBoost\Geo\Region::OUTSIDE);
     }
 
     public function Proto()
@@ -139,7 +139,7 @@ class GeoMetaBoost extends MetaBoost
         $gmb->setValue($this->value);
         $gmb->setRegion($this->region);
 
-        $mb = new ProtoMetaBoost();
+        $mb = new ProtoFieldBoost();
         $mb->setGeo($gmb);
         return $mb;
     }

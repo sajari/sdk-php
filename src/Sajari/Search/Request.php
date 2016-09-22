@@ -5,14 +5,15 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\Request as ProtoRequest;
+// use sajari\engine\query\
+use sajari\engine\query\SearchRequest as ProtoSearchRequest;
 
 class Request
 {
     /** @var string $body */
     private $body;
-    /** @var int $maxResults */
-    private $maxResults;
+    /** @var int $resultsPerPage */
+    private $resultsPerPage;
     /** @var Filter $filter */
     private $filter;
     /** @var int $page */
@@ -21,45 +22,45 @@ class Request
     private $weightedBody;
     /** @var string[] $fields */
     private $fields;
-    /** @var IndexBoost[] $indexBoosts */
-    private $indexBoosts;
+    /** @var InstanceBoost[] $instanceBoosts */
+    private $instanceBoosts;
     /** @var Aggregate[] $aggregates */
     private $aggregates;
     /** @var Sort[] $sorts */
     private $sorts;
-    /** @var MetaBoost[] $metaBoosts */
-    private $metaBoosts;
+    /** @var FieldBoost[] $fieldBoosts */
+    private $fieldBoosts;
 
     /**
-     * @return MetaBoost[]
+     * @return FieldBoost[]
      */
-    public function getMetaBoosts()
+    public function getFieldBoosts()
     {
-        return $this->metaBoosts;
+        return $this->fieldBoosts;
     }
 
     /**
-     * @param MetaBoost[] $metaBoosts
+     * @param FieldBoost[] $fieldBoosts
      */
-    public function setMetaBoosts($metaBoosts)
+    public function setFieldBoosts($fieldBoosts)
     {
-        $this->metaBoosts = $metaBoosts;
+        $this->fieldBoosts = $fieldBoosts;
     }
 
     /**
-     * @return IndexBoost[]
+     * @return InstanceBoost[]
      */
-    public function getIndexBoosts()
+    public function getInstanceBoosts()
     {
-        return $this->indexBoosts;
+        return $this->instanceBoosts;
     }
 
     /**
-     * @param IndexBoost[] $indexBoosts
+     * @param InstanceBoost[] $instanceBoosts
      */
-    public function setIndexBoosts($indexBoosts)
+    public function setInstanceBoosts($instanceBoosts)
     {
-        $this->indexBoosts = $indexBoosts;
+        $this->instanceBoosts = $instanceBoosts;
     }
 
     /**
@@ -183,20 +184,20 @@ class Request
     }
 
     /**
-     * @param integer $maxResults
+     * @param integer $resultsPerPage
      */
-    public function setMaxResults($maxResults)
+    public function setResultsPerPage($resultsPerPage)
     {
-        $this->maxResults = $maxResults;
+        $this->resultsPerPage = $resultsPerPage;
     }
 
     /**
-     * @return ProtoRequest
+     * @return ProtoSearchRequest
      * @throws Exception
      */
     public function Proto()
     {
-        $r = new ProtoRequest();
+        $r = new ProtoSearchRequest();
 
         // Page
         if (isset($this->page)) {
@@ -209,8 +210,8 @@ class Request
         }
 
         // Max Results
-        if (isset($this->maxResults)) {
-            $r->setMaxResults($this->maxResults);
+        if (isset($this->resultsPerPage)) {
+            $r->setResultsPerPage($this->resultsPerPage);
         }
 
         // Filter
@@ -244,17 +245,17 @@ class Request
             }
         }
 
-        // Index Boosts
-        if (isset($this->indexBoosts)) {
-            foreach ($this->indexBoosts as $ib) {
-                $r->addIndexBoosts($ib->Proto());
+        // Instance Boosts
+        if (isset($this->instanceBoosts)) {
+            foreach ($this->instanceBoosts as $ib) {
+                $r->addInstanceBoosts($ib->Proto());
             }
         }
 
-        // Meta Boosts
-        if (isset($this->metaBoosts)) {
-            foreach ($this->metaBoosts as $mb) {
-                $r->addMetaBoosts($mb->Proto());
+        // Field Boosts
+        if (isset($this->fieldBoosts)) {
+            foreach ($this->fieldBoosts as $mb) {
+                $r->addFieldBoosts($mb->Proto());
             }
         }
 

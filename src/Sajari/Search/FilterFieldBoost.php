@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\MetaBoost\Filter as ProtoFilter;
-use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+use sajari\engine\query\FieldBoost\Filter as ProtoFilter;
+use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class FilterMetaBoost extends MetaBoost
+class FilterFieldBoost extends FieldBoost
 {
     /** @var Filter $filter */
     private $filter;
@@ -43,7 +43,7 @@ class FilterMetaBoost extends MetaBoost
     }
 
     /**
-     * @return engine\query\MetaBoost
+     * @return engine\query\FieldBoost
      */
     public function Proto()
     {
@@ -51,7 +51,7 @@ class FilterMetaBoost extends MetaBoost
         $fmb->setFilter($this->filter->Proto());
         $fmb->setValue($this->value);
 
-        $mb = new ProtoMetaBoost();
+        $mb = new ProtoFieldBoost();
         $mb->setFilter($fmb);
         return $mb;
     }
