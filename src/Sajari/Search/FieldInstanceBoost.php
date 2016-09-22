@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\IndexBoost\Field as ProtoField;
-use sajari\engine\query\IndexBoost as ProtoIndexBoost;
+use sajari\engine\query\InstanceBoost\Field as ProtoField;
+use sajari\engine\query\InstanceBoost as ProtoInstanceBoost;
 
-class FieldIndexBoost extends IndexBoost
+class FieldInstanceBoost extends InstanceBoost
 {
     /** @var string $field */
     private $field;
@@ -16,7 +16,7 @@ class FieldIndexBoost extends IndexBoost
     private $value;
 
     /**
-     * FieldIndexBoost constructor.
+     * FieldInstanceBoost constructor.
      * @param string $field
      * @param float $value
      */
@@ -48,7 +48,7 @@ class FieldIndexBoost extends IndexBoost
         $f->setField($this->field);
         $f->setValue($this->value);
 
-        $ib = new ProtoIndexBoost();
+        $ib = new ProtoInstanceBoost();
         $ib->setField($f);
 
         return $ib;

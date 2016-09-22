@@ -3,6 +3,7 @@
 namespace Sajari\Client;
 
 require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/query.php';
 
 use Sajari\Document\Document;
@@ -304,6 +305,25 @@ class Client
         }
     }
 
+    public function Compare(CompareRequest $r)
+    {
+      list($reply, $status) = $this->getSearchClient()->Compare(
+        $r->Proto(),
+        array(
+            'project' => array($this->projectID),
+            'collection' => array($this->collection),
+            'authorization' => array($this->auth),
+        )
+      )->wait();
+
+      // Check for server error
+      if ($status->code != 0) {
+          throw new \Exception('Error code not zero');
+      }
+
+      var_dump($reply);
+    }
+
     /**
      * @param Request $r
      * @return Response
@@ -347,12 +367,19 @@ class Client
         /** @var engine\query\Result[] $protoResponseList */
         $protoResponseList = $reply->getResultsList();
 
+        // var_dump($reply);
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
-
             /** @var engine\query\Result\MetaEntry $protoMeta */
-            foreach ($protoResult->getMetaList() as $protoMeta) {
-                $meta[] = new Meta($protoMeta->getKey(), $protoMeta->getValue());
+            foreach ($protoResult->getValuesList() as $protoMeta) {
+                // var_dump($protoMeta);
+                // print_r($protoMeta);
+                $v = $protoMeta->getValue();
+                if ($v->hasSingle()) {
+                  $meta[] = new Meta($protoMeta->getKey(), $v->getSingle());
+                } else {
+                  $meta[] = new Meta($protoMeta->getKey(), $v->getMultiple()->getValuesList());
+                }
             }
 
             $result = new Result(

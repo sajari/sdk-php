@@ -2,11 +2,13 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
 use sajari\engine\query\Filter\Field as ProtoField;
 use sajari\engine\query\Filter as ProtoFilter;
+use sajari\engine\Value;
 
 class FieldFilter extends Filter
 {
@@ -169,7 +171,9 @@ class FieldFilter extends Filter
     {
         $ff = new ProtoField();
         $ff->setField($this->field);
-        $ff->setValue($this->value);
+        $v = new Value();
+        $v->setSingle($this->value); // TODO(tbillington): Handle multiple
+        $ff->setValue($v);
         $ff->setOperator($this->operator);
 
         $f = new ProtoFilter();
