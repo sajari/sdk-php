@@ -24,6 +24,8 @@ use sajari\engine\query\QueryClient;
 // use sajari\engine\Key as PKey;
 use sajari\engine\Value as Value;
 use sajari\engine\store\doc\Document\ValuesEntry;
+use sajari\engine\store\doc\KeysValues;
+use sajari\engine\store\doc\KeysValues\KeyValues;
 
 class Client
 {
@@ -131,7 +133,6 @@ class Client
         )->wait();
 
         if ($status->code != 0) {
-            var_dump($status);
             throw new \Exception($status->details);
         }
 
@@ -249,7 +250,7 @@ class Client
     {
         $multiResult = $this->DeleteMulti([$key]);
         if ($multiResult == NULL) {
-          return [];
+          return NULL;
         } else {
           return $multiResult[0];
         }
@@ -279,9 +280,14 @@ class Client
         return $reply->getStatusList();
     }
 
-    public function Patch(KeyMeta $km)
+    public function Patch($km)
     {
-        $this->PatchMulti(array($km));
+      $multiResult = $this->PatchMulti(array($km));
+      if ($multiResult == NULL) {
+        return NULL;
+      } else {
+        return $multiResult[0];
+      }
     }
 
     /**
@@ -290,18 +296,27 @@ class Client
      */
     public function PatchMulti(array $kms)
     {
-        $protoKeyMetas = new KeysMetas();
+        $protoKeyMetas = new KeysValues();
 
         /** @var $km KeyMeta */
         foreach ($kms as $km) {
-            $protoKeyMeta = new ProtoKeyMeta();
-            $protoKeyMeta->setKey($km->getKey()->Proto());
+            $protoKeyMeta = new KeyValues();
+
+            $k = new \sajari\engine\Key();
+            $k->setField($km->getKey()->getField());
+
+            $v = new \sajari\engine\Value();
+
+            $v->setSingle($km->getKey()->getValue());
+            $k->setValue($v);
+
+            $protoKeyMeta->setKey($k);
 
             foreach ($km->getMeta() as $m) {
-                $protoKeyMeta->addMeta($m->Proto());
+                $protoKeyMeta->addValues($m->Proto());
             }
 
-            $protoKeyMetas->addKeysMetas($protoKeyMeta);
+            $protoKeyMetas->addKeysValues($protoKeyMeta);
         }
 
         list($reply, $status) = $this->getDocumentClient()->Patch(
@@ -316,6 +331,8 @@ class Client
         if ($status->code != 0) {
             throw new \Exception($status->details);
         }
+
+        return $reply->getStatusList();
     }
 
     public function Compare(CompareRequest $r)
@@ -380,13 +397,10 @@ class Client
         /** @var engine\query\Result[] $protoResponseList */
         $protoResponseList = $reply->getResultsList();
 
-        // var_dump($reply);
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
             /** @var engine\query\Result\MetaEntry $protoMeta */
             foreach ($protoResult->getValuesList() as $protoMeta) {
-                // var_dump($protoMeta);
-                // print_r($protoMeta);
                 $v = $protoMeta->getValue();
                 if ($v->hasSingle()) {
                   $meta[] = new Meta($protoMeta->getKey(), $v->getSingle());
@@ -423,7 +437,6 @@ class Client
                 foreach ($buckets->getBucketsList() as $be) {
                     /** @var engine\query\AggregateResponse\Buckets\Bucket $b */
                     $b = $be->getValue();
-                    var_dump($b);
                     $bucketArray[$b->getName()] = new BucketResponseAggregate($b->getName(), $b->getCount());
                 }
 
