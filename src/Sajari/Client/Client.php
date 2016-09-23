@@ -9,7 +9,7 @@ require_once __DIR__.'/../proto/key.php';
 require_once __DIR__.'/../proto/status.php';
 
 use Sajari\Document\Document;
-use Sajari\Document\Key;
+use Sajari\Document\Key as DocumentKey;
 use Sajari\Document\KeyMeta;
 use Sajari\Search\Request;
 use Sajari\Document\Meta;
@@ -20,12 +20,10 @@ use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
 use sajari\engine\store\doc\StoreClient;
 use Sajari\engine\store\doc\Keys;
-use Sajari\engine\store\doc\Keys\Key as ProtoKey;
-use sajari\engine\store\doc\KeysMetas;
-use sajari\engine\store\doc\KeysMetas\KeyMeta as ProtoKeyMeta;
 use sajari\engine\query\QueryClient;
-use sajari\engine\Key as PKey;
-use sajari\engine\Value as PValue;
+// use sajari\engine\Key as PKey;
+use sajari\engine\Value as Value;
+use sajari\engine\store\doc\Document\ValuesEntry;
 
 class Client
 {
@@ -188,7 +186,10 @@ class Client
      */
     public function Add(Document $doc)
     {
-        return $this->AddMulti(array($doc))[0];
+        $multiResult = $this->AddMulti([$doc]);
+
+        // Return the first key and status from add multi
+        return [$multiResult[0][0], $multiResult[1][0]];
     }
 
     /**
@@ -198,18 +199,19 @@ class Client
      */
     public function AddMulti(array $docs)
     {
-//        $protoDocs = new \sajari\engine\store\doc\Documents();
         $protoDocs = new Documents();
 
         /** @var $d Document */
         foreach ($docs as $d) {
-            $protoDoc = new \sajari\engine\store\doc\Documents\Document();
+            $protoDoc = new \sajari\engine\store\doc\Document();
             foreach ($d->getMeta() as $m) {
-                $meta = new MetaEntry();
-                $meta->setKey($m->getKey());
-                $meta->setValue(json_encode($m->getValue()));
+                $valueEntry = new ValuesEntry();
+                $valueEntry->setKey($m->getKey());
+                $v = new Value();
+                $v->setSingle($m->getValue());
+                $valueEntry->setValue($v);
 
-                $protoDoc->addMeta($meta);
+                $protoDoc->addValues($valueEntry);
             }
 
             $protoDocs->addDocuments($protoDoc);
@@ -231,21 +233,26 @@ class Client
 
         $keys = array();
 
-        /** @var $k engine\store\doc\Keys\Key */
+        /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
-            $keys[] = new Key($k->getField(), json_decode($k->getValue()));
+            $keys[] = new DocumentKey($k->getField(), $k->getValue());
         }
 
-        return $keys;
+        return [$keys, $reply->getStatusList()];
     }
 
     /**
      * @param Key $key
      * @throws Exception
      */
-    public function Delete(Key $key)
+    public function Delete($key)
     {
-        $this->DeleteMulti(array($key));
+        $multiResult = $this->DeleteMulti([$key]);
+        if ($multiResult == NULL) {
+          return [];
+        } else {
+          return $multiResult[0];
+        }
     }
 
     /**
@@ -268,6 +275,8 @@ class Client
         if ($status->code != 0) {
             throw new \Exception($status->details);
         }
+
+        return $reply->getStatusList();
     }
 
     public function Patch(KeyMeta $km)
