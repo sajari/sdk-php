@@ -9,7 +9,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var string */
     public $identifier = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -41,7 +41,7 @@ namespace sajari\engine\store\doc {
     public function hasIdentifier(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <identifier> value
      *
@@ -50,7 +50,7 @@ namespace sajari\engine\store\doc {
     public function clearIdentifier(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <identifier> value
      *
@@ -59,7 +59,7 @@ namespace sajari\engine\store\doc {
     public function getIdentifier(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <identifier> value
      *
@@ -78,10 +78,10 @@ namespace sajari\engine\store\doc\Document {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\Value */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -122,7 +122,7 @@ namespace sajari\engine\store\doc\Document {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -131,7 +131,7 @@ namespace sajari\engine\store\doc\Document {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -140,7 +140,7 @@ namespace sajari\engine\store\doc\Document {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -150,7 +150,7 @@ namespace sajari\engine\store\doc\Document {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -159,7 +159,7 @@ namespace sajari\engine\store\doc\Document {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -168,7 +168,7 @@ namespace sajari\engine\store\doc\Document {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -177,7 +177,7 @@ namespace sajari\engine\store\doc\Document {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -196,7 +196,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\Document\ValuesEntry[]  */
     public $values = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -229,7 +229,7 @@ namespace sajari\engine\store\doc {
     public function hasValues(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <values> value
      *
@@ -238,7 +238,7 @@ namespace sajari\engine\store\doc {
     public function clearValues(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <values> value
      *
@@ -248,7 +248,7 @@ namespace sajari\engine\store\doc {
     public function getValues($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <values> value
      *
@@ -258,7 +258,7 @@ namespace sajari\engine\store\doc {
     public function setValues(\sajari\engine\store\doc\Document\ValuesEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <values>
      *
@@ -267,7 +267,7 @@ namespace sajari\engine\store\doc {
     public function getValuesList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <values>
      *
@@ -286,10 +286,10 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\Document[]  */
     public $documents = array();
-    
+
     /**  @var \sajari\engine\store\doc\Transform[]  */
     public $transforms = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -331,7 +331,7 @@ namespace sajari\engine\store\doc {
     public function hasDocuments(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <documents> value
      *
@@ -340,7 +340,7 @@ namespace sajari\engine\store\doc {
     public function clearDocuments(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <documents> value
      *
@@ -350,7 +350,7 @@ namespace sajari\engine\store\doc {
     public function getDocuments($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <documents> value
      *
@@ -360,7 +360,7 @@ namespace sajari\engine\store\doc {
     public function setDocuments(\sajari\engine\store\doc\Document $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <documents>
      *
@@ -369,7 +369,7 @@ namespace sajari\engine\store\doc {
     public function getDocumentsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <documents>
      *
@@ -379,7 +379,7 @@ namespace sajari\engine\store\doc {
     public function addDocuments(\sajari\engine\store\doc\Document $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <transforms> has a value
      *
@@ -388,7 +388,7 @@ namespace sajari\engine\store\doc {
     public function hasTransforms(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <transforms> value
      *
@@ -397,7 +397,7 @@ namespace sajari\engine\store\doc {
     public function clearTransforms(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <transforms> value
      *
@@ -407,7 +407,7 @@ namespace sajari\engine\store\doc {
     public function getTransforms($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <transforms> value
      *
@@ -417,7 +417,7 @@ namespace sajari\engine\store\doc {
     public function setTransforms(\sajari\engine\store\doc\Transform $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <transforms>
      *
@@ -426,7 +426,7 @@ namespace sajari\engine\store\doc {
     public function getTransformsList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <transforms>
      *
@@ -445,10 +445,10 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Key[]  */
     public $keys = array();
-    
+
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -490,7 +490,7 @@ namespace sajari\engine\store\doc {
     public function hasKeys(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <keys> value
      *
@@ -499,7 +499,7 @@ namespace sajari\engine\store\doc {
     public function clearKeys(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <keys> value
      *
@@ -509,7 +509,7 @@ namespace sajari\engine\store\doc {
     public function getKeys($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <keys> value
      *
@@ -519,7 +519,7 @@ namespace sajari\engine\store\doc {
     public function setKeys(\sajari\engine\Key $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys>
      *
@@ -528,7 +528,7 @@ namespace sajari\engine\store\doc {
     public function getKeysList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <keys>
      *
@@ -538,7 +538,7 @@ namespace sajari\engine\store\doc {
     public function addKeys(\sajari\engine\Key $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <status> has a value
      *
@@ -547,7 +547,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -556,7 +556,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -566,7 +566,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -576,7 +576,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -585,7 +585,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -604,10 +604,10 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\Document[]  */
     public $documents = array();
-    
+
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -649,7 +649,7 @@ namespace sajari\engine\store\doc {
     public function hasDocuments(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <documents> value
      *
@@ -658,7 +658,7 @@ namespace sajari\engine\store\doc {
     public function clearDocuments(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <documents> value
      *
@@ -668,7 +668,7 @@ namespace sajari\engine\store\doc {
     public function getDocuments($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <documents> value
      *
@@ -678,7 +678,7 @@ namespace sajari\engine\store\doc {
     public function setDocuments(\sajari\engine\store\doc\Document $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <documents>
      *
@@ -687,7 +687,7 @@ namespace sajari\engine\store\doc {
     public function getDocumentsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <documents>
      *
@@ -697,7 +697,7 @@ namespace sajari\engine\store\doc {
     public function addDocuments(\sajari\engine\store\doc\Document $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <status> has a value
      *
@@ -706,7 +706,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -715,7 +715,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -725,7 +725,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -735,7 +735,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -744,7 +744,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -763,7 +763,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -796,7 +796,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -805,7 +805,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -815,7 +815,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -825,7 +825,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -834,7 +834,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -853,7 +853,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -886,7 +886,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -895,7 +895,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -905,7 +905,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -915,7 +915,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -924,7 +924,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -943,7 +943,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Key[]  */
     public $keys = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -976,7 +976,7 @@ namespace sajari\engine\store\doc {
     public function hasKeys(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <keys> value
      *
@@ -985,7 +985,7 @@ namespace sajari\engine\store\doc {
     public function clearKeys(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <keys> value
      *
@@ -995,7 +995,7 @@ namespace sajari\engine\store\doc {
     public function getKeys($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <keys> value
      *
@@ -1005,7 +1005,7 @@ namespace sajari\engine\store\doc {
     public function setKeys(\sajari\engine\Key $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys>
      *
@@ -1014,7 +1014,7 @@ namespace sajari\engine\store\doc {
     public function getKeysList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <keys>
      *
@@ -1033,13 +1033,13 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
 
     /**  @var \sajari\engine\Value */
     public $set = null;
-    
+
     /**  @var \sajari\engine\Value */
     public $increment = null;
-    
+
     /**  @var \sajari\engine\Value */
     public $append = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1090,7 +1090,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function hasSet(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <set> value
      *
@@ -1099,7 +1099,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function clearSet(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <set> value
      *
@@ -1108,7 +1108,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function getSet(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <set> value
      *
@@ -1118,7 +1118,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function setSet(\sajari\engine\Value $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <increment> has a value
      *
@@ -1127,7 +1127,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function hasIncrement(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <increment> value
      *
@@ -1136,7 +1136,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function clearIncrement(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <increment> value
      *
@@ -1145,7 +1145,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function getIncrement(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <increment> value
      *
@@ -1155,7 +1155,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function setIncrement(\sajari\engine\Value $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <append> has a value
      *
@@ -1164,7 +1164,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function hasAppend(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <append> value
      *
@@ -1173,7 +1173,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function clearAppend(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <append> value
      *
@@ -1182,7 +1182,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function getAppend(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <append> value
      *
@@ -1201,10 +1201,10 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\store\doc\KeysValues\KeyValues\Value */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1245,7 +1245,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -1254,7 +1254,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -1263,7 +1263,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -1273,7 +1273,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -1282,7 +1282,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -1291,7 +1291,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -1300,7 +1300,7 @@ namespace sajari\engine\store\doc\KeysValues\KeyValues {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -1319,10 +1319,10 @@ namespace sajari\engine\store\doc\KeysValues {
 
     /**  @var \sajari\engine\Key */
     public $key = null;
-    
+
     /**  @var \sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry[]  */
     public $values = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1364,7 +1364,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -1373,7 +1373,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -1382,7 +1382,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -1392,7 +1392,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function setKey(\sajari\engine\Key $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <values> has a value
      *
@@ -1401,7 +1401,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function hasValues(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <values> value
      *
@@ -1410,7 +1410,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function clearValues(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <values> value
      *
@@ -1420,7 +1420,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function getValues($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <values> value
      *
@@ -1430,7 +1430,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function setValues(\sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <values>
      *
@@ -1439,7 +1439,7 @@ namespace sajari\engine\store\doc\KeysValues {
     public function getValuesList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <values>
      *
@@ -1458,7 +1458,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\KeysValues\KeyValues[]  */
     public $keys_values = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1491,7 +1491,7 @@ namespace sajari\engine\store\doc {
     public function hasKeysValues(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <keys_values> value
      *
@@ -1500,7 +1500,7 @@ namespace sajari\engine\store\doc {
     public function clearKeysValues(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <keys_values> value
      *
@@ -1510,7 +1510,7 @@ namespace sajari\engine\store\doc {
     public function getKeysValues($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <keys_values> value
      *
@@ -1520,7 +1520,7 @@ namespace sajari\engine\store\doc {
     public function setKeysValues(\sajari\engine\store\doc\KeysValues\KeyValues $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys_values>
      *
@@ -1529,7 +1529,7 @@ namespace sajari\engine\store\doc {
     public function getKeysValuesList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <keys_values>
      *
@@ -1548,7 +1548,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\KeyScores[]  */
     public $keys_scores = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1581,7 +1581,7 @@ namespace sajari\engine\store\doc {
     public function hasKeysScores(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <keys_scores> value
      *
@@ -1590,7 +1590,7 @@ namespace sajari\engine\store\doc {
     public function clearKeysScores(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <keys_scores> value
      *
@@ -1600,7 +1600,7 @@ namespace sajari\engine\store\doc {
     public function getKeysScores($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <keys_scores> value
      *
@@ -1610,7 +1610,7 @@ namespace sajari\engine\store\doc {
     public function setKeysScores(\sajari\engine\store\doc\KeyScores $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys_scores>
      *
@@ -1619,7 +1619,7 @@ namespace sajari\engine\store\doc {
     public function getKeysScoresList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <keys_scores>
      *
@@ -1638,7 +1638,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1671,7 +1671,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -1680,7 +1680,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -1690,7 +1690,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -1700,7 +1700,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -1709,7 +1709,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -1728,7 +1728,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\store\doc\KeyScores[]  */
     public $keys_scores = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1761,7 +1761,7 @@ namespace sajari\engine\store\doc {
     public function hasKeysScores(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <keys_scores> value
      *
@@ -1770,7 +1770,7 @@ namespace sajari\engine\store\doc {
     public function clearKeysScores(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <keys_scores> value
      *
@@ -1780,7 +1780,7 @@ namespace sajari\engine\store\doc {
     public function getKeysScores($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <keys_scores> value
      *
@@ -1790,7 +1790,7 @@ namespace sajari\engine\store\doc {
     public function setKeysScores(\sajari\engine\store\doc\KeyScores $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys_scores>
      *
@@ -1799,7 +1799,7 @@ namespace sajari\engine\store\doc {
     public function getKeysScoresList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <keys_scores>
      *
@@ -1818,7 +1818,7 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1851,7 +1851,7 @@ namespace sajari\engine\store\doc {
     public function hasStatus(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -1860,7 +1860,7 @@ namespace sajari\engine\store\doc {
     public function clearStatus(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -1870,7 +1870,7 @@ namespace sajari\engine\store\doc {
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -1880,7 +1880,7 @@ namespace sajari\engine\store\doc {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -1889,7 +1889,7 @@ namespace sajari\engine\store\doc {
     public function getStatusList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <status>
      *
@@ -1908,13 +1908,13 @@ namespace sajari\engine\store\doc\KeyScores {
 
     /**  @var string[]  */
     public $terms = array();
-    
+
     /**  @var int */
     public $count = null;
-    
+
     /**  @var float */
     public $score = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1962,7 +1962,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function hasTerms(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <terms> value
      *
@@ -1971,7 +1971,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function clearTerms(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <terms> value
      *
@@ -1981,7 +1981,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function getTerms($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <terms> value
      *
@@ -1991,7 +1991,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function setTerms( $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <terms>
      *
@@ -2000,7 +2000,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function getTermsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <terms>
      *
@@ -2010,7 +2010,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function addTerms( $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <count> has a value
      *
@@ -2019,7 +2019,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function hasCount(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <count> value
      *
@@ -2028,7 +2028,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function clearCount(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <count> value
      *
@@ -2037,7 +2037,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function getCount(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <count> value
      *
@@ -2047,7 +2047,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function setCount( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <score> has a value
      *
@@ -2056,7 +2056,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function hasScore(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <score> value
      *
@@ -2065,7 +2065,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function clearScore(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <score> value
      *
@@ -2074,7 +2074,7 @@ namespace sajari\engine\store\doc\KeyScores {
     public function getScore(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <score> value
      *
@@ -2093,10 +2093,10 @@ namespace sajari\engine\store\doc {
 
     /**  @var \sajari\engine\Key */
     public $key = null;
-    
+
     /**  @var \sajari\engine\store\doc\KeyScores\Score[]  */
     public $scores = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2138,7 +2138,7 @@ namespace sajari\engine\store\doc {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -2147,7 +2147,7 @@ namespace sajari\engine\store\doc {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -2156,7 +2156,7 @@ namespace sajari\engine\store\doc {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -2166,7 +2166,7 @@ namespace sajari\engine\store\doc {
     public function setKey(\sajari\engine\Key $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <scores> has a value
      *
@@ -2175,7 +2175,7 @@ namespace sajari\engine\store\doc {
     public function hasScores(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <scores> value
      *
@@ -2184,7 +2184,7 @@ namespace sajari\engine\store\doc {
     public function clearScores(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <scores> value
      *
@@ -2194,7 +2194,7 @@ namespace sajari\engine\store\doc {
     public function getScores($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <scores> value
      *
@@ -2204,7 +2204,7 @@ namespace sajari\engine\store\doc {
     public function setScores(\sajari\engine\store\doc\KeyScores\Score $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <scores>
      *
@@ -2213,7 +2213,7 @@ namespace sajari\engine\store\doc {
     public function getScoresList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <scores>
      *

@@ -9,10 +9,10 @@ namespace sajari\engine\query\SearchRequest {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\query\Aggregate */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -53,7 +53,7 @@ namespace sajari\engine\query\SearchRequest {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -62,7 +62,7 @@ namespace sajari\engine\query\SearchRequest {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -71,7 +71,7 @@ namespace sajari\engine\query\SearchRequest {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -81,7 +81,7 @@ namespace sajari\engine\query\SearchRequest {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -90,7 +90,7 @@ namespace sajari\engine\query\SearchRequest {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -99,7 +99,7 @@ namespace sajari\engine\query\SearchRequest {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -108,7 +108,7 @@ namespace sajari\engine\query\SearchRequest {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -127,37 +127,37 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\Body[]  */
     public $body = array();
-    
+
     /**  @var \sajari\engine\query\Term[]  */
     public $terms = array();
-    
+
     /**  @var \sajari\engine\query\Filter */
     public $filter = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost[]  */
     public $field_boosts = array();
-    
+
     /**  @var \sajari\engine\query\InstanceBoost[]  */
     public $instance_boosts = array();
-    
+
     /**  @var int */
     public $page = null;
-    
+
     /**  @var int */
     public $results_per_page = null;
-    
+
     /**  @var string[]  */
     public $fields = array();
-    
+
     /**  @var \sajari\engine\query\Sort[]  */
     public $sort = array();
-    
+
     /**  @var \sajari\engine\query\SearchRequest\AggregatesEntry[]  */
     public $aggregates = array();
-    
+
     /**  @var \sajari\engine\query\Transform[]  */
     public $transforms = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -277,7 +277,7 @@ namespace sajari\engine\query {
     public function hasBody(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <body> value
      *
@@ -286,7 +286,7 @@ namespace sajari\engine\query {
     public function clearBody(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <body> value
      *
@@ -296,7 +296,7 @@ namespace sajari\engine\query {
     public function getBody($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <body> value
      *
@@ -306,7 +306,7 @@ namespace sajari\engine\query {
     public function setBody(\sajari\engine\query\Body $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <body>
      *
@@ -315,7 +315,7 @@ namespace sajari\engine\query {
     public function getBodyList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <body>
      *
@@ -325,7 +325,7 @@ namespace sajari\engine\query {
     public function addBody(\sajari\engine\query\Body $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <terms> has a value
      *
@@ -334,7 +334,7 @@ namespace sajari\engine\query {
     public function hasTerms(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <terms> value
      *
@@ -343,7 +343,7 @@ namespace sajari\engine\query {
     public function clearTerms(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <terms> value
      *
@@ -353,7 +353,7 @@ namespace sajari\engine\query {
     public function getTerms($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <terms> value
      *
@@ -363,7 +363,7 @@ namespace sajari\engine\query {
     public function setTerms(\sajari\engine\query\Term $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <terms>
      *
@@ -372,7 +372,7 @@ namespace sajari\engine\query {
     public function getTermsList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <terms>
      *
@@ -382,7 +382,7 @@ namespace sajari\engine\query {
     public function addTerms(\sajari\engine\query\Term $value){
      return $this->_add(2, $value);
     }
-    
+
     /**
      * Check if <filter> has a value
      *
@@ -391,7 +391,7 @@ namespace sajari\engine\query {
     public function hasFilter(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <filter> value
      *
@@ -400,7 +400,7 @@ namespace sajari\engine\query {
     public function clearFilter(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <filter> value
      *
@@ -409,7 +409,7 @@ namespace sajari\engine\query {
     public function getFilter(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <filter> value
      *
@@ -419,7 +419,7 @@ namespace sajari\engine\query {
     public function setFilter(\sajari\engine\query\Filter $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <field_boosts> has a value
      *
@@ -428,7 +428,7 @@ namespace sajari\engine\query {
     public function hasFieldBoosts(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <field_boosts> value
      *
@@ -437,7 +437,7 @@ namespace sajari\engine\query {
     public function clearFieldBoosts(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <field_boosts> value
      *
@@ -447,7 +447,7 @@ namespace sajari\engine\query {
     public function getFieldBoosts($idx = NULL){
       return $this->_get(4, $idx);
     }
-    
+
     /**
      * Set <field_boosts> value
      *
@@ -457,7 +457,7 @@ namespace sajari\engine\query {
     public function setFieldBoosts(\sajari\engine\query\FieldBoost $value, $idx = NULL){
       return $this->_set(4, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <field_boosts>
      *
@@ -466,7 +466,7 @@ namespace sajari\engine\query {
     public function getFieldBoostsList(){
      return $this->_get(4);
     }
-    
+
     /**
      * Add a new element to <field_boosts>
      *
@@ -476,7 +476,7 @@ namespace sajari\engine\query {
     public function addFieldBoosts(\sajari\engine\query\FieldBoost $value){
      return $this->_add(4, $value);
     }
-    
+
     /**
      * Check if <instance_boosts> has a value
      *
@@ -485,7 +485,7 @@ namespace sajari\engine\query {
     public function hasInstanceBoosts(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <instance_boosts> value
      *
@@ -494,7 +494,7 @@ namespace sajari\engine\query {
     public function clearInstanceBoosts(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <instance_boosts> value
      *
@@ -504,7 +504,7 @@ namespace sajari\engine\query {
     public function getInstanceBoosts($idx = NULL){
       return $this->_get(5, $idx);
     }
-    
+
     /**
      * Set <instance_boosts> value
      *
@@ -514,7 +514,7 @@ namespace sajari\engine\query {
     public function setInstanceBoosts(\sajari\engine\query\InstanceBoost $value, $idx = NULL){
       return $this->_set(5, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <instance_boosts>
      *
@@ -523,7 +523,7 @@ namespace sajari\engine\query {
     public function getInstanceBoostsList(){
      return $this->_get(5);
     }
-    
+
     /**
      * Add a new element to <instance_boosts>
      *
@@ -533,7 +533,7 @@ namespace sajari\engine\query {
     public function addInstanceBoosts(\sajari\engine\query\InstanceBoost $value){
      return $this->_add(5, $value);
     }
-    
+
     /**
      * Check if <page> has a value
      *
@@ -542,7 +542,7 @@ namespace sajari\engine\query {
     public function hasPage(){
       return $this->_has(6);
     }
-    
+
     /**
      * Clear <page> value
      *
@@ -551,7 +551,7 @@ namespace sajari\engine\query {
     public function clearPage(){
       return $this->_clear(6);
     }
-    
+
     /**
      * Get <page> value
      *
@@ -560,7 +560,7 @@ namespace sajari\engine\query {
     public function getPage(){
       return $this->_get(6);
     }
-    
+
     /**
      * Set <page> value
      *
@@ -570,7 +570,7 @@ namespace sajari\engine\query {
     public function setPage( $value){
       return $this->_set(6, $value);
     }
-    
+
     /**
      * Check if <results_per_page> has a value
      *
@@ -579,7 +579,7 @@ namespace sajari\engine\query {
     public function hasResultsPerPage(){
       return $this->_has(7);
     }
-    
+
     /**
      * Clear <results_per_page> value
      *
@@ -588,7 +588,7 @@ namespace sajari\engine\query {
     public function clearResultsPerPage(){
       return $this->_clear(7);
     }
-    
+
     /**
      * Get <results_per_page> value
      *
@@ -597,7 +597,7 @@ namespace sajari\engine\query {
     public function getResultsPerPage(){
       return $this->_get(7);
     }
-    
+
     /**
      * Set <results_per_page> value
      *
@@ -607,7 +607,7 @@ namespace sajari\engine\query {
     public function setResultsPerPage( $value){
       return $this->_set(7, $value);
     }
-    
+
     /**
      * Check if <fields> has a value
      *
@@ -616,7 +616,7 @@ namespace sajari\engine\query {
     public function hasFields(){
       return $this->_has(8);
     }
-    
+
     /**
      * Clear <fields> value
      *
@@ -625,7 +625,7 @@ namespace sajari\engine\query {
     public function clearFields(){
       return $this->_clear(8);
     }
-    
+
     /**
      * Get <fields> value
      *
@@ -635,7 +635,7 @@ namespace sajari\engine\query {
     public function getFields($idx = NULL){
       return $this->_get(8, $idx);
     }
-    
+
     /**
      * Set <fields> value
      *
@@ -645,7 +645,7 @@ namespace sajari\engine\query {
     public function setFields( $value, $idx = NULL){
       return $this->_set(8, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <fields>
      *
@@ -654,7 +654,7 @@ namespace sajari\engine\query {
     public function getFieldsList(){
      return $this->_get(8);
     }
-    
+
     /**
      * Add a new element to <fields>
      *
@@ -664,7 +664,7 @@ namespace sajari\engine\query {
     public function addFields( $value){
      return $this->_add(8, $value);
     }
-    
+
     /**
      * Check if <sort> has a value
      *
@@ -673,7 +673,7 @@ namespace sajari\engine\query {
     public function hasSort(){
       return $this->_has(9);
     }
-    
+
     /**
      * Clear <sort> value
      *
@@ -682,7 +682,7 @@ namespace sajari\engine\query {
     public function clearSort(){
       return $this->_clear(9);
     }
-    
+
     /**
      * Get <sort> value
      *
@@ -692,7 +692,7 @@ namespace sajari\engine\query {
     public function getSort($idx = NULL){
       return $this->_get(9, $idx);
     }
-    
+
     /**
      * Set <sort> value
      *
@@ -702,7 +702,7 @@ namespace sajari\engine\query {
     public function setSort(\sajari\engine\query\Sort $value, $idx = NULL){
       return $this->_set(9, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <sort>
      *
@@ -711,7 +711,7 @@ namespace sajari\engine\query {
     public function getSortList(){
      return $this->_get(9);
     }
-    
+
     /**
      * Add a new element to <sort>
      *
@@ -721,7 +721,7 @@ namespace sajari\engine\query {
     public function addSort(\sajari\engine\query\Sort $value){
      return $this->_add(9, $value);
     }
-    
+
     /**
      * Check if <aggregates> has a value
      *
@@ -730,7 +730,7 @@ namespace sajari\engine\query {
     public function hasAggregates(){
       return $this->_has(10);
     }
-    
+
     /**
      * Clear <aggregates> value
      *
@@ -739,7 +739,7 @@ namespace sajari\engine\query {
     public function clearAggregates(){
       return $this->_clear(10);
     }
-    
+
     /**
      * Get <aggregates> value
      *
@@ -749,7 +749,7 @@ namespace sajari\engine\query {
     public function getAggregates($idx = NULL){
       return $this->_get(10, $idx);
     }
-    
+
     /**
      * Set <aggregates> value
      *
@@ -759,7 +759,7 @@ namespace sajari\engine\query {
     public function setAggregates(\sajari\engine\query\SearchRequest\AggregatesEntry $value, $idx = NULL){
       return $this->_set(10, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <aggregates>
      *
@@ -768,7 +768,7 @@ namespace sajari\engine\query {
     public function getAggregatesList(){
      return $this->_get(10);
     }
-    
+
     /**
      * Add a new element to <aggregates>
      *
@@ -778,7 +778,7 @@ namespace sajari\engine\query {
     public function addAggregates(\sajari\engine\query\SearchRequest\AggregatesEntry $value){
      return $this->_add(10, $value);
     }
-    
+
     /**
      * Check if <transforms> has a value
      *
@@ -787,7 +787,7 @@ namespace sajari\engine\query {
     public function hasTransforms(){
       return $this->_has(11);
     }
-    
+
     /**
      * Clear <transforms> value
      *
@@ -796,7 +796,7 @@ namespace sajari\engine\query {
     public function clearTransforms(){
       return $this->_clear(11);
     }
-    
+
     /**
      * Get <transforms> value
      *
@@ -806,7 +806,7 @@ namespace sajari\engine\query {
     public function getTransforms($idx = NULL){
       return $this->_get(11, $idx);
     }
-    
+
     /**
      * Set <transforms> value
      *
@@ -816,7 +816,7 @@ namespace sajari\engine\query {
     public function setTransforms(\sajari\engine\query\Transform $value, $idx = NULL){
       return $this->_set(11, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <transforms>
      *
@@ -825,7 +825,7 @@ namespace sajari\engine\query {
     public function getTransformsList(){
      return $this->_get(11);
     }
-    
+
     /**
      * Add a new element to <transforms>
      *
@@ -844,7 +844,7 @@ namespace sajari\engine\query {
 
     /**  @var string */
     public $identifier = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -876,7 +876,7 @@ namespace sajari\engine\query {
     public function hasIdentifier(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <identifier> value
      *
@@ -885,7 +885,7 @@ namespace sajari\engine\query {
     public function clearIdentifier(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <identifier> value
      *
@@ -894,7 +894,7 @@ namespace sajari\engine\query {
     public function getIdentifier(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <identifier> value
      *
@@ -913,25 +913,25 @@ namespace sajari\engine\query {
 
     /**  @var string */
     public $value = null;
-    
+
     /**  @var string */
     public $field = null;
-    
+
     /**  @var int */
     public $pos = null;
-    
+
     /**  @var int */
     public $neg = null;
-    
+
     /**  @var float */
     public $weight = null;
-    
+
     /**  @var int */
     public $word_offset = null;
-    
+
     /**  @var int */
     public $para_offset = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1011,7 +1011,7 @@ namespace sajari\engine\query {
     public function hasValue(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -1020,7 +1020,7 @@ namespace sajari\engine\query {
     public function clearValue(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -1029,7 +1029,7 @@ namespace sajari\engine\query {
     public function getValue(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -1039,7 +1039,7 @@ namespace sajari\engine\query {
     public function setValue( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <field> has a value
      *
@@ -1048,7 +1048,7 @@ namespace sajari\engine\query {
     public function hasField(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -1057,7 +1057,7 @@ namespace sajari\engine\query {
     public function clearField(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -1066,7 +1066,7 @@ namespace sajari\engine\query {
     public function getField(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -1076,7 +1076,7 @@ namespace sajari\engine\query {
     public function setField( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <pos> has a value
      *
@@ -1085,7 +1085,7 @@ namespace sajari\engine\query {
     public function hasPos(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <pos> value
      *
@@ -1094,7 +1094,7 @@ namespace sajari\engine\query {
     public function clearPos(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <pos> value
      *
@@ -1103,7 +1103,7 @@ namespace sajari\engine\query {
     public function getPos(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <pos> value
      *
@@ -1113,7 +1113,7 @@ namespace sajari\engine\query {
     public function setPos( $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <neg> has a value
      *
@@ -1122,7 +1122,7 @@ namespace sajari\engine\query {
     public function hasNeg(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <neg> value
      *
@@ -1131,7 +1131,7 @@ namespace sajari\engine\query {
     public function clearNeg(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <neg> value
      *
@@ -1140,7 +1140,7 @@ namespace sajari\engine\query {
     public function getNeg(){
       return $this->_get(4);
     }
-    
+
     /**
      * Set <neg> value
      *
@@ -1150,7 +1150,7 @@ namespace sajari\engine\query {
     public function setNeg( $value){
       return $this->_set(4, $value);
     }
-    
+
     /**
      * Check if <weight> has a value
      *
@@ -1159,7 +1159,7 @@ namespace sajari\engine\query {
     public function hasWeight(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <weight> value
      *
@@ -1168,7 +1168,7 @@ namespace sajari\engine\query {
     public function clearWeight(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <weight> value
      *
@@ -1177,7 +1177,7 @@ namespace sajari\engine\query {
     public function getWeight(){
       return $this->_get(5);
     }
-    
+
     /**
      * Set <weight> value
      *
@@ -1187,7 +1187,7 @@ namespace sajari\engine\query {
     public function setWeight( $value){
       return $this->_set(5, $value);
     }
-    
+
     /**
      * Check if <word_offset> has a value
      *
@@ -1196,7 +1196,7 @@ namespace sajari\engine\query {
     public function hasWordOffset(){
       return $this->_has(6);
     }
-    
+
     /**
      * Clear <word_offset> value
      *
@@ -1205,7 +1205,7 @@ namespace sajari\engine\query {
     public function clearWordOffset(){
       return $this->_clear(6);
     }
-    
+
     /**
      * Get <word_offset> value
      *
@@ -1214,7 +1214,7 @@ namespace sajari\engine\query {
     public function getWordOffset(){
       return $this->_get(6);
     }
-    
+
     /**
      * Set <word_offset> value
      *
@@ -1224,7 +1224,7 @@ namespace sajari\engine\query {
     public function setWordOffset( $value){
       return $this->_set(6, $value);
     }
-    
+
     /**
      * Check if <para_offset> has a value
      *
@@ -1233,7 +1233,7 @@ namespace sajari\engine\query {
     public function hasParaOffset(){
       return $this->_has(7);
     }
-    
+
     /**
      * Clear <para_offset> value
      *
@@ -1242,7 +1242,7 @@ namespace sajari\engine\query {
     public function clearParaOffset(){
       return $this->_clear(7);
     }
-    
+
     /**
      * Get <para_offset> value
      *
@@ -1251,7 +1251,7 @@ namespace sajari\engine\query {
     public function getParaOffset(){
       return $this->_get(7);
     }
-    
+
     /**
      * Set <para_offset> value
      *
@@ -1270,10 +1270,10 @@ namespace sajari\engine\query\EvaluateRequest {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var string */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1313,7 +1313,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -1322,7 +1322,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -1331,7 +1331,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -1341,7 +1341,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -1350,7 +1350,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -1359,7 +1359,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -1368,7 +1368,7 @@ namespace sajari\engine\query\EvaluateRequest {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -1387,10 +1387,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\SearchRequest */
     public $search_request = null;
-    
+
     /**  @var \sajari\engine\query\EvaluateRequest\DocumentEntry[]  */
     public $document = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1432,7 +1432,7 @@ namespace sajari\engine\query {
     public function hasSearchRequest(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <search_request> value
      *
@@ -1441,7 +1441,7 @@ namespace sajari\engine\query {
     public function clearSearchRequest(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <search_request> value
      *
@@ -1450,7 +1450,7 @@ namespace sajari\engine\query {
     public function getSearchRequest(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <search_request> value
      *
@@ -1460,7 +1460,7 @@ namespace sajari\engine\query {
     public function setSearchRequest(\sajari\engine\query\SearchRequest $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <document> has a value
      *
@@ -1469,7 +1469,7 @@ namespace sajari\engine\query {
     public function hasDocument(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <document> value
      *
@@ -1478,7 +1478,7 @@ namespace sajari\engine\query {
     public function clearDocument(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <document> value
      *
@@ -1488,7 +1488,7 @@ namespace sajari\engine\query {
     public function getDocument($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <document> value
      *
@@ -1498,7 +1498,7 @@ namespace sajari\engine\query {
     public function setDocument(\sajari\engine\query\EvaluateRequest\DocumentEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <document>
      *
@@ -1507,7 +1507,7 @@ namespace sajari\engine\query {
     public function getDocumentList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <document>
      *
@@ -1526,10 +1526,10 @@ namespace sajari\engine\query\SubstituteRequest {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var string */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1569,7 +1569,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -1578,7 +1578,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -1587,7 +1587,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -1597,7 +1597,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -1606,7 +1606,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -1615,7 +1615,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -1624,7 +1624,7 @@ namespace sajari\engine\query\SubstituteRequest {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -1643,10 +1643,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\SearchRequest */
     public $search_request = null;
-    
+
     /**  @var \sajari\engine\query\SubstituteRequest\DocumentEntry[]  */
     public $document = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1688,7 +1688,7 @@ namespace sajari\engine\query {
     public function hasSearchRequest(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <search_request> value
      *
@@ -1697,7 +1697,7 @@ namespace sajari\engine\query {
     public function clearSearchRequest(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <search_request> value
      *
@@ -1706,7 +1706,7 @@ namespace sajari\engine\query {
     public function getSearchRequest(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <search_request> value
      *
@@ -1716,7 +1716,7 @@ namespace sajari\engine\query {
     public function setSearchRequest(\sajari\engine\query\SearchRequest $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <document> has a value
      *
@@ -1725,7 +1725,7 @@ namespace sajari\engine\query {
     public function hasDocument(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <document> value
      *
@@ -1734,7 +1734,7 @@ namespace sajari\engine\query {
     public function clearDocument(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <document> value
      *
@@ -1744,7 +1744,7 @@ namespace sajari\engine\query {
     public function getDocument($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <document> value
      *
@@ -1754,7 +1754,7 @@ namespace sajari\engine\query {
     public function setDocument(\sajari\engine\query\SubstituteRequest\DocumentEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <document>
      *
@@ -1763,7 +1763,7 @@ namespace sajari\engine\query {
     public function getDocumentList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <document>
      *
@@ -1782,10 +1782,10 @@ namespace sajari\engine\query {
 
     /**  @var string */
     public $text = null;
-    
+
     /**  @var float */
     public $weight = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1825,7 +1825,7 @@ namespace sajari\engine\query {
     public function hasText(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <text> value
      *
@@ -1834,7 +1834,7 @@ namespace sajari\engine\query {
     public function clearText(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <text> value
      *
@@ -1843,7 +1843,7 @@ namespace sajari\engine\query {
     public function getText(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <text> value
      *
@@ -1853,7 +1853,7 @@ namespace sajari\engine\query {
     public function setText( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <weight> has a value
      *
@@ -1862,7 +1862,7 @@ namespace sajari\engine\query {
     public function hasWeight(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <weight> value
      *
@@ -1871,7 +1871,7 @@ namespace sajari\engine\query {
     public function clearWeight(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <weight> value
      *
@@ -1880,7 +1880,7 @@ namespace sajari\engine\query {
     public function getWeight(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <weight> value
      *
@@ -1908,10 +1908,10 @@ namespace sajari\engine\query\Aggregate {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var int - \sajari\engine\query\Aggregate\Metric\Type */
     public $type = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -1952,7 +1952,7 @@ namespace sajari\engine\query\Aggregate {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -1961,7 +1961,7 @@ namespace sajari\engine\query\Aggregate {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -1970,7 +1970,7 @@ namespace sajari\engine\query\Aggregate {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -1980,7 +1980,7 @@ namespace sajari\engine\query\Aggregate {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <type> has a value
      *
@@ -1989,7 +1989,7 @@ namespace sajari\engine\query\Aggregate {
     public function hasType(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <type> value
      *
@@ -1998,7 +1998,7 @@ namespace sajari\engine\query\Aggregate {
     public function clearType(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <type> value
      *
@@ -2007,7 +2007,7 @@ namespace sajari\engine\query\Aggregate {
     public function getType(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <type> value
      *
@@ -2026,7 +2026,7 @@ namespace sajari\engine\query\Aggregate {
 
     /**  @var string */
     public $field = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2058,7 +2058,7 @@ namespace sajari\engine\query\Aggregate {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -2067,7 +2067,7 @@ namespace sajari\engine\query\Aggregate {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -2076,7 +2076,7 @@ namespace sajari\engine\query\Aggregate {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -2095,10 +2095,10 @@ namespace sajari\engine\query\Aggregate\Bucket {
 
     /**  @var string */
     public $name = null;
-    
+
     /**  @var \sajari\engine\query\Filter */
     public $filter = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2139,7 +2139,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function hasName(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <name> value
      *
@@ -2148,7 +2148,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function clearName(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <name> value
      *
@@ -2157,7 +2157,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function getName(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <name> value
      *
@@ -2167,7 +2167,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function setName( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <filter> has a value
      *
@@ -2176,7 +2176,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function hasFilter(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <filter> value
      *
@@ -2185,7 +2185,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function clearFilter(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <filter> value
      *
@@ -2194,7 +2194,7 @@ namespace sajari\engine\query\Aggregate\Bucket {
     public function getFilter(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <filter> value
      *
@@ -2213,7 +2213,7 @@ namespace sajari\engine\query\Aggregate {
 
     /**  @var \sajari\engine\query\Aggregate\Bucket\Bucket[]  */
     public $buckets = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2246,7 +2246,7 @@ namespace sajari\engine\query\Aggregate {
     public function hasBuckets(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <buckets> value
      *
@@ -2255,7 +2255,7 @@ namespace sajari\engine\query\Aggregate {
     public function clearBuckets(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <buckets> value
      *
@@ -2265,7 +2265,7 @@ namespace sajari\engine\query\Aggregate {
     public function getBuckets($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <buckets> value
      *
@@ -2275,7 +2275,7 @@ namespace sajari\engine\query\Aggregate {
     public function setBuckets(\sajari\engine\query\Aggregate\Bucket\Bucket $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <buckets>
      *
@@ -2284,7 +2284,7 @@ namespace sajari\engine\query\Aggregate {
     public function getBucketsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <buckets>
      *
@@ -2303,13 +2303,13 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\Aggregate\Metric */
     public $metric = null;
-    
+
     /**  @var \sajari\engine\query\Aggregate\Count */
     public $count = null;
-    
+
     /**  @var \sajari\engine\query\Aggregate\Bucket */
     public $bucket = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2360,7 +2360,7 @@ namespace sajari\engine\query {
     public function hasMetric(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <metric> value
      *
@@ -2369,7 +2369,7 @@ namespace sajari\engine\query {
     public function clearMetric(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <metric> value
      *
@@ -2378,7 +2378,7 @@ namespace sajari\engine\query {
     public function getMetric(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <metric> value
      *
@@ -2388,7 +2388,7 @@ namespace sajari\engine\query {
     public function setMetric(\sajari\engine\query\Aggregate\Metric $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <count> has a value
      *
@@ -2397,7 +2397,7 @@ namespace sajari\engine\query {
     public function hasCount(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <count> value
      *
@@ -2406,7 +2406,7 @@ namespace sajari\engine\query {
     public function clearCount(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <count> value
      *
@@ -2415,7 +2415,7 @@ namespace sajari\engine\query {
     public function getCount(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <count> value
      *
@@ -2425,7 +2425,7 @@ namespace sajari\engine\query {
     public function setCount(\sajari\engine\query\Aggregate\Count $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <bucket> has a value
      *
@@ -2434,7 +2434,7 @@ namespace sajari\engine\query {
     public function hasBucket(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <bucket> value
      *
@@ -2443,7 +2443,7 @@ namespace sajari\engine\query {
     public function clearBucket(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <bucket> value
      *
@@ -2452,7 +2452,7 @@ namespace sajari\engine\query {
     public function getBucket(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <bucket> value
      *
@@ -2478,10 +2478,10 @@ namespace sajari\engine\query {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var int - \sajari\engine\query\Sort\Order */
     public $order = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2522,7 +2522,7 @@ namespace sajari\engine\query {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -2531,7 +2531,7 @@ namespace sajari\engine\query {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -2540,7 +2540,7 @@ namespace sajari\engine\query {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -2550,7 +2550,7 @@ namespace sajari\engine\query {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <order> has a value
      *
@@ -2559,7 +2559,7 @@ namespace sajari\engine\query {
     public function hasOrder(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <order> value
      *
@@ -2568,7 +2568,7 @@ namespace sajari\engine\query {
     public function clearOrder(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <order> value
      *
@@ -2577,7 +2577,7 @@ namespace sajari\engine\query {
     public function getOrder(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <order> value
      *
@@ -2611,13 +2611,13 @@ namespace sajari\engine\query\Filter {
 
     /**  @var int - \sajari\engine\query\Filter\Field\Operator */
     public $operator = null;
-    
+
     /**  @var string */
     public $field = null;
-    
+
     /**  @var \sajari\engine\Value */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2667,7 +2667,7 @@ namespace sajari\engine\query\Filter {
     public function hasOperator(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <operator> value
      *
@@ -2676,7 +2676,7 @@ namespace sajari\engine\query\Filter {
     public function clearOperator(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <operator> value
      *
@@ -2685,7 +2685,7 @@ namespace sajari\engine\query\Filter {
     public function getOperator(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <operator> value
      *
@@ -2695,7 +2695,7 @@ namespace sajari\engine\query\Filter {
     public function setOperator( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <field> has a value
      *
@@ -2704,7 +2704,7 @@ namespace sajari\engine\query\Filter {
     public function hasField(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -2713,7 +2713,7 @@ namespace sajari\engine\query\Filter {
     public function clearField(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -2722,7 +2722,7 @@ namespace sajari\engine\query\Filter {
     public function getField(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -2732,7 +2732,7 @@ namespace sajari\engine\query\Filter {
     public function setField( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -2741,7 +2741,7 @@ namespace sajari\engine\query\Filter {
     public function hasValue(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -2750,7 +2750,7 @@ namespace sajari\engine\query\Filter {
     public function clearValue(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -2759,7 +2759,7 @@ namespace sajari\engine\query\Filter {
     public function getValue(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -2787,10 +2787,10 @@ namespace sajari\engine\query\Filter {
 
     /**  @var int - \sajari\engine\query\Filter\Combinator\Operator */
     public $operator = null;
-    
+
     /**  @var \sajari\engine\query\Filter[]  */
     public $filters = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2832,7 +2832,7 @@ namespace sajari\engine\query\Filter {
     public function hasOperator(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <operator> value
      *
@@ -2841,7 +2841,7 @@ namespace sajari\engine\query\Filter {
     public function clearOperator(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <operator> value
      *
@@ -2850,7 +2850,7 @@ namespace sajari\engine\query\Filter {
     public function getOperator(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <operator> value
      *
@@ -2860,7 +2860,7 @@ namespace sajari\engine\query\Filter {
     public function setOperator( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <filters> has a value
      *
@@ -2869,7 +2869,7 @@ namespace sajari\engine\query\Filter {
     public function hasFilters(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <filters> value
      *
@@ -2878,7 +2878,7 @@ namespace sajari\engine\query\Filter {
     public function clearFilters(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <filters> value
      *
@@ -2888,7 +2888,7 @@ namespace sajari\engine\query\Filter {
     public function getFilters($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <filters> value
      *
@@ -2898,7 +2898,7 @@ namespace sajari\engine\query\Filter {
     public function setFilters(\sajari\engine\query\Filter $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <filters>
      *
@@ -2907,7 +2907,7 @@ namespace sajari\engine\query\Filter {
     public function getFiltersList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <filters>
      *
@@ -2926,10 +2926,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\Filter\Combinator */
     public $combinator = null;
-    
+
     /**  @var \sajari\engine\query\Filter\Field */
     public $field = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -2971,7 +2971,7 @@ namespace sajari\engine\query {
     public function hasCombinator(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <combinator> value
      *
@@ -2980,7 +2980,7 @@ namespace sajari\engine\query {
     public function clearCombinator(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <combinator> value
      *
@@ -2989,7 +2989,7 @@ namespace sajari\engine\query {
     public function getCombinator(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <combinator> value
      *
@@ -2999,7 +2999,7 @@ namespace sajari\engine\query {
     public function setCombinator(\sajari\engine\query\Filter\Combinator $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <field> has a value
      *
@@ -3008,7 +3008,7 @@ namespace sajari\engine\query {
     public function hasField(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -3017,7 +3017,7 @@ namespace sajari\engine\query {
     public function clearField(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -3026,7 +3026,7 @@ namespace sajari\engine\query {
     public function getField(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -3045,10 +3045,10 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var \sajari\engine\query\Filter */
     public $filter = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3089,7 +3089,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasFilter(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <filter> value
      *
@@ -3098,7 +3098,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearFilter(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <filter> value
      *
@@ -3107,7 +3107,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getFilter(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <filter> value
      *
@@ -3117,7 +3117,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setFilter(\sajari\engine\query\Filter $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -3126,7 +3126,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -3135,7 +3135,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -3144,7 +3144,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -3163,10 +3163,10 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var \sajari\engine\query\FieldBoost */
     public $field_boost = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3207,7 +3207,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasFieldBoost(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field_boost> value
      *
@@ -3216,7 +3216,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearFieldBoost(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field_boost> value
      *
@@ -3225,7 +3225,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getFieldBoost(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field_boost> value
      *
@@ -3235,7 +3235,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setFieldBoost(\sajari\engine\query\FieldBoost $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -3244,7 +3244,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -3253,7 +3253,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -3262,7 +3262,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -3288,25 +3288,25 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var string */
     public $field_lat = null;
-    
+
     /**  @var string */
     public $field_lng = null;
-    
+
     /**  @var float */
     public $lat = null;
-    
+
     /**  @var float */
     public $lng = null;
-    
+
     /**  @var float */
     public $radius = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
     /**  @var int - \sajari\engine\query\FieldBoost\Geo\Region */
     public $region = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3387,7 +3387,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasFieldLat(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field_lat> value
      *
@@ -3396,7 +3396,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearFieldLat(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field_lat> value
      *
@@ -3405,7 +3405,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getFieldLat(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field_lat> value
      *
@@ -3415,7 +3415,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setFieldLat( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <field_lng> has a value
      *
@@ -3424,7 +3424,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasFieldLng(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <field_lng> value
      *
@@ -3433,7 +3433,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearFieldLng(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <field_lng> value
      *
@@ -3442,7 +3442,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getFieldLng(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <field_lng> value
      *
@@ -3452,7 +3452,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setFieldLng( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <lat> has a value
      *
@@ -3461,7 +3461,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasLat(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <lat> value
      *
@@ -3470,7 +3470,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearLat(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <lat> value
      *
@@ -3479,7 +3479,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getLat(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <lat> value
      *
@@ -3489,7 +3489,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setLat( $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <lng> has a value
      *
@@ -3498,7 +3498,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasLng(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <lng> value
      *
@@ -3507,7 +3507,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearLng(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <lng> value
      *
@@ -3516,7 +3516,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getLng(){
       return $this->_get(4);
     }
-    
+
     /**
      * Set <lng> value
      *
@@ -3526,7 +3526,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setLng( $value){
       return $this->_set(4, $value);
     }
-    
+
     /**
      * Check if <radius> has a value
      *
@@ -3535,7 +3535,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasRadius(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <radius> value
      *
@@ -3544,7 +3544,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearRadius(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <radius> value
      *
@@ -3553,7 +3553,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getRadius(){
       return $this->_get(5);
     }
-    
+
     /**
      * Set <radius> value
      *
@@ -3563,7 +3563,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setRadius( $value){
       return $this->_set(5, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -3572,7 +3572,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasValue(){
       return $this->_has(6);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -3581,7 +3581,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearValue(){
       return $this->_clear(6);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -3590,7 +3590,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getValue(){
       return $this->_get(6);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -3600,7 +3600,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setValue( $value){
       return $this->_set(6, $value);
     }
-    
+
     /**
      * Check if <region> has a value
      *
@@ -3609,7 +3609,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasRegion(){
       return $this->_has(7);
     }
-    
+
     /**
      * Clear <region> value
      *
@@ -3618,7 +3618,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearRegion(){
       return $this->_clear(7);
     }
-    
+
     /**
      * Get <region> value
      *
@@ -3627,7 +3627,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getRegion(){
       return $this->_get(7);
     }
-    
+
     /**
      * Set <region> value
      *
@@ -3646,10 +3646,10 @@ namespace sajari\engine\query\FieldBoost\Interval {
 
     /**  @var float */
     public $point = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3689,7 +3689,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function hasPoint(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <point> value
      *
@@ -3698,7 +3698,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function clearPoint(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <point> value
      *
@@ -3707,7 +3707,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function getPoint(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <point> value
      *
@@ -3717,7 +3717,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function setPoint( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -3726,7 +3726,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -3735,7 +3735,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -3744,7 +3744,7 @@ namespace sajari\engine\query\FieldBoost\Interval {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -3763,10 +3763,10 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Interval\Point[]  */
     public $points = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3807,7 +3807,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -3816,7 +3816,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -3825,7 +3825,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -3835,7 +3835,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <points> has a value
      *
@@ -3844,7 +3844,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasPoints(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <points> value
      *
@@ -3853,7 +3853,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearPoints(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <points> value
      *
@@ -3863,7 +3863,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getPoints($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <points> value
      *
@@ -3873,7 +3873,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setPoints(\sajari\engine\query\FieldBoost\Interval\Point $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <points>
      *
@@ -3882,7 +3882,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getPointsList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <points>
      *
@@ -3901,19 +3901,19 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var float */
     public $min = null;
-    
+
     /**  @var float */
     public $max = null;
-    
+
     /**  @var float */
     public $ref = null;
-    
+
     /**  @var string */
     public $field = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -3977,7 +3977,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasMin(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <min> value
      *
@@ -3986,7 +3986,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearMin(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <min> value
      *
@@ -3995,7 +3995,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getMin(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <min> value
      *
@@ -4005,7 +4005,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setMin( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <max> has a value
      *
@@ -4014,7 +4014,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasMax(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <max> value
      *
@@ -4023,7 +4023,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearMax(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <max> value
      *
@@ -4032,7 +4032,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getMax(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <max> value
      *
@@ -4042,7 +4042,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setMax( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <ref> has a value
      *
@@ -4051,7 +4051,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasRef(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <ref> value
      *
@@ -4060,7 +4060,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearRef(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <ref> value
      *
@@ -4069,7 +4069,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getRef(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <ref> value
      *
@@ -4079,7 +4079,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setRef( $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <field> has a value
      *
@@ -4088,7 +4088,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasField(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -4097,7 +4097,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearField(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -4106,7 +4106,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getField(){
       return $this->_get(4);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -4116,7 +4116,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setField( $value){
       return $this->_set(4, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -4125,7 +4125,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasValue(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -4134,7 +4134,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearValue(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -4143,7 +4143,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getValue(){
       return $this->_get(5);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -4162,10 +4162,10 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var string[]  */
     public $elts = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -4205,7 +4205,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -4214,7 +4214,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -4223,7 +4223,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -4233,7 +4233,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <elts> has a value
      *
@@ -4242,7 +4242,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasElts(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <elts> value
      *
@@ -4251,7 +4251,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearElts(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <elts> value
      *
@@ -4261,7 +4261,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getElts($idx = NULL){
       return $this->_get(3, $idx);
     }
-    
+
     /**
      * Set <elts> value
      *
@@ -4271,7 +4271,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setElts( $value, $idx = NULL){
       return $this->_set(3, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <elts>
      *
@@ -4280,7 +4280,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getEltsList(){
      return $this->_get(3);
     }
-    
+
     /**
      * Add a new element to <elts>
      *
@@ -4299,10 +4299,10 @@ namespace sajari\engine\query\FieldBoost {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var string */
     public $text = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -4342,7 +4342,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -4351,7 +4351,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -4360,7 +4360,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -4370,7 +4370,7 @@ namespace sajari\engine\query\FieldBoost {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <text> has a value
      *
@@ -4379,7 +4379,7 @@ namespace sajari\engine\query\FieldBoost {
     public function hasText(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <text> value
      *
@@ -4388,7 +4388,7 @@ namespace sajari\engine\query\FieldBoost {
     public function clearText(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <text> value
      *
@@ -4397,7 +4397,7 @@ namespace sajari\engine\query\FieldBoost {
     public function getText(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <text> value
      *
@@ -4416,25 +4416,25 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\FieldBoost\Add */
     public $add = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Filter */
     public $filter = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Geo */
     public $geo = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Interval */
     public $interval = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Distance */
     public $distance = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Element */
     public $element = null;
-    
+
     /**  @var \sajari\engine\query\FieldBoost\Text */
     public $text = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -4521,7 +4521,7 @@ namespace sajari\engine\query {
     public function hasAdd(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <add> value
      *
@@ -4530,7 +4530,7 @@ namespace sajari\engine\query {
     public function clearAdd(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <add> value
      *
@@ -4539,7 +4539,7 @@ namespace sajari\engine\query {
     public function getAdd(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <add> value
      *
@@ -4549,7 +4549,7 @@ namespace sajari\engine\query {
     public function setAdd(\sajari\engine\query\FieldBoost\Add $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <filter> has a value
      *
@@ -4558,7 +4558,7 @@ namespace sajari\engine\query {
     public function hasFilter(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <filter> value
      *
@@ -4567,7 +4567,7 @@ namespace sajari\engine\query {
     public function clearFilter(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <filter> value
      *
@@ -4576,7 +4576,7 @@ namespace sajari\engine\query {
     public function getFilter(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <filter> value
      *
@@ -4586,7 +4586,7 @@ namespace sajari\engine\query {
     public function setFilter(\sajari\engine\query\FieldBoost\Filter $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <geo> has a value
      *
@@ -4595,7 +4595,7 @@ namespace sajari\engine\query {
     public function hasGeo(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <geo> value
      *
@@ -4604,7 +4604,7 @@ namespace sajari\engine\query {
     public function clearGeo(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <geo> value
      *
@@ -4613,7 +4613,7 @@ namespace sajari\engine\query {
     public function getGeo(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <geo> value
      *
@@ -4623,7 +4623,7 @@ namespace sajari\engine\query {
     public function setGeo(\sajari\engine\query\FieldBoost\Geo $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <interval> has a value
      *
@@ -4632,7 +4632,7 @@ namespace sajari\engine\query {
     public function hasInterval(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <interval> value
      *
@@ -4641,7 +4641,7 @@ namespace sajari\engine\query {
     public function clearInterval(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <interval> value
      *
@@ -4650,7 +4650,7 @@ namespace sajari\engine\query {
     public function getInterval(){
       return $this->_get(4);
     }
-    
+
     /**
      * Set <interval> value
      *
@@ -4660,7 +4660,7 @@ namespace sajari\engine\query {
     public function setInterval(\sajari\engine\query\FieldBoost\Interval $value){
       return $this->_set(4, $value);
     }
-    
+
     /**
      * Check if <distance> has a value
      *
@@ -4669,7 +4669,7 @@ namespace sajari\engine\query {
     public function hasDistance(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <distance> value
      *
@@ -4678,7 +4678,7 @@ namespace sajari\engine\query {
     public function clearDistance(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <distance> value
      *
@@ -4687,7 +4687,7 @@ namespace sajari\engine\query {
     public function getDistance(){
       return $this->_get(5);
     }
-    
+
     /**
      * Set <distance> value
      *
@@ -4697,7 +4697,7 @@ namespace sajari\engine\query {
     public function setDistance(\sajari\engine\query\FieldBoost\Distance $value){
       return $this->_set(5, $value);
     }
-    
+
     /**
      * Check if <element> has a value
      *
@@ -4706,7 +4706,7 @@ namespace sajari\engine\query {
     public function hasElement(){
       return $this->_has(6);
     }
-    
+
     /**
      * Clear <element> value
      *
@@ -4715,7 +4715,7 @@ namespace sajari\engine\query {
     public function clearElement(){
       return $this->_clear(6);
     }
-    
+
     /**
      * Get <element> value
      *
@@ -4724,7 +4724,7 @@ namespace sajari\engine\query {
     public function getElement(){
       return $this->_get(6);
     }
-    
+
     /**
      * Set <element> value
      *
@@ -4734,7 +4734,7 @@ namespace sajari\engine\query {
     public function setElement(\sajari\engine\query\FieldBoost\Element $value){
       return $this->_set(6, $value);
     }
-    
+
     /**
      * Check if <text> has a value
      *
@@ -4743,7 +4743,7 @@ namespace sajari\engine\query {
     public function hasText(){
       return $this->_has(7);
     }
-    
+
     /**
      * Clear <text> value
      *
@@ -4752,7 +4752,7 @@ namespace sajari\engine\query {
     public function clearText(){
       return $this->_clear(7);
     }
-    
+
     /**
      * Get <text> value
      *
@@ -4761,7 +4761,7 @@ namespace sajari\engine\query {
     public function getText(){
       return $this->_get(7);
     }
-    
+
     /**
      * Set <text> value
      *
@@ -4780,10 +4780,10 @@ namespace sajari\engine\query\InstanceBoost {
 
     /**  @var string */
     public $field = null;
-    
+
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -4823,7 +4823,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -4832,7 +4832,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -4841,7 +4841,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -4851,7 +4851,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function setField( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -4860,7 +4860,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -4869,7 +4869,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -4878,7 +4878,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -4897,7 +4897,7 @@ namespace sajari\engine\query\InstanceBoost {
 
     /**  @var float */
     public $threshold = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -4929,7 +4929,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function hasThreshold(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <threshold> value
      *
@@ -4938,7 +4938,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function clearThreshold(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <threshold> value
      *
@@ -4947,7 +4947,7 @@ namespace sajari\engine\query\InstanceBoost {
     public function getThreshold(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <threshold> value
      *
@@ -4966,10 +4966,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\InstanceBoost\Field */
     public $field = null;
-    
+
     /**  @var \sajari\engine\query\InstanceBoost\Score */
     public $score = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5011,7 +5011,7 @@ namespace sajari\engine\query {
     public function hasField(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <field> value
      *
@@ -5020,7 +5020,7 @@ namespace sajari\engine\query {
     public function clearField(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <field> value
      *
@@ -5029,7 +5029,7 @@ namespace sajari\engine\query {
     public function getField(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <field> value
      *
@@ -5039,7 +5039,7 @@ namespace sajari\engine\query {
     public function setField(\sajari\engine\query\InstanceBoost\Field $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <score> has a value
      *
@@ -5048,7 +5048,7 @@ namespace sajari\engine\query {
     public function hasScore(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <score> value
      *
@@ -5057,7 +5057,7 @@ namespace sajari\engine\query {
     public function clearScore(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <score> value
      *
@@ -5066,7 +5066,7 @@ namespace sajari\engine\query {
     public function getScore(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <score> value
      *
@@ -5085,7 +5085,7 @@ namespace sajari\engine\query\AggregateResponse {
 
     /**  @var float */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5117,7 +5117,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function hasValue(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -5126,7 +5126,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function clearValue(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -5135,7 +5135,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function getValue(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -5154,10 +5154,10 @@ namespace sajari\engine\query\AggregateResponse\Count {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var int */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5197,7 +5197,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -5206,7 +5206,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -5215,7 +5215,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -5225,7 +5225,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -5234,7 +5234,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -5243,7 +5243,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -5252,7 +5252,7 @@ namespace sajari\engine\query\AggregateResponse\Count {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -5271,7 +5271,7 @@ namespace sajari\engine\query\AggregateResponse {
 
     /**  @var \sajari\engine\query\AggregateResponse\Count\CountsEntry[]  */
     public $counts = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5304,7 +5304,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function hasCounts(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <counts> value
      *
@@ -5313,7 +5313,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function clearCounts(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <counts> value
      *
@@ -5323,7 +5323,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function getCounts($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <counts> value
      *
@@ -5333,7 +5333,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function setCounts(\sajari\engine\query\AggregateResponse\Count\CountsEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <counts>
      *
@@ -5342,7 +5342,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function getCountsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <counts>
      *
@@ -5361,10 +5361,10 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
 
     /**  @var string */
     public $name = null;
-    
+
     /**  @var int */
     public $count = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5404,7 +5404,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function hasName(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <name> value
      *
@@ -5413,7 +5413,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function clearName(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <name> value
      *
@@ -5422,7 +5422,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function getName(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <name> value
      *
@@ -5432,7 +5432,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function setName( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <count> has a value
      *
@@ -5441,7 +5441,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function hasCount(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <count> value
      *
@@ -5450,7 +5450,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function clearCount(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <count> value
      *
@@ -5459,7 +5459,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function getCount(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <count> value
      *
@@ -5478,10 +5478,10 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\query\AggregateResponse\Buckets\Bucket */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5522,7 +5522,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -5531,7 +5531,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -5540,7 +5540,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -5550,7 +5550,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -5559,7 +5559,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -5568,7 +5568,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -5577,7 +5577,7 @@ namespace sajari\engine\query\AggregateResponse\Buckets {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -5596,7 +5596,7 @@ namespace sajari\engine\query\AggregateResponse {
 
     /**  @var \sajari\engine\query\AggregateResponse\Buckets\BucketsEntry[]  */
     public $buckets = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5629,7 +5629,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function hasBuckets(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <buckets> value
      *
@@ -5638,7 +5638,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function clearBuckets(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <buckets> value
      *
@@ -5648,7 +5648,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function getBuckets($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <buckets> value
      *
@@ -5658,7 +5658,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function setBuckets(\sajari\engine\query\AggregateResponse\Buckets\BucketsEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <buckets>
      *
@@ -5667,7 +5667,7 @@ namespace sajari\engine\query\AggregateResponse {
     public function getBucketsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <buckets>
      *
@@ -5686,13 +5686,13 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\AggregateResponse\Metric */
     public $metric = null;
-    
+
     /**  @var \sajari\engine\query\AggregateResponse\Count */
     public $count = null;
-    
+
     /**  @var \sajari\engine\query\AggregateResponse\Buckets */
     public $buckets = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5743,7 +5743,7 @@ namespace sajari\engine\query {
     public function hasMetric(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <metric> value
      *
@@ -5752,7 +5752,7 @@ namespace sajari\engine\query {
     public function clearMetric(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <metric> value
      *
@@ -5761,7 +5761,7 @@ namespace sajari\engine\query {
     public function getMetric(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <metric> value
      *
@@ -5771,7 +5771,7 @@ namespace sajari\engine\query {
     public function setMetric(\sajari\engine\query\AggregateResponse\Metric $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <count> has a value
      *
@@ -5780,7 +5780,7 @@ namespace sajari\engine\query {
     public function hasCount(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <count> value
      *
@@ -5789,7 +5789,7 @@ namespace sajari\engine\query {
     public function clearCount(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <count> value
      *
@@ -5798,7 +5798,7 @@ namespace sajari\engine\query {
     public function getCount(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <count> value
      *
@@ -5808,7 +5808,7 @@ namespace sajari\engine\query {
     public function setCount(\sajari\engine\query\AggregateResponse\Count $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <buckets> has a value
      *
@@ -5817,7 +5817,7 @@ namespace sajari\engine\query {
     public function hasBuckets(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <buckets> value
      *
@@ -5826,7 +5826,7 @@ namespace sajari\engine\query {
     public function clearBuckets(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <buckets> value
      *
@@ -5835,7 +5835,7 @@ namespace sajari\engine\query {
     public function getBuckets(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <buckets> value
      *
@@ -5854,10 +5854,10 @@ namespace sajari\engine\query\SearchResponse {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\query\AggregateResponse */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -5898,7 +5898,7 @@ namespace sajari\engine\query\SearchResponse {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -5907,7 +5907,7 @@ namespace sajari\engine\query\SearchResponse {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -5916,7 +5916,7 @@ namespace sajari\engine\query\SearchResponse {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -5926,7 +5926,7 @@ namespace sajari\engine\query\SearchResponse {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -5935,7 +5935,7 @@ namespace sajari\engine\query\SearchResponse {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -5944,7 +5944,7 @@ namespace sajari\engine\query\SearchResponse {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -5953,7 +5953,7 @@ namespace sajari\engine\query\SearchResponse {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -5972,19 +5972,19 @@ namespace sajari\engine\query {
 
     /**  @var int */
     public $reads = null;
-    
+
     /**  @var int */
     public $total_results = null;
-    
+
     /**  @var string */
     public $time = null;
-    
+
     /**  @var \sajari\engine\query\SearchResponse\AggregatesEntry[]  */
     public $aggregates = array();
-    
+
     /**  @var \sajari\engine\query\Result[]  */
     public $results = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6050,7 +6050,7 @@ namespace sajari\engine\query {
     public function hasReads(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <reads> value
      *
@@ -6059,7 +6059,7 @@ namespace sajari\engine\query {
     public function clearReads(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <reads> value
      *
@@ -6068,7 +6068,7 @@ namespace sajari\engine\query {
     public function getReads(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <reads> value
      *
@@ -6078,7 +6078,7 @@ namespace sajari\engine\query {
     public function setReads( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <total_results> has a value
      *
@@ -6087,7 +6087,7 @@ namespace sajari\engine\query {
     public function hasTotalResults(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <total_results> value
      *
@@ -6096,7 +6096,7 @@ namespace sajari\engine\query {
     public function clearTotalResults(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <total_results> value
      *
@@ -6105,7 +6105,7 @@ namespace sajari\engine\query {
     public function getTotalResults(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <total_results> value
      *
@@ -6115,7 +6115,7 @@ namespace sajari\engine\query {
     public function setTotalResults( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <time> has a value
      *
@@ -6124,7 +6124,7 @@ namespace sajari\engine\query {
     public function hasTime(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <time> value
      *
@@ -6133,7 +6133,7 @@ namespace sajari\engine\query {
     public function clearTime(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <time> value
      *
@@ -6142,7 +6142,7 @@ namespace sajari\engine\query {
     public function getTime(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <time> value
      *
@@ -6152,7 +6152,7 @@ namespace sajari\engine\query {
     public function setTime( $value){
       return $this->_set(3, $value);
     }
-    
+
     /**
      * Check if <aggregates> has a value
      *
@@ -6161,7 +6161,7 @@ namespace sajari\engine\query {
     public function hasAggregates(){
       return $this->_has(4);
     }
-    
+
     /**
      * Clear <aggregates> value
      *
@@ -6170,7 +6170,7 @@ namespace sajari\engine\query {
     public function clearAggregates(){
       return $this->_clear(4);
     }
-    
+
     /**
      * Get <aggregates> value
      *
@@ -6180,7 +6180,7 @@ namespace sajari\engine\query {
     public function getAggregates($idx = NULL){
       return $this->_get(4, $idx);
     }
-    
+
     /**
      * Set <aggregates> value
      *
@@ -6190,7 +6190,7 @@ namespace sajari\engine\query {
     public function setAggregates(\sajari\engine\query\SearchResponse\AggregatesEntry $value, $idx = NULL){
       return $this->_set(4, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <aggregates>
      *
@@ -6199,7 +6199,7 @@ namespace sajari\engine\query {
     public function getAggregatesList(){
      return $this->_get(4);
     }
-    
+
     /**
      * Add a new element to <aggregates>
      *
@@ -6209,7 +6209,7 @@ namespace sajari\engine\query {
     public function addAggregates(\sajari\engine\query\SearchResponse\AggregatesEntry $value){
      return $this->_add(4, $value);
     }
-    
+
     /**
      * Check if <results> has a value
      *
@@ -6218,7 +6218,7 @@ namespace sajari\engine\query {
     public function hasResults(){
       return $this->_has(5);
     }
-    
+
     /**
      * Clear <results> value
      *
@@ -6227,7 +6227,7 @@ namespace sajari\engine\query {
     public function clearResults(){
       return $this->_clear(5);
     }
-    
+
     /**
      * Get <results> value
      *
@@ -6237,7 +6237,7 @@ namespace sajari\engine\query {
     public function getResults($idx = NULL){
       return $this->_get(5, $idx);
     }
-    
+
     /**
      * Set <results> value
      *
@@ -6247,7 +6247,7 @@ namespace sajari\engine\query {
     public function setResults(\sajari\engine\query\Result $value, $idx = NULL){
       return $this->_set(5, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <results>
      *
@@ -6256,7 +6256,7 @@ namespace sajari\engine\query {
     public function getResultsList(){
      return $this->_get(5);
     }
-    
+
     /**
      * Add a new element to <results>
      *
@@ -6275,10 +6275,10 @@ namespace sajari\engine\query\Result {
 
     /**  @var string */
     public $key = null;
-    
+
     /**  @var \sajari\engine\Value */
     public $value = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6319,7 +6319,7 @@ namespace sajari\engine\query\Result {
     public function hasKey(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <key> value
      *
@@ -6328,7 +6328,7 @@ namespace sajari\engine\query\Result {
     public function clearKey(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <key> value
      *
@@ -6337,7 +6337,7 @@ namespace sajari\engine\query\Result {
     public function getKey(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <key> value
      *
@@ -6347,7 +6347,7 @@ namespace sajari\engine\query\Result {
     public function setKey( $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <value> has a value
      *
@@ -6356,7 +6356,7 @@ namespace sajari\engine\query\Result {
     public function hasValue(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <value> value
      *
@@ -6365,7 +6365,7 @@ namespace sajari\engine\query\Result {
     public function clearValue(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <value> value
      *
@@ -6374,7 +6374,7 @@ namespace sajari\engine\query\Result {
     public function getValue(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <value> value
      *
@@ -6393,13 +6393,13 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\Result\ValuesEntry[]  */
     public $values = array();
-    
+
     /**  @var float */
     public $score = null;
-    
+
     /**  @var float */
     public $raw_score = null;
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6448,7 +6448,7 @@ namespace sajari\engine\query {
     public function hasValues(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <values> value
      *
@@ -6457,7 +6457,7 @@ namespace sajari\engine\query {
     public function clearValues(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <values> value
      *
@@ -6467,7 +6467,7 @@ namespace sajari\engine\query {
     public function getValues($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <values> value
      *
@@ -6477,7 +6477,7 @@ namespace sajari\engine\query {
     public function setValues(\sajari\engine\query\Result\ValuesEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <values>
      *
@@ -6486,7 +6486,7 @@ namespace sajari\engine\query {
     public function getValuesList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <values>
      *
@@ -6496,7 +6496,7 @@ namespace sajari\engine\query {
     public function addValues(\sajari\engine\query\Result\ValuesEntry $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <score> has a value
      *
@@ -6505,7 +6505,7 @@ namespace sajari\engine\query {
     public function hasScore(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <score> value
      *
@@ -6514,7 +6514,7 @@ namespace sajari\engine\query {
     public function clearScore(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <score> value
      *
@@ -6523,7 +6523,7 @@ namespace sajari\engine\query {
     public function getScore(){
       return $this->_get(2);
     }
-    
+
     /**
      * Set <score> value
      *
@@ -6533,7 +6533,7 @@ namespace sajari\engine\query {
     public function setScore( $value){
       return $this->_set(2, $value);
     }
-    
+
     /**
      * Check if <raw_score> has a value
      *
@@ -6542,7 +6542,7 @@ namespace sajari\engine\query {
     public function hasRawScore(){
       return $this->_has(3);
     }
-    
+
     /**
      * Clear <raw_score> value
      *
@@ -6551,7 +6551,7 @@ namespace sajari\engine\query {
     public function clearRawScore(){
       return $this->_clear(3);
     }
-    
+
     /**
      * Get <raw_score> value
      *
@@ -6560,7 +6560,7 @@ namespace sajari\engine\query {
     public function getRawScore(){
       return $this->_get(3);
     }
-    
+
     /**
      * Set <raw_score> value
      *
@@ -6579,10 +6579,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\SearchRequest */
     public $search_request = null;
-    
+
     /**  @var \sajari\engine\Key[]  */
     public $keys = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6624,7 +6624,7 @@ namespace sajari\engine\query {
     public function hasSearchRequest(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <search_request> value
      *
@@ -6633,7 +6633,7 @@ namespace sajari\engine\query {
     public function clearSearchRequest(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <search_request> value
      *
@@ -6642,7 +6642,7 @@ namespace sajari\engine\query {
     public function getSearchRequest(){
       return $this->_get(1);
     }
-    
+
     /**
      * Set <search_request> value
      *
@@ -6652,7 +6652,7 @@ namespace sajari\engine\query {
     public function setSearchRequest(\sajari\engine\query\SearchRequest $value){
       return $this->_set(1, $value);
     }
-    
+
     /**
      * Check if <keys> has a value
      *
@@ -6661,7 +6661,7 @@ namespace sajari\engine\query {
     public function hasKeys(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <keys> value
      *
@@ -6670,7 +6670,7 @@ namespace sajari\engine\query {
     public function clearKeys(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <keys> value
      *
@@ -6680,7 +6680,7 @@ namespace sajari\engine\query {
     public function getKeys($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <keys> value
      *
@@ -6690,7 +6690,7 @@ namespace sajari\engine\query {
     public function setKeys(\sajari\engine\Key $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <keys>
      *
@@ -6699,7 +6699,7 @@ namespace sajari\engine\query {
     public function getKeysList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <keys>
      *
@@ -6718,7 +6718,7 @@ namespace sajari\engine\query\AnalyseResponse {
 
     /**  @var string[]  */
     public $terms = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6750,7 +6750,7 @@ namespace sajari\engine\query\AnalyseResponse {
     public function hasTerms(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <terms> value
      *
@@ -6759,7 +6759,7 @@ namespace sajari\engine\query\AnalyseResponse {
     public function clearTerms(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <terms> value
      *
@@ -6769,7 +6769,7 @@ namespace sajari\engine\query\AnalyseResponse {
     public function getTerms($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <terms> value
      *
@@ -6779,7 +6779,7 @@ namespace sajari\engine\query\AnalyseResponse {
     public function setTerms( $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <terms>
      *
@@ -6788,7 +6788,7 @@ namespace sajari\engine\query\AnalyseResponse {
     public function getTermsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <terms>
      *
@@ -6807,10 +6807,10 @@ namespace sajari\engine\query {
 
     /**  @var \sajari\engine\query\AnalyseResponse\Terms[]  */
     public $terms = array();
-    
+
     /**  @var \sajari\engine\Status[]  */
     public $status = array();
-    
+
 
     /** @var \Closure[] */
     protected static $__extensions = array();
@@ -6852,7 +6852,7 @@ namespace sajari\engine\query {
     public function hasTerms(){
       return $this->_has(1);
     }
-    
+
     /**
      * Clear <terms> value
      *
@@ -6861,7 +6861,7 @@ namespace sajari\engine\query {
     public function clearTerms(){
       return $this->_clear(1);
     }
-    
+
     /**
      * Get <terms> value
      *
@@ -6871,7 +6871,7 @@ namespace sajari\engine\query {
     public function getTerms($idx = NULL){
       return $this->_get(1, $idx);
     }
-    
+
     /**
      * Set <terms> value
      *
@@ -6881,7 +6881,7 @@ namespace sajari\engine\query {
     public function setTerms(\sajari\engine\query\AnalyseResponse\Terms $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <terms>
      *
@@ -6890,7 +6890,7 @@ namespace sajari\engine\query {
     public function getTermsList(){
      return $this->_get(1);
     }
-    
+
     /**
      * Add a new element to <terms>
      *
@@ -6900,7 +6900,7 @@ namespace sajari\engine\query {
     public function addTerms(\sajari\engine\query\AnalyseResponse\Terms $value){
      return $this->_add(1, $value);
     }
-    
+
     /**
      * Check if <status> has a value
      *
@@ -6909,7 +6909,7 @@ namespace sajari\engine\query {
     public function hasStatus(){
       return $this->_has(2);
     }
-    
+
     /**
      * Clear <status> value
      *
@@ -6918,7 +6918,7 @@ namespace sajari\engine\query {
     public function clearStatus(){
       return $this->_clear(2);
     }
-    
+
     /**
      * Get <status> value
      *
@@ -6928,7 +6928,7 @@ namespace sajari\engine\query {
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
     }
-    
+
     /**
      * Set <status> value
      *
@@ -6938,7 +6938,7 @@ namespace sajari\engine\query {
     public function setStatus(\sajari\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
-    
+
     /**
      * Get all elements of <status>
      *
@@ -6947,7 +6947,7 @@ namespace sajari\engine\query {
     public function getStatusList(){
      return $this->_get(2);
     }
-    
+
     /**
      * Add a new element to <status>
      *
