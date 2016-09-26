@@ -109,7 +109,7 @@ class Client
      * @return Document
      * @throws Exception
      */
-    public function Get(Key $key)
+    public function Get(DocumentKey $key)
     {
         return $this->GetMulti(array($key))[0];
     }
