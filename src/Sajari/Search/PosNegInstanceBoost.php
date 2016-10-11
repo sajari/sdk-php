@@ -5,16 +5,16 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\IndexBoost\PosNeg as ProtoPosNeg;
-use sajari\engine\query\IndexBoost as ProtoIndexBoost;
+use sajari\engine\query\InstanceBoost\PosNeg as ProtoPosNeg;
+use sajari\engine\query\InstanceBoost as ProtoInstanceBoost;
 
-class PosNegIndexBoost extends IndexBoost
+class PosNegInstanceBoost extends InstanceBoost
 {
     /** @var float $value */
     private $value;
 
     /**
-     * PosNegIndexBoost constructor.
+     * PosNegInstanceBoost constructor.
      * @param float $value
      */
     public function __construct($value)
@@ -35,7 +35,7 @@ class PosNegIndexBoost extends IndexBoost
         $pn = new ProtoPosNeg();
         $pn->setValue($this->value);
 
-        $ib = new ProtoIndexBoost();
+        $ib = new ProtoInstanceBoost();
         $ib->setPosNeg($pn);
 
         return $ib;

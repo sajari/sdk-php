@@ -2,8 +2,8 @@
 
 namespace Sajari\Search;
 
-abstract class MetaBoost
+abstract class FieldBoost
 {
-    /** @return MetaBoost */
+    /** @return FieldBoost */
     abstract public function Proto();
 }

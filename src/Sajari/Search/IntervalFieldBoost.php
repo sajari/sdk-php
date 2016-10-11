@@ -5,21 +5,21 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\MetaBoost\Interval as ProtoInterval;
-use sajari\engine\query\MetaBoost as ProtoMetaBoost;
-use sajari\engine\query\MetaBoost\Interval\Point as ProtoPoint;
+use sajari\engine\query\FieldBoost\Interval as ProtoInterval;
+use sajari\engine\query\FieldBoost as ProtoFieldBoost;
+use sajari\engine\query\FieldBoost\Interval\Point as ProtoPoint;
 
-class IntervalMetaBoost extends MetaBoost
+class IntervalFieldBoost extends FieldBoost
 {
     /** @var string $field */
     private $field;
-    /** @var IntervalMetaBoostPoint[] $point */
+    /** @var IntervalFieldBoostPoint[] $point */
     private $points;
 
     /**
-     * IntervalMetaBoost constructor.
+     * IntervalFieldBoost constructor.
      * @param string $field
-     * @param IntervalMetaBoostPoint[] $points
+     * @param IntervalFieldBoostPoint[] $points
      */
     public function __construct($field, array $points)
     {
@@ -36,7 +36,7 @@ class IntervalMetaBoost extends MetaBoost
     }
 
     /**
-     * @return IntervalMetaBoostPoint[]
+     * @return IntervalFieldBoostPoint[]
      */
     public function getPoints()
     {
@@ -44,14 +44,14 @@ class IntervalMetaBoost extends MetaBoost
     }
 
     /**
-     * IntervalMetaBoostPoint constructor.
+     * IntervalFieldBoostPoint constructor.
      * @param float $point
      * @param float $value
-     * @return IntervalMetaBoostPoint
+     * @return IntervalFieldBoostPoint
      */
     public static function Point($point, $value)
     {
-      return new IntervalMetaBoostPoint($point, $value);
+      return new IntervalFieldBoostPoint($point, $value);
     }
 
     public function Proto()
@@ -62,13 +62,13 @@ class IntervalMetaBoost extends MetaBoost
             $imb->addPoints($point->Proto());
         }
 
-        $mb = new ProtoMetaBoost();
+        $mb = new ProtoFieldBoost();
         $mb->setInterval($imb);
         return $mb;
     }
 }
 
-class IntervalMetaBoostPoint
+class IntervalFieldBoostPoint
 {
     /** @var float $point */
     private $point;
@@ -76,7 +76,7 @@ class IntervalMetaBoostPoint
     private $value;
 
     /**
-     * IntervalMetaBoostPoint constructor.
+     * IntervalFieldBoostPoint constructor.
      * @param float $point
      * @param float $value
      */

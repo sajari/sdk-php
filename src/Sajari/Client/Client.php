@@ -3,10 +3,13 @@
 namespace Sajari\Client;
 
 require_once __DIR__.'/../proto/doc.php';
+require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/key.php';
+require_once __DIR__.'/../proto/status.php';
 
 use Sajari\Document\Document;
-use Sajari\Document\Key;
+use Sajari\Document\Key as DocumentKey;
 use Sajari\Document\KeyMeta;
 use Sajari\Search\Request;
 use Sajari\Document\Meta;
@@ -15,12 +18,14 @@ use Sajari\Search\Response;
 
 use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
-use sajari\engine\store\doc\DocumentClient;
+use sajari\engine\store\doc\StoreClient;
 use Sajari\engine\store\doc\Keys;
-use Sajari\engine\store\doc\Keys\Key as ProtoKey;
-use sajari\engine\store\doc\KeysMetas;
-use sajari\engine\store\doc\KeysMetas\KeyMeta as ProtoKeyMeta;
 use sajari\engine\query\QueryClient;
+// use sajari\engine\Key as PKey;
+use sajari\engine\Value as Value;
+use sajari\engine\store\doc\Document\ValuesEntry;
+use sajari\engine\store\doc\KeysValues;
+use sajari\engine\store\doc\KeysValues\KeyValues;
 
 class Client
 {
@@ -104,7 +109,7 @@ class Client
      * @return Document
      * @throws Exception
      */
-    public function Get(Key $key)
+    public function Get(DocumentKey $key)
     {
         return $this->GetMulti(array($key))[0];
     }
@@ -136,9 +141,13 @@ class Client
         foreach ($reply->getDocumentsList() as $doc) {
             $meta = array();
 
-            /** @var $m engine\store\doc\Documents\Document\MetaEntry */
-            foreach ($doc->getMetaList() as $m) {
-                $meta[] = new Meta($m->getKey(), json_decode($m->getValue()));
+            foreach ($doc->getValuesList() as $m) {
+                $v = $m->getValue();
+                if ($v->hasSingle()) {
+                  $meta[] = new Meta($m->getKey(), $v->getSingle());
+                } else {
+                  $meta[] = new Meta($m->getKey(), $v->getMultiple());
+                }
             }
 
             $docs[] = new Document($meta);
@@ -151,13 +160,8 @@ class Client
     {
         $protoKeys = new Keys();
 
-        /** @var $k Key */
         foreach ($keys as $k) {
-            $protoKey = new ProtoKey();
-            $protoKey->setField($k->getField());
-            $protoKey->setValue($k->getValue());
-
-            $protoKeys->addKeys($protoKey);
+            $protoKeys->addKeys($k->Proto());
         }
 
         return $protoKeys;
@@ -169,7 +173,7 @@ class Client
             return $this->documentClient;
         }
 
-        $this->documentClient = new DocumentClient($this->endpoint, [
+        $this->documentClient = new StoreClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
 
@@ -183,7 +187,10 @@ class Client
      */
     public function Add(Document $doc)
     {
-        return $this->AddMulti(array($doc))[0];
+        $multiResult = $this->AddMulti([$doc]);
+
+        // Return the first key and status from add multi
+        return [$multiResult[0][0], $multiResult[1][0]];
     }
 
     /**
@@ -193,18 +200,19 @@ class Client
      */
     public function AddMulti(array $docs)
     {
-//        $protoDocs = new \sajari\engine\store\doc\Documents();
         $protoDocs = new Documents();
 
         /** @var $d Document */
         foreach ($docs as $d) {
-            $protoDoc = new \sajari\engine\store\doc\Documents\Document();
+            $protoDoc = new \sajari\engine\store\doc\Document();
             foreach ($d->getMeta() as $m) {
-                $meta = new MetaEntry();
-                $meta->setKey($m->getKey());
-                $meta->setValue(json_encode($m->getValue()));
+                $valueEntry = new ValuesEntry();
+                $valueEntry->setKey($m->getKey());
+                $v = new Value();
+                $v->setSingle($m->getValue());
+                $valueEntry->setValue($v);
 
-                $protoDoc->addMeta($meta);
+                $protoDoc->addValues($valueEntry);
             }
 
             $protoDocs->addDocuments($protoDoc);
@@ -226,21 +234,26 @@ class Client
 
         $keys = array();
 
-        /** @var $k engine\store\doc\Keys\Key */
+        /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
-            $keys[] = new Key($k->getField(), json_decode($k->getValue()));
+            $keys[] = new DocumentKey($k->getField(), $k->getValue());
         }
 
-        return $keys;
+        return [$keys, $reply->getStatusList()];
     }
 
     /**
      * @param Key $key
      * @throws Exception
      */
-    public function Delete(Key $key)
+    public function Delete($key)
     {
-        $this->DeleteMulti(array($key));
+        $multiResult = $this->DeleteMulti([$key]);
+        if ($multiResult == NULL) {
+          return NULL;
+        } else {
+          return $multiResult[0];
+        }
     }
 
     /**
@@ -263,11 +276,18 @@ class Client
         if ($status->code != 0) {
             throw new \Exception($status->details);
         }
+
+        return $reply->getStatusList();
     }
 
-    public function Patch(KeyMeta $km)
+    public function Patch($km)
     {
-        $this->PatchMulti(array($km));
+      $multiResult = $this->PatchMulti(array($km));
+      if ($multiResult == NULL) {
+        return NULL;
+      } else {
+        return $multiResult[0];
+      }
     }
 
     /**
@@ -276,18 +296,27 @@ class Client
      */
     public function PatchMulti(array $kms)
     {
-        $protoKeyMetas = new KeysMetas();
+        $protoKeyMetas = new KeysValues();
 
         /** @var $km KeyMeta */
         foreach ($kms as $km) {
-            $protoKeyMeta = new ProtoKeyMeta();
-            $protoKeyMeta->setKey($km->getKey()->Proto());
+            $protoKeyMeta = new KeyValues();
+
+            $k = new \sajari\engine\Key();
+            $k->setField($km->getKey()->getField());
+
+            $v = new \sajari\engine\Value();
+
+            $v->setSingle($km->getKey()->getValue());
+            $k->setValue($v);
+
+            $protoKeyMeta->setKey($k);
 
             foreach ($km->getMeta() as $m) {
-                $protoKeyMeta->addMeta($m->Proto());
+                $protoKeyMeta->addValues($m->Proto());
             }
 
-            $protoKeyMetas->addKeysMetas($protoKeyMeta);
+            $protoKeyMetas->addKeysValues($protoKeyMeta);
         }
 
         list($reply, $status) = $this->getDocumentClient()->Patch(
@@ -302,6 +331,27 @@ class Client
         if ($status->code != 0) {
             throw new \Exception($status->details);
         }
+
+        return $reply->getStatusList();
+    }
+
+    public function Compare(CompareRequest $r)
+    {
+      list($reply, $status) = $this->getSearchClient()->Compare(
+        $r->Proto(),
+        array(
+            'project' => array($this->projectID),
+            'collection' => array($this->collection),
+            'authorization' => array($this->auth),
+        )
+      )->wait();
+
+      // Check for server error
+      if ($status->code != 0) {
+          throw new \Exception('Error code not zero');
+      }
+
+      var_dump($reply);
     }
 
     /**
@@ -349,10 +399,14 @@ class Client
 
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
-
             /** @var engine\query\Result\MetaEntry $protoMeta */
-            foreach ($protoResult->getMetaList() as $protoMeta) {
-                $meta[] = new Meta($protoMeta->getKey(), $protoMeta->getValue());
+            foreach ($protoResult->getValuesList() as $protoMeta) {
+                $v = $protoMeta->getValue();
+                if ($v->hasSingle()) {
+                  $meta[] = new Meta($protoMeta->getKey(), $v->getSingle());
+                } else {
+                  $meta[] = new Meta($protoMeta->getKey(), $v->getMultiple()->getValuesList());
+                }
             }
 
             $result = new Result(
@@ -383,7 +437,6 @@ class Client
                 foreach ($buckets->getBucketsList() as $be) {
                     /** @var engine\query\AggregateResponse\Buckets\Bucket $b */
                     $b = $be->getValue();
-                    var_dump($b);
                     $bucketArray[$b->getName()] = new BucketResponseAggregate($b->getName(), $b->getCount());
                 }
 

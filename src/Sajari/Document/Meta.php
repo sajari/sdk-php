@@ -35,13 +35,24 @@ class Meta
     }
 
     /**
-     * @return \sajari\engine\store\doc\KeysMetas\KeyMeta\MetaEntry
+     * @return \sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry
      */
     public function Proto()
     {
-        $protoMeta = new \sajari\engine\store\doc\KeysMetas\KeyMeta\MetaEntry();
+        $actualValue = new \sajari\engine\Value();
+
+        if (is_array($this->value)) {
+          $actualValue->setMultiple($this->value);
+        } else {
+          $actualValue->setSingle($this->value);
+        }
+
+        $v = new \sajari\engine\store\doc\KeysValues\KeyValues\Value();
+        $v->setSet($actualValue);
+
+        $protoMeta = new \sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry();
         $protoMeta->setKey($this->key);
-        $protoMeta->setValue(json_encode($this->value));
+        $protoMeta->setValue($v);
         return $protoMeta;
     }
 }

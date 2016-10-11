@@ -2,7 +2,7 @@
 
 namespace Sajari\Search;
 
-abstract class IndexBoost
+abstract class InstanceBoost
 {
     abstract public function Proto();
 }

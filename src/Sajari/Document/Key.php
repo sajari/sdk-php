@@ -36,13 +36,17 @@ class Key
     }
 
     /**
-     * @return \sajari\engine\store\doc\Keys\Key
+     * @return \sajari\engine\Key
      */
     public function Proto()
     {
-        $protoKey = new \sajari\engine\store\doc\Keys\Key();
+        $protoKey = new \sajari\engine\Key();
         $protoKey->setField($this->field);
-        $protoKey->setValue($this->value);
+
+        $value = new \sajari\engine\Value();
+        $value->setSingle($this->value);
+
+        $protoKey->setValue($value);
         return $protoKey;
     }
 }

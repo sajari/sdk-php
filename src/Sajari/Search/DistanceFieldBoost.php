@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\MetaBoost\Distance as ProtoDistance;
-use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+use sajari\engine\query\FieldBoost\Distance as ProtoDistance;
+use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class DistanceMetaBoost
+class DistanceFieldBoost
 {
     /** @var float $min */
     private $min;
@@ -22,7 +22,7 @@ class DistanceMetaBoost
     private $value;
 
     /**
-     * DistanceMetaBoost constructor.
+     * DistanceFieldBoost constructor.
      * @param float $min
      * @param float $max
      * @param float $ref
@@ -87,7 +87,7 @@ class DistanceMetaBoost
         $dmb->setField($this->field);
         $dmb->setValue($this->value);
 
-        $mb = new ProtoMetaBoost();
+        $mb = new ProtoFieldBoost();
         $mb->setDistance($dmb);
         return $mb;
     }

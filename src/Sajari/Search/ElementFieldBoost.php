@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\MetaBoost\Element as ProtoElement;
-use sajari\engine\query\MetaBoost as ProtoMetaBoost;
+use sajari\engine\query\FieldBoost\Element as ProtoElement;
+use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class ElementMetaBoost
+class ElementFieldBoost
 {
     /** @var string $field */
     private $field;
@@ -16,7 +16,7 @@ class ElementMetaBoost
     private $elements;
 
     /**
-     * ElementMetaBoost constructor.
+     * ElementFieldBoost constructor.
      * @param string $field
      * @param \string[] $elements
      */
@@ -50,7 +50,7 @@ class ElementMetaBoost
             $emb->addElts($element);
         }
 
-        $mb = new ProtoMetaBoost();
+        $mb = new ProtoFieldBoost();
         $mb->setElement($emb);
         return $mb;
     }
