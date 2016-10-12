@@ -10,6 +10,9 @@ use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
 class GeoFieldBoost extends FieldBoost
 {
+    const INSIDE = \sajari\engine\query\FieldBoost\Geo\Region::INSIDE;
+    const OUTSIDE = \sajari\engine\query\FieldBoost\Geo\Region::OUTSIDE;
+
     /** @var string $fieldLat */
     private $fieldLat;
     /** @var string $fieldLng */
