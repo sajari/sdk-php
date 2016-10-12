@@ -14,6 +14,8 @@ class Response
     private $results;
     /** @var ResultAggregate[] $aggregates */
     private $aggregates;
+    /** @var array $tokens */
+    private $tokens;
 
     /**
      * Response constructor.
@@ -23,13 +25,14 @@ class Response
      * @param Result[] $results
      * @param ResultAggregate[] $aggregates
      */
-    public function __construct($totalResults, $reads, $time, array $results, array $aggregates)
+    public function __construct($totalResults, $reads, $time, array $results, array $aggregates, array $tokens = NULL)
     {
         $this->totalResults = $totalResults;
         $this->reads = $reads;
         $this->time = $time;
         $this->results = $results;
         $this->aggregates = $aggregates;
+        $this->tokens = $tokens;
     }
 
     /**
@@ -70,6 +73,11 @@ class Response
     public function getAggregates()
     {
         return $this->aggregates;
+    }
+
+    public function getTokens()
+    {
+        return $this->tokens;
     }
 
 }

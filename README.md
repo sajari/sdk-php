@@ -37,6 +37,8 @@ sudo apt-get install --fix-missing php5.6 php5.6-dev php5.6-xml
 sudo pecl install grpc
 ```
 
+Add `extension=grpc.so` to your `php.ini` to enable the grpc extension.
+
 ## Composer
 
 ### Get Composer
@@ -63,3 +65,65 @@ Add these sections to your `composer.json`
 ```
 
 ## Getting Started
+
+Basic example file
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Sajari\Client\WithAuth;
+use Sajari\Client\Client;
+use Sajari\Search\Request;
+
+$project = "";
+$collection = "";
+
+$c = new Client($project, $collection, [new WithAuth('{Key}', '{Secret}')]);
+
+$r = new Request();
+$r->setPage(1);
+$r->setResultsPerPage(10);
+
+try {
+    $res = $c->Search($r);
+} catch (Exception $e) {
+    echo 'Caught exception: ', $e->getMessage();
+    exit(1);
+}
+
+printf("Search found %u results in %s.\n", $res->getTotalResults(), $res->getTime());
+
+foreach ($res->getResults() as $r) {
+  printf("Score: %f %f\n", $r->getScore(), $r->getRawScore());
+  foreach ($r->getMeta() as $m) {
+    printf("   Meta: %s: %s\n", $m->getKey(), $m->getValue());
+  }
+}
+```
+
+## Body
+
+```php
+use Sajari\Search\Body;
+
+$request->setBody([new Body("my search query", 1)]);
+```
+
+## Tracking
+
+### PosNeg
+
+```php
+use Sajari\Search\Tracking;
+
+$tracking = new Tracking();
+$tracking->posNeg("_id");
+
+// ...
+
+$result = $client->Search($request, $tracking);
+
+$tokens = $result->getTokens();
+```

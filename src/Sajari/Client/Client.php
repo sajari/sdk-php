@@ -7,6 +7,7 @@ require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/query.php';
 require_once __DIR__.'/../proto/key.php';
 require_once __DIR__.'/../proto/status.php';
+require_once __DIR__.'/../proto/api-query.php';
 
 use Sajari\Document\Document;
 use Sajari\Document\Key as DocumentKey;
@@ -15,23 +16,27 @@ use Sajari\Search\Request;
 use Sajari\Document\Meta;
 use Sajari\Search\Result;
 use Sajari\Search\Response;
+use Sajari\Search\Tracking;
+use Sajari\Search\ClickToken;
+use Sajari\Search\PosNegToken;
 
 use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
 use sajari\engine\store\doc\StoreClient;
 use Sajari\engine\store\doc\Keys;
-use sajari\engine\query\QueryClient;
+use sajari\api\query\QueryClient;
 // use sajari\engine\Key as PKey;
 use sajari\engine\Value as Value;
 use sajari\engine\store\doc\Document\ValuesEntry;
 use sajari\engine\store\doc\KeysValues;
 use sajari\engine\store\doc\KeysValues\KeyValues;
+use sajari\api\query\SearchRequest as ProtoSearchRequest;
 
 class Client
 {
     private $projectID = '';
     private $collection = '';
-    private $endpoint = 'api.sajari.com:1234';
+    private $endpoint = 'apid.sajari.com:443';
     private $auth = '';
     private $credentials;
     private $documentClient;
@@ -359,12 +364,21 @@ class Client
      * @return Response
      * @throws Exception
      */
-    public function Search(Request $r)
+    public function Search(Request $r, Tracking $t = NULL)
     {
+        if (is_null($t)) {
+          $t = new Tracking();
+        }
+
+        $searchRequest = new ProtoSearchRequest();
+
+        $searchRequest->setTracking($t->Proto());
+        $searchRequest->setSearchRequest($r->Proto());
+
         // Make Request
         /** @var engine\query\Response $reply */
         list($reply, $status) = $this->getSearchClient()->Search(
-            $r->Proto(),
+            $searchRequest,
             array(
                 'project' => array($this->projectID),
                 'collection' => array($this->collection),
@@ -379,23 +393,25 @@ class Client
 
         // Transform proto to user-friendly objects
 
+        $response = $reply->getSearchResponse();
+
         // Reads
         /** @var integer $reads */
-        $reads = $reply->getReads();
+        $reads = $response->getReads();
 
         // Time
         /** @var string $time */
-        $time = $reply->getTime();
+        $time = $response->getTime();
 
         // Total Results
         /** @var integer $total */
-        $total = $reply->getTotalResults();
+        $total = $response->getTotalResults();
 
         // Results
         $results = array();
 
         /** @var engine\query\Result[] $protoResponseList */
-        $protoResponseList = $reply->getResultsList();
+        $protoResponseList = $response->getResultsList();
 
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
@@ -420,7 +436,7 @@ class Client
 
         // Aggregates
         /** @var engine\query\Response\AggregatesEntry[] $protoAggregateList */
-        $protoAggregateList = $reply->getAggregatesList();
+        $protoAggregateList = $response->getAggregatesList();
 
         $aggregateList = array();
         foreach ($protoAggregateList as $a) {
@@ -461,7 +477,23 @@ class Client
             }
         }
 
-        return new Response($total, $reads, $time, $results, $aggregateList);
+        $tokens = [];
+        if ($reply->hasTokens()) {
+          foreach ($reply->getTokensList() as $protoToken) {
+            $token = NULL;
+            if ($protoToken->hasClick()) {
+              $token = new ClickToken($protoToken->getClick()->getClick());
+            } else {
+              $token = new PosNegToken(
+                $protoToken->getPosNeg()->getPos(),
+                $protoToken->getPosNeg()->getNeg()
+              );
+            }
+            $tokens[] = $token;
+          }
+        }
+
+        return new Response($total, $reads, $time, $results, $aggregateList, $tokens);
     }
 
     /**
