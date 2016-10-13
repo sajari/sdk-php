@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/query.php';
 use sajari\engine\query\FieldBoost\Distance as ProtoDistance;
 use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class DistanceFieldBoost
+class DistanceFieldBoost extends FieldBoost
 {
     /** @var float $min */
     private $min;

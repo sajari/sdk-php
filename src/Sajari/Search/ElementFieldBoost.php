@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/query.php';
 use sajari\engine\query\FieldBoost\Element as ProtoElement;
 use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class ElementFieldBoost
+class ElementFieldBoost extends FieldBoost
 {
     /** @var string $field */
     private $field;
