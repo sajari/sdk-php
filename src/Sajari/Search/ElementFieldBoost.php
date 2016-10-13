@@ -23,7 +23,7 @@ class ElementFieldBoost extends FieldBoost
     public function __construct($field, array $elements)
     {
         $this->field = $field;
-        $this->elts = $elements;
+        $this->elements = $elements;
     }
 
     /**
@@ -39,7 +39,7 @@ class ElementFieldBoost extends FieldBoost
      */
     public function getElements()
     {
-        return $this->elts;
+        return $this->elements;
     }
 
     public function Proto()
