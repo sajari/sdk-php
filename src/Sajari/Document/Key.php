@@ -44,7 +44,17 @@ class Key
         $protoKey->setField($this->field);
 
         $value = new \sajari\engine\Value();
-        $value->setSingle($this->value);
+        if (is_array($this->value)) {
+          $repeated = new \sajari\engine\Value\Repeated();
+          foreach ($this->value as $v) {
+            $repeated->addValues($v);
+          }
+          $value->setRepeated($repeated);
+        } else if (is_null($this->value)) {
+          $value->setNull(true);
+        } else {
+          $value->setSingle($this->value);
+        }
 
         $protoKey->setValue($value);
         return $protoKey;

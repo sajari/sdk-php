@@ -150,8 +150,10 @@ class Client
                 $v = $m->getValue();
                 if ($v->hasSingle()) {
                   $meta[] = new Meta($m->getKey(), $v->getSingle());
+                } else if ($v->hasRepeated()) {
+                  $meta[] = new Meta($m->getKey(), $v->getRepeated()->getValuesList());
                 } else {
-                  $meta[] = new Meta($m->getKey(), $v->getMultiple());
+                  $meta[] = new Meta($m->getKey(), NULL);
                 }
             }
 
@@ -417,11 +419,14 @@ class Client
             $meta = array();
             /** @var engine\query\Result\MetaEntry $protoMeta */
             foreach ($protoResult->getValuesList() as $protoMeta) {
+                /** @var sajari\engine\Value $v */
                 $v = $protoMeta->getValue();
                 if ($v->hasSingle()) {
                   $meta[] = new Meta($protoMeta->getKey(), $v->getSingle());
+                } else if ($v->hasRepeated()) {
+                  $meta[] = new Meta($protoMeta->getKey(), $v->getRepeated()->getValuesList());
                 } else {
-                  $meta[] = new Meta($protoMeta->getKey(), $v->getMultiple()->getValuesList());
+                  $meta[] = new Meta($protoMeta->getKey(), NULL);
                 }
             }
 

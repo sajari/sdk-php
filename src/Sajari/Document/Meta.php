@@ -42,7 +42,13 @@ class Meta
         $actualValue = new \sajari\engine\Value();
 
         if (is_array($this->value)) {
-          $actualValue->setMultiple($this->value);
+          $repeated = new \sajari\engine\Value\Repeated();
+          foreach ($this->value as $v) {
+            $repeated->addValues($v);
+          }
+          $actualValue->setRepeated($repeated);
+        } else if (is_null($this->value)) {
+          $actualValue->setNull(true);
         } else {
           $actualValue->setSingle($this->value);
         }
