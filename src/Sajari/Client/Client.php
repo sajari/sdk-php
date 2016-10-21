@@ -243,7 +243,19 @@ class Client
 
         /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
-            $keys[] = new DocumentKey($k->getField(), $k->getValue());
+            $value = $k->getValue();
+            if (is_null($value)) {
+              $keys[] = new DocumentKey(NULL, NULL);
+              continue;
+            }
+            $extractedValue = NULL;
+            if ($value->hasSingle()) {
+              $extractedValue = $value->getSingle();
+            } else if ($value->hasRepeated()) {
+              $extractedValue = $value->getRepeated()->getValuesList();
+            }
+
+            $keys[] = new DocumentKey($k->getField(), $extractedValue);
         }
 
         return [$keys, $reply->getStatusList()];
