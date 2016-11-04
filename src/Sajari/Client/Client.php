@@ -36,7 +36,7 @@ class Client
 {
     private $projectID = '';
     private $collection = '';
-    private $endpoint = 'apid.sajari.com:443';
+    private $endpoint = 'api.sajari.com:433';
     private $auth = '';
     private $credentials;
     private $documentClient;
