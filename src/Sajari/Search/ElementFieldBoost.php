@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/query.php';
 use sajari\engine\query\FieldBoost\Element as ProtoElement;
 use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class ElementFieldBoost
+class ElementFieldBoost extends FieldBoost
 {
     /** @var string $field */
     private $field;
@@ -23,7 +23,7 @@ class ElementFieldBoost
     public function __construct($field, array $elements)
     {
         $this->field = $field;
-        $this->elts = $elements;
+        $this->elements = $elements;
     }
 
     /**
@@ -39,7 +39,7 @@ class ElementFieldBoost
      */
     public function getElements()
     {
-        return $this->elts;
+        return $this->elements;
     }
 
     public function Proto()

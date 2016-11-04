@@ -42,7 +42,7 @@ class Request
     /**
      * @param FieldBoost[] $fieldBoosts
      */
-    public function setFieldBoosts($fieldBoosts)
+    public function setFieldBoosts(array $fieldBoosts)
     {
         $this->fieldBoosts = $fieldBoosts;
     }
@@ -58,7 +58,7 @@ class Request
     /**
      * @param InstanceBoost[] $instanceBoosts
      */
-    public function setInstanceBoosts($instanceBoosts)
+    public function setInstanceBoosts(array $instanceBoosts)
     {
         $this->instanceBoosts = $instanceBoosts;
     }
@@ -74,7 +74,7 @@ class Request
     /**
      * @param Aggregate[] $aggregates
      */
-    public function setAggregates($aggregates)
+    public function setAggregates(array $aggregates)
     {
         $this->aggregates = $aggregates;
     }
@@ -90,7 +90,7 @@ class Request
     /**
      * @param Sort[] $sorts
      */
-    public function setSorts($sorts)
+    public function setSorts(array $sorts)
     {
         $this->sorts = $sorts;
     }
@@ -122,7 +122,7 @@ class Request
     /**
      * @param \string[] $fields
      */
-    public function setFields($fields)
+    public function setFields(array $fields)
     {
         $this->fields = $fields;
     }

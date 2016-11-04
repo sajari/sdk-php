@@ -2,14 +2,21 @@
 
 namespace Sajari\Search;
 
+require_once __DIR__.'/../proto/value.php';
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\FieldBoost\Geo as ProtoGeo;
-use sajari\engine\query\FieldBoost as ProtoFieldBoost;
+use sajari\engine\query\Filter\Geo as ProtoGeo;
+use sajari\engine\query\Filter as ProtoFilter;
+use sajari\engine\Value;
 
-class GeoFieldBoost extends FieldBoost
+use sajari\engine\query\Filter\Geo\Region;
+
+class GeoFilter extends Filter
 {
+    const INSIDE = Region::INSIDE;
+    const OUTSIDE = Region::OUTSIDE;
+
     /** @var string $fieldLat */
     private $fieldLat;
     /** @var string $fieldLng */
@@ -20,8 +27,6 @@ class GeoFieldBoost extends FieldBoost
     private $lng;
     /** @var float $radius */
     private $radius;
-    /** @var float $value */
-    private $value;
     /** @var int $region */
     private $region;
 
@@ -32,17 +37,15 @@ class GeoFieldBoost extends FieldBoost
      * @param float $lat
      * @param float $lng
      * @param float $radius
-     * @param float $value
      * @param int $region
      */
-    public function __construct($fieldLat, $fieldLng, $lat, $lng, $radius, $value, $region)
+    public function __construct($fieldLat, $fieldLng, $lat, $lng, $radius, $region)
     {
         $this->fieldLat = $fieldLat;
         $this->fieldLng = $fieldLng;
         $this->lat = $lat;
         $this->lng = $lng;
         $this->radius = $radius;
-        $this->value = $value;
         $this->region = $region;
     }
 
@@ -87,14 +90,6 @@ class GeoFieldBoost extends FieldBoost
     }
 
     /**
-     * @return float
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
      * @return int
      */
     public function getRegion()
@@ -108,11 +103,10 @@ class GeoFieldBoost extends FieldBoost
      * @param float $lat
      * @param float $lng
      * @param float $radius
-     * @param float $value
      * @return GeoFieldBoost
      */
-    public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-        return new GeoFieldBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\FieldBoost\Geo\Region::INSIDE);
+    public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius) {
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, Region::INSIDE);
     }
 
     /**
@@ -121,13 +115,15 @@ class GeoFieldBoost extends FieldBoost
      * @param float $lat
      * @param float $lng
      * @param float $radius
-     * @param float $value
      * @return GeoFieldBoost
      */
-    public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius, $value) {
-        return new GeoFieldBoost($fieldLat, $fieldLng, $lat, $lng, $radius, $value, \sajari\engine\query\FieldBoost\Geo\Region::OUTSIDE);
+    public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius) {
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, Region::OUTSIDE);
     }
 
+    /**
+     * @return engine\query\Filter\Geo
+     */
     public function Proto()
     {
         $gmb = new ProtoGeo();
@@ -136,10 +132,9 @@ class GeoFieldBoost extends FieldBoost
         $gmb->setLat($this->lat);
         $gmb->setLng($this->lng);
         $gmb->setRadius($this->radius);
-        $gmb->setValue($this->value);
         $gmb->setRegion($this->region);
 
-        $mb = new ProtoFieldBoost();
+        $mb = new ProtoFilter();
         $mb->setGeo($gmb);
         return $mb;
     }

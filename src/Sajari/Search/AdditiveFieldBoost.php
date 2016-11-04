@@ -5,10 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\FieldBoost\Add as ProtoAdd;
+use sajari\engine\query\FieldBoost\Additive as ProtoAdditive;
 use sajari\engine\query\FieldBoost as ProtoFieldBoost;
 
-class AddFieldBoost extends FieldBoost
+class AdditiveFieldBoost extends FieldBoost
 {
     /** @var FieldBoost $fieldBoost */
     private $fieldBoost;
@@ -16,7 +16,7 @@ class AddFieldBoost extends FieldBoost
     private $value;
 
     /**
-     * AddFieldBoost constructor.
+     * AdditiveFieldBoost constructor.
      * @param FieldBoost $fieldBoost
      * @param $value
      */
@@ -44,12 +44,12 @@ class AddFieldBoost extends FieldBoost
 
     public function Proto()
     {
-        $amb = new ProtoAdd();
-        $amb->setFieldBoost($this->fieldBoost);
+        $amb = new ProtoAdditive();
+        $amb->setFieldBoost($this->fieldBoost->Proto());
         $amb->setValue($this->value);
 
         $mb = new ProtoFieldBoost();
-        $mb->setAdd($amb);
+        $mb->setAdditive($amb);
         return $mb;
     }
 }

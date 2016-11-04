@@ -171,9 +171,21 @@ class FieldFilter extends Filter
     {
         $ff = new ProtoField();
         $ff->setField($this->field);
-        $v = new Value();
-        $v->setSingle($this->value); // TODO(tbillington): Handle multiple
-        $ff->setValue($v);
+
+        $value = new \sajari\engine\Value();
+        if (is_array($this->value)) {
+          $repeated = new \sajari\engine\Value\Repeated();
+          foreach ($this->value as $v) {
+            $repeated->addValues($v);
+          }
+          $value->setRepeated($repeated);
+        } else if (is_null($this->value)) {
+          $value->setNull(true);
+        } else {
+          $value->setSingle($this->value);
+        }
+
+        $ff->setValue($value);
         $ff->setOperator($this->operator);
 
         $f = new ProtoFilter();
