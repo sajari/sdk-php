@@ -3,11 +3,13 @@
 namespace Sajari\Client;
 
 require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/value.php';
+require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/query.php';
 require_once __DIR__.'/../proto/key.php';
 require_once __DIR__.'/../proto/status.php';
 require_once __DIR__.'/../proto/api-query.php';
+
+require_once __DIR__.'/../proto/api/query/v1/query.php';
 
 use Sajari\Document\Document;
 use Sajari\Document\Key as DocumentKey;
@@ -24,12 +26,12 @@ use sajari\engine\store\doc\Documents;
 use sajari\engine\store\doc\Documents\Document\MetaEntry;
 use sajari\engine\store\doc\StoreClient;
 use Sajari\engine\store\doc\Keys;
-use sajari\api\query\QueryClient;
-// use sajari\engine\Key as PKey;
 use sajari\engine\Value as Value;
 use sajari\engine\store\doc\Document\ValuesEntry;
 use sajari\engine\store\doc\KeysValues;
 use sajari\engine\store\doc\KeysValues\KeyValues;
+
+use sajari\api\query\v1\QueryClient;
 use sajari\api\query\SearchRequest as ProtoSearchRequest;
 
 class Client
@@ -390,11 +392,11 @@ class Client
           $t = new Tracking();
         }
 
-        $searchRequest = new ProtoSearchRequest();
-
-        $searchRequest->setTracking($t->Proto());
-        $searchRequest->setSearchRequest($r->Proto());
-
+        // $searchRequest = new ProtoSearchRequest();
+        //
+        // $searchRequest->setTracking($t->Proto());
+        // $searchRequest->setSearchRequest($r->Proto());
+        $searchRequest = $r->Proto();
         // Make Request
         /** @var engine\query\Response $reply */
         list($reply, $status) = $this->searchClient->Search(
@@ -446,7 +448,7 @@ class Client
 
             $result = new Result(
                 $protoResult->getScore(),
-                $protoResult->getRawScore(),
+                $protoResult->getIndexScore(),
                 $meta
             );
 
