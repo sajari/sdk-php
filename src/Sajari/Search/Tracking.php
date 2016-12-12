@@ -6,39 +6,45 @@ require_once __DIR__.'/../proto/api/query/v1/query.php';
 
 use sajari\api\query\v1\SearchRequest\Tracking as ApiTracking;
 use sajari\api\query\v1\SearchRequest\Tracking\DataEntry;
+use sajari\api\query\v1\SearchRequest\Tracking\Type;
 
 class Tracking
 {
-  const NONE = 0;
-  const CLICK = 1;
-  const POS_NEG = 2;
-
   /** @var integer $type */
   private $type;
+
   /** @var string $query_id */
   private $query_id;
+
   /** @var integer $sequence */
   private $sequence;
+
   /** @var string $field */
   private $field;
+
   /** @var array $data */
   private $data;
 
   public function __construct()
   {
-    $this->type = Tracking::NONE;
+    $this->type = Type::NONE;
   }
 
   public function click($field)
   {
     $this->field = $field;
-    $this->type = Tracking::CLICK;
+    $this->type = Type::CLICK;
   }
 
   public function posNeg($field)
   {
     $this->field = $field;
-    $this->type = Tracking::POS_NEG;
+    $this->type = Type::POS_NEG;
+  }
+
+  public function setData(array $data)
+  {
+      $this->data = $data;
   }
 
   public function Proto()
@@ -48,7 +54,7 @@ class Tracking
     $t->setQueryId($this->query_id);
     $t->setSequence($this->sequence);
 
-    if (!is_null($this->data)) {
+    if (isset($this->data)) {
       foreach($this->data as $key => $value) {
         $dataEntry = new DataEntry();
         $dataEntry->setKey($key);
@@ -57,9 +63,9 @@ class Tracking
       }
     }
 
-    if ($this->type != Tracking::NONE) {
+    $t->setType($this->type);
+    if ($this->type != Type::NONE) {
       $t->setField($this->field);
-      $t->setType($this->type);
     }
 
     return $t;
