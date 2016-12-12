@@ -2,13 +2,17 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/value.php';
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+// require_once __DIR__.'/../proto/value.php';
+// require_once __DIR__.'/../proto/doc.php';
+// require_once __DIR__.'/../proto/query.php';
 
-use sajari\engine\query\Filter\Field as ProtoField;
-use sajari\engine\query\Filter as ProtoFilter;
+require_once __DIR__.'/../proto/engine/value.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
+
+use sajari\engine\query\v1\Filter\Field as EngineFilterField;
+use sajari\engine\query\v1\Filter as EngineFilter;
 use sajari\engine\Value;
+use sajari\engine\Value\Repeated;
 
 class FieldFilter extends Filter
 {
@@ -169,12 +173,12 @@ class FieldFilter extends Filter
      */
     public function Proto()
     {
-        $ff = new ProtoField();
+        $ff = new EngineFilterField();
         $ff->setField($this->field);
 
-        $value = new \sajari\engine\Value();
+        $value = new Value();
         if (is_array($this->value)) {
-          $repeated = new \sajari\engine\Value\Repeated();
+          $repeated = new Repeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }
@@ -188,7 +192,7 @@ class FieldFilter extends Filter
         $ff->setValue($value);
         $ff->setOperator($this->operator);
 
-        $f = new ProtoFilter();
+        $f = new EngineFilter();
         $f->setField($ff);
 
         return $f;
