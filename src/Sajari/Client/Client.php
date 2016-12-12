@@ -36,7 +36,7 @@ class Client
 {
     private $projectID = '';
     private $collection = '';
-    private $endpoint = 'api.sajari.com:433';
+    private $endpoint = 'api.sajari.com:443';
     private $auth = '';
     private $credentials;
     private $documentClient;
@@ -59,6 +59,10 @@ class Client
         foreach ($dialOptions as $opt) {
             $opt->Apply($this);
         }
+
+        $this->searchClient = new QueryClient($this->endpoint, [
+            'credentials' => $this->credentials,
+        ]);
     }
 
     /**
@@ -109,6 +113,27 @@ class Client
         $this->credentials = $credentials;
     }
 
+    public function getCallMeta()
+    {
+        return array(
+            'project' => array($this->projectID),
+            'collection' => array($this->collection),
+            'authorization' => array($this->auth),
+        );
+    }
+
+    public function getValue($m)
+    {
+      $v = $m->getValue();
+      if ($v->hasSingle()) {
+        return new Meta($m->getKey(), $v->getSingle());
+      } else if ($v->hasRepeated()) {
+        return new Meta($m->getKey(), $v->getRepeated()->getValuesList());
+      } else {
+        return new Meta($m->getKey(), NULL);
+      }
+    }
+
     /**
      * @param Key $key
      * @return Document
@@ -130,11 +155,7 @@ class Client
 
         list($reply, $status) = $this->getDocumentClient()->Get(
             $protoKeys,
-            array(
-                'project' => array($this->projectID),
-                'collection' => array($this->collection),
-                'authorization' => array($this->auth),
-            )
+            $this->getCallMeta()
         )->wait();
 
         if ($status->code != 0) {
@@ -147,6 +168,7 @@ class Client
             $meta = array();
 
             foreach ($doc->getValuesList() as $m) {
+                $meta[] = $this->getValue();
                 $v = $m->getValue();
                 if ($v->hasSingle()) {
                   $meta[] = new Meta($m->getKey(), $v->getSingle());
@@ -228,11 +250,7 @@ class Client
         /** @var $reply \sajari\engine\store\doc\Keys */
         list($reply, $status) = $this->getDocumentClient()->Add(
             $protoDocs,
-            array(
-                'project' => array($this->projectID),
-                'collection' => array($this->collection),
-                'authorization' => array($this->auth),
-            )
+            $this->getCallMeta()
         )->wait();
 
         if ($status->code != 0) {
@@ -285,11 +303,7 @@ class Client
 
         list($reply, $status) = $this->getDocumentClient()->Delete(
             $protoKeys,
-            array(
-                'project' => array($this->projectID),
-                'collection' => array($this->collection),
-                'authorization' => array($this->auth),
-            )
+            $this->getCallMeta()
         )->wait();
 
         if ($status->code != 0) {
@@ -340,11 +354,7 @@ class Client
 
         list($reply, $status) = $this->getDocumentClient()->Patch(
             $protoKeyMetas,
-            array(
-                'project' => array($this->projectID),
-                'collection' => array($this->collection),
-                'authorization' => array($this->auth),
-            )
+            $this->getCallMeta()
         )->wait();
 
         if ($status->code != 0) {
@@ -358,11 +368,7 @@ class Client
     {
       list($reply, $status) = $this->getSearchClient()->Compare(
         $r->Proto(),
-        array(
-            'project' => array($this->projectID),
-            'collection' => array($this->collection),
-            'authorization' => array($this->auth),
-        )
+        $this->getCallMeta()
       )->wait();
 
       // Check for server error
@@ -391,18 +397,14 @@ class Client
 
         // Make Request
         /** @var engine\query\Response $reply */
-        list($reply, $status) = $this->getSearchClient()->Search(
+        list($reply, $status) = $this->searchClient->Search(
             $searchRequest,
-            array(
-                'project' => array($this->projectID),
-                'collection' => array($this->collection),
-                'authorization' => array($this->auth),
-            )
+            $this->getCallMeta()
         )->wait();
 
         // Check for server error
         if ($status->code != 0) {
-            throw new \Exception($status->details);
+            throw new \Exception($status->details, $status->code);
         }
 
         // Transform proto to user-friendly objects
@@ -511,21 +513,5 @@ class Client
         }
 
         return new Response($total, $reads, $time, $results, $aggregateList, $tokens);
-    }
-
-    /**
-     * @return engine\query\QueryClient
-     */
-    private function getSearchClient()
-    {
-        if ($this->searchClient != null) {
-            return $this->searchClient;
-        }
-
-        $this->searchClient = new QueryClient($this->endpoint, [
-            'credentials' => $this->credentials,
-        ]);
-
-        return $this->searchClient;
     }
 }
