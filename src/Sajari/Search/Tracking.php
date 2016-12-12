@@ -2,10 +2,10 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/api-query.php';
+require_once __DIR__.'/../proto/api/query/v1/query.php';
 
-use sajari\api\query\SearchRequest\Tracking as ProtoTracking;
-use sajari\api\query\SearchRequest\Tracking\DataEntry;
+use sajari\api\query\v1\SearchRequest\Tracking as ApiTracking;
+use sajari\api\query\v1\SearchRequest\Tracking\DataEntry;
 
 class Tracking
 {
@@ -43,7 +43,7 @@ class Tracking
 
   public function Proto()
   {
-    $t = new ProtoTracking();
+    $t = new ApiTracking();
 
     $t->setQueryId($this->query_id);
     $t->setSequence($this->sequence);
