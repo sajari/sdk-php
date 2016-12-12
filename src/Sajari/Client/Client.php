@@ -158,7 +158,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code != 0) {
+        if ($status->code !== 0) {
             throw new \Exception($status->details);
         }
 
@@ -198,7 +198,7 @@ class Client
 
     private function getDocumentClient()
     {
-        if ($this->documentClient != null) {
+        if ($this->documentClient !== null) {
             return $this->documentClient;
         }
 
@@ -253,7 +253,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code != 0) {
+        if ($status->code !== 0) {
             throw new \Exception($status->details);
         }
 
@@ -306,7 +306,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code != 0) {
+        if ($status->code !== 0) {
             throw new \Exception($status->details);
         }
 
@@ -357,7 +357,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code != 0) {
+        if ($status->code !== 0) {
             throw new \Exception($status->details);
         }
 
@@ -372,7 +372,7 @@ class Client
       )->wait();
 
       // Check for server error
-      if ($status->code != 0) {
+      if ($status->code !== 0) {
           throw new \Exception('Error code not zero');
       }
 
@@ -403,7 +403,7 @@ class Client
         )->wait();
 
         // Check for server error
-        if ($status->code != 0) {
+        if ($status->code !== 0) {
             throw new \Exception($status->details, $status->code);
         }
 
