@@ -2,7 +2,6 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/doc.php';
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
 use sajari\engine\query\v1\Body as EngineBody;

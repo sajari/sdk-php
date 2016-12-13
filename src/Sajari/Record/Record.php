@@ -4,24 +4,24 @@ namespace Sajari\Record;
 
 class Record
 {
-    /** @var Meta[] $meta */
-    private $meta;
+    /** @var Value[] $value */
+    private $values;
 
     /**
      * Document constructor.
-     * @param $meta
+     * @param $values
      */
-    public function __construct($meta)
+    public function __construct(array $values)
     {
-        $this->meta = $meta;
+        $this->values = $values;
     }
 
     /**
-     * @return Meta[]
+     * @return Value[]
      */
-    public function getMeta()
+    public function getValues()
     {
-        return $this->meta;
+        return $this->values;
     }
 
 
