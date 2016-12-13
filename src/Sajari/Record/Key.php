@@ -1,6 +1,10 @@
 <?php
 
-namespace Sajari\Document;
+namespace Sajari\Record;
+
+use sajari\engine\Key as EngineKey;
+use sajari\engine\Value as EngineValue;
+use sajari\engine\Value\Repeated as EngineValueRepeated;
 
 class Key
 {
@@ -40,12 +44,12 @@ class Key
      */
     public function Proto()
     {
-        $protoKey = new \sajari\engine\Key();
+        $protoKey = new EngineKey();
         $protoKey->setField($this->field);
 
-        $value = new \sajari\engine\Value();
+        $value = new EngineValue();
         if (is_array($this->value)) {
-          $repeated = new \sajari\engine\Value\Repeated();
+          $repeated = new EngineValueRepeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }

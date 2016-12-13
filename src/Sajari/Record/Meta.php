@@ -1,6 +1,11 @@
 <?php
 
-namespace Sajari\Document;
+namespace Sajari\Record;
+
+use sajari\engine\Value;
+use sajari\engine\Value\Repeated;
+use sajari\engine\store\record\KeysValues\KeyValues\Value as KeyValueValue;
+use sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry;
 
 class Meta
 {
@@ -35,14 +40,14 @@ class Meta
     }
 
     /**
-     * @return \sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry
+     * @return ValuesEntry
      */
     public function Proto()
     {
-        $actualValue = new \sajari\engine\Value();
+        $actualValue = new Value();
 
         if (is_array($this->value)) {
-          $repeated = new \sajari\engine\Value\Repeated();
+          $repeated = new Repeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }
@@ -53,10 +58,10 @@ class Meta
           $actualValue->setSingle($this->value);
         }
 
-        $v = new \sajari\engine\store\doc\KeysValues\KeyValues\Value();
+        $v = new KeyValueValue();
         $v->setSet($actualValue);
 
-        $protoMeta = new \sajari\engine\store\doc\KeysValues\KeyValues\ValuesEntry();
+        $protoMeta = new ValuesEntry();
         $protoMeta->setKey($this->key);
         $protoMeta->setValue($v);
         return $protoMeta;
