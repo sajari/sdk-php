@@ -1,8 +1,8 @@
 <?php
 
-namespace Sajari\Document;
+namespace Sajari\Record;
 
-class Document
+class Record
 {
     /** @var Meta[] $meta */
     private $meta;
@@ -26,4 +26,3 @@ class Document
 
 
 }
-
