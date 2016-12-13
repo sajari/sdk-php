@@ -2,12 +2,12 @@
 
 namespace Sajari\Record;
 
-use sajari\engine\Value;
+use sajari\engine\Value as EngineValue;
 use sajari\engine\Value\Repeated;
 use sajari\engine\store\record\KeysValues\KeyValues\Value as KeyValueValue;
 use sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry;
 
-class Meta
+class Value
 {
     private $key;
     private $value;
@@ -44,7 +44,7 @@ class Meta
      */
     public function Proto()
     {
-        $actualValue = new Value();
+        $actualValue = new EngineValue();
 
         if (is_array($this->value)) {
           $repeated = new Repeated();

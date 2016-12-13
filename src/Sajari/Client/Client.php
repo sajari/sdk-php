@@ -2,34 +2,35 @@
 
 namespace Sajari\Client;
 
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/engine/value.php';
-require_once __DIR__.'/../proto/query.php';
-require_once __DIR__.'/../proto/key.php';
-require_once __DIR__.'/../proto/status.php';
-require_once __DIR__.'/../proto/api-query.php';
+// require_once __DIR__.'/../proto/doc.php';
+// require_once __DIR__.'/../proto/query.php';
+// require_once __DIR__.'/../proto/key.php';
+// require_once __DIR__.'/../proto/status.php';
+// require_once __DIR__.'/../proto/api-query.php';
 
+require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 
 use Sajari\Document\Document;
 use Sajari\Document\Key as DocumentKey;
 use Sajari\Document\KeyMeta;
 use Sajari\Search\Request;
-use Sajari\Document\Meta;
+use Sajari\Record\Value;
 use Sajari\Search\Result;
 use Sajari\Search\Response;
 use Sajari\Search\Tracking;
 use Sajari\Search\ClickToken;
 use Sajari\Search\PosNegToken;
 
-use sajari\engine\store\doc\Documents;
-use sajari\engine\store\doc\Documents\Document\MetaEntry;
-use sajari\engine\store\doc\StoreClient;
-use Sajari\engine\store\doc\Keys;
-use sajari\engine\Value as Value;
-use sajari\engine\store\doc\Document\ValuesEntry;
-use sajari\engine\store\doc\KeysValues;
-use sajari\engine\store\doc\KeysValues\KeyValues;
+// use sajari\engine\store\doc\Documents;
+// use sajari\engine\store\doc\Documents\Document\MetaEntry;
+// use sajari\engine\store\doc\StoreClient;
+// use Sajari\engine\store\doc\Keys;
+use sajari\engine\Value as EngineValue;
+use sajari\engine\Key as EngineKey;
+// use sajari\engine\store\doc\Document\ValuesEntry;
+// use sajari\engine\store\doc\KeysValues;
+// use sajari\engine\store\doc\KeysValues\KeyValues;
 
 use sajari\api\query\v1\QueryClient;
 use sajari\api\query\SearchRequest as ProtoSearchRequest;
@@ -128,11 +129,11 @@ class Client
     {
       $v = $m->getValue();
       if ($v->hasSingle()) {
-        return new Meta($m->getKey(), $v->getSingle());
+        return new Value($m->getKey(), $v->getSingle());
       } else if ($v->hasRepeated()) {
-        return new Meta($m->getKey(), $v->getRepeated()->getValuesList());
+        return new Value($m->getKey(), $v->getRepeated()->getValuesList());
       } else {
-        return new Meta($m->getKey(), NULL);
+        return new Value($m->getKey(), NULL);
       }
     }
 
@@ -239,7 +240,7 @@ class Client
             foreach ($d->getMeta() as $m) {
                 $valueEntry = new ValuesEntry();
                 $valueEntry->setKey($m->getKey());
-                $v = new Value();
+                $v = new EngineValue();
                 $v->setSingle($m->getValue());
                 $valueEntry->setValue($v);
 
@@ -337,10 +338,10 @@ class Client
         foreach ($kms as $km) {
             $protoKeyMeta = new KeyValues();
 
-            $k = new \sajari\engine\Key();
+            $k = new EngineKey();
             $k->setField($km->getKey()->getField());
 
-            $v = new \sajari\engine\Value();
+            $v = new EngineValue();
 
             $v->setSingle($km->getKey()->getValue());
             $k->setValue($v);
@@ -438,11 +439,11 @@ class Client
                 /** @var sajari\engine\Value $v */
                 $v = $protoMeta->getValue();
                 if ($v->hasSingle()) {
-                  $meta[] = new Meta($protoMeta->getKey(), $v->getSingle());
+                  $meta[] = new Value($protoMeta->getKey(), $v->getSingle());
                 } else if ($v->hasRepeated()) {
-                  $meta[] = new Meta($protoMeta->getKey(), $v->getRepeated()->getValuesList());
+                  $meta[] = new Value($protoMeta->getKey(), $v->getRepeated()->getValuesList());
                 } else {
-                  $meta[] = new Meta($protoMeta->getKey(), NULL);
+                  $meta[] = new Value($protoMeta->getKey(), NULL);
                 }
             }
 
