@@ -4,8 +4,8 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\FieldBoost\Filter as ProtoFilter;
-use sajari\engine\query\v1\FieldBoost as ProtoFieldBoost;
+use sajari\engine\query\v1\FieldBoost\Filter as EngineFilter;
+use sajari\engine\query\v1\FieldBoost as EngineFieldBoost;
 
 class FilterFieldBoost extends FieldBoost
 {
@@ -42,15 +42,15 @@ class FilterFieldBoost extends FieldBoost
     }
 
     /**
-     * @return engine\query\FieldBoost
+     * @return EngineFieldBoost
      */
     public function Proto()
     {
-        $fmb = new ProtoFilter();
+        $fmb = new EngineFilter();
         $fmb->setFilter($this->filter->Proto());
         $fmb->setValue($this->value);
 
-        $mb = new ProtoFieldBoost();
+        $mb = new EngineFieldBoost();
         $mb->setFilter($fmb);
         return $mb;
     }
