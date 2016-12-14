@@ -2,21 +2,25 @@
 
 namespace Sajari\Search;
 
+use Sajari\Record\Value;
+
 class Result
 {
     /** @var double $score */
     private $score;
-    /** @var double $rawscore */
-    private $rawscore;
-    /** @var Meta[] $meta */
-    private $meta;
+
+    /** @var double $indexScore */
+    private $indexScore;
+
+    /** @var Value[] $value */
+    private $value;
 
     /**
-     * @return Meta[]
+     * @return Value[]
      */
-    public function getMeta()
+    public function getValue()
     {
-        return $this->meta;
+        return $this->value;
     }
 
     /**
@@ -30,21 +34,21 @@ class Result
     /**
      * @return double
      */
-    public function getRawScore()
+    public function getIndexScore()
     {
-        return $this->rawscore;
+        return $this->indexScore;
     }
 
     /**
      * Result constructor.
      * @param float $score
      * @param float $rawscore
-     * @param Meta[] $meta
+     * @param Value[] $value
      */
-    public function __construct($score, $rawscore, $meta)
+    public function __construct($score, $indexScore, $value)
     {
         $this->score = $score;
-        $this->rawscore = $rawscore;
-        $this->meta = $meta;
+        $this->indexScore = $indexScore;
+        $this->value = $value;
     }
 }
