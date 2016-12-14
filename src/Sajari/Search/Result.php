@@ -18,7 +18,7 @@ class Result
     /**
      * @return Value[]
      */
-    public function getValue()
+    public function getValues()
     {
         return $this->value;
     }
