@@ -11,9 +11,9 @@ namespace Sajari\Client;
 require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 
-use Sajari\Document\Document;
-use Sajari\Document\Key as DocumentKey;
-use Sajari\Document\KeyMeta;
+use Sajari\Record\Record;
+use Sajari\Record\Key as RecordKey;
+use Sajari\Record\KeyValue;
 use Sajari\Search\Request;
 use Sajari\Record\Value;
 use Sajari\Search\Result;
@@ -21,11 +21,12 @@ use Sajari\Search\Response;
 use Sajari\Search\Tracking;
 use Sajari\Search\ClickToken;
 use Sajari\Search\PosNegToken;
+use Sajari\Client\Opt;
 
 // use sajari\engine\store\doc\Documents;
 // use sajari\engine\store\doc\Documents\Document\MetaEntry;
 // use sajari\engine\store\doc\StoreClient;
-// use Sajari\engine\store\doc\Keys;
+use Sajari\engine\store\record\Keys;
 use sajari\engine\Value as EngineValue;
 use sajari\engine\Key as EngineKey;
 // use sajari\engine\store\doc\Document\ValuesEntry;
@@ -34,6 +35,8 @@ use sajari\engine\Key as EngineKey;
 
 use sajari\api\query\v1\QueryClient;
 use sajari\api\query\SearchRequest as ProtoSearchRequest;
+
+use Grpc\ChannelCredentials;
 
 class Client
 {
@@ -56,7 +59,7 @@ class Client
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
-        $this->credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem")); // createDefault(); //createInsecure();
+        $this->credentials = ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         /** @var $opt Opt */
         foreach ($dialOptions as $opt) {
@@ -125,6 +128,9 @@ class Client
         );
     }
 
+    /**
+     * @return Value
+     */
     public function getValue($m)
     {
       $v = $m->getValue();
@@ -138,18 +144,18 @@ class Client
     }
 
     /**
-     * @param Key $key
-     * @return Document
+     * @param RecordKey $key
+     * @return Record
      * @throws Exception
      */
-    public function Get(DocumentKey $key)
+    public function Get(RecordKey $key)
     {
         return $this->GetMulti(array($key))[0];
     }
 
     /**
-     * @param Key[] $keys
-     * @return Document[]
+     * @param RecordKey[] $keys
+     * @return Record[]
      * @throws Exception
      */
     public function GetMulti(array $keys)
@@ -168,30 +174,35 @@ class Client
         $docs = array();
 
         foreach ($reply->getDocumentsList() as $doc) {
-            $meta = array();
+            $value = array();
 
             foreach ($doc->getValuesList() as $m) {
-                $meta[] = $this->getValue();
+                $value[] = $this->getValue();
                 $v = $m->getValue();
                 if ($v->hasSingle()) {
-                  $meta[] = new Meta($m->getKey(), $v->getSingle());
+                  $value[] = new Value($m->getKey(), $v->getSingle());
                 } else if ($v->hasRepeated()) {
-                  $meta[] = new Meta($m->getKey(), $v->getRepeated()->getValuesList());
+                  $value[] = new Value($m->getKey(), $v->getRepeated()->getValuesList());
                 } else {
-                  $meta[] = new Meta($m->getKey(), NULL);
+                  $value[] = new Value($m->getKey(), NULL);
                 }
             }
 
-            $docs[] = new Document($meta);
+            $docs[] = new Record($value);
         }
 
         return $docs;
     }
 
+    /**
+     * @param RecordKey[]
+     * @return Keys
+     */
     private function protoKeysFromKeys(array $keys)
     {
         $protoKeys = new Keys();
 
+        /** @var RecordKey $k */
         foreach ($keys as $k) {
             $protoKeys->addKeys($k->Proto());
         }
@@ -199,6 +210,9 @@ class Client
         return $protoKeys;
     }
 
+    /**
+     * @return StoreClient
+     */
     private function getDocumentClient()
     {
         if ($this->documentClient !== null) {
@@ -213,20 +227,20 @@ class Client
     }
 
     /**
-     * @param Document $doc
+     * @param Record $rec
      * @return Key
      * @throws Exception
      */
-    public function Add(Document $doc)
+    public function Add(Record $rec)
     {
-        $multiResult = $this->AddMulti([$doc]);
+        $multiResult = $this->AddMulti([$rec]);
 
         // Return the first key and status from add multi
         return [$multiResult[0][0], $multiResult[1][0]];
     }
 
     /**
-     * @param Document[] $docs
+     * @param Record[] $docs
      * @return Key[]
      * @throws Exception
      */
@@ -250,7 +264,7 @@ class Client
             $protoDocs->addDocuments($protoDoc);
         }
 
-        /** @var $reply \sajari\engine\store\doc\Keys */
+        /** @var $reply Keys */
         list($reply, $status) = $this->getDocumentClient()->Add(
             $protoDocs,
             $this->getCallMeta()
@@ -262,11 +276,11 @@ class Client
 
         $keys = array();
 
-        /** @var $k \sajari\engine\Key */
+        /** @var $k EngineKey */
         foreach ($reply->getKeysList() as $k) {
             $value = $k->getValue();
             if (is_null($value)) {
-              $keys[] = new DocumentKey(NULL, NULL);
+              $keys[] = new RecordKey(NULL, NULL);
               continue;
             }
             $extractedValue = NULL;
@@ -276,7 +290,7 @@ class Client
               $extractedValue = $value->getRepeated()->getValuesList();
             }
 
-            $keys[] = new DocumentKey($k->getField(), $extractedValue);
+            $keys[] = new RecordKey($k->getField(), $extractedValue);
         }
 
         return [$keys, $reply->getStatusList()];
@@ -327,36 +341,36 @@ class Client
     }
 
     /**
-     * @param KeyMeta[] $kms
+     * @param KeyValue[] $kvs
      * @throws Exception
      */
-    public function PatchMulti(array $kms)
+    public function PatchMulti(array $kvs)
     {
-        $protoKeyMetas = new KeysValues();
+        $protoKeyValues = new KeysValues();
 
-        /** @var $km KeyMeta */
-        foreach ($kms as $km) {
-            $protoKeyMeta = new KeyValues();
+        /** @var $kv KeyValue */
+        foreach ($kvs as $kv) {
+            $protoKeyValue = new KeyValues();
 
             $k = new EngineKey();
-            $k->setField($km->getKey()->getField());
+            $k->setField($kv->getKey()->getField());
 
             $v = new EngineValue();
 
-            $v->setSingle($km->getKey()->getValue());
+            $v->setSingle($kv->getKey()->getValue());
             $k->setValue($v);
 
-            $protoKeyMeta->setKey($k);
+            $protoKeyValue->setKey($k);
 
-            foreach ($km->getMeta() as $m) {
-                $protoKeyMeta->addValues($m->Proto());
+            foreach ($kv->getMeta() as $m) {
+                $protoKeyValue->addValues($m->Proto());
             }
 
-            $protoKeyMetas->addKeysValues($protoKeyMeta);
+            $protoKeyValues->addKeysValues($protoKeyValue);
         }
 
         list($reply, $status) = $this->getDocumentClient()->Patch(
-            $protoKeyMetas,
+            $protoKeyValues,
             $this->getCallMeta()
         )->wait();
 
@@ -367,23 +381,9 @@ class Client
         return $reply->getStatusList();
     }
 
-    public function Compare(CompareRequest $r)
-    {
-      list($reply, $status) = $this->getSearchClient()->Compare(
-        $r->Proto(),
-        $this->getCallMeta()
-      )->wait();
-
-      // Check for server error
-      if ($status->code !== 0) {
-          throw new \Exception('Error code not zero');
-      }
-
-      var_dump($reply);
-    }
-
     /**
      * @param Request $r
+     * @param Tracking $t
      * @return Response
      * @throws Exception
      */
@@ -393,10 +393,6 @@ class Client
           $t = new Tracking();
         }
 
-        // $searchRequest = new ProtoSearchRequest();
-        //
-        // $searchRequest->setTracking($t->Proto());
-        // $searchRequest->setSearchRequest($r->Proto());
         $searchRequest = $r->Proto();
         // Make Request
         /** @var engine\query\Response $reply */
