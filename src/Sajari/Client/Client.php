@@ -21,6 +21,9 @@ use Sajari\Search\Response;
 use Sajari\Search\Tracking;
 use Sajari\Search\ClickToken;
 use Sajari\Search\PosNegToken;
+use Sajari\Search\CountResponseAggregate;
+use Sajari\Search\BucketResponseAggregate;
+use Sajari\Search\MetricResponseAggregate;
 use Sajari\Client\Opt;
 
 // use sajari\engine\store\doc\Documents;
