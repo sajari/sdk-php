@@ -2,10 +2,16 @@
 
 namespace Sajari\Search;
 
-class TextMetaBoost
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
+
+use sajari\engine\query\v1\FieldBoost\Text as EngineText;
+use sajari\engine\query\v1\FieldBoost as EngineFieldBoost;
+
+class TextFieldBoost
 {
     /** @var string $field */
     private $field;
+
     /** @var string $text */
     private $text;
 
@@ -36,13 +42,16 @@ class TextMetaBoost
         return $this->text;
     }
 
+    /**
+     * @return EngineText
+     */
     public function Proto()
     {
-        $tmb = new engine\query\MetaBoost\Text();
+        $tmb = new EngineText();
         $tmb->setField($this->field);
         $tmb->setText($this->text);
 
-        $mb = new engine\query\MetaBoost();
+        $mb = new EngineFieldBoost();
         $mb->setText($tmb);
         return $mb;
     }
