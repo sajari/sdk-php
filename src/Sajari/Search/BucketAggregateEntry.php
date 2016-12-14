@@ -2,10 +2,9 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\Aggregate\Bucket\Bucket as ProtoBucket;
+use sajari\engine\query\v1\Aggregate\Bucket\Bucket as EngineBucket;
 
 class BucketAggregateEntry
 {
@@ -38,7 +37,7 @@ class BucketAggregateEntry
 
     public function Proto()
     {
-        $be = new ProtoBucket();
+        $be = new EngineBucket();
         $be->setName($this->name);
         $be->setFilter($this->filter->Proto());
         return $be;
