@@ -5,6 +5,7 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
 use sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost as EngineFieldBoost;
+
 use Sajari\Search\FieldBoost;
 
 class FeatureFieldBoost
