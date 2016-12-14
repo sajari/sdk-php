@@ -95,7 +95,7 @@ class FieldFilter extends Filter
     }
 
     /**
-     * @return engine\query\Filter\Field
+     * @return EngineFilterField
      */
     public function Proto()
     {
