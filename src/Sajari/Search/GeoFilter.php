@@ -2,15 +2,13 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/value.php';
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/engine/value.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\Filter\Geo as ProtoGeo;
-use sajari\engine\query\Filter as ProtoFilter;
+use sajari\engine\query\v1\Filter as EngineFilter;
+use sajari\engine\query\v1\Filter\Geo as EngineGeo;
+use sajari\engine\query\v1\Filter\Geo\Region;
 use sajari\engine\Value;
-
-use sajari\engine\query\Filter\Geo\Region;
 
 class GeoFilter extends Filter
 {
@@ -19,14 +17,19 @@ class GeoFilter extends Filter
 
     /** @var string $fieldLat */
     private $fieldLat;
+
     /** @var string $fieldLng */
     private $fieldLng;
+
     /** @var float $lat */
     private $lat;
+
     /** @var float $lng */
     private $lng;
+
     /** @var float $radius */
     private $radius;
+
     /** @var int $region */
     private $region;
 
@@ -122,11 +125,11 @@ class GeoFilter extends Filter
     }
 
     /**
-     * @return engine\query\Filter\Geo
+     * @return EngineGeo
      */
     public function Proto()
     {
-        $gmb = new ProtoGeo();
+        $gmb = new EngineGeo();
         $gmb->setFieldLat($this->fieldLat);
         $gmb->setFieldLng($this->fieldLng);
         $gmb->setLat($this->lat);
@@ -134,7 +137,7 @@ class GeoFilter extends Filter
         $gmb->setRadius($this->radius);
         $gmb->setRegion($this->region);
 
-        $mb = new ProtoFilter();
+        $mb = new EngineFilter();
         $mb->setGeo($gmb);
         return $mb;
     }
