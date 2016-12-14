@@ -2,11 +2,10 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\FieldBoost\Filter as ProtoFilter;
-use sajari\engine\query\FieldBoost as ProtoFieldBoost;
+use sajari\engine\query\v1\FieldBoost\Filter as ProtoFilter;
+use sajari\engine\query\v1\FieldBoost as ProtoFieldBoost;
 
 class FilterFieldBoost extends FieldBoost
 {
