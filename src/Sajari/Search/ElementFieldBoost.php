@@ -2,11 +2,10 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\FieldBoost\Element as ProtoElement;
-use sajari\engine\query\FieldBoost as ProtoFieldBoost;
+use sajari\engine\query\v1\FieldBoost\Element as EngineElement;
+use sajari\engine\query\v1\FieldBoost as EngineFieldBoost;
 
 class ElementFieldBoost extends FieldBoost
 {
@@ -18,7 +17,7 @@ class ElementFieldBoost extends FieldBoost
     /**
      * ElementFieldBoost constructor.
      * @param string $field
-     * @param \string[] $elements
+     * @param string[] $elements
      */
     public function __construct($field, array $elements)
     {
@@ -35,7 +34,7 @@ class ElementFieldBoost extends FieldBoost
     }
 
     /**
-     * @return \string[]
+     * @return string[]
      */
     public function getElements()
     {
@@ -44,13 +43,13 @@ class ElementFieldBoost extends FieldBoost
 
     public function Proto()
     {
-        $emb = new ProtoElement();
+        $emb = new EngineElement();
         $emb->setField($this->field);
         foreach ($this->elements as $element) {
             $emb->addElts($element);
         }
 
-        $mb = new ProtoFieldBoost();
+        $mb = new EngineFieldBoost();
         $mb->setElement($emb);
         return $mb;
     }
