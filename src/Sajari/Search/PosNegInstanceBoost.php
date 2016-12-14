@@ -2,11 +2,10 @@
 
 namespace Sajari\Search;
 
-require_once __DIR__.'/../proto/doc.php';
-require_once __DIR__.'/../proto/query.php';
+require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\InstanceBoost\PosNeg as ProtoPosNeg;
-use sajari\engine\query\InstanceBoost as ProtoInstanceBoost;
+use sajari\engine\query\v1\InstanceBoost\PosNeg as EnginePosNeg;
+use sajari\engine\query\v1\InstanceBoost as EngineInstanceBoost;
 
 class PosNegInstanceBoost extends InstanceBoost
 {
@@ -32,10 +31,10 @@ class PosNegInstanceBoost extends InstanceBoost
 
     public function Proto()
     {
-        $pn = new ProtoPosNeg();
+        $pn = new EnginePosNeg();
         $pn->setValue($this->value);
 
-        $ib = new ProtoInstanceBoost();
+        $ib = new EngineInstanceBoost();
         $ib->setPosNeg($pn);
 
         return $ib;
