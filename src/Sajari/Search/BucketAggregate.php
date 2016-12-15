@@ -12,7 +12,7 @@ use Sajari\Search\BucketAggregateEntry;
 
 class BucketAggregate extends Aggregate
 {
-    /** @var string name */
+    /** @var string $name */
     private $name;
     /** @var BucketAggregateEntry[] $buckets */
     private $buckets;
