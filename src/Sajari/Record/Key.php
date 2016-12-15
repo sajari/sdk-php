@@ -40,7 +40,7 @@ class Key
     }
 
     /**
-     * @return \sajari\engine\Key
+     * @return EngineKey
      */
     public function Proto()
     {

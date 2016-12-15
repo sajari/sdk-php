@@ -9,35 +9,46 @@ namespace Sajari\Client;
 // require_once __DIR__.'/../proto/api-query.php';
 
 require_once __DIR__.'/../proto/engine/value.php';
+require_once __DIR__.'/../proto/engine/key.php';
+require_once __DIR__.'/../proto/engine/status.php';
+require_once __DIR__.'/../proto/engine/store/record/record.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 
 use Sajari\Record\Record;
 use Sajari\Record\Key as RecordKey;
 use Sajari\Record\KeyValue;
-use Sajari\Search\Request;
-use Sajari\Record\Value;
-use Sajari\Search\Result;
-use Sajari\Search\Response;
+use Sajari\Record\Value as RecordValue;
+
+use Sajari\Search\Request as SearchRequest;
+use Sajari\Search\Result as SearchResult;
+use Sajari\Search\Response as SearchResponse;
 use Sajari\Search\Tracking;
 use Sajari\Search\ClickToken;
 use Sajari\Search\PosNegToken;
 use Sajari\Search\CountResponseAggregate;
 use Sajari\Search\BucketResponseAggregate;
 use Sajari\Search\MetricResponseAggregate;
+
 use Sajari\Client\Opt;
 
 // use sajari\engine\store\doc\Documents;
 // use sajari\engine\store\doc\Documents\Document\MetaEntry;
 // use sajari\engine\store\doc\StoreClient;
-use Sajari\engine\store\record\Keys;
+use sajari\engine\store\record\Keys as EngineKeys;
 use sajari\engine\Value as EngineValue;
 use sajari\engine\Key as EngineKey;
+use sajari\engine\store\record\Record as EngineRecord;
+use sajari\engine\store\record\Record\ValuesEntry as EngineRecordValuesEntry;
+
 // use sajari\engine\store\doc\Document\ValuesEntry;
 // use sajari\engine\store\doc\KeysValues;
 // use sajari\engine\store\doc\KeysValues\KeyValues;
 
+use sajari\engine\store\record\StoreClient;
 use sajari\api\query\v1\QueryClient;
 use sajari\api\query\SearchRequest as ProtoSearchRequest;
+
+use sajari\engine\store\record\GetResponse;
 
 use Grpc\ChannelCredentials;
 
@@ -48,7 +59,7 @@ class Client
     private $endpoint = 'api.sajari.com:443';
     private $auth = '';
     private $credentials;
-    private $documentClient;
+    private $storeClient;
     private $searchClient;
     private $grpcDialOptions;
 
@@ -70,6 +81,10 @@ class Client
         }
 
         $this->searchClient = new QueryClient($this->endpoint, [
+            'credentials' => $this->credentials,
+        ]);
+
+        $this->storeClient = new StoreClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
     }
@@ -165,7 +180,8 @@ class Client
     {
         $protoKeys = $this->protoKeysFromKeys($keys);
 
-        list($reply, $status) = $this->getDocumentClient()->Get(
+        /** @var GetResponse $reply */
+        list($reply, $status) = $this->storeClient->Get(
             $protoKeys,
             $this->getCallMeta()
         )->wait();
@@ -176,19 +192,22 @@ class Client
 
         $docs = array();
 
-        foreach ($reply->getDocumentsList() as $doc) {
+        /** @var EngineRecord $doc */
+        foreach ($reply->getRecordsList() as $doc) {
             $value = array();
 
+            /** @var EngineRecordValuesEntry $m */
             foreach ($doc->getValuesList() as $m) {
-                $value[] = $this->getValue();
-                $v = $m->getValue();
-                if ($v->hasSingle()) {
-                  $value[] = new Value($m->getKey(), $v->getSingle());
-                } else if ($v->hasRepeated()) {
-                  $value[] = new Value($m->getKey(), $v->getRepeated()->getValuesList());
-                } else {
-                  $value[] = new Value($m->getKey(), NULL);
-                }
+                $value[] = getValue($m);
+                // $v = getValue($m);
+                // $v = $m->getValue();
+                // if ($v->hasSingle()) {
+                //   $value[] = new Value($m->getKey(), $v->getSingle());
+                // } else if ($v->hasRepeated()) {
+                //   $value[] = new Value($m->getKey(), $v->getRepeated()->getValuesList());
+                // } else {
+                //   $value[] = new Value($m->getKey(), NULL);
+                // }
             }
 
             $docs[] = new Record($value);
@@ -203,7 +222,7 @@ class Client
      */
     private function protoKeysFromKeys(array $keys)
     {
-        $protoKeys = new Keys();
+        $protoKeys = new EngineKeys();
 
         /** @var RecordKey $k */
         foreach ($keys as $k) {
@@ -213,21 +232,21 @@ class Client
         return $protoKeys;
     }
 
-    /**
-     * @return StoreClient
-     */
-    private function getDocumentClient()
-    {
-        if ($this->documentClient !== null) {
-            return $this->documentClient;
-        }
-
-        $this->documentClient = new StoreClient($this->endpoint, [
-            'credentials' => $this->credentials,
-        ]);
-
-        return $this->documentClient;
-    }
+    // /**
+    //  * @return StoreClient
+    //  */
+    // private function getDocumentClient()
+    // {
+    //     if ($this->documentClient !== null) {
+    //         return $this->documentClient;
+    //     }
+    //
+    //     $this->documentClient = new StoreClient($this->endpoint, [
+    //         'credentials' => $this->credentials,
+    //     ]);
+    //
+    //     return $this->documentClient;
+    // }
 
     /**
      * @param Record $rec

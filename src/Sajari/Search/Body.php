@@ -8,21 +8,24 @@ use sajari\engine\query\v1\Body as EngineBody;
 
 class Body
 {
-  private $text;
-  private $weight;
+    /** @var string $text */
+    private $text;
 
-  public function __construct($text, $weight)
-  {
-    $this->text = $text;
-    $this->weight = $weight;
-  }
+    /** @var float $weight */
+    private $weight;
 
-  public function Proto() {
-    $b = new EngineBody();
+    public function __construct($text, $weight)
+    {
+        $this->text = $text;
+        $this->weight = $weight;
+    }
 
-    $b->setText($this->text);
-    $b->setWeight($this->weight);
+    public function Proto() {
+        $b = new EngineBody();
 
-    return $b;
-  }
+        $b->setText($this->text);
+        $b->setWeight($this->weight);
+
+        return $b;
+    }
 }
