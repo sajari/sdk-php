@@ -263,19 +263,9 @@ class Client
 
         /** @var $k EngineKey */
         foreach ($reply->getKeysList() as $k) {
-            $value = $k->getValue();
-            if (is_null($value)) {
-              $keys[] = new RecordKey(NULL, NULL);
-              continue;
-            }
-            $extractedValue = NULL;
-            if ($value->hasSingle()) {
-              $extractedValue = $value->getSingle();
-            } else if ($value->hasRepeated()) {
-              $extractedValue = $value->getRepeated()->getValuesList();
-            }
+            $value = $this->getValue($k);
 
-            $keys[] = new RecordKey($k->getField(), $extractedValue);
+            $keys[] = new RecordKey($k->getField(), $value);
         }
 
         return [$keys, $reply->getStatusList()];
