@@ -2,12 +2,6 @@
 
 namespace Sajari\Client;
 
-// require_once __DIR__.'/../proto/doc.php';
-// require_once __DIR__.'/../proto/query.php';
-// require_once __DIR__.'/../proto/key.php';
-// require_once __DIR__.'/../proto/status.php';
-// require_once __DIR__.'/../proto/api-query.php';
-
 require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/engine/key.php';
 require_once __DIR__.'/../proto/engine/status.php';
@@ -31,18 +25,11 @@ use Sajari\Search\MetricResponseAggregate;
 
 use Sajari\Client\Opt;
 
-// use sajari\engine\store\doc\Documents;
-// use sajari\engine\store\doc\Documents\Document\MetaEntry;
-// use sajari\engine\store\doc\StoreClient;
 use sajari\engine\store\record\Keys as EngineKeys;
 use sajari\engine\Value as EngineValue;
 use sajari\engine\Key as EngineKey;
 use sajari\engine\store\record\Record as EngineRecord;
 use sajari\engine\store\record\Record\ValuesEntry as EngineRecordValuesEntry;
-
-// use sajari\engine\store\doc\Document\ValuesEntry;
-// use sajari\engine\store\doc\KeysValues;
-// use sajari\engine\store\doc\KeysValues\KeyValues;
 
 use sajari\engine\store\record\StoreClient;
 use sajari\api\query\v1\QueryClient;
@@ -200,15 +187,6 @@ class Client
             /** @var EngineRecordValuesEntry $m */
             foreach ($doc->getValuesList() as $m) {
                 $value[] = $this->getValue($m);
-                // $v = getValue($m);
-                // $v = $m->getValue();
-                // if ($v->hasSingle()) {
-                //   $value[] = new Value($m->getKey(), $v->getSingle());
-                // } else if ($v->hasRepeated()) {
-                //   $value[] = new Value($m->getKey(), $v->getRepeated()->getValuesList());
-                // } else {
-                //   $value[] = new Value($m->getKey(), NULL);
-                // }
             }
 
             $docs[] = new Record($value);
@@ -232,22 +210,6 @@ class Client
 
         return $protoKeys;
     }
-
-    // /**
-    //  * @return StoreClient
-    //  */
-    // private function getDocumentClient()
-    // {
-    //     if ($this->documentClient !== null) {
-    //         return $this->documentClient;
-    //     }
-    //
-    //     $this->documentClient = new StoreClient($this->endpoint, [
-    //         'credentials' => $this->credentials,
-    //     ]);
-    //
-    //     return $this->documentClient;
-    // }
 
     /**
      * @param Record $rec
@@ -454,16 +416,9 @@ class Client
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
             /** @var engine\query\Result\MetaEntry $protoMeta */
-            foreach ($protoResult->getValuesList() as $protoMeta) {
+            foreach ($protoResult->getValuesList() as $m) {
                 /** @var sajari\engine\Value $v */
-                $v = $protoMeta->getValue();
-                if ($v->hasSingle()) {
-                  $meta[] = new RecordValue($protoMeta->getKey(), $v->getSingle());
-                } else if ($v->hasRepeated()) {
-                  $meta[] = new RecordValue($protoMeta->getKey(), $v->getRepeated()->getValuesList());
-                } else {
-                  $meta[] = new RecordValue($protoMeta->getKey(), NULL);
-                }
+                $meta[] = $this->getValue($m);
             }
 
             $result = new SearchResult(
