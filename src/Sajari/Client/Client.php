@@ -153,22 +153,23 @@ class Client
     {
       $v = $m->getValue();
       if ($v->hasSingle()) {
-        return new Value($m->getKey(), $v->getSingle());
+        return new RecordValue($m->getKey(), $v->getSingle());
       } else if ($v->hasRepeated()) {
-        return new Value($m->getKey(), $v->getRepeated()->getValuesList());
+        return new RecordValue($m->getKey(), $v->getRepeated()->getValuesList());
       } else {
-        return new Value($m->getKey(), NULL);
+        return new RecordValue($m->getKey(), NULL);
       }
     }
 
     /**
      * @param RecordKey $key
-     * @return Record
+     * @return []
      * @throws Exception
      */
     public function Get(RecordKey $key)
     {
-        return $this->GetMulti(array($key))[0];
+        list($res, $status) = $this->GetMulti(array($key));
+        return [$res[0], $status[0]];
     }
 
     /**
@@ -198,7 +199,7 @@ class Client
 
             /** @var EngineRecordValuesEntry $m */
             foreach ($doc->getValuesList() as $m) {
-                $value[] = getValue($m);
+                $value[] = $this->getValue($m);
                 // $v = getValue($m);
                 // $v = $m->getValue();
                 // if ($v->hasSingle()) {
@@ -213,7 +214,7 @@ class Client
             $docs[] = new Record($value);
         }
 
-        return $docs;
+        return [$docs, $reply->getStatusList()];
     }
 
     /**
@@ -409,7 +410,7 @@ class Client
      * @return Response
      * @throws Exception
      */
-    public function Search(Request $r, Tracking $t = NULL)
+    public function Search(SearchRequest $r, Tracking $t = NULL)
     {
         if (is_null($t)) {
           $t = new Tracking();
@@ -457,15 +458,15 @@ class Client
                 /** @var sajari\engine\Value $v */
                 $v = $protoMeta->getValue();
                 if ($v->hasSingle()) {
-                  $meta[] = new Value($protoMeta->getKey(), $v->getSingle());
+                  $meta[] = new RecordValue($protoMeta->getKey(), $v->getSingle());
                 } else if ($v->hasRepeated()) {
-                  $meta[] = new Value($protoMeta->getKey(), $v->getRepeated()->getValuesList());
+                  $meta[] = new RecordValue($protoMeta->getKey(), $v->getRepeated()->getValuesList());
                 } else {
-                  $meta[] = new Value($protoMeta->getKey(), NULL);
+                  $meta[] = new RecordValue($protoMeta->getKey(), NULL);
                 }
             }
 
-            $result = new Result(
+            $result = new SearchResult(
                 $protoResult->getScore(),
                 $protoResult->getIndexScore(),
                 $meta
@@ -533,6 +534,6 @@ class Client
           }
         }
 
-        return new Response($total, $reads, $time, $results, $aggregateList, $tokens);
+        return new SearchResponse($total, $reads, $time, $results, $aggregateList, $tokens);
     }
 }
