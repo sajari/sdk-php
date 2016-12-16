@@ -24,6 +24,22 @@ class Value
     }
 
     /**
+     * @param \sajari\engine\Value $protoValue
+     * @return Value
+     */
+    public static function FromProtoValue($protoValue)
+    {
+        $v = $protoValue->getValue();
+        if ($v->hasSingle()) {
+          return new Value($protoValue->getKey(), $v->getSingle());
+        } else if ($v->hasRepeated()) {
+          return new Value($protoValue->getKey(), $v->getRepeated()->getValuesList());
+        } else {
+          return new Value($protoValue->getKey(), NULL);
+        }
+    }
+
+    /**
      * @return mixed
      */
     public function getKey()

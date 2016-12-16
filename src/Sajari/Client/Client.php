@@ -134,21 +134,6 @@ class Client
     }
 
     /**
-     * @return Value
-     */
-    public function getValue($m)
-    {
-      $v = $m->getValue();
-      if ($v->hasSingle()) {
-        return new RecordValue($m->getKey(), $v->getSingle());
-      } else if ($v->hasRepeated()) {
-        return new RecordValue($m->getKey(), $v->getRepeated()->getValuesList());
-      } else {
-        return new RecordValue($m->getKey(), NULL);
-      }
-    }
-
-    /**
      * @param RecordKey $key
      * @return []
      * @throws Exception
@@ -186,7 +171,7 @@ class Client
 
             /** @var EngineRecordValuesEntry $m */
             foreach ($doc->getValuesList() as $m) {
-                $value[] = $this->getValue($m);
+                $value[] = \Sajari\Record\Value::FromProtoValue($m);
             }
 
             $docs[] = new Record($value);
@@ -263,7 +248,7 @@ class Client
 
         /** @var $k EngineKey */
         foreach ($reply->getKeysList() as $k) {
-            $value = $this->getValue($k);
+            $value = \Sajari\Record\Value::FromProtoValue($k);
 
             $keys[] = new RecordKey($k->getField(), $value);
         }
@@ -408,7 +393,7 @@ class Client
             /** @var engine\query\Result\MetaEntry $protoMeta */
             foreach ($protoResult->getValuesList() as $m) {
                 /** @var sajari\engine\Value $v */
-                $meta[] = $this->getValue($m);
+                $meta[] = \Sajari\Record\Value::FromProtoValue($m);
             }
 
             $result = new SearchResult(
