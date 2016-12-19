@@ -156,7 +156,7 @@ class Client
      */
     public function GetMulti(array $keys)
     {
-        $protoKeys = $this->protoKeysFromKeys($keys);
+        $protoKeys = $this->keysToProto($keys);
 
         /** @var GetResponse $reply */
         list($reply, $status) = $this->storeClient->Get(
@@ -197,7 +197,7 @@ class Client
      * @param RecordKey[]
      * @return Keys
      */
-    private function protoKeysFromKeys(array $keys)
+    private function keysToProto(array $keys)
     {
         $protoKeys = new EngineKeys();
 
@@ -289,7 +289,7 @@ class Client
      */
     public function DeleteMulti(array $keys)
     {
-        $protoKeys = $this->protoKeysFromKeys($keys);
+        $protoKeys = $this->keysToProto($keys);
 
         list($reply, $status) = $this->getDocumentClient()->Delete(
             $protoKeys,
