@@ -143,7 +143,7 @@ class Client
         try {
             list($res, $status) = $this->GetMulti(array($key));
         } catch (\Sajari\Client\MultiRecordNotFoundException $e) {
-            throw new \Sajari\Client\RecordNotFoundException($e->getMessage(), $e->getCode(), null, $e->getKeys()[0]);
+            throw new \Sajari\Client\RecordNotFoundException($e->getMessage(), $e->getCode(), null);
         }
 
         return [$res[0], $status[0]];
@@ -186,7 +186,7 @@ class Client
 
         foreach ($statuses as $s) {
             if (isset($s) && $s->code === 5) {
-                throw new \Sajari\Client\MultiRecordNotFoundException($s->message, $s->code, null, $keys);
+                throw new \Sajari\Client\MultiRecordNotFoundException($s->message, $s->code, null);
             }
         }
 
