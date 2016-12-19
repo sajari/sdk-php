@@ -135,19 +135,24 @@ class Client
 
     /**
      * @param RecordKey $key
-     * @return []
-     * @throws Exception
+     * @return array []
+     * @throws RecordNotFoundException
      */
     public function Get(RecordKey $key)
     {
-        list($res, $status) = $this->GetMulti(array($key));
+        try {
+            list($res, $status) = $this->GetMulti(array($key));
+        } catch (\Sajari\Client\MultiRecordNotFoundException $e) {
+            throw new \Sajari\Client\RecordNotFoundException($e->getMessage(), $e->getCode(), null, $e->getKeys()[0]);
+        }
+
         return [$res[0], $status[0]];
     }
 
     /**
      * @param RecordKey[] $keys
      * @return Record[]
-     * @throws Exception
+     * @throws \Exception
      */
     public function GetMulti(array $keys)
     {
@@ -177,7 +182,15 @@ class Client
             $docs[] = new Record($value);
         }
 
-        return [$docs, $reply->getStatusList()];
+        $statuses = $reply->getStatusList();
+
+        foreach ($statuses as $s) {
+            if (isset($s) && $s->code === 5) {
+                throw new \Sajari\Client\MultiRecordNotFoundException($s->message, $s->code, null, $keys);
+            }
+        }
+
+        return [$docs, $statuses];
     }
 
     /**
@@ -341,18 +354,14 @@ class Client
         return $reply->getStatusList();
     }
 
-    /**
-     * @param Request $r
-     * @param Tracking $t
-     * @return Response
-     * @throws Exception
-     */
-    public function Search(SearchRequest $r, Tracking $t = NULL)
-    {
-        if (is_null($t)) {
-          $t = new Tracking();
-        }
 
+    /**
+     * @param \Sajari\Search\Request $r
+     * @return \Sajari\Search\Response
+     * @throws \Exception
+     */
+    public function Search(SearchRequest $r)
+    {
         $searchRequest = $r->Proto();
         // Make Request
         /** @var engine\query\Response $reply */
@@ -362,8 +371,17 @@ class Client
         )->wait();
 
         // Check for server error
-        if ($status->code !== 0) {
-            throw new \Exception($status->details, $status->code);
+        switch ($status->code) {
+            case 0:
+                break;
+            case 3:
+                // invalid argument
+                throw new \Sajari\Client\MalformedSearchRequestException($status->details, $status->code);
+            case 7:
+                // permission denied
+                throw new \Sajari\Client\PermissionDeniedException($status->details, $status->code);
+            default:
+                throw new \Exception($status->details, $status->code);
         }
 
         // Transform proto to user-friendly objects

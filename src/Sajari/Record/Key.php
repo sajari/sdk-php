@@ -63,4 +63,9 @@ class Key
         $protoKey->setValue($value);
         return $protoKey;
     }
+
+    function __toString()
+    {
+        return sprintf("Key{ field: %s, value: %s }", $this->field, $this->value);
+    }
 }
