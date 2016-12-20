@@ -167,8 +167,8 @@ class Client
     {
         try {
             list($res, $status) = $this->GetMulti(array($key));
-        } catch (\Sajari\Client\MultiRecordNotFoundException $e) {
-            throw new \Sajari\Client\RecordNotFoundException($e->getMessage(), $e->getCode(), null);
+        } catch (\Sajari\Error\MultiRecordNotFoundException $e) {
+            throw new \Sajari\Error\RecordNotFoundException($e->getMessage(), $e->getCode(), null);
         }
 
         return [$res[0], $status[0]];
@@ -193,6 +193,9 @@ class Client
             throw new \Exception($status->details);
         }
 
+        // Check for server error
+        $this->checkForError($status);
+
         $docs = array();
 
         /** @var EngineRecord $doc */
@@ -211,7 +214,7 @@ class Client
 
         foreach ($statuses as $s) {
             if (isset($s) && $s->code === 5) {
-                throw new \Sajari\Client\MultiRecordNotFoundException($s->message, $s->code, null);
+                throw new \Sajari\Error\MultiRecordNotFoundException($s->message, $s->code, null);
             }
         }
 
@@ -379,11 +382,9 @@ class Client
         return $reply->getStatusList();
     }
 
-
     /**
-     * @param \Sajari\Search\Request $r
-     * @return \Sajari\Search\Response
-     * @throws \Exception
+     * @param SearchRequest $r
+     * @return SearchResponse
      */
     public function Search(SearchRequest $r)
     {
@@ -396,18 +397,7 @@ class Client
         )->wait();
 
         // Check for server error
-        switch ($status->code) {
-            case 0:
-                break;
-            case 3:
-                // invalid argument
-                throw new \Sajari\Client\MalformedSearchRequestException($status->details, $status->code);
-            case 7:
-                // permission denied
-                throw new \Sajari\Client\PermissionDeniedException($status->details, $status->code);
-            default:
-                throw new \Exception($status->details, $status->code);
-        }
+        $this->checkForError($status);
 
         // Transform proto to user-friendly objects
 
@@ -508,5 +498,44 @@ class Client
         }
 
         return new SearchResponse($total, $reads, $time, $results, $aggregateList, $tokens);
+    }
+
+    /**
+     * @param $status
+     * @throws \Sajari\Error\AlreadyExistsException
+     * @throws \Sajari\Error\Base
+     * @throws \Sajari\Error\MalformedRequestException
+     * @throws \Sajari\Error\NotFoundException
+     * @throws \Sajari\Error\PermissionDeniedException
+     * @throws \Sajari\Error\Unauthenticated
+     * @throws \Sajari\Error\Unavailable
+     */
+    private function checkForError($status)
+    {
+        switch ($status->code) {
+            case 0:
+                return;
+            case 3:
+                // invalid argument
+                throw new \Sajari\Error\MalformedRequestException($status->details, $status->code);
+            case 5:
+                // not found
+                throw new \Sajari\Error\NotFoundException($status->details, $status->code);
+            case 6:
+                // already exists
+                throw new \Sajari\Error\AlreadyExistsException($status->details, $status->code);
+            case 7:
+                // permission denied
+                throw new \Sajari\Error\PermissionDeniedException($status->details, $status->code);
+            case 14:
+                // unavailable
+                throw new \Sajari\Error\Unavailable($status->details, $status->code);
+            case 16:
+                // unauthenticated
+                throw new \Sajari\Error\Unauthenticated($status->details, $status->code);;
+            default:
+                // generic exception
+                throw new \Sajari\Error\Base($status->details, $status->code);
+        }
     }
 }
