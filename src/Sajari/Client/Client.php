@@ -52,11 +52,13 @@ class Client
 
     /**
      * Client constructor.
+     * @param QueryClient $queryClient
+     * @param StoreClient $storeClient
      * @param string $projectID
      * @param string $collection
      * @param Opt[] $dialOptions
      */
-    public function __construct($projectID, $collection, $dialOptions)
+    public function __construct(QueryClient $queryClient, StoreClient $storeClient, $projectID, $collection, array $dialOptions)
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
@@ -74,6 +76,29 @@ class Client
         $this->storeClient = new StoreClient($this->endpoint, [
             'credentials' => $this->credentials,
         ]);
+    }
+
+    /**
+     * @param string $projectID
+     * @param string $collection
+     * @param array $dialOptions
+     * @return Client
+     */
+    public static function DefaultClient($projectID, $collection, array $dialOptions)
+    {
+        $credentials = ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
+
+        return new Client(
+            new QueryClient('api.sajari.com:443', [
+                'credentials' => $credentials,
+            ]),
+            new StoreClient('api.sajari.com:443', [
+                'credentials' => $credentials,
+            ]),
+            $projectID,
+            $collection,
+            $dialOptions
+        );
     }
 
     /**
