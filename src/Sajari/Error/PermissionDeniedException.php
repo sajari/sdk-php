@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Client;
+namespace Sajari\Error;
 
 
 class PermissionDeniedException extends \Exception
