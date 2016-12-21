@@ -2,7 +2,7 @@
 
 namespace Sajari\Error;
 
-class Base extends \Exception
+class Exception extends \Exception
 {
 
 }

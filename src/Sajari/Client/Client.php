@@ -84,7 +84,7 @@ class Client
      * @param array $dialOptions
      * @return Client
      */
-    public static function DefaultClient($projectID, $collection, array $dialOptions)
+    public static function NewClient($projectID, $collection, array $dialOptions)
     {
         $credentials = ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 

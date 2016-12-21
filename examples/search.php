@@ -9,7 +9,7 @@ $key_id = getenv("SJ_KEY_ID");
 $key_secret = getenv("SJ_KEY_SECRET");
 
 // Create a client with the default configuration
-$client = \Sajari\Client\Client::DefaultClient(
+$client = \Sajari\Client\Client::NewClient(
     $project,
     $collection,
     [new \Sajari\Client\WithAuth($key_id, $key_secret)]
@@ -31,15 +31,18 @@ try {
 } catch (\Sajari\Error\PermissionDeniedException $e) {
     printf("%s\n", $e->getMessage());
     exit(1);
-} catch (\Sajari\Error\Unavailable $e) {
+} catch (\Sajari\Error\ServiceUnavailableException $e) {
     printf("%s\n", $e->getMessage());
     // Retry ?
     exit(1);
-} catch (\Sajari\Error\Base $e) {
+} catch (\Sajari\Error\UnauthenticatedException $e) {
+    printf("%s\n", $e->getMessage());
+    exit(1);
+} catch (\Sajari\Error\Exception $e) {
     printf("%s\n", $e->getMessage());
     exit(1);
 } catch (\Exception $e) {
-    echo "Caught exception (", $e->getCode(), "): ", $e->getMessage(), "\n";
+    printf("%s\n", $e);
     exit(1);
 }
 
