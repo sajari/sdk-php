@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class Client | Sajari/Client/Client.php
+ *
+ * @package     sajari-sdk-php
+ */
 
 namespace Sajari\Client;
 
@@ -31,19 +36,24 @@ use sajari\engine\Key as EngineKey;
 use sajari\engine\store\record\Record as EngineRecord;
 use sajari\engine\store\record\Record\ValuesEntry as EngineRecordValuesEntry;
 
-use sajari\engine\store\record\StoreClient;
-use sajari\api\query\v1\QueryClient;
 use sajari\api\query\SearchRequest as ProtoSearchRequest;
 
 use sajari\engine\store\record\GetResponse;
 
-use Grpc\ChannelCredentials;
 
+/**
+ * Class Client
+ * @package Sajari\Client
+ */
 class Client
 {
+    /** @var string $projectID */
     private $projectID = '';
+    /** @var string $collection */
     private $collection = '';
+    /** @var string $endpoint */
     private $endpoint = 'api.sajari.com:443';
+    /** @var string $auth */
     private $auth = '';
     private $credentials;
     private $storeClient;
@@ -51,48 +61,44 @@ class Client
     private $grpcDialOptions;
 
     /**
-     * Client constructor.
-     * @param QueryClient $queryClient
-     * @param StoreClient $storeClient
+     * Client constructor
+     * @param \sajari\api\query\v1\QueryClient $queryClient
+     * @param \sajari\engine\store\record\StoreClient $storeClient
      * @param string $projectID
      * @param string $collection
-     * @param Opt[] $dialOptions
+     * @param \Sajari\Client\Opt[] $dialOptions
      */
-    public function __construct(QueryClient $queryClient, StoreClient $storeClient, $projectID, $collection, array $dialOptions)
+    public function __construct(\sajari\api\query\v1\QueryClient $queryClient, \sajari\engine\store\record\StoreClient $storeClient, $projectID, $collection, $dialOptions)
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
-        $this->credentials = ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
+        $this->credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         /** @var $opt Opt */
         foreach ($dialOptions as $opt) {
             $opt->Apply($this);
         }
 
-        $this->searchClient = new QueryClient($this->endpoint, [
-            'credentials' => $this->credentials,
-        ]);
-
-        $this->storeClient = new StoreClient($this->endpoint, [
-            'credentials' => $this->credentials,
-        ]);
+        $this->searchClient = $queryClient;
+        $this->storeClient = $storeClient;
     }
 
     /**
+     * Creates a new Client with defaults set
      * @param string $projectID
      * @param string $collection
-     * @param array $dialOptions
+     * @param \Sajari\Client\Opt[] $dialOptions
      * @return Client
      */
     public static function NewClient($projectID, $collection, array $dialOptions)
     {
-        $credentials = ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
+        $credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         return new Client(
-            new QueryClient('api.sajari.com:443', [
+            new \sajari\api\query\v1\QueryClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
-            new StoreClient('api.sajari.com:443', [
+            new \sajari\engine\store\record\StoreClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
             $projectID,
@@ -149,6 +155,9 @@ class Client
         $this->credentials = $credentials;
     }
 
+    /**
+     * @return array
+     */
     public function getCallMeta()
     {
         return array(
@@ -160,8 +169,8 @@ class Client
 
     /**
      * @param RecordKey $key
-     * @return array []
-     * @throws RecordNotFoundException
+     * @return array
+     * @throws \Sajari\Error\RecordNotFoundException
      */
     public function Get(RecordKey $key)
     {
@@ -222,8 +231,8 @@ class Client
     }
 
     /**
-     * @param RecordKey[]
-     * @return Keys
+     * @param array $keys
+     * @return EngineKeys
      */
     private function keysToProto(array $keys)
     {
@@ -250,6 +259,11 @@ class Client
         return [$multiResult[0][0], $multiResult[1][0]];
     }
 
+    /**
+     * @param array $docs
+     * @return array
+     * @throws \Sajari\Error\Exception
+     */
     public function AddMulti(array $docs)
     {
         $protoDocs = new \sajari\engine\store\record\Records();
@@ -290,6 +304,10 @@ class Client
         return [$keys, $reply->getStatusList()];
     }
 
+    /**
+     * @param $key
+     * @return null
+     */
     public function Delete($key)
     {
         $multiResult = $this->DeleteMulti([$key]);
@@ -300,6 +318,11 @@ class Client
         }
     }
 
+    /**
+     * @param array $keys
+     * @return mixed
+     * @throws \Exception
+     */
     public function DeleteMulti(array $keys)
     {
         $protoKeys = $this->keysToProto($keys);
@@ -316,6 +339,10 @@ class Client
         return $reply->getStatusList();
     }
 
+    /**
+     * @param $km
+     * @return null
+     */
     public function Patch($km)
     {
       $multiResult = $this->PatchMulti(array($km));
@@ -326,6 +353,11 @@ class Client
       }
     }
 
+    /**
+     * @param array $kvs
+     * @return mixed
+     * @throws \Exception
+     */
     public function PatchMulti(array $kvs)
     {
         $protoKeyValues = new \sajari\engine\store\record\KeysValues();
