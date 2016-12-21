@@ -250,20 +250,14 @@ class Client
         return [$multiResult[0][0], $multiResult[1][0]];
     }
 
-    /**
-     * @param Record[] $docs
-     * @return Key[]
-     * @throws Exception
-     */
     public function AddMulti(array $docs)
     {
-        $protoDocs = new Documents();
+        $protoDocs = new \sajari\engine\store\record\Records();
 
-        /** @var $d Document */
         foreach ($docs as $d) {
-            $protoDoc = new \sajari\engine\store\doc\Document();
-            foreach ($d->getMeta() as $m) {
-                $valueEntry = new ValuesEntry();
+            $protoDoc = new \sajari\engine\store\record\Record();
+            foreach ($d->getValues() as $m) {
+                $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
                 $valueEntry->setKey($m->getKey());
                 $v = new EngineValue();
                 $v->setSingle($m->getValue());
@@ -272,24 +266,23 @@ class Client
                 $protoDoc->addValues($valueEntry);
             }
 
-            $protoDocs->addDocuments($protoDoc);
+            $protoDocs->addRecords($protoDoc);
         }
 
-        /** @var $reply Keys */
-        list($reply, $status) = $this->getDocumentClient()->Add(
+        list($reply, $status) = $this->storeClient->Add(
             $protoDocs,
             $this->getCallMeta()
         )->wait();
 
         if ($status->code !== 0) {
-            throw new \Exception($status->details);
+            throw new \Sajari\Error\Exception($status->details);
         }
 
         $keys = array();
 
         /** @var $k EngineKey */
         foreach ($reply->getKeysList() as $k) {
-            $value = \Sajari\Record\Value::FromProtoValue($k);
+            $value = \Sajari\Record\Key::FromProto($k);
 
             $keys[] = new RecordKey($k->getField(), $value);
         }
@@ -297,10 +290,6 @@ class Client
         return [$keys, $reply->getStatusList()];
     }
 
-    /**
-     * @param Key $key
-     * @throws Exception
-     */
     public function Delete($key)
     {
         $multiResult = $this->DeleteMulti([$key]);
@@ -311,15 +300,11 @@ class Client
         }
     }
 
-    /**
-     * @param Key[] $keys
-     * @throws Exception
-     */
     public function DeleteMulti(array $keys)
     {
         $protoKeys = $this->keysToProto($keys);
 
-        list($reply, $status) = $this->getDocumentClient()->Delete(
+        list($reply, $status) = $this->storeClient->Delete(
             $protoKeys,
             $this->getCallMeta()
         )->wait();
@@ -341,36 +326,31 @@ class Client
       }
     }
 
-    /**
-     * @param KeyValue[] $kvs
-     * @throws Exception
-     */
     public function PatchMulti(array $kvs)
     {
-        $protoKeyValues = new KeysValues();
+        $protoKeyValues = new \sajari\engine\store\record\KeysValues();
 
-        /** @var $kv KeyValue */
         foreach ($kvs as $kv) {
-            $protoKeyValue = new KeyValues();
+            $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
 
-            $k = new EngineKey();
+            $k = new \sajari\engine\Key();
             $k->setField($kv->getKey()->getField());
 
-            $v = new EngineValue();
+            $v = new \sajari\engine\Value();
 
             $v->setSingle($kv->getKey()->getValue());
             $k->setValue($v);
 
             $protoKeyValue->setKey($k);
 
-            foreach ($kv->getMeta() as $m) {
+            foreach ($kv->getValues() as $m) {
                 $protoKeyValue->addValues($m->Proto());
             }
 
             $protoKeyValues->addKeysValues($protoKeyValue);
         }
 
-        list($reply, $status) = $this->getDocumentClient()->Patch(
+        list($reply, $status) = $this->storeClient->Patch(
             $protoKeyValues,
             $this->getCallMeta()
         )->wait();
