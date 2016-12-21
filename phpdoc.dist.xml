@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<phpdocumentor>
+    <parser>
+        <target>docs</target>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <files>
+        <directory>src/Sajari/Client</directory>
+        <directory>src/Sajari/Error</directory>
+        <directory>src/Sajari/Record</directory>
+        <directory>src/Sajari/Search</directory>
+    </files>
+    <transformations>
+        <template name="clean"/>
+    </transformations>
+</phpdocumentor>
