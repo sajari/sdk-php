@@ -1,5 +1,7 @@
 # Sajari PHP SDK
 
+[![Packagist](https://img.shields.io/packagist/v/sajari/sajari-sdk-php.svg?style=flat-square)]() ![license](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
+
 The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
 ## Table of Contents
