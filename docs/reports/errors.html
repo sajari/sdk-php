@@ -1,0 +1,3160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Sajari.html">\Sajari</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">376</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#Client/Client.php"><i class="icon-file"></i> Client/Client.php</a></li>
+                                                                                                    <li><a href="#Client/Opt.php"><i class="icon-file"></i> Client/Opt.php</a></li>
+                                                                                                    <li><a href="#Client/WithAuth.php"><i class="icon-file"></i> Client/WithAuth.php</a></li>
+                                                                                                    <li><a href="#Client/WithCredentials.php"><i class="icon-file"></i> Client/WithCredentials.php</a></li>
+                                                                                                    <li><a href="#Client/WithEndpoint.php"><i class="icon-file"></i> Client/WithEndpoint.php</a></li>
+                                                                                                    <li><a href="#Error/AlreadyExistsException.php"><i class="icon-file"></i> Error/AlreadyExistsException.php</a></li>
+                                                                                                    <li><a href="#Error/Exception.php"><i class="icon-file"></i> Error/Exception.php</a></li>
+                                                                                                    <li><a href="#Error/MalformedRequestException.php"><i class="icon-file"></i> Error/MalformedRequestException.php</a></li>
+                                                                                                    <li><a href="#Error/MultiRecordNotFoundException.php"><i class="icon-file"></i> Error/MultiRecordNotFoundException.php</a></li>
+                                                                                                    <li><a href="#Error/NotFoundException.php"><i class="icon-file"></i> Error/NotFoundException.php</a></li>
+                                                                                                    <li><a href="#Error/PermissionDeniedException.php"><i class="icon-file"></i> Error/PermissionDeniedException.php</a></li>
+                                                                                                    <li><a href="#Error/RecordNotFoundException.php"><i class="icon-file"></i> Error/RecordNotFoundException.php</a></li>
+                                                                                                    <li><a href="#Error/ServiceUnavailableException.php"><i class="icon-file"></i> Error/ServiceUnavailableException.php</a></li>
+                                                                                                    <li><a href="#Error/UnauthenticatedException.php"><i class="icon-file"></i> Error/UnauthenticatedException.php</a></li>
+                                                                                                    <li><a href="#Record/Key.php"><i class="icon-file"></i> Record/Key.php</a></li>
+                                                                                                    <li><a href="#Record/KeyValue.php"><i class="icon-file"></i> Record/KeyValue.php</a></li>
+                                                                                                    <li><a href="#Record/Record.php"><i class="icon-file"></i> Record/Record.php</a></li>
+                                                                                                    <li><a href="#Record/Value.php"><i class="icon-file"></i> Record/Value.php</a></li>
+                                                                                                    <li><a href="#Search/Aggregate.php"><i class="icon-file"></i> Search/Aggregate.php</a></li>
+                                                                                                    <li><a href="#Search/Body.php"><i class="icon-file"></i> Search/Body.php</a></li>
+                                                                                                    <li><a href="#Search/BucketAggregate.php"><i class="icon-file"></i> Search/BucketAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/BucketAggregateEntry.php"><i class="icon-file"></i> Search/BucketAggregateEntry.php</a></li>
+                                                                                                    <li><a href="#Search/BucketResponseAggregate.php"><i class="icon-file"></i> Search/BucketResponseAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/ClickToken.php"><i class="icon-file"></i> Search/ClickToken.php</a></li>
+                                                                                                    <li><a href="#Search/CombinatorFilter.php"><i class="icon-file"></i> Search/CombinatorFilter.php</a></li>
+                                                                                                    <li><a href="#Search/CountAggregate.php"><i class="icon-file"></i> Search/CountAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/CountResponseAggregate.php"><i class="icon-file"></i> Search/CountResponseAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/ElementFieldBoost.php"><i class="icon-file"></i> Search/ElementFieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/FeatureFieldBoost.php"><i class="icon-file"></i> Search/FeatureFieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/FeatureQuery.php"><i class="icon-file"></i> Search/FeatureQuery.php</a></li>
+                                                                                                    <li><a href="#Search/FieldBoost.php"><i class="icon-file"></i> Search/FieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/FieldFilter.php"><i class="icon-file"></i> Search/FieldFilter.php</a></li>
+                                                                                                    <li><a href="#Search/FieldInstanceBoost.php"><i class="icon-file"></i> Search/FieldInstanceBoost.php</a></li>
+                                                                                                    <li><a href="#Search/Filter.php"><i class="icon-file"></i> Search/Filter.php</a></li>
+                                                                                                    <li><a href="#Search/FilterFieldBoost.php"><i class="icon-file"></i> Search/FilterFieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/GeoFilter.php"><i class="icon-file"></i> Search/GeoFilter.php</a></li>
+                                                                                                    <li><a href="#Search/IndexQuery.php"><i class="icon-file"></i> Search/IndexQuery.php</a></li>
+                                                                                                    <li><a href="#Search/InstanceBoost.php"><i class="icon-file"></i> Search/InstanceBoost.php</a></li>
+                                                                                                    <li><a href="#Search/IntervalFieldBoost.php"><i class="icon-file"></i> Search/IntervalFieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/IntervalFieldBoostPoint.php"><i class="icon-file"></i> Search/IntervalFieldBoostPoint.php</a></li>
+                                                                                                    <li><a href="#Search/MetricAggregate.php"><i class="icon-file"></i> Search/MetricAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/MetricResponseAggregate.php"><i class="icon-file"></i> Search/MetricResponseAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/PosNegInstanceBoost.php"><i class="icon-file"></i> Search/PosNegInstanceBoost.php</a></li>
+                                                                                                    <li><a href="#Search/PosNegToken.php"><i class="icon-file"></i> Search/PosNegToken.php</a></li>
+                                                                                                    <li><a href="#Search/Request.php"><i class="icon-file"></i> Search/Request.php</a></li>
+                                                                                                    <li><a href="#Search/Response.php"><i class="icon-file"></i> Search/Response.php</a></li>
+                                                                                                    <li><a href="#Search/Result.php"><i class="icon-file"></i> Search/Result.php</a></li>
+                                                                                                    <li><a href="#Search/ResultAggregate.php"><i class="icon-file"></i> Search/ResultAggregate.php</a></li>
+                                                                                                    <li><a href="#Search/Sort.php"><i class="icon-file"></i> Search/Sort.php</a></li>
+                                                                                                    <li><a href="#Search/TextFieldBoost.php"><i class="icon-file"></i> Search/TextFieldBoost.php</a></li>
+                                                                                                    <li><a href="#Search/Tracking.php"><i class="icon-file"></i> Search/Tracking.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="Client/Client.php" id="Client/Client.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Client/Client.php
+                            <small style="float: right;padding-right: 10px;">26</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>113</td>
+                                        <td>No summary for method getEndpoint()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>121</td>
+                                        <td>No summary for method setEndpoint()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>129</td>
+                                        <td>No summary for method getAuth()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>137</td>
+                                        <td>No summary for method setAuth()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>145</td>
+                                        <td>No summary for method getCredentials()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>153</td>
+                                        <td>No summary for method setCredentials()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>161</td>
+                                        <td>No summary for method getCallMeta()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>175</td>
+                                        <td>No summary for method Get()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>191</td>
+                                        <td>No summary for method GetMulti()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>237</td>
+                                        <td>No summary for method keysToProto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>254</td>
+                                        <td>No summary for method Add()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>267</td>
+                                        <td>No summary for method AddMulti()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>311</td>
+                                        <td>No summary for method Delete()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>326</td>
+                                        <td>No summary for method DeleteMulti()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>346</td>
+                                        <td>No summary for method Patch()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>361</td>
+                                        <td>No summary for method PatchMulti()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>401</td>
+                                        <td>No summary for method Search()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>525</td>
+                                        <td>No summary for method checkForError()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>51</td>
+                                        <td>No summary for property $projectID</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for property $collection</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for property $endpoint</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for property $auth</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>No summary for property $credentials</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>59</td>
+                                        <td>No summary for property $storeClient</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>No summary for property $searchClient</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>61</td>
+                                        <td>No summary for property $grpcDialOptions</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Client/Opt.php" id="Client/Opt.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Client/Opt.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for interface \Sajari\Client\Opt</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>Argument $c is missing from the Docblock of Apply</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for method Apply()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Client/WithAuth.php" id="Client/WithAuth.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Client/WithAuth.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Client\WithAuth</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>Argument $c is missing from the Docblock of Apply</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for method Apply()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Client/WithCredentials.php" id="Client/WithCredentials.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Client/WithCredentials.php
+                            <small style="float: right;padding-right: 10px;">5</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Client\WithCredentials</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>Argument $c is missing from the Docblock of Apply</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for method Apply()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for property $credentials</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Client/WithEndpoint.php" id="Client/WithEndpoint.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Client/WithEndpoint.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Client\WithEndpoint</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>Argument $c is missing from the Docblock of Apply</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for method Apply()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/AlreadyExistsException.php" id="Error/AlreadyExistsException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/AlreadyExistsException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Error\AlreadyExistsException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/Exception.php" id="Error/Exception.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/Exception.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Error\Exception</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/MalformedRequestException.php" id="Error/MalformedRequestException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/MalformedRequestException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6</td>
+                                        <td>No summary for class \Sajari\Error\MalformedRequestException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/MultiRecordNotFoundException.php" id="Error/MultiRecordNotFoundException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/MultiRecordNotFoundException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6</td>
+                                        <td>No summary for class \Sajari\Error\MultiRecordNotFoundException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/NotFoundException.php" id="Error/NotFoundException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/NotFoundException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Error\NotFoundException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/PermissionDeniedException.php" id="Error/PermissionDeniedException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/PermissionDeniedException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6</td>
+                                        <td>No summary for class \Sajari\Error\PermissionDeniedException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/RecordNotFoundException.php" id="Error/RecordNotFoundException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/RecordNotFoundException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6</td>
+                                        <td>No summary for class \Sajari\Error\RecordNotFoundException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/ServiceUnavailableException.php" id="Error/ServiceUnavailableException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/ServiceUnavailableException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Error\ServiceUnavailableException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Error/UnauthenticatedException.php" id="Error/UnauthenticatedException.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Error/UnauthenticatedException.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Error\UnauthenticatedException</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Record/Key.php" id="Record/Key.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Record/Key.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9</td>
+                                        <td>No summary for class \Sajari\Record\Key</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>Argument $p is missing from the Docblock of fromProto</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>No summary for method fromProto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>79</td>
+                                        <td>No summary for method __toString()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Record/KeyValue.php" id="Record/KeyValue.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Record/KeyValue.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Record\KeyValue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>Name of argument $values does not match with the DocBlock&#039;s name $value in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $values in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>notice</td>
+                                        <td>17</td>
+                                        <td>Parameter $value could not be found in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for method getKey()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for method getValues()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $key</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $values</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Record/Record.php" id="Record/Record.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Record/Record.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Record\Record</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for method getValues()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $values</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Record/Value.php" id="Record/Value.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Record/Value.php
+                            <small style="float: right;padding-right: 10px;">8</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Record\Value</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method FromProtoValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for method getKey()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>61</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $key</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Aggregate.php" id="Search/Aggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Aggregate.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\Aggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Body.php" id="Search/Body.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Body.php
+                            <small style="float: right;padding-right: 10px;">8</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9</td>
+                                        <td>No summary for class \Sajari\Search\Body</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>Argument $text is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>Argument $weight is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $text</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $weight</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/BucketAggregate.php" id="Search/BucketAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/BucketAggregate.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Sajari\Search\BucketAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for method getBuckets()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $buckets</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/BucketAggregateEntry.php" id="Search/BucketAggregateEntry.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/BucketAggregateEntry.php
+                            <small style="float: right;padding-right: 10px;">10</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9</td>
+                                        <td>No summary for class \Sajari\Search\BucketAggregateEntry</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>Argument $name is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>Argument $filter is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for method getFilter()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $filter</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/BucketResponseAggregate.php" id="Search/BucketResponseAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/BucketResponseAggregate.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\BucketResponseAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for method getCount()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $count</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/ClickToken.php" id="Search/ClickToken.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/ClickToken.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\ClickToken</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $click</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/CombinatorFilter.php" id="Search/CombinatorFilter.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/CombinatorFilter.php
+                            <small style="float: right;padding-right: 10px;">11</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Sajari\Search\CombinatorFilter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for method getOperator()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method getFilters()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method All()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>62</td>
+                                        <td>No summary for method Any()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>71</td>
+                                        <td>No summary for method One()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>80</td>
+                                        <td>No summary for method None()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>85</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $operator</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $filters</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/CountAggregate.php" id="Search/CountAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/CountAggregate.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Sajari\Search\CountAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/CountResponseAggregate.php" id="Search/CountResponseAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/CountResponseAggregate.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\CountResponseAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for method getCount()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $count</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/ElementFieldBoost.php" id="Search/ElementFieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/ElementFieldBoost.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\ElementFieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method getElements()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $elements</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FeatureFieldBoost.php" id="Search/FeatureFieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FeatureFieldBoost.php
+                            <small style="float: right;padding-right: 10px;">8</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Sajari\Search\FeatureFieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>Argument $fieldBoost is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>Argument $value is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $fieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FeatureQuery.php" id="Search/FeatureQuery.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FeatureQuery.php
+                            <small style="float: right;padding-right: 10px;">5</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\FeatureQuery</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>Argument $fieldBoosts is missing from the Docblock of setFieldBoosts</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for method setFieldBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $fieldBoosts</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FieldBoost.php" id="Search/FieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FieldBoost.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\FieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FieldFilter.php" id="Search/FieldFilter.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FieldFilter.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for class \Sajari\Search\FieldFilter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>76</td>
+                                        <td>No summary for method getOperator()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>84</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>92</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>100</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $operator</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FieldInstanceBoost.php" id="Search/FieldInstanceBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FieldInstanceBoost.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\FieldInstanceBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Filter.php" id="Search/Filter.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Filter.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\Filter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/FilterFieldBoost.php" id="Search/FilterFieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/FilterFieldBoost.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\FilterFieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method getFilter()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $filter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/GeoFilter.php" id="Search/GeoFilter.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/GeoFilter.php
+                            <small style="float: right;padding-right: 10px;">17</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Sajari\Search\GeoFilter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>No summary for method getFieldLat()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>66</td>
+                                        <td>No summary for method getFieldLng()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>74</td>
+                                        <td>No summary for method getLat()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>82</td>
+                                        <td>No summary for method getLng()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>90</td>
+                                        <td>No summary for method getRadius()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>98</td>
+                                        <td>No summary for method getRegion()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>111</td>
+                                        <td>No summary for method Inside()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>123</td>
+                                        <td>No summary for method Outside()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>130</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $fieldLat</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $fieldLng</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $lat</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for property $lng</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for property $radius</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for property $region</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/IndexQuery.php" id="Search/IndexQuery.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/IndexQuery.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Sajari\Search\IndexQuery</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for method setBody()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method setTerms()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for method setInstanceBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method setFieldBoosts()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/InstanceBoost.php" id="Search/InstanceBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/InstanceBoost.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\InstanceBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/IntervalFieldBoost.php" id="Search/IntervalFieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/IntervalFieldBoost.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for class \Sajari\Search\IntervalFieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>41</td>
+                                        <td>No summary for method getPoints()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $points</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/IntervalFieldBoostPoint.php" id="Search/IntervalFieldBoostPoint.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/IntervalFieldBoostPoint.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9</td>
+                                        <td>No summary for class \Sajari\Search\IntervalFieldBoostPoint</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method getPoint()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>43</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $point</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/MetricAggregate.php" id="Search/MetricAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/MetricAggregate.php
+                            <small style="float: right;padding-right: 10px;">21</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for class \Sajari\Search\MetricAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method getName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for method getType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>Argument $field is missing from the Docblock of Avg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>Argument $name is missing from the Docblock of Avg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>No summary for method Avg()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>Argument $field is missing from the Docblock of Min</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>Argument $name is missing from the Docblock of Min</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>No summary for method Min()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>70</td>
+                                        <td>Argument $field is missing from the Docblock of Max</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>70</td>
+                                        <td>Argument $name is missing from the Docblock of Max</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>70</td>
+                                        <td>No summary for method Max()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>75</td>
+                                        <td>Argument $field is missing from the Docblock of Sum</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>75</td>
+                                        <td>Argument $name is missing from the Docblock of Sum</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>75</td>
+                                        <td>No summary for method Sum()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>80</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $type</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $name</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/MetricResponseAggregate.php" id="Search/MetricResponseAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/MetricResponseAggregate.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\MetricResponseAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/PosNegInstanceBoost.php" id="Search/PosNegInstanceBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/PosNegInstanceBoost.php
+                            <small style="float: right;padding-right: 10px;">5</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\PosNegInstanceBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/PosNegToken.php" id="Search/PosNegToken.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/PosNegToken.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\PosNegToken</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $pos</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $neg</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Request.php" id="Search/Request.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Request.php
+                            <small style="float: right;padding-right: 10px;">37</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for class \Sajari\Search\Request</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>No summary for method getTracking()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>No summary for method setTracking()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>68</td>
+                                        <td>No summary for method getFilter()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>76</td>
+                                        <td>No summary for method setFilter()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>84</td>
+                                        <td>No summary for method getIndexQuery()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>92</td>
+                                        <td>No summary for method setIndexQuery()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>100</td>
+                                        <td>No summary for method getFeatureQuery()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>108</td>
+                                        <td>No summary for method setFeatureQuery()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>116</td>
+                                        <td>No summary for method getOffset()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>124</td>
+                                        <td>No summary for method setOffset()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>No summary for method getLimit()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>140</td>
+                                        <td>No summary for method setLimit()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>148</td>
+                                        <td>No summary for method getSorts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>156</td>
+                                        <td>No summary for method setSorts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>164</td>
+                                        <td>No summary for method getFieldBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>172</td>
+                                        <td>No summary for method setFieldBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>180</td>
+                                        <td>No summary for method getInstanceBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>188</td>
+                                        <td>No summary for method setInstanceBoosts()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>196</td>
+                                        <td>No summary for method getFields()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>204</td>
+                                        <td>No summary for method setFields()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>212</td>
+                                        <td>No summary for method getAggregates()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>220</td>
+                                        <td>No summary for method setAggregates()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>228</td>
+                                        <td>No summary for method getTransforms()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>236</td>
+                                        <td>No summary for method setTransforms()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>245</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $tracking</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $filter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $indexQuery</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for property $featureQuery</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for property $offset</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for property $limit</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for property $sorts</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>41</td>
+                                        <td>No summary for property $fields</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for property $aggregates</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for property $transforms</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Response.php" id="Search/Response.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Response.php
+                            <small style="float: right;padding-right: 10px;">17</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\Response</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>Argument $tokens is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>Name of argument $tokens does not match with the DocBlock&#039;s name $aggregates in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tokens in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>41</td>
+                                        <td>No summary for method getTotalResults()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>49</td>
+                                        <td>No summary for method getReads()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for method getTime()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>No summary for method getResults()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>73</td>
+                                        <td>No summary for method getAggregates()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>78</td>
+                                        <td>No summary for method getTokens()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $totalResults</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $reads</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for property $time</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $results</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $aggregates</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $tokens</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Result.php" id="Search/Result.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Result.php
+                            <small style="float: right;padding-right: 10px;">10</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for class \Sajari\Search\Result</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for method getValues()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for method getScore()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method getIndexScore()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>Name of argument $indexScore does not match with the DocBlock&#039;s name $rawscore in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>notice</td>
+                                        <td>48</td>
+                                        <td>Parameter $rawscore could not be found in __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for property $score</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $indexScore</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/ResultAggregate.php" id="Search/ResultAggregate.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/ResultAggregate.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \Sajari\Search\ResultAggregate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method getKey()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method getValue()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7</td>
+                                        <td>No summary for property $key</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for property $value</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Sort.php" id="Search/Sort.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Sort.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\Sort</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method getOrder()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>49</td>
+                                        <td>No summary for method Asc()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>No summary for method Desc()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>66</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $order</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/TextFieldBoost.php" id="Search/TextFieldBoost.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/TextFieldBoost.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>10</td>
+                                        <td>No summary for class \Sajari\Search\TextFieldBoost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method getField()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method getText()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $text</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Search/Tracking.php" id="Search/Tracking.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Search/Tracking.php
+                            <small style="float: right;padding-right: 10px;">15</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Sajari\Search\Tracking</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>Argument $field is missing from the Docblock of click</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for method click()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>Argument $field is missing from the Docblock of posNeg</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method posNeg()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>Argument $data is missing from the Docblock of setData</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for method setData()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>50</td>
+                                        <td>No summary for method Proto()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $type</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $query_id</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $sequence</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $field</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $data</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Sajari.html">\Sajari</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 21st, 2016 at 04:50.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
