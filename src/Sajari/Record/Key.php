@@ -39,6 +39,18 @@ class Key
         return $this->value;
     }
 
+    public static function fromProto(\sajari\engine\Key $p)
+    {
+        $v = $p->getValue();
+        if ($v->hasSingle()) {
+            return new Key($p->getField(), $v->getSingle());
+        } else if ($v->hasRepeated()) {
+            return new Key($p->getField(), $v->getRepeated()->getValuesList());
+        } else {
+            return new Key($p->getField(), NULL);
+        }
+    }
+
     /**
      * @return EngineKey
      */
