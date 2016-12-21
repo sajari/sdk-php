@@ -1,27 +1,30 @@
 <?php
 
-require  dirname(__FILE__) . '/vendor/autoload.php';
+require  __DIR__ . '/vendor/autoload.php';
 
-use Sajari\Client\WithEndpoint;
-use Sajari\Client\Client;
-use Sajari\Document\Document;
-use Sajari\Document\Meta;
+// Get config from environment
+$project = getenv("SJ_PROJECT");
+$collection = getenv("SJ_COLLECTION");
+$key_id = getenv("SJ_KEY_ID");
+$key_secret = getenv("SJ_KEY_SECRET");
 
-$opts = [new WithEndpoint('server_address')];
+// Create a client with the default configuration
+$client = \Sajari\Client\Client::NewClient(
+    $project,
+    $collection,
+    [new \Sajari\Client\WithAuth($key_id, $key_secret)]
+);
 
-$c = new Client('myproject', 'mycollection', $opts);
+$m = new \Sajari\Record\Value("text", "some test text 1");
 
-$d = new Document([
-    new Meta("_body", "main body of document"),
-    new Meta("numericData", 52.3),
-    new Meta("docType", "docTypeA"),
-]);
+$d = new \Sajari\Record\Record([$m]);
 
 try {
-    $docKey = $c->Add($d);
+    list($key, $status) = $client->Add($d);
 } catch (Exception $e) {
-    echo "Caught exception: ", $e->getMessage();
+    var_dump($e);
+    echo 'Caught exception: ', $e->getMessage();
     exit(1);
 }
 
-echo "Added document successfully, got doc key ", $docKey->getField(), ": ", $docKey->getValue(), "\n";
+printf("Record added with %s\n", $key->getValue());

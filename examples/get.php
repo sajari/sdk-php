@@ -1,22 +1,44 @@
 <?php
 
-require  dirname(__FILE__) . '/../src/sajari.php';
+require  __DIR__ . '/vendor/autoload.php';
 
-use Sajari\WithEndpoint;
-use Sajari\Client;
-use Sajari\Key;
+$project = getenv("SJ_PROJECT");
+$collection = getenv("SJ_COLLECTION");
+$key_id = getenv("SJ_KEY_ID");
+$key_secret = getenv("SJ_KEY_SECRET");
 
-$opts = [new WithEndpoint('server_address')];
+$opts = [new \Sajari\Client\WithAuth($key_id, $key_secret)];
 
-$c = new Client('myproject', 'mycollection', $opts);
+$c = \Sajari\Client\Client::NewClient($project, $collection, $opts);
 
-$key = new Key("_id", "7f7a8658-a368-d6f9-5e19-791debb6bddb");
+$k = new \Sajari\Record\Key("_id", "<value>");
 
 try {
-    $doc = $c->Get($key);
-} catch (Exception $e) {
-    echo "Caught exception: ", $e->getMessage();
+    list($res, $status) = $c->Get($k);
+} catch (\Sajari\Error\RecordNotFoundException $e) {
+    printf("%s found for %s\n", $e->getMessage(), $k);
+    exit(1);
+} catch (\Sajari\Error\Base $e) {
+    printf("%s\n", $e->getMessage());
+    exit(1);
+} catch (\Exception $e) {
+    printf("%s\n", $e->getMessage());
     exit(1);
 }
 
-echo "Retrieved document successfully, got doc meta ", $doc->getMeta(), "\n";
+function cmp(\Sajari\Record\Value $a, \Sajari\Record\Value $b) {
+    if ($a->getKey() == $b->getKey()) {
+        return 0;
+    }
+    return ($a->getKey() < $b->getKey()) ? -1 : 1;
+}
+
+$values = $res->getValues();
+
+// Sort results before printing
+uasort($values, 'cmp');
+
+/** @var \Sajari\Record\Value $v */
+foreach (values as $v) {
+    printf("  %s:\n    %s\n", $v->getKey(), $v->getValue());
+}

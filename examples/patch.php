@@ -1,28 +1,35 @@
 <?php
 
-require  dirname(__FILE__) . '/../src/sajari.php';
+require  __DIR__ . '/vendor/autoload.php';
 
-use Sajari\WithEndpoint;
-use Sajari\Client;
-use Sajari\Key;
-use Sajari\KeyMeta;
-use Sajari\Meta;
+// Get config from environment
+$project = getenv("SJ_PROJECT");
+$collection = getenv("SJ_COLLECTION");
+$key_id = getenv("SJ_KEY_ID");
+$key_secret = getenv("SJ_KEY_SECRET");
 
-$opts = [new WithEndpoint('server_address')];
+// Create a client with the default configuration
+$client = \Sajari\Client\Client::NewClient(
+    $project,
+    $collection,
+    [new \Sajari\Client\WithAuth($key_id, $key_secret)]
+);
 
-$c = new Client('myproject', 'mycollection', $opts);
+$k = new \Sajari\Record\Key("_id", "<value>");
 
-$key = new Key("_id", "7f7a8658-a368-d6f9-5e19-791debb6bddb");
+$m = new \Sajari\Record\Value("text", "i got patched!");
 
-$meta = [new Meta("numericData", 25.2)];
-
-$keyMeta = new KeyMeta($key, $meta);
+$km = new \Sajari\Record\KeyValue($k, [$m]);
 
 try {
-    $c->Patch($keyMeta);
-} catch (Exception $e) {
-    echo "Caught exception: ", $e->getMessage();
+    $status = $client->Patch($km);
+} catch (\Exception $e) {
+    printf("%s\n", $e);
     exit(1);
 }
 
-echo "Patched document successfully\n";
+if ($status && $status->getCode() != 0) {
+    echo $status->getMessage()."\n";
+} else {
+    echo "Success\n";
+}
