@@ -13,28 +13,6 @@ require_once __DIR__.'/../proto/engine/status.php';
 require_once __DIR__.'/../proto/engine/store/record/record.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 
-use Sajari\Record\Record;
-use Sajari\Record\Key as RecordKey;
-
-use Sajari\Search\Request as SearchRequest;
-use Sajari\Search\Result as SearchResult;
-use Sajari\Search\Response as SearchResponse;
-use Sajari\Search\ClickToken;
-use Sajari\Search\PosNegToken;
-use Sajari\Search\CountResponseAggregate;
-use Sajari\Search\BucketResponseAggregate;
-use Sajari\Search\MetricResponseAggregate;
-
-use sajari\engine\store\record\Keys as EngineKeys;
-use sajari\engine\Value as EngineValue;
-use sajari\engine\Key as EngineKey;
-use sajari\engine\store\record\Record as EngineRecord;
-use sajari\engine\store\record\Record\ValuesEntry as EngineRecordValuesEntry;
-
-use sajari\api\query\SearchRequest as ProtoSearchRequest;
-
-use sajari\engine\store\record\GetResponse;
-
 
 /**
  * Class Client
@@ -135,15 +113,11 @@ class Client
     {
         $protoKeys = $this->keysToProto($keys);
 
-        /** @var GetResponse $reply */
+        /** @var \sajari\engine\store\record\GetResponse $reply */
         list($reply, $status) = $this->storeClient->Get(
             $protoKeys,
             $this->getCallMeta()
         )->wait();
-
-        if ($status->code !== 0) {
-            throw new \Exception($status->details);
-        }
 
         // Check for server error
         $this->checkForError($status);
@@ -154,12 +128,12 @@ class Client
         foreach ($reply->getRecordsList() as $rec) {
             $value = array();
 
-            /** @var EngineRecordValuesEntry $m */
+            /** @var \sajari\engine\store\record\Record\ValuesEntry $m */
             foreach ($rec->getValuesList() as $v) {
                 $value[] = \Sajari\Record\Value::FromProto($v->getKey(), $v->getValue());
             }
 
-            $docs[] = new Record($value);
+            $docs[] = new \Sajari\Record\Record($value);
         }
 
         $statuses = $reply->getStatusList();
@@ -175,13 +149,13 @@ class Client
 
     /**
      * @param array $keys
-     * @return EngineKeys
+     * @return \sajari\engine\store\record\Keys
      */
     private function keysToProto(array $keys)
     {
-        $protoKeys = new EngineKeys();
+        $protoKeys = new \sajari\engine\store\record\Keys();
 
-        /** @var RecordKey $k */
+        /** @var \Sajari\Record\Key $k */
         foreach ($keys as $k) {
             $protoKeys->addKeys($k->Proto());
         }
@@ -190,11 +164,11 @@ class Client
     }
 
     /**
-     * @param Record $rec
+     * @param \Sajari\Record\Record $rec
      * @return Key
      * @throws Exception
      */
-    public function Add(Record $rec)
+    public function Add(\Sajari\Record\Record $rec)
     {
         $multiResult = $this->AddMulti([$rec]);
 
@@ -216,7 +190,7 @@ class Client
             foreach ($d->getValues() as $m) {
                 $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
                 $valueEntry->setKey($m->getKey());
-                $v = new EngineValue();
+                $v = new \sajari\engine\Value();
                 $v->setSingle($m->getValue());
                 $valueEntry->setValue($v);
 
@@ -236,11 +210,11 @@ class Client
 
         $keys = array();
 
-        /** @var $k EngineKey */
+        /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
             $value = \Sajari\Record\Key::FromProto($k);
 
-            $keys[] = new RecordKey($k->getField(), $value);
+            $keys[] = new \Sajari\Record\Key($k->getField(), $value);
         }
 
         return [$keys, $reply->getStatusList()];
@@ -335,10 +309,10 @@ class Client
     }
 
     /**
-     * @param SearchRequest $r
-     * @return SearchResponse
+     * @param \Sajari\Search\Request $r
+     * @return \Sajari\Search\Response
      */
-    public function Search(SearchRequest $r)
+    public function Search(\Sajari\Search\Request $r)
     {
         $searchRequest = $r->Proto();
         // Make Request
@@ -379,7 +353,7 @@ class Client
                 $meta[] = \Sajari\Record\Value::FromProtoValue($m->getKey(), $m->getValue());
             }
 
-            $result = new SearchResult(
+            $result = new \Sajari\Search\Result (
                 $protoResult->getScore(),
                 $protoResult->getIndexScore(),
                 $meta
@@ -407,7 +381,7 @@ class Client
                 foreach ($buckets->getBucketsList() as $be) {
                     /** @var engine\query\AggregateResponse\Buckets\Bucket $b */
                     $b = $be->getValue();
-                    $bucketArray[$b->getName()] = new BucketResponseAggregate($b->getName(), $b->getCount());
+                    $bucketArray[$b->getName()] = new \Sajari\Search\BucketResponseAggregate($b->getName(), $b->getCount());
                 }
 
                 $aggregateList[$a->getKey()] = $bucketArray;
@@ -419,7 +393,7 @@ class Client
 
                 /** @var engine\query\AggregateResponse\Count\CountsEntry $ce */
                 foreach ($counts->getCountsList() as $ce) {
-                    $countArray[$ce->getKey()] = new CountResponseAggregate($ce->getKey(), $ce->getValue());
+                    $countArray[$ce->getKey()] = new \Sajari\Search\CountResponseAggregate($ce->getKey(), $ce->getValue());
                 }
 
                 $aggregateList[$a->getKey()] = $countArray;
@@ -427,7 +401,7 @@ class Client
                 /** @var engine\query\AggregateResponse\Metric */
                 $m = $ar->getMetric();
 
-                $aggregateList[$a->getKey()] = new MetricResponseAggregate($m->getValue());
+                $aggregateList[$a->getKey()] = new \Sajari\Search\MetricResponseAggregate($m->getValue());
             }
         }
 
@@ -436,9 +410,9 @@ class Client
           foreach ($reply->getTokensList() as $protoToken) {
             $token = NULL;
             if ($protoToken->hasClick()) {
-              $token = new ClickToken($protoToken->getClick()->getClick());
+              $token = new \Sajari\Search\ClickToken($protoToken->getClick()->getClick());
             } else {
-              $token = new PosNegToken(
+              $token = new \Sajari\Search\PosNegToken(
                 $protoToken->getPosNeg()->getPos(),
                 $protoToken->getPosNeg()->getNeg()
               );
@@ -447,7 +421,7 @@ class Client
           }
         }
 
-        return new SearchResponse($total, $reads, $time, $results, $aggregateList, $tokens);
+        return new \Sajari\Search\Response($total, $reads, $time, $results, $aggregateList, $tokens);
     }
 
     /**
