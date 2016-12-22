@@ -3,18 +3,16 @@
 namespace Sajari\Record;
 
 use sajari\engine\Value as EngineValue;
-use sajari\engine\Value\Repeated;
-use sajari\engine\store\record\KeysValues\KeyValues\Value as KeyValueValue;
-use sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry;
 
 class Value
 {
+    /** @var string $key */
     private $key;
     private $value;
 
     /**
-     * Meta constructor.
-     * @param $key
+     * Value constructor.
+     * @param string $key
      * @param $value
      */
     public function __construct($key, $value)
@@ -24,18 +22,18 @@ class Value
     }
 
     /**
+     * @param string $key
      * @param \sajari\engine\Value $protoValue
      * @return Value
      */
-    public static function FromProtoValue($protoValue)
+    public static function FromProto($key, \sajari\engine\Value $protoValue)
     {
-        $v = $protoValue->getValue();
-        if ($v->hasSingle()) {
-          return new Value($protoValue->getKey(), $v->getSingle());
-        } else if ($v->hasRepeated()) {
-          return new Value($protoValue->getKey(), $v->getRepeated()->getValuesList());
+        if ($protoValue->hasSingle()) {
+          return new Value($key, $protoValue->getSingle());
+        } else if ($protoValue->hasRepeated()) {
+          return new Value($key, $protoValue->getRepeated()->getValuesList());
         } else {
-          return new Value($protoValue->getKey(), NULL);
+          return new Value($key, null);
         }
     }
 
@@ -56,14 +54,14 @@ class Value
     }
 
     /**
-     * @return ValuesEntry
+     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
     public function Proto()
     {
-        $actualValue = new EngineValue();
+        $actualValue = new \sajari\engine\Value();
 
         if (is_array($this->value)) {
-          $repeated = new Repeated();
+          $repeated = new \sajari\engine\Value\Repeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }
@@ -74,10 +72,10 @@ class Value
           $actualValue->setSingle($this->value);
         }
 
-        $v = new KeyValueValue();
+        $v = new \sajari\engine\store\record\KeysValues\KeyValues\Value();
         $v->setSet($actualValue);
 
-        $protoMeta = new ValuesEntry();
+        $protoMeta = new \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry();
         $protoMeta->setKey($this->key);
         $protoMeta->setValue($v);
         return $protoMeta;

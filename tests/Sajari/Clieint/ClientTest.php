@@ -7,7 +7,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testDefaultClientCreation()
     {
         $this->assertNotNull(
-            \Sajari\Client\Client::DefaultClient(
+            \Sajari\Client\Client::NewClient(
                 'project',
                 'collection',
                 []

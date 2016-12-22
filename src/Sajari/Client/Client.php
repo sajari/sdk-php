@@ -15,20 +15,15 @@ require_once __DIR__.'/../proto/api/query/v1/query.php';
 
 use Sajari\Record\Record;
 use Sajari\Record\Key as RecordKey;
-use Sajari\Record\KeyValue;
-use Sajari\Record\Value as RecordValue;
 
 use Sajari\Search\Request as SearchRequest;
 use Sajari\Search\Result as SearchResult;
 use Sajari\Search\Response as SearchResponse;
-use Sajari\Search\Tracking;
 use Sajari\Search\ClickToken;
 use Sajari\Search\PosNegToken;
 use Sajari\Search\CountResponseAggregate;
 use Sajari\Search\BucketResponseAggregate;
 use Sajari\Search\MetricResponseAggregate;
-
-use Sajari\Client\Opt;
 
 use sajari\engine\store\record\Keys as EngineKeys;
 use sajari\engine\Value as EngineValue;
@@ -43,7 +38,6 @@ use sajari\engine\store\record\GetResponse;
 
 /**
  * Class Client
- * @package Sajari\Client
  */
 class Client
 {
@@ -53,12 +47,10 @@ class Client
     private $collection = '';
     /** @var string $endpoint */
     private $endpoint = 'api.sajari.com:443';
-    /** @var string $auth */
-    private $auth = '';
-    private $credentials;
+    /** @var \sajari\engine\store\record\StoreClient $storeClient */
     private $storeClient;
+    /** @var \sajari\api\query\v1\QueryClient $searchClient */
     private $searchClient;
-    private $grpcDialOptions;
 
     /**
      * Client constructor
@@ -72,7 +64,6 @@ class Client
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
-        $this->credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         /** @var $opt Opt */
         foreach ($dialOptions as $opt) {
@@ -108,57 +99,9 @@ class Client
     }
 
     /**
-     * @return string
-     */
-    public function getEndpoint()
-    {
-        return $this->endpoint;
-    }
-
-    /**
-     * @param string $endpoint
-     */
-    public function setEndpoint($endpoint)
-    {
-        $this->endpoint = $endpoint;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAuth()
-    {
-        return $this->auth;
-    }
-
-    /**
-     * @param string $auth
-     */
-    public function setAuth($auth)
-    {
-        $this->auth = $auth;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCredentials()
-    {
-        return $this->credentials;
-    }
-
-    /**
-     * @param mixed $credentials
-     */
-    public function setCredentials($credentials)
-    {
-        $this->credentials = $credentials;
-    }
-
-    /**
      * @return array
      */
-    public function getCallMeta()
+    private function getCallMeta()
     {
         return array(
             'project' => array($this->projectID),
@@ -168,11 +111,11 @@ class Client
     }
 
     /**
-     * @param RecordKey $key
+     * @param \Sajari\Record\Key $key
      * @return array
      * @throws \Sajari\Error\RecordNotFoundException
      */
-    public function Get(RecordKey $key)
+    public function Get(\Sajari\Record\Key $key)
     {
         try {
             list($res, $status) = $this->GetMulti(array($key));
@@ -184,8 +127,8 @@ class Client
     }
 
     /**
-     * @param RecordKey[] $keys
-     * @return Record[]
+     * @param \Sajari\Record\Key[] $keys
+     * @return \Sajari\Record\Record[]
      * @throws \Exception
      */
     public function GetMulti(array $keys)
@@ -207,13 +150,13 @@ class Client
 
         $docs = array();
 
-        /** @var EngineRecord $doc */
-        foreach ($reply->getRecordsList() as $doc) {
+        /** @var \sajari\engine\store\record\Record $rec */
+        foreach ($reply->getRecordsList() as $rec) {
             $value = array();
 
             /** @var EngineRecordValuesEntry $m */
-            foreach ($doc->getValuesList() as $m) {
-                $value[] = \Sajari\Record\Value::FromProtoValue($m);
+            foreach ($rec->getValuesList() as $v) {
+                $value[] = \Sajari\Record\Value::FromProto($v->getKey(), $v->getValue());
             }
 
             $docs[] = new Record($value);
@@ -288,9 +231,8 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code !== 0) {
-            throw new \Sajari\Error\Exception($status->details);
-        }
+        // Check for server error
+        $this->checkForError($status);
 
         $keys = array();
 
@@ -332,9 +274,8 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code !== 0) {
-            throw new \Exception($status->details);
-        }
+        // Check for server error
+        $this->checkForError($status);
 
         return $reply->getStatusList();
     }
@@ -387,9 +328,8 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        if ($status->code !== 0) {
-            throw new \Exception($status->details);
-        }
+        // Check for server error
+        $this->checkForError($status);
 
         return $reply->getStatusList();
     }
@@ -430,15 +370,13 @@ class Client
         // Results
         $results = array();
 
-        /** @var engine\query\Result[] $protoResponseList */
         $protoResponseList = $response->getResultsList();
 
         foreach ($protoResponseList as $protoResult) {
             $meta = array();
-            /** @var engine\query\Result\MetaEntry $protoMeta */
+
             foreach ($protoResult->getValuesList() as $m) {
-                /** @var sajari\engine\Value $v */
-                $meta[] = \Sajari\Record\Value::FromProtoValue($m);
+                $meta[] = \Sajari\Record\Value::FromProtoValue($m->getKey(), $m->getValue());
             }
 
             $result = new SearchResult(
