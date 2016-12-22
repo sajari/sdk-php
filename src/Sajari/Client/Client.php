@@ -427,12 +427,12 @@ class Client
     /**
      * @param $status
      * @throws \Sajari\Error\AlreadyExistsException
-     * @throws \Sajari\Error\Base
+     * @throws \Sajari\Error\Exception
      * @throws \Sajari\Error\MalformedRequestException
      * @throws \Sajari\Error\NotFoundException
      * @throws \Sajari\Error\PermissionDeniedException
-     * @throws \Sajari\Error\Unauthenticated
-     * @throws \Sajari\Error\Unavailable
+     * @throws \Sajari\Error\ServiceUnavailableException
+     * @throws \Sajari\Error\UnauthenticatedException
      */
     private function checkForError($status)
     {
@@ -453,13 +453,13 @@ class Client
                 throw new \Sajari\Error\PermissionDeniedException($status->details, $status->code);
             case 14:
                 // unavailable
-                throw new \Sajari\Error\Unavailable($status->details, $status->code);
+                throw new \Sajari\Error\ServiceUnavailableException($status->details, $status->code);
             case 16:
                 // unauthenticated
-                throw new \Sajari\Error\Unauthenticated($status->details, $status->code);;
+                throw new \Sajari\Error\UnauthenticatedException($status->details, $status->code);;
             default:
                 // generic exception
-                throw new \Sajari\Error\Base($status->details, $status->code);
+                throw new \Sajari\Error\Exception($status->details, $status->code);
         }
     }
 }
