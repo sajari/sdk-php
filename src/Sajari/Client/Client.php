@@ -175,12 +175,13 @@ class Client
 
     /**
      * @param \Sajari\Record\Record $rec
+     * @param \Sajari\Record\Transform[] $transforms
      * @return mixed
      * @throws Exception
      */
-    public function Add(\Sajari\Record\Record $rec)
+    public function Add(\Sajari\Record\Record $rec, array $transforms)
     {
-        $multiResult = $this->AddMulti([$rec]);
+        $multiResult = $this->AddMulti([$rec], $transforms);
 
         // Return the first key and status from add multi
         return [$multiResult[0][0], $multiResult[1][0]];
@@ -188,10 +189,11 @@ class Client
 
     /**
      * @param \Sajari\Record\Record[] $records
+     * @param \Sajari\Record\Transform[] $transforms
      * @return array
      * @throws \Sajari\Error\Exception
      */
-    public function AddMulti(array $records)
+    public function AddMulti(array $records, array $transforms)
     {
         $protoRecords = new \sajari\engine\store\record\Records();
 
@@ -210,6 +212,20 @@ class Client
             $protoRecords->addRecords($protoRecord);
         }
 
+        if (!isset($transforms) || count($transforms) === 0) {
+            $transforms = [
+                \Sajari\Record\Transform::SplitIndexFieldsTransform(),
+                \Sajari\Record\Transform::StopStemmerTransform()
+            ];
+        }
+
+        if (isset($transforms)) {
+            foreach ($transforms as $t) {
+                $protoRecords->addTransforms($t->Proto());
+            }
+        }
+
+        /** @var \sajari\engine\store\record\AddResponse $reply */
         list($reply, $status) = $this->storeClient->Add(
             $protoRecords,
             $this->getCallMeta()
@@ -218,7 +234,7 @@ class Client
         // Check for server error
         $this->checkForError($status);
 
-        $keys = array();
+        $keys = [];
 
         /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
