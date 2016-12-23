@@ -10,10 +10,6 @@ use sajari\api\query\v1\SearchRequest\Tracking as ApiTracking;
 
 use sajari\engine\query\v1\SearchRequest as EngineSearchRequest;
 
-use Sajari\Search\Tracking;
-use Sajari\Search\IndexQuery;
-use Sajari\Search\FeatureQuery;
-
 class Request
 {
     /** @var Tracking $tracking */
@@ -293,14 +289,6 @@ class Request
             }
         }
 
-        // Transforms
-        if (isset($this->transforms))
-        {
-            foreach ($this->transforms as $t) {
-                $er->addTransforms($t->Proto());
-            }
-        }
-
         $r = new ApiSearchRequest();
 
         $r->setSearchRequest($er);
@@ -309,6 +297,13 @@ class Request
         if (isset($this->tracking))
         {
             $r->setTracking($this->tracking->Proto());
+        }
+
+        // Transforms
+        if (isset($this->transforms)) {
+            foreach ($this->transforms as $t) {
+                $r->addTransforms($t->Proto());
+            }
         }
 
         return $r;
