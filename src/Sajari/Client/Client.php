@@ -92,9 +92,9 @@ class Client
     private function getCallMeta()
     {
         return array(
-            'project' => array($this->projectID),
-            'collection' => array($this->collection),
-            'authorization' => array($this->auth),
+            'project' => [$this->projectID],
+            'collection' => [$this->collection],
+            'authorization' => [$this->auth],
         );
     }
 
@@ -106,7 +106,7 @@ class Client
     public function Get(\Sajari\Record\Key $key)
     {
         try {
-            list($res, $status) = $this->GetMulti(array($key));
+            list($res, $status) = $this->GetMulti([$key]);
         } catch (\Sajari\Error\MultiRecordNotFoundException $e) {
             throw new \Sajari\Error\RecordNotFoundException($e->getMessage(), $e->getCode(), null);
         }
@@ -132,18 +132,18 @@ class Client
         // Check for server error
         $this->checkForError($status);
 
-        $docs = array();
+        $records = [];
 
         /** @var \sajari\engine\store\record\Record $rec */
         foreach ($reply->getRecordsList() as $rec) {
-            $values = array();
+            $values = [];
 
             /** @var \sajari\engine\store\record\Record\ValuesEntry $m */
             foreach ($rec->getValuesList() as $v) {
                 $values[$v->getKey()] = \Sajari\Record\Value::FromProto($v->getValue());
             }
 
-            $docs[] = new \Sajari\Record\Record($values);
+            $records[] = new \Sajari\Record\Record($values);
         }
 
         $statuses = $reply->getStatusList();
@@ -154,7 +154,7 @@ class Client
             }
         }
 
-        return [$docs, $statuses];
+        return [$records, $statuses];
     }
 
     /**
@@ -222,9 +222,7 @@ class Client
 
         /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
-            $value = \Sajari\Record\Key::FromProto($k);
-
-            $keys[] = new \Sajari\Record\Key($k->getField(), $value);
+            $keys[] = new \Sajari\Record\Key($k->getField(), \Sajari\Record\Key::FromProto($k));
         }
 
         return [$keys, $reply->getStatusList()];

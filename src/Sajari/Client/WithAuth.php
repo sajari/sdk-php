@@ -17,6 +17,9 @@ class WithAuth implements Opt
         $this->auth = sprintf("keysecret %s %s", $key, $secret);
     }
 
+    /**
+     * @param \Sajari\Client\Client $c
+     */
     public function Apply(Client $c)
     {
         $c->setAuth($this->auth);
