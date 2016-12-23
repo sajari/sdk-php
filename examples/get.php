@@ -13,6 +13,7 @@ $c = \Sajari\Client\Client::NewClient($project, $collection, $opts);
 
 $k = new \Sajari\Record\Key("_id", "<value>");
 
+/** @var \Sajari\Record\Record $res */
 try {
     list($res, $status) = $c->Get($k);
 } catch (\Sajari\Error\RecordNotFoundException $e) {
@@ -26,19 +27,10 @@ try {
     exit(1);
 }
 
-function cmp(\Sajari\Record\Value $a, \Sajari\Record\Value $b) {
-    if ($a->getKey() == $b->getKey()) {
-        return 0;
-    }
-    return ($a->getKey() < $b->getKey()) ? -1 : 1;
-}
-
 $values = $res->getValues();
-
-// Sort results before printing
-uasort($values, 'cmp');
+ksort($values);
 
 /** @var \Sajari\Record\Value $v */
-foreach (values as $v) {
-    printf("  %s:\n    %s\n", $v->getKey(), $v->getValue());
+foreach ($values as $field => $value) {
+    printf("  %s:\n    %s\n", $field, $value);
 }

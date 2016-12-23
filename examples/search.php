@@ -18,7 +18,7 @@ $client = \Sajari\Client\Client::NewClient(
 // Create request object to perform out query with
 $request = new \Sajari\Search\Request();
 // Set limit to determine how many results to request
-$request->setLimit(1);
+$request->setLimit(10);
 // Use default tracking to state that we're not requesting tracking tokens
 $request->setTracking(new \Sajari\Search\Tracking());
 
@@ -49,14 +49,16 @@ try {
 printf("Search found %u results in %s.\n", $result->getTotalResults(), $result->getTime());
 foreach ($result->getResults() as $r) {
     printf("Score: %f %f\n", $r->getScore(), $r->getIndexScore());
-    foreach ($r->getValues() as $v) {
-        if (is_array($v->getValue())) {
-            printf("   %s:\n", $v->getKey());
-            foreach ($v->getValue() as $i) {
+    $values = $r->getValues();
+    ksort($values);
+    foreach ($values as $field => $value) {
+        if (is_array($value)) {
+            printf("   %s:\n", $field);
+            foreach ($value as $i) {
                 printf("      %s\n", $i);
             }
         } else {
-            printf("   %s: %s\n", $v->getKey(), $v->getValue());
+            printf("   %s: %s\n", $field, $value);
         }
     }
 }
