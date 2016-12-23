@@ -19,7 +19,7 @@ try {
 } catch (\Sajari\Error\RecordNotFoundException $e) {
     printf("%s found for %s\n", $e->getMessage(), $k);
     exit(1);
-} catch (\Sajari\Error\Base $e) {
+} catch (\Sajari\Error\Exception $e) {
     printf("%s\n", $e->getMessage());
     exit(1);
 } catch (\Exception $e) {

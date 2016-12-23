@@ -15,9 +15,10 @@ $client = \Sajari\Client\Client::NewClient(
     [new \Sajari\Client\WithAuth($key_id, $key_secret)]
 );
 
-$m = new \Sajari\Record\Value("text", "some test text 1");
+$values = [];
+$values["text"] = "some text text";
 
-$d = new \Sajari\Record\Record([$m]);
+$d = new \Sajari\Record\Record($values);
 
 try {
     list($key, $status) = $client->Add($d);
