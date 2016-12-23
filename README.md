@@ -27,7 +27,7 @@ The minimum php versions required for this sdk are php 5.5 and 7.0. This limitat
 
 Installing on Ubuntu 14.04 LTS
 
-default phpgr
+default php
 ```
 sudo apt-get install php5 php5-dev php-pear
 sudo pecl install grpc
