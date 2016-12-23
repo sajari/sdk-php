@@ -29,6 +29,16 @@ class Client
     private $storeClient;
     /** @var \sajari\api\query\v1\QueryClient $searchClient */
     private $searchClient;
+    /** @var string $auth */
+    private $auth;
+
+    /**
+     * @param string $auth
+     */
+    public function setAuth($auth)
+    {
+        $this->auth = $auth;
+    }
 
     /**
      * Client constructor
@@ -126,14 +136,14 @@ class Client
 
         /** @var \sajari\engine\store\record\Record $rec */
         foreach ($reply->getRecordsList() as $rec) {
-            $value = array();
+            $values = array();
 
             /** @var \sajari\engine\store\record\Record\ValuesEntry $m */
             foreach ($rec->getValuesList() as $v) {
-                $value[] = \Sajari\Record\Value::FromProto($v->getKey(), $v->getValue());
+                $values[$v->getKey()] = \Sajari\Record\Value::FromProto($v->getValue());
             }
 
-            $docs[] = new \Sajari\Record\Record($value);
+            $docs[] = new \Sajari\Record\Record($values);
         }
 
         $statuses = $reply->getStatusList();
@@ -165,7 +175,7 @@ class Client
 
     /**
      * @param \Sajari\Record\Record $rec
-     * @return Key
+     * @return mixed
      * @throws Exception
      */
     public function Add(\Sajari\Record\Record $rec)
@@ -177,31 +187,31 @@ class Client
     }
 
     /**
-     * @param array $docs
+     * @param \Sajari\Record\Record[] $records
      * @return array
      * @throws \Sajari\Error\Exception
      */
-    public function AddMulti(array $docs)
+    public function AddMulti(array $records)
     {
-        $protoDocs = new \sajari\engine\store\record\Records();
+        $protoRecords = new \sajari\engine\store\record\Records();
 
-        foreach ($docs as $d) {
-            $protoDoc = new \sajari\engine\store\record\Record();
-            foreach ($d->getValues() as $m) {
+        foreach ($records as $r) {
+            $protoRecord = new \sajari\engine\store\record\Record();
+            foreach ($r->getValues() as $field => $value) {
                 $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
-                $valueEntry->setKey($m->getKey());
-                $v = new \sajari\engine\Value();
-                $v->setSingle($m->getValue());
+                $valueEntry->setKey($field);
+
+                $v = \Sajari\Record\Value::ToProto($value);
                 $valueEntry->setValue($v);
 
-                $protoDoc->addValues($valueEntry);
+                $protoRecord->addValues($valueEntry);
             }
 
-            $protoDocs->addRecords($protoDoc);
+            $protoRecords->addRecords($protoRecord);
         }
 
         list($reply, $status) = $this->storeClient->Add(
-            $protoDocs,
+            $protoRecords,
             $this->getCallMeta()
         )->wait();
 
@@ -347,16 +357,16 @@ class Client
         $protoResponseList = $response->getResultsList();
 
         foreach ($protoResponseList as $protoResult) {
-            $meta = array();
+            $values = array();
 
             foreach ($protoResult->getValuesList() as $m) {
-                $meta[] = \Sajari\Record\Value::FromProtoValue($m->getKey(), $m->getValue());
+                $values[$m->getKey()] = \Sajari\Record\Value::FromProto($m->getValue());
             }
 
             $result = new \Sajari\Search\Result (
                 $protoResult->getScore(),
                 $protoResult->getIndexScore(),
-                $meta
+                $values
             );
 
             $results[] = $result;
