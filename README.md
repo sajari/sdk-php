@@ -11,6 +11,7 @@ The Sajari PHP SDK enables use of the Sajari platform from PHP.
   * [PHP 5](#php-5)
   * [Install Sajari](#install-sajari)
 * [Getting Started](#getting-started)
+* [Documentation](#documentation)
 * [License](#license)
 
 ## Setup
@@ -71,6 +72,10 @@ See [examples](./examples) for the easiest way to get going.
 - [Getting a record](./examples/get.php)
 - [Patching a record](./examples/patch.php)
 - [Deleting a record](./examples/delete.php)
+
+## Documentation
+
+The documentation is generated from the source code and is available at [https://sajari.github.io/sajari-sdk-php/](https://sajari.github.io/sajari-sdk-php/).
 
 ## License
 
