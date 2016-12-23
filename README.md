@@ -43,7 +43,7 @@ sudo pecl install grpc
 
 Add `extension=grpc.so` to your `php.ini` to enable the grpc extension.
 
-### Install Sajari
+### Adding to your project
 
 Add these sections to your `composer.json` to keep up with the latest version.
 ```
