@@ -134,16 +134,8 @@ class Client
 
         $records = [];
 
-        /** @var \sajari\engine\store\record\Record $rec */
-        foreach ($reply->getRecordsList() as $rec) {
-            $values = [];
-
-            /** @var \sajari\engine\store\record\Record\ValuesEntry $m */
-            foreach ($rec->getValuesList() as $v) {
-                $values[$v->getKey()] = \Sajari\Record\Value::FromProto($v->getValue());
-            }
-
-            $records[] = new \Sajari\Record\Record($values);
+        foreach ($reply->getRecordsList() as $protoRecord) {
+            $records[] = \Sajari\Record\Record::FromProto($protoRecord);
         }
 
         $statuses = $reply->getStatusList();

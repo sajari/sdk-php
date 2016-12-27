@@ -24,5 +24,18 @@ class Record
         return $this->values;
     }
 
+    /**
+     * @param \sajari\engine\store\record\Record $protoRecord
+     * @return Record
+     */
+    public static function FromProto(\sajari\engine\store\record\Record $protoRecord)
+    {
+        $values = [];
 
+        foreach ($protoRecord->getValuesList() as $v) {
+            $values[$v->getKey()] = \Sajari\Record\Value::FromProto($v->getValue());
+        }
+
+        return new Record($values);
+    }
 }
