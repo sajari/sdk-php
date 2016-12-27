@@ -2,10 +2,6 @@
 
 namespace Sajari\Record;
 
-use sajari\engine\Key as EngineKey;
-use sajari\engine\Value as EngineValue;
-use sajari\engine\Value\Repeated as EngineValueRepeated;
-
 class Key
 {
     /** @var $field string */
@@ -39,29 +35,33 @@ class Key
         return $this->value;
     }
 
-    public static function fromProto(\sajari\engine\Key $p)
+    /**
+     * @param \sajari\engine\Key $engineKey
+     * @return Key
+     */
+    public static function FromProto(\sajari\engine\Key $engineKey)
     {
-        $v = $p->getValue();
+        $v = $engineKey->getValue();
         if ($v->hasSingle()) {
-            return new Key($p->getField(), $v->getSingle());
+            return new Key($engineKey->getField(), $v->getSingle());
         } else if ($v->hasRepeated()) {
-            return new Key($p->getField(), $v->getRepeated()->getValuesList());
+            return new Key($engineKey->getField(), $v->getRepeated()->getValuesList());
         } else {
-            return new Key($p->getField(), NULL);
+            return new Key($engineKey->getField(), NULL);
         }
     }
 
     /**
-     * @return EngineKey
+     * @return \sajari\engine\Key
      */
     public function Proto()
     {
-        $protoKey = new EngineKey();
+        $protoKey = new \sajari\engine\Key();
         $protoKey->setField($this->field);
 
-        $value = new EngineValue();
+        $value = new \sajari\engine\Value();
         if (is_array($this->value)) {
-          $repeated = new EngineValueRepeated();
+          $repeated = new \sajari\engine\Value\Repeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }

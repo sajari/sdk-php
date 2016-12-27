@@ -190,18 +190,7 @@ class Client
         $protoRecords = new \sajari\engine\store\record\Records();
 
         foreach ($records as $r) {
-            $protoRecord = new \sajari\engine\store\record\Record();
-            foreach ($r->getValues() as $field => $value) {
-                $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
-                $valueEntry->setKey($field);
-
-                $v = \Sajari\Record\Value::ToProto($value);
-                $valueEntry->setValue($v);
-
-                $protoRecord->addValues($valueEntry);
-            }
-
-            $protoRecords->addRecords($protoRecord);
+            $protoRecords->addRecords($r->ToProto());
         }
 
         if (!isset($transforms) || count($transforms) === 0) {
@@ -228,9 +217,8 @@ class Client
 
         $keys = [];
 
-        /** @var $k \sajari\engine\Key */
         foreach ($reply->getKeysList() as $k) {
-            $keys[] = new \Sajari\Record\Key($k->getField(), \Sajari\Record\Key::FromProto($k));
+            $keys[] = \Sajari\Record\Key::FromProto($k);
         }
 
         return [$keys, $reply->getStatusList()];

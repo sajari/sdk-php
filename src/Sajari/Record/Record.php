@@ -38,4 +38,24 @@ class Record
 
         return new Record($values);
     }
+
+    /**
+     * @return \sajari\engine\store\record\Record
+     */
+    public function ToProto()
+    {
+        $protoRecord = new \sajari\engine\store\record\Record();
+
+        foreach ($this->values as $field => $value) {
+            $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
+            $valueEntry->setKey($field);
+
+            $v = \Sajari\Record\Value::ToProto($value);
+            $valueEntry->setValue($v);
+
+            $protoRecord->addValues($valueEntry);
+        }
+
+        return $protoRecord;
+    }
 }
