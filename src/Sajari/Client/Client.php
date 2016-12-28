@@ -303,113 +303,15 @@ class Client
     public function Search(\Sajari\Search\Request $r)
     {
         $searchRequest = $r->ToProto();
-        // Make Request
-        /** @var \sajari\api\query\v1\SearchResponse $reply */
+
         list($reply, $status) = $this->searchClient->Search(
             $searchRequest,
             $this->getCallMeta()
         )->wait();
 
-        // Check for server error
         $this->checkForError($status);
 
-        // Transform proto to user-friendly objects
-
-        $response = $reply->getSearchResponse();
-
-        // Reads
-        /** @var integer $reads */
-        $reads = $response->getReads();
-
-        // Time
-        /** @var string $time */
-        $time = $response->getTime();
-
-        // Total Results
-        /** @var integer $total */
-        $total = $response->getTotalResults();
-
-        // Results
-        $results = array();
-
-        $protoResponseList = $response->getResultsList();
-
-        foreach ($protoResponseList as $protoResult) {
-            $values = array();
-
-            foreach ($protoResult->getValuesList() as $m) {
-                $values[$m->getKey()] = \Sajari\Record\Value::FromProto($m->getValue());
-            }
-
-            $result = new \Sajari\Search\Result (
-                $protoResult->getScore(),
-                $protoResult->getIndexScore(),
-                $values
-            );
-
-            $results[] = $result;
-        }
-
-        // Aggregates
-        /** @var engine\query\Response\AggregatesEntry[] $protoAggregateList */
-        $protoAggregateList = $response->getAggregatesList();
-
-        $aggregateList = array();
-        foreach ($protoAggregateList as $a) {
-            /** @var engine\query\AggregateResponse $ar */
-            $ar = $a->getValue();
-
-            if ($ar->hasBuckets()) {
-                /** @var engine\query\AggregateResponse\Buckets $b */
-                $buckets = $ar->getBuckets();
-
-                $bucketArray = array();
-
-                /** @var engine\query\AggregateResponse\Buckets\BucketsEntry $be */
-                foreach ($buckets->getBucketsList() as $be) {
-                    /** @var engine\query\AggregateResponse\Buckets\Bucket $b */
-                    $b = $be->getValue();
-                    $bucketArray[$b->getName()] = new \Sajari\Search\BucketResponseAggregate($b->getName(), $b->getCount());
-                }
-
-                $aggregateList[$a->getKey()] = $bucketArray;
-            } elseif ($ar->hasCount()) {
-                /** @var engine\query\AggregateResponse\Count $counts */
-                $counts = $ar->getCount();
-
-                $countArray = array();
-
-                /** @var engine\query\AggregateResponse\Count\CountsEntry $ce */
-                foreach ($counts->getCountsList() as $ce) {
-                    $countArray[$ce->getKey()] = new \Sajari\Search\CountResponseAggregate($ce->getKey(), $ce->getValue());
-                }
-
-                $aggregateList[$a->getKey()] = $countArray;
-            } elseif ($ar->hasMetric()) {
-                /** @var engine\query\AggregateResponse\Metric */
-                $m = $ar->getMetric();
-
-                $aggregateList[$a->getKey()] = new \Sajari\Search\MetricResponseAggregate($m->getValue());
-            }
-        }
-
-        $tokens = [];
-        if ($reply->hasTokens()) {
-          foreach ($reply->getTokensList() as $protoToken) {
-            $token = NULL;
-            if ($protoToken->hasClick()) {
-              $token = new \Sajari\Search\ClickToken($protoToken->getClick()->getClick());
-            } else {
-              $token = new \Sajari\Search\PosNegToken(
-                $protoToken->getPosNeg()->getPos(),
-                $protoToken->getPosNeg()->getNeg()
-              );
-            }
-            $tokens[] = $token;
-          }
-        }
-
-        return new \Sajari\Search\Response($total, $reads, $time, $results, $aggregateList, $tokens);
+        return \Sajari\Search\Response::FromProto($reply->getSearchResponse(), $reply->getTokensList());
     }
 
     /**
