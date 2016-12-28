@@ -238,7 +238,7 @@ class Request
      * @return ApiSearchRequest
      * @throws Exception
      */
-    public function Proto()
+    public function ToProto()
     {
         $er = new EngineSearchRequest();
 

@@ -54,7 +54,7 @@ class Key
     /**
      * @return \sajari\engine\Key
      */
-    public function Proto()
+    public function ToProto()
     {
         $protoKey = new \sajari\engine\Key();
         $protoKey->setField($this->field);

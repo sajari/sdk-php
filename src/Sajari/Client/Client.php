@@ -159,7 +159,7 @@ class Client
 
         /** @var \Sajari\Record\Key $k */
         foreach ($keys as $k) {
-            $protoKeys->addKeys($k->Proto());
+            $protoKeys->addKeys($k->ToProto());
         }
 
         return $protoKeys;
@@ -302,9 +302,9 @@ class Client
      */
     public function Search(\Sajari\Search\Request $r)
     {
-        $searchRequest = $r->Proto();
+        $searchRequest = $r->ToProto();
         // Make Request
-        /** @var engine\query\Response $reply */
+        /** @var \sajari\api\query\v1\SearchResponse $reply */
         list($reply, $status) = $this->searchClient->Search(
             $searchRequest,
             $this->getCallMeta()
