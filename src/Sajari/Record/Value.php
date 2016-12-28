@@ -4,7 +4,7 @@ namespace Sajari\Record;
 
 class Value
 {
-    /**\
+    /**
      * @param \sajari\engine\Value $protoValue
      * @return mixed
      */
@@ -24,48 +24,20 @@ class Value
      */
     public static function ToProto($value)
     {
-        $actualValue = new \sajari\engine\Value();
+        $protoValue = new \sajari\engine\Value();
 
         if (is_array($value)) {
             $repeated = new \sajari\engine\Value\Repeated();
             foreach ($value as $v) {
                 $repeated->addValues($v);
             }
-            $actualValue->setRepeated($repeated);
+            $protoValue->setRepeated($repeated);
         } else if (is_null($value)) {
-            $actualValue->setNull(true);
+            $protoValue->setNull(true);
         } else {
-            $actualValue->setSingle($value);
+            $protoValue->setSingle($value);
         }
 
-        return $actualValue;
-    }
-
-    /**
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
-     */
-    public function Proto()
-    {
-        $actualValue = new \sajari\engine\Value();
-
-        if (is_array($this->value)) {
-          $repeated = new \sajari\engine\Value\Repeated();
-          foreach ($this->value as $v) {
-            $repeated->addValues($v);
-          }
-          $actualValue->setRepeated($repeated);
-        } else if (is_null($this->value)) {
-          $actualValue->setNull(true);
-        } else {
-          $actualValue->setSingle($this->value);
-        }
-
-        $v = new \sajari\engine\store\record\KeysValues\KeyValues\Value();
-        $v->setSet($actualValue);
-
-        $protoMeta = new \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry();
-        $protoMeta->setKey($this->key);
-        $protoMeta->setValue($v);
-        return $protoMeta;
+        return $protoValue;
     }
 }

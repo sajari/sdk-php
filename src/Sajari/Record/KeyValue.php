@@ -4,35 +4,33 @@ namespace Sajari\Record;
 
 class KeyValue
 {
-    /** @var Key $key */
+    /** @var string $key */
     private $key;
-    /** @var Value[] $values */
-    private $values;
+    /** @var mixed $value */
+    private $value;
 
     /**
      * KeyValue constructor.
-     * @param Key $key
-     * @param Value[] $value
+     * @param string $key
+     * @param mixed $value
      */
-    public function __construct(Key $key, array $values)
+    public function __construct($key, $value)
     {
         $this->key = $key;
-        $this->values = $values;
+        $this->value = $value;
     }
 
     /**
-     * @return Key
+     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
-    public function getKey()
+    public function ToProto()
     {
-        return $this->key;
-    }
+        $protoValue = new \sajari\engine\store\record\KeysValues\KeyValues\Value();
+        $protoValue->setSet(\Sajari\Record\Value::FromProto($this->value));
 
-    /**
-     * @return Value[]
-     */
-    public function getValues()
-    {
-        return $this->values;
+        $protoValueEntry = new \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry();
+        $protoValueEntry->setKey($this->key);
+        $protoValueEntry->setValue($protoValue);
+        return $protoValueEntry;
     }
 }

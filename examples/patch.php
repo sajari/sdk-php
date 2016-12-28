@@ -17,9 +17,9 @@ $client = \Sajari\Client\Client::NewClient(
 
 $k = new \Sajari\Record\Key("_id", "<value>");
 
-$m = new \Sajari\Record\Value("text", "i got patched!");
+$m = new \Sajari\Record\KeyValue("text", "i got patched!");
 
-$km = new \Sajari\Record\KeyValue($k, [$m]);
+$km = new \Sajari\Record\KeyValues($k, [$m]);
 
 try {
     $status = $client->Patch($km);
