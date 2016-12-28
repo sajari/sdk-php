@@ -259,12 +259,12 @@ class Client
     }
 
     /**
-     * @param $km
+     * @param \Sajari\Record\KeyValues $keyValues
      * @return null
      */
-    public function Patch($km)
+    public function Patch($keyValues)
     {
-      $multiResult = $this->PatchMulti(array($km));
+      $multiResult = $this->PatchMulti(array($keyValues));
       if ($multiResult == NULL) {
         return NULL;
       } else {
@@ -273,32 +273,16 @@ class Client
     }
 
     /**
-     * @param array $kvs
+     * @param \Sajari\Record\KeyValues[] $keyValues
      * @return mixed
      * @throws \Exception
      */
-    public function PatchMulti(array $kvs)
+    public function PatchMulti(array $keyValues)
     {
         $protoKeyValues = new \sajari\engine\store\record\KeysValues();
 
-        foreach ($kvs as $kv) {
-            $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
-
-            $k = new \sajari\engine\Key();
-            $k->setField($kv->getKey()->getField());
-
-            $v = new \sajari\engine\Value();
-
-            $v->setSingle($kv->getKey()->getValue());
-            $k->setValue($v);
-
-            $protoKeyValue->setKey($k);
-
-            foreach ($kv->getValues() as $m) {
-                $protoKeyValue->addValues($m->Proto());
-            }
-
-            $protoKeyValues->addKeysValues($protoKeyValue);
+        foreach ($keyValues as $keyValue) {
+            $protoKeyValues->addKeysValues($keyValue->ToProto());
         }
 
         list($reply, $status) = $this->storeClient->Patch(
