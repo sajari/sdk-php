@@ -4,8 +4,11 @@ namespace Sajari\Client;
 
 class TestValue
 {
+    /** @var mixed $original The original value of the test */
     public $original;
+    /** @var array|null|string The stringified value of the original value */
     public $string;
+    /** @var \sajari\engine\Value The proto value of the original value */
     public $proto;
 
     public function __construct($v)
@@ -70,6 +73,9 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     /** @var TestValue[] $protoValueTests */
     public $protoValueTests;
 
+    /**
+     * ValueTest constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -94,6 +100,9 @@ class ValueTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * testValueToProto Tests that Value::ToProto produces the correct proto value
+     */
     public function testValueToProto()
     {
         foreach ($this->protoValueTests as $test) {
@@ -104,6 +113,9 @@ class ValueTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * testValueFromProto Tests that Value::FromProto produces the correct string value
+     */
     public function testValueFromProto()
     {
         foreach ($this->protoValueTests as $test) {
@@ -114,6 +126,9 @@ class ValueTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * testValueToProtoAndBack Tests that Value::ToProto • Value::FromProto produces the correct string value
+     */
     public function testValueToProtoAndBack()
     {
         foreach ($this->protoValueTests as $test) {
