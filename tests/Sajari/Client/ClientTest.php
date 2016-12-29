@@ -2,6 +2,11 @@
 
 namespace Sajari\Client;
 
+class MockIndexClient
+{
+
+}
+
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
     public function testDefaultClientCreation()
@@ -13,5 +18,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
                 []
             )
         );
+    }
+
+    public function testDelete()
+    {
+
     }
 }
