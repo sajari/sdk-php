@@ -29,13 +29,21 @@ class Value
         if (is_array($value)) {
             $repeated = new \sajari\engine\Value\Repeated();
             foreach ($value as $v) {
-                $repeated->addValues($v);
+                if ($v instanceof \DateTime) {
+                    $repeated->addValues($v->format(\DateTime::ATOM));
+                } else {
+                    $repeated->addValues(sprintf("%s", $v));
+                }
             }
             $protoValue->setRepeated($repeated);
         } else if (is_null($value)) {
             $protoValue->setNull(true);
         } else {
-            $protoValue->setSingle($value);
+            if ($value instanceof \DateTime) {
+                $protoValue->setSingle($value->format(\DateTime::ATOM));
+            } else {
+                $protoValue->setSingle(sprintf("%s", $value));
+            }
         }
 
         return $protoValue;
