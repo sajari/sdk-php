@@ -38,30 +38,6 @@ class MockStatus
     }
 }
 
-class MockStoreClient extends \sajari\engine\store\record\StoreClient
-{
-    public $deleteArgs;
-
-    public function __construct()
-    {
-        parent::__construct("test", [
-            'credentials' => \Grpc\ChannelCredentials::createSsl()
-        ], null);
-    }
-
-    public function Delete(\sajari\engine\store\record\Keys $argument, $metadata = array(), $options = array())
-    {
-        $this->deleteArgs = func_get_args();
-
-        $response = new \sajari\engine\store\record\DeleteResponse();
-        $status = new \sajari\engine\Status();
-        $status->setCode(0);
-        $response->setStatus($status);
-
-        return new DeleteWaiter([$response, new MockStatus(0, '')]);
-    }
-}
-
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
     public function testDefaultClientCreation()
@@ -78,12 +54,33 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testDeleteSuccessful()
     {
         $mockQueryClient = new MockQueryClient();
-        $mockStoreClient = new MockStoreClient();
-        $client = new \Sajari\Client\Client($mockQueryClient, $mockStoreClient, "", "", [
+
+        $response = new \sajari\engine\store\record\DeleteResponse();
+        $status = new \sajari\engine\Status();
+        $status->setCode(0);
+        $response->setStatus($status);
+
+        $storeStub = $this
+            ->getMockBuilder(\sajari\engine\store\record\StoreClient::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $storeStub
+            ->method("Delete")
+            ->willReturn(new DeleteWaiter([$response, new MockStatus(0, '')]));
+
+        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, "", "", [
             new \Sajari\Client\WithAuth("", "")
         ]);
 
         $key = new \Sajari\Record\Key("id", "value");
+
+        $expectedKeys = new \sajari\engine\store\record\Keys();
+        $expectedKeys->addKeys($key->ToProto());
+
+        $storeStub
+            ->expects($this->once())
+            ->method("Delete")
+            ->with($this->equalTo($expectedKeys));
 
         try {
             $status = $client->Delete($key);
@@ -93,10 +90,34 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         }
 
         $this->assertNull($status);
+    }
 
-        $expectedKeys = new \sajari\engine\store\record\Keys();
-        $expectedKeys->addKeys($key->ToProto());
+    public function testDeleteError()
+    {
+        $mockQueryClient = new MockQueryClient();
 
-        $this->assertEquals($expectedKeys, $mockStoreClient->deleteArgs[0]);
+        $expectedException = new \Exception();
+
+        $storeStub = $this
+            ->getMockBuilder(\sajari\engine\store\record\StoreClient::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $storeStub
+            ->method("Delete")
+            ->willThrowException($expectedException);
+
+        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, "", "", [
+            new \Sajari\Client\WithAuth("", "")
+        ]);
+
+        $key = new \Sajari\Record\Key("id", "value");
+
+        try {
+            $client->Delete($key);
+        } catch (\Exception $e) {
+            $this->assertSame($expectedException, $e);
+            return;
+        }
+        $this->fail("error: Exception should have been thrown");
     }
 }
