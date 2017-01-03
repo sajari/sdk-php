@@ -17,7 +17,7 @@ class TestValue
         if (is_array($v)) {
             $repeated = new \sajari\engine\Value\Repeated();
             foreach ($v as $x) {
-                if ($v instanceof \DateTime) {
+                if ($x instanceof \DateTime) {
                     $repeated->addValues($x->format(\DateTime::ATOM));
                 } else {
                     $repeated->addValues(sprintf("%s", $x));
@@ -48,6 +48,8 @@ class TestValue
         } else {
             if ($v instanceof \DateTime) {
                 $stringOfValue = $v->format(\DateTime::ATOM);
+            } else if (is_null($v)) {
+                $stringOfValue = null;
             } else {
                 $stringOfValue = sprintf("%s", $v);
             }
@@ -90,12 +92,13 @@ class ValueTest extends \PHPUnit_Framework_TestCase
                 [1],
                 [1, 2, 3],
                 ["test"],
-                [(new \DateTime("2015-11-01 00:00:00"))->format(\DateTime::ATOM)],
+                [new \DateTime("2015-11-01 00:00:00")],
                 1,
                 1.25,
                 true,
                 false,
-                (new \DateTime("2015-11-01 00:00:00"))->format(\DateTime::ATOM)
+                new \DateTime("2015-11-01 00:00:00"),
+                null
             ]
         );
     }
