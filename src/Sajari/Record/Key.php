@@ -76,6 +76,10 @@ class Key
         return $protoKey;
     }
 
+    /**
+     * @return string
+     * @codeCoverageIgnore
+     */
     function __toString()
     {
         return sprintf("Key{ field: %s, value: %s }", $this->field, $this->value);
