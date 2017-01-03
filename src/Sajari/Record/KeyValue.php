@@ -26,7 +26,7 @@ class KeyValue
     public function ToProto()
     {
         $protoValue = new \sajari\engine\store\record\KeysValues\KeyValues\Value();
-        $protoValue->setSet(\Sajari\Record\Value::FromProto($this->value));
+        $protoValue->setSet(\Sajari\Record\Value::ToProto($this->value));
 
         $protoValueEntry = new \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry();
         $protoValueEntry->setKey($this->key);

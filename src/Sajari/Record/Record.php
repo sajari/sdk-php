@@ -4,12 +4,12 @@ namespace Sajari\Record;
 
 class Record
 {
-    /** @var Value[] $value */
+    /** @var mixed[] $values */
     private $values;
 
     /**
      * Document constructor.
-     * @param $values
+     * @param mixed[] $values
      */
     public function __construct(array $values)
     {
@@ -17,7 +17,7 @@ class Record
     }
 
     /**
-     * @return Value[]
+     * @return mixed[]
      */
     public function getValues()
     {
@@ -49,10 +49,7 @@ class Record
         foreach ($this->values as $field => $value) {
             $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
             $valueEntry->setKey($field);
-
-            $v = \Sajari\Record\Value::ToProto($value);
-            $valueEntry->setValue($v);
-
+            $valueEntry->setValue(Value::ToProto($value));
             $protoRecord->addValues($valueEntry);
         }
 
