@@ -67,7 +67,7 @@ class IndexQuery
         // Body
         if (isset($this->body)) {
             foreach ($this->body as $b) {
-                $fq->addBody($b->Proto());
+                $fq->addBody($b->ToProto());
             }
         }
 
