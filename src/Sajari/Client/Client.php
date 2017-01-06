@@ -12,7 +12,7 @@ require_once __DIR__.'/../proto/engine/key.php';
 require_once __DIR__.'/../proto/engine/status.php';
 require_once __DIR__.'/../proto/engine/store/record/record.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
-
+require_once __DIR__.'/../proto/engine/schema/schema.php';
 
 /**
  * Class Client
@@ -29,6 +29,8 @@ class Client
     private $storeClient;
     /** @var \sajari\api\query\v1\QueryClient $searchClient */
     private $searchClient;
+    /** @var \sajari\engine\schema\SchemaClient $schemaClient */
+    private $schemaClient;
     /** @var string $auth */
     private $auth;
 
@@ -48,7 +50,7 @@ class Client
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
      */
-    public function __construct(\sajari\api\query\v1\QueryClient $queryClient, \sajari\engine\store\record\StoreClient $storeClient, $projectID, $collection, $dialOptions)
+    public function __construct(\sajari\api\query\v1\QueryClient $queryClient, \sajari\engine\store\record\StoreClient $storeClient, \sajari\engine\schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
@@ -78,6 +80,9 @@ class Client
                 'credentials' => $credentials,
             ]),
             new \sajari\engine\store\record\StoreClient('api.sajari.com:443', [
+                'credentials' => $credentials,
+            ]),
+            new \sajari\engine\schema\SchemaClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
             $projectID,
@@ -312,6 +317,66 @@ class Client
         $this->checkForError($status);
 
         return \Sajari\Search\Response::FromProto($reply->getSearchResponse(), $reply->getTokensList());
+    }
+
+    /**
+     * @return \Sajari\Schema\Field[]
+     */
+    public function GetFields()
+    {
+        /** @var \sajari\engine\schema\Fields $reply */
+        list($reply, $status) = $this->schemaClient->GetFields(
+            $this->getCallMeta()
+        )->wait();
+
+        $this->checkForError($status);
+
+        $fields = [];
+
+        foreach ($reply->getFieldsList() as $field) {
+            $fields[] = \Sajari\Schema\Field::FromProto($field);
+        }
+
+        return $fields;
+    }
+
+    /**
+     * @param \Sajari\Schema\Field[] $fields
+     * @return \Sajari\Schema\Response
+     */
+    public function AddFields(array $fields)
+    {
+        $protoFields = new \sajari\engine\schema\Fields();
+        foreach ($fields as $field) {
+            $protoFields->addFields($field->Proto);
+        }
+
+        /** @var \sajari\engine\schema\Response $reply */
+        list($reply, $status) = $this->schemaClient->AddFields(
+            $protoFields,
+            $this->getCallMeta()
+        )->wait();
+
+        $this->checkForError($status);
+
+        return \Sajari\Schema\Response::FromProto($reply);
+    }
+
+    /**
+     * @param \Sajari\Schema\MutateFieldRequest $request
+     * @return \Sajari\Schema\Response
+     */
+    public function MutateFields(\Sajari\Schema\MutateFieldRequest $request)
+    {
+        /** @var \sajari\engine\schema\Response $reply */
+        list($reply, $status) = $this->schemaClient->MutateFields(
+            $request->Proto(),
+            $this->getCallMeta()
+        )->wait();
+
+        $this->checkForError($status);
+
+        return \Sajari\Schema\Response::FromProto($reply);
     }
 
     /**
