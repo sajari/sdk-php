@@ -2,6 +2,6 @@
 
 namespace Sajari\Search;
 
-abstract class Filter {
-    abstract public function Proto();
+interface Filter {
+    public function Proto();
 }

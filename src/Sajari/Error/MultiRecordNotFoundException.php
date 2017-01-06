@@ -3,7 +3,7 @@
 namespace Sajari\Error;
 
 
-class MultiRecordNotFoundException extends \Exception
+class MultiRecordNotFoundException extends Exception
 {
 
 }

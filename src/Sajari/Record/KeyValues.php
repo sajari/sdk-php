@@ -2,7 +2,11 @@
 
 namespace Sajari\Record;
 
-class KeyValues
+/**
+ * Class KeyValues
+ * @package Sajari\Record
+ */
+class KeyValues implements Proto
 {
     /** @var Key $key */
     private $key;
@@ -39,7 +43,7 @@ class KeyValues
     /**
      * @return \sajari\engine\store\record\KeysValues\KeyValues
      */
-    public function ToProto()
+    public function Proto()
     {
         $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
 
@@ -54,7 +58,7 @@ class KeyValues
         $protoKeyValue->setKey($k);
 
         foreach ($this->values as $m) {
-            $protoKeyValue->addValues($m->ToProto());
+            $protoKeyValue->addValues($m->Proto());
         }
 
         return $protoKeyValue;

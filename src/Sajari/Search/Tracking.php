@@ -4,11 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 
-use sajari\api\query\v1\SearchRequest\Tracking as ApiTracking;
-use sajari\api\query\v1\SearchRequest\Tracking\DataEntry;
-use sajari\api\query\v1\SearchRequest\Tracking\Type;
-
-class Tracking
+/**
+ * Class Tracking
+ * @package Sajari\Search
+ */
+class Tracking implements Proto
 {
   /** @var integer $type */
   private $type;
@@ -25,38 +25,53 @@ class Tracking
   /** @var array $data */
   private $data;
 
-  public function __construct()
+    /**
+     * Tracking constructor.
+     */
+    public function __construct()
   {
-    $this->type = Type::NONE;
+    $this->type = \sajari\api\query\v1\SearchRequest\Tracking\Type::NONE;
   }
 
-  public function click($field)
+    /**
+     * @param string $field
+     */
+    public function click($field)
   {
     $this->field = $field;
-    $this->type = Type::CLICK;
+    $this->type = \sajari\api\query\v1\SearchRequest\Tracking\Type::CLICK;
   }
 
-  public function posNeg($field)
+    /**
+     * @param string $field
+     */
+    public function posNeg($field)
   {
     $this->field = $field;
-    $this->type = Type::POS_NEG;
+    $this->type = \sajari\api\query\v1\SearchRequest\Tracking\Type::POS_NEG;
   }
 
-  public function setData(array $data)
+    /**
+     * @param array $data
+     */
+    public function setData(array $data)
   {
       $this->data = $data;
   }
 
-  public function Proto()
+    /**
+     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     */
+    public function Proto()
   {
-    $t = new ApiTracking();
+    $t = new \sajari\api\query\v1\SearchRequest\Tracking();
 
     $t->setQueryId($this->query_id);
     $t->setSequence($this->sequence);
 
     if (isset($this->data)) {
       foreach($this->data as $key => $value) {
-        $dataEntry = new DataEntry();
+        $dataEntry = new \sajari\api\query\v1\SearchRequest\Tracking\DataEntry();
         $dataEntry->setKey($key);
         $dataEntry->setValue($value);
         $t->addData($dataEntry);
@@ -64,7 +79,7 @@ class Tracking
     }
 
     $t->setType($this->type);
-    if ($this->type != Type::NONE) {
+    if ($this->type != \sajari\api\query\v1\SearchRequest\Tracking\Type::NONE) {
       $t->setField($this->field);
     }
 

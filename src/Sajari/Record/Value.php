@@ -2,6 +2,10 @@
 
 namespace Sajari\Record;
 
+/**
+ * Class Value
+ * @package Sajari\Record
+ */
 class Value
 {
     /**

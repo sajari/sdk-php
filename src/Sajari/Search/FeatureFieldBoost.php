@@ -4,11 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost as EngineFieldBoost;
-
-use Sajari\Search\FieldBoost;
-
-class FeatureFieldBoost
+/**
+ * Class FeatureFieldBoost
+ * @package Sajari\Search
+ */
+class FeatureFieldBoost implements Proto
 {
     /**
      * @var FieldBoost $fieldBoost
@@ -30,11 +30,11 @@ class FeatureFieldBoost
     }
 
     /**
-     * @return EngineFieldBoost
+     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function Proto()
     {
-        $fb = new EngineFieldBoost();
+        $fb = new \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost();
 
         $fb->setFieldBoost($this->fieldBoost->Proto());
         $fb->setValue($this->value);

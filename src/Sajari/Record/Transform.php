@@ -2,7 +2,11 @@
 
 namespace Sajari\Record;
 
-class Transform
+/**
+ * Class Transform
+ * @package Sajari\Record
+ */
+class Transform implements Proto
 {
     /** @var string $transform */
     private $transform;

@@ -5,16 +5,12 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\Filter as EngineFilter;
-use sajari\engine\query\v1\Filter\Geo as EngineGeo;
-use sajari\engine\query\v1\Filter\Geo\Region;
-use sajari\engine\Value;
-
-class GeoFilter extends Filter
+/**
+ * Class GeoFilter
+ * @package Sajari\Search
+ */
+class GeoFilter implements Filter, Proto
 {
-    const INSIDE = Region::INSIDE;
-    const OUTSIDE = Region::OUTSIDE;
-
     /** @var string $fieldLat */
     private $fieldLat;
 
@@ -106,10 +102,10 @@ class GeoFilter extends Filter
      * @param float $lat
      * @param float $lng
      * @param float $radius
-     * @return GeoFieldBoost
+     * @return GeoFilter
      */
     public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, Region::INSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajari\engine\query\v1\Filter\Geo\Region::INSIDE);
     }
 
     /**
@@ -118,18 +114,18 @@ class GeoFilter extends Filter
      * @param float $lat
      * @param float $lng
      * @param float $radius
-     * @return GeoFieldBoost
+     * @return GeoFilter
      */
     public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, Region::OUTSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajari\engine\query\v1\Filter\Geo\Region::OUTSIDE);
     }
 
     /**
-     * @return EngineGeo
+     * @return \sajari\engine\query\v1\Filter
      */
     public function Proto()
     {
-        $gmb = new EngineGeo();
+        $gmb = new \sajari\engine\query\v1\Filter\Geo();
         $gmb->setFieldLat($this->fieldLat);
         $gmb->setFieldLng($this->fieldLng);
         $gmb->setLat($this->lat);
@@ -137,7 +133,7 @@ class GeoFilter extends Filter
         $gmb->setRadius($this->radius);
         $gmb->setRegion($this->region);
 
-        $mb = new EngineFilter();
+        $mb = new \sajari\engine\query\v1\Filter();
         $mb->setGeo($gmb);
         return $mb;
     }

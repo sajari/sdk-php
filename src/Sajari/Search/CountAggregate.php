@@ -4,11 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\Aggregate\Count as EngineCount;
-use sajari\engine\query\v1\Aggregate as EngineAggregate;
-use sajari\engine\query\v1\SearchRequest\AggregatesEntry as EngineAggregatesEntry;
-
-class CountAggregate extends Aggregate
+/**
+ * Class CountAggregate
+ * @package Sajari\Search
+ */
+class CountAggregate implements Aggregate, Proto
 {
     /** @var string $field */
     private $field;
@@ -42,15 +42,18 @@ class CountAggregate extends Aggregate
         return $this->field;
     }
 
+    /**
+     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     */
     public function Proto()
     {
-        $ca = new EngineCount();
+        $ca = new \sajari\engine\query\v1\Aggregate\Count();
         $ca->setField($this->field);
 
-        $a = new EngineAggregate();
+        $a = new \sajari\engine\query\v1\Aggregate();
         $a->setCount($ca);
 
-        $ae = new EngineAggregatesEntry();
+        $ae = new \sajari\engine\query\v1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

@@ -3,7 +3,7 @@
 namespace Sajari\Error;
 
 
-class MalformedRequestException extends \Exception
+class MalformedRequestException extends Exception
 {
 
 }

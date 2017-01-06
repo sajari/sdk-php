@@ -42,7 +42,7 @@ class Result
     /**
      * Result constructor.
      * @param float $score
-     * @param float $rawscore
+     * @param float $indexScore
      * @param Value[] $value
      */
     public function __construct($score, $indexScore, $value)

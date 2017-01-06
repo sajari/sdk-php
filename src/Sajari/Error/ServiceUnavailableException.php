@@ -2,7 +2,7 @@
 
 namespace Sajari\Error;
 
-class ServiceUnavailableException extends \Exception
+class ServiceUnavailableException extends Exception
 {
 
 }

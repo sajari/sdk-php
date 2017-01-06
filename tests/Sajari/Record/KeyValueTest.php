@@ -15,7 +15,7 @@ class KeyValueTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $protoValueEntry,
-            (new \Sajari\Record\KeyValue($key, $value))->ToProto()
+            (new \Sajari\Record\KeyValue($key, $value))->Proto()
         );
     }
 }

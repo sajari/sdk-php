@@ -4,10 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\InstanceBoost\Field as EngineField;
-use sajari\engine\query\v1\InstanceBoost as EngineInstanceBoost;
-
-class FieldInstanceBoost extends InstanceBoost
+/**
+ * Class FieldInstanceBoost
+ * @package Sajari\Search
+ */
+class FieldInstanceBoost implements InstanceBoost, Proto
 {
     /** @var string $field */
     private $field;
@@ -41,13 +42,16 @@ class FieldInstanceBoost extends InstanceBoost
         return $this->value;
     }
 
+    /**
+     * @return \sajari\engine\query\v1\InstanceBoost
+     */
     public function Proto()
     {
-        $f = new EngineField();
+        $f = new \sajari\engine\query\v1\InstanceBoost\Field();
         $f->setField($this->field);
         $f->setValue($this->value);
 
-        $ib = new EngineInstanceBoost();
+        $ib = new \sajari\engine\query\v1\InstanceBoost();
         $ib->setField($f);
 
         return $ib;

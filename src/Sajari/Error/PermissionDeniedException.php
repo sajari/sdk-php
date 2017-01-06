@@ -3,7 +3,7 @@
 namespace Sajari\Error;
 
 
-class PermissionDeniedException extends \Exception
+class PermissionDeniedException extends Exception
 {
 
 }

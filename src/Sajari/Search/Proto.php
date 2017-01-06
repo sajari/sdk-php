@@ -2,6 +2,7 @@
 
 namespace Sajari\Search;
 
-interface FieldBoost {
+interface Proto
+{
     public function Proto();
 }

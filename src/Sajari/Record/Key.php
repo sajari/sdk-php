@@ -2,7 +2,11 @@
 
 namespace Sajari\Record;
 
-class Key
+/**
+ * Class Key
+ * @package Sajari\Record
+ */
+class Key implements Proto
 {
     /** @var $field string */
     private $field;
@@ -54,7 +58,7 @@ class Key
     /**
      * @return \sajari\engine\Key
      */
-    public function ToProto()
+    public function Proto()
     {
         $protoKey = new \sajari\engine\Key();
         $protoKey->setField($this->field);

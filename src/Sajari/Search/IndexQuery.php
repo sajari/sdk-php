@@ -4,18 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\SearchRequest\IndexQuery as EngineIndexQuery;
-use Sajari\Search\FieldBoost;
-use Sajari\Search\InstanceBoost;
-
-class IndexQuery
+class IndexQuery implements Proto
 {
 
     /** @var Body[] body */
     private $body;
-
-    /** @var Term[] terms */
-    private $terms;
 
     /** @var InstanceBoost[] instanceBoosts */
     private $instanceBoosts;
@@ -29,14 +22,6 @@ class IndexQuery
     public function setBody(array $body)
     {
         $this->body = $body;
-    }
-
-    /**
-     * @param Term[] $terms
-     */
-    public function setTerms(array $terms)
-    {
-        $this->terms = $terms;
     }
 
     /**
@@ -56,25 +41,16 @@ class IndexQuery
     }
 
     /**
-     * Proto returns the proto representation of a IndexQuery
-     *
-     * @return EngineIndexQuery
+     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
      */
     public function Proto()
     {
-        $fq = new EngineIndexQuery();
+        $fq = new \sajari\engine\query\v1\SearchRequest\IndexQuery();
 
         // Body
         if (isset($this->body)) {
             foreach ($this->body as $b) {
-                $fq->addBody($b->ToProto());
-            }
-        }
-
-        // Terms
-        if (isset($this->terms)) {
-            foreach ($this->terms as $t) {
-                $fq->addTerms($t->Proto());
+                $fq->addBody($b->Proto());
             }
         }
 

@@ -4,10 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\Sort as EngineSort;
-use sajari\engine\query\v1\Sort\Order;
-
-class Sort
+/**
+ * Class Sort
+ * @package Sajari\Search
+ */
+class Sort implements Proto
 {
     /** @var string $field */
     private $field;
@@ -35,7 +36,7 @@ class Sort
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getOrder()
     {
@@ -43,29 +44,29 @@ class Sort
     }
 
     /**
-     * @param $field
+     * @param string $field
      * @return Sort
      */
     public static function Asc($field)
     {
-        return new Sort($field, Order::ASC);
+        return new Sort($field, \sajari\engine\query\v1\Sort\Order::ASC);
     }
 
     /**
-     * @param $field
+     * @param string $field
      * @return Sort
      */
     public static function Desc($field)
     {
-        return new Sort($field, Order::DESC);
+        return new Sort($field, \sajari\engine\query\v1\Sort\Order::DESC);
     }
 
     /**
-     * @return EngineSort
+     * @return \sajari\engine\query\v1\Sort
      */
     public function Proto()
     {
-        $s = new EngineSort();
+        $s = new \sajari\engine\query\v1\Sort();
         $s->setField($this->field);
         $s->setOrder($this->order);
         return $s;

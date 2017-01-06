@@ -2,6 +2,10 @@
 
 namespace Sajari\Search;
 
+/**
+ * Class MetricResponseAggregate
+ * @package Sajari\Search
+ */
 class MetricResponseAggregate
 {
     /** @var float $value */

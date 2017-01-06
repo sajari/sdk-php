@@ -2,7 +2,7 @@
 
 namespace Sajari\Record;
 
-class Record
+class Record implements Proto
 {
     /** @var mixed[] $values */
     private $values;
@@ -42,7 +42,7 @@ class Record
     /**
      * @return \sajari\engine\store\record\Record
      */
-    public function ToProto()
+    public function Proto()
     {
         $protoRecord = new \sajari\engine\store\record\Record();
 

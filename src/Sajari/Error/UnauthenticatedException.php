@@ -2,7 +2,7 @@
 
 namespace Sajari\Error;
 
-class UnauthenticatedException extends \Exception
+class UnauthenticatedException extends Exception
 {
 
 }

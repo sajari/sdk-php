@@ -30,7 +30,7 @@ class BodyTest extends \PHPUnit_Framework_TestCase
             list(list($text, $weight), $protoValue) = $testValue;
             $this->assertEquals(
                 $protoValue,
-                (new \Sajari\Search\Body($text, $weight))->ToProto()
+                (new \Sajari\Search\Body($text, $weight))->Proto()
             );
         }
     }

@@ -4,12 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\FieldBoost as EngineFieldBoost;
-use sajari\engine\query\v1\FieldBoost\Interval as EngineInterval;
-
-use Sajari\Search\IntervalFieldBoostPoint;
-
-class IntervalFieldBoost extends FieldBoost
+/**
+ * Class IntervalFieldBoost
+ * @package Sajari\Search
+ */
+class IntervalFieldBoost implements FieldBoost, Proto
 {
     /** @var string $field */
     private $field;
@@ -54,15 +53,18 @@ class IntervalFieldBoost extends FieldBoost
       return new IntervalFieldBoostPoint($point, $value);
     }
 
+    /**
+     * @return \sajari\engine\query\v1\FieldBoost
+     */
     public function Proto()
     {
-        $imb = new EngineInterval();
+        $imb = new \sajari\engine\query\v1\FieldBoost\Interval();
         $imb->setField($this->field);
         foreach ($this->points as $point) {
             $imb->addPoints($point->Proto());
         }
 
-        $mb = new EngineFieldBoost();
+        $mb = new \sajari\engine\query\v1\FieldBoost();
         $mb->setInterval($imb);
         return $mb;
     }

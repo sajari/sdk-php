@@ -4,10 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\FieldBoost\Text as EngineText;
-use sajari\engine\query\v1\FieldBoost as EngineFieldBoost;
-
-class TextFieldBoost
+/**
+ * Class TextFieldBoost
+ * @package Sajari\Search
+ */
+class TextFieldBoost implements Proto
 {
     /** @var string $field */
     private $field;
@@ -43,15 +44,15 @@ class TextFieldBoost
     }
 
     /**
-     * @return EngineText
+     * @return \sajari\engine\query\v1\FieldBoost
      */
     public function Proto()
     {
-        $tmb = new EngineText();
+        $tmb = new \sajari\engine\query\v1\FieldBoost\Text();
         $tmb->setField($this->field);
         $tmb->setText($this->text);
 
-        $mb = new EngineFieldBoost();
+        $mb = new \sajari\engine\query\v1\FieldBoost();
         $mb->setText($tmb);
         return $mb;
     }

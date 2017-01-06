@@ -52,7 +52,7 @@ class RecordTest extends \PHPUnit_Framework_TestCase
         foreach ($this->protoTestRecords as list($values, $protoRecord)) {
             $this->assertEquals(
                 $protoRecord,
-                (new \Sajari\Record\Record($values))->ToProto()
+                (new \Sajari\Record\Record($values))->Proto()
             );
         }
     }

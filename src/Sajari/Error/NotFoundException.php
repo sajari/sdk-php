@@ -2,7 +2,7 @@
 
 namespace Sajari\Error;
 
-class NotFoundException extends \Exception
+class NotFoundException extends Exception
 {
 
 }

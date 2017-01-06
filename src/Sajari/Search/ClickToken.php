@@ -2,6 +2,10 @@
 
 namespace Sajari\Search;
 
+/**
+ * Class ClickToken
+ * @package Sajari\Search
+ */
 class ClickToken
 {
   /** @var string $click */
@@ -11,9 +15,9 @@ class ClickToken
    * Token constructor
    * @param string $click
    */
-  public function __constructor(string $click)
+  public function __constructor($click)
   {
-      $this->pos = $click;
+      $this->click = $click;
   }
 
   /**
@@ -22,6 +26,6 @@ class ClickToken
    */
   public function getClick()
   {
-      return $this->clicks;
+      return $this->click;
   }
 }

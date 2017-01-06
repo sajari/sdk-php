@@ -3,7 +3,7 @@
 namespace Sajari\Error;
 
 
-class RecordNotFoundException extends \Exception
+class RecordNotFoundException extends Exception
 {
 
 }

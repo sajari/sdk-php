@@ -4,13 +4,11 @@ namespace Sajari\Search;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\engine\query\v1\Filter\Combinator as EngineCombinator;
-use sajari\engine\query\v1\Filter as EngineFilter;
-use sajari\engine\query\v1\Filter\Combinator\Operator;
-
-use Sajari\Search\Filter;
-
-class CombinatorFilter extends Filter
+/**
+ * Class CombinatorFilter
+ * @package Sajari\Search
+ */
+class CombinatorFilter implements Filter, Proto
 {
 
     /** @var int $operator */
@@ -52,7 +50,7 @@ class CombinatorFilter extends Filter
      */
     public static function All($filters)
     {
-      return new CombinatorFilter(Operator::ALL, $filters);
+      return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ALL, $filters);
     }
 
     /**
@@ -61,7 +59,7 @@ class CombinatorFilter extends Filter
      */
     public static function Any($filters)
     {
-        return new CombinatorFilter(Operator::ANY, $filters);
+        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ANY, $filters);
     }
 
     /**
@@ -70,7 +68,7 @@ class CombinatorFilter extends Filter
      */
     public static function One($filters)
     {
-        return new CombinatorFilter(Operator::ONE, $filters);
+        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ONE, $filters);
     }
 
     /**
@@ -79,19 +77,22 @@ class CombinatorFilter extends Filter
      */
     public static function None($filters)
     {
-        return new CombinatorFilter(Operator::NONE, $filters);
+        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::NONE, $filters);
     }
 
+    /**
+     * @return \sajari\engine\query\v1\Filter
+     */
     public function Proto()
     {
-        $fc = new EngineCombinator();
+        $fc = new \sajari\engine\query\v1\Filter\Combinator();
         $fc->setOperator($this->operator);
 
         foreach ($this->filters as $filter) {
             $fc->addFilters($filter->Proto());
         }
 
-        $f = new EngineFilter();
+        $f = new \sajari\engine\query\v1\Filter();
         $f->setCombinator($fc);
 
         return $f;

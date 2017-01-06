@@ -2,6 +2,10 @@
 
 namespace Sajari\Search;
 
+/**
+ * Class CountResponseAggregate
+ * @package Sajari\Search
+ */
 class CountResponseAggregate
 {
     /** @var string $name */

@@ -2,7 +2,7 @@
 
 namespace Sajari\Error;
 
-class AlreadyExistsException extends \Exception
+class AlreadyExistsException extends Exception
 {
 
 }

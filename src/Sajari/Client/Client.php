@@ -159,7 +159,7 @@ class Client
 
         /** @var \Sajari\Record\Key $k */
         foreach ($keys as $k) {
-            $protoKeys->addKeys($k->ToProto());
+            $protoKeys->addKeys($k->Proto());
         }
 
         return $protoKeys;
@@ -190,7 +190,7 @@ class Client
         $protoRecords = new \sajari\engine\store\record\Records();
 
         foreach ($records as $r) {
-            $protoRecords->addRecords($r->ToProto());
+            $protoRecords->addRecords($r->Proto());
         }
 
         if (!isset($transforms) || count($transforms) === 0) {
@@ -282,7 +282,7 @@ class Client
         $protoKeyValues = new \sajari\engine\store\record\KeysValues();
 
         foreach ($keyValues as $keyValue) {
-            $protoKeyValues->addKeysValues($keyValue->ToProto());
+            $protoKeyValues->addKeysValues($keyValue->Proto());
         }
 
         list($reply, $status) = $this->storeClient->Patch(

@@ -2,7 +2,7 @@
 
 namespace Sajari\Search;
 
-class Transform
+class Transform implements Proto
 {
     /** @var string $identifier */
     private $identifier;

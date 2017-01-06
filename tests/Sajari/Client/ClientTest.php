@@ -75,7 +75,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $key = new \Sajari\Record\Key("id", "value");
 
         $expectedKeys = new \sajari\engine\store\record\Keys();
-        $expectedKeys->addKeys($key->ToProto());
+        $expectedKeys->addKeys($key->Proto());
 
         $storeStub
             ->expects($this->once())

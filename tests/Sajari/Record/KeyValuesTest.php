@@ -8,9 +8,9 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
     {
         list($key, $values) = $keyValues;
         $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
-        $protoKeyValue->setKey((new \Sajari\Record\Key($key[0], $key[1]))->ToProto());
+        $protoKeyValue->setKey((new \Sajari\Record\Key($key[0], $key[1]))->Proto());
         foreach ($values as $value) {
-            $protoKeyValue->addValues((new \Sajari\Record\KeyValue($value[0], $value[1]))->ToProto());
+            $protoKeyValue->addValues((new \Sajari\Record\KeyValue($value[0], $value[1]))->Proto());
         }
         return [$keyValues, $protoKeyValue];
     }
@@ -61,7 +61,7 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
             }
             $this->assertEquals(
                 $protoKeyValues,
-                (new \Sajari\Record\KeyValues($key, $values))->ToProto()
+                (new \Sajari\Record\KeyValues($key, $values))->Proto()
             );
         }
     }

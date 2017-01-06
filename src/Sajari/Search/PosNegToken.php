@@ -2,6 +2,10 @@
 
 namespace Sajari\Search;
 
+/**
+ * Class PosNegToken
+ * @package Sajari\Search
+ */
 class PosNegToken
 {
   /** @var string $pos */
@@ -14,7 +18,7 @@ class PosNegToken
    * @param string $pos
    * @param string $neg
    */
-  public function __constructor(string $pos, string $neg)
+  public function __constructor($pos, $neg)
   {
       $this->pos = $pos;
       $this->neg = $neg;
