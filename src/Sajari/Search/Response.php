@@ -99,7 +99,7 @@ class Response
         foreach ($protoResponseList as $protoResult) {
             $values = array();
             foreach ($protoResult->getValuesList() as $m) {
-                $values[$m->getKey()] = Value::FromProto($m->getValue());
+                $values[$m->getKey()] = \Sajari\Record\Value::FromProto($m->getValue());
             }
             $result = new Result (
                 $protoResult->getScore(),
