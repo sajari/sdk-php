@@ -21,7 +21,7 @@ class Body implements Proto
      * @param string $text
      * @param float $weight
      */
-    public function __construct($text, $weight)
+    public function __construct($text, $weight = 1.0)
     {
         $this->text = $text;
         $this->weight = $weight;
