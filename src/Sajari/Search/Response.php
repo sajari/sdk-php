@@ -12,7 +12,7 @@ class Response
     private $time;
     /** @var Result[] $results */
     private $results;
-    /** @var ResultAggregate[] $aggregates */
+    /** @var BucketResponseAggregate|CountResponseAggregate|MetricResponseAggregate[] $aggregates */
     private $aggregates;
     /** @var array $tokens */
     private $tokens;
@@ -23,7 +23,8 @@ class Response
      * @param int $reads
      * @param string $time
      * @param Result[] $results
-     * @param ResultAggregate[] $aggregates
+     * @param BucketResponseAggregate|CountResponseAggregate|MetricResponseAggregate[] $aggregates
+     * @param ClickToken|PosNegToken[] $tokens
      */
     private function __construct($totalResults, $reads, $time, array $results, array $aggregates, array $tokens = NULL)
     {
@@ -68,7 +69,7 @@ class Response
     }
 
     /**
-     * @return ResultAggregate[]
+     * @return BucketResponseAggregate|CountResponseAggregate|MetricResponseAggregate[]
      */
     public function getAggregates()
     {
@@ -97,17 +98,14 @@ class Response
 
         foreach ($protoResponseList as $protoResult) {
             $values = array();
-
             foreach ($protoResult->getValuesList() as $m) {
-                $values[$m->getKey()] = \Sajari\Record\Value::FromProto($m->getValue());
+                $values[$m->getKey()] = Value::FromProto($m->getValue());
             }
-
-            $result = new \Sajari\Search\Result (
+            $result = new Result (
                 $protoResult->getScore(),
                 $protoResult->getIndexScore(),
                 $values
             );
-
             $results[] = $result;
         }
 
@@ -115,59 +113,42 @@ class Response
 
         $aggregateList = array();
         foreach ($protoAggregateList as $a) {
-
             $ar = $a->getValue();
-
             if ($ar->hasBuckets()) {
-
                 $buckets = $ar->getBuckets();
-
                 $bucketArray = array();
-
-
                 foreach ($buckets->getBucketsList() as $be) {
-
                     $b = $be->getValue();
-                    $bucketArray[$b->getName()] = new \Sajari\Search\BucketResponseAggregate($b->getName(), $b->getCount());
+                    $bucketArray[$b->getName()] = new BucketResponseAggregate($b->getName(), $b->getCount());
                 }
-
                 $aggregateList[$a->getKey()] = $bucketArray;
             } elseif ($ar->hasCount()) {
-
                 $counts = $ar->getCount();
-
                 $countArray = array();
-
-
                 foreach ($counts->getCountsList() as $ce) {
-                    $countArray[$ce->getKey()] = new \Sajari\Search\CountResponseAggregate($ce->getKey(), $ce->getValue());
+                    $countArray[$ce->getKey()] = new CountResponseAggregate($ce->getKey(), $ce->getValue());
                 }
-
                 $aggregateList[$a->getKey()] = $countArray;
             } elseif ($ar->hasMetric()) {
-
                 $m = $ar->getMetric();
-
-                $aggregateList[$a->getKey()] = new \Sajari\Search\MetricResponseAggregate($m->getValue());
+                $aggregateList[$a->getKey()] = new MetricResponseAggregate($m->getValue());
             }
         }
 
         $tokens = [];
         if (isset($protoTokens)) {
             foreach ($protoTokens as $protoToken) {
-                $token = NULL;
                 if ($protoToken->hasClick()) {
-                    $token = new \Sajari\Search\ClickToken($protoToken->getClick()->getClick());
+                    $tokens[] = new ClickToken($protoToken->getClick()->getToken());
                 } else {
-                    $token = new \Sajari\Search\PosNegToken(
+                    $tokens[] = new PosNegToken(
                         $protoToken->getPosNeg()->getPos(),
                         $protoToken->getPosNeg()->getNeg()
                     );
                 }
-                $tokens[] = $token;
             }
         }
 
-        return new \Sajari\Search\Response($total, $reads, $time, $results, $aggregateList, $tokens);
+        return new Response($total, $reads, $time, $results, $aggregateList, $tokens);
     }
 }
