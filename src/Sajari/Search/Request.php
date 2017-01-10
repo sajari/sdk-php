@@ -5,11 +5,10 @@ namespace Sajari\Search;
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-use sajari\api\query\v1\SearchRequest as ApiSearchRequest;
-use sajari\api\query\v1\SearchRequest\Tracking as ApiTracking;
-
-use sajari\engine\query\v1\SearchRequest as EngineSearchRequest;
-
+/**
+ * Class Request
+ * @package Sajari\Search
+ */
 class Request
 {
     /** @var Tracking $tracking */
@@ -41,6 +40,19 @@ class Request
 
     /** @var Transform[] $transforms */
     private $transforms;
+
+    /**
+     * Request constructor.
+     * @param string $text
+     * @param int $limit
+     */
+    public function __construct($text = "", $limit = 10)
+    {
+        if ($text !== "") {
+            $this->body = [new Body($text)];
+        }
+        $this->limit = $limit;
+    }
 
     /**
      * @return Tracking
@@ -235,12 +247,11 @@ class Request
     }
 
     /**
-     * @return ApiSearchRequest
-     * @throws Exception
+     * @return \sajari\api\query\v1\SearchRequest
      */
     public function ToProto()
     {
-        $er = new EngineSearchRequest();
+        $er = new \sajari\engine\query\v1\SearchRequest();
 
         // Offset
         if (isset($this->offset)) {
@@ -289,15 +300,12 @@ class Request
             }
         }
 
-        $r = new ApiSearchRequest();
+        $r = new \sajari\api\query\v1\SearchRequest();
 
         $r->setSearchRequest($er);
 
         // Tracking
-        if (isset($this->tracking))
-        {
-            $r->setTracking($this->tracking->Proto());
-        }
+        $r->setTracking(isset($this->tracking) ? $this->tracking->Proto() : new \Sajari\Search\Tracking());
 
         // Transforms
         if (isset($this->transforms)) {
