@@ -302,10 +302,10 @@ class Client
     }
 
     /**
-     * @param \Sajari\Search\Request $r
-     * @return \Sajari\Search\Response
+     * @param \Sajari\Query\Request $r
+     * @return \Sajari\Query\Response
      */
-    public function Search(\Sajari\Search\Request $r)
+    public function Search(\Sajari\Query\Request $r)
     {
         $searchRequest = $r->ToProto();
 
@@ -316,7 +316,7 @@ class Client
 
         $this->checkForError($status);
 
-        return \Sajari\Search\Response::FromProto($reply->getSearchResponse(), $reply->getTokensList());
+        return \Sajari\Query\Response::FromProto($reply->getSearchResponse(), $reply->getTokensList());
     }
 
     /**
