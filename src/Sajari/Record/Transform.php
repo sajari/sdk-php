@@ -23,7 +23,7 @@ class Transform implements Proto
     /**
      * @return Transform
      */
-    public static function StopStemmerTransform()
+    public static function StopStemmer()
     {
         return new Transform("stop-stemmer");
     }
@@ -31,7 +31,7 @@ class Transform implements Proto
     /**
      * @return Transform
      */
-    public static function SplitIndexFieldsTransform()
+    public static function SplitIndexFields()
     {
         return new Transform("split-index-fields");
     }
