@@ -7,7 +7,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
 class FieldFilter implements Filter, Proto
 {
-    /** @var integer $operator */
+    /** @var string $operator */
     private $operator;
 
     /** @var string $field */
@@ -25,41 +25,7 @@ class FieldFilter implements Filter, Proto
      */
     public function __construct($field, $operator, $value)
     {
-        switch ($operator) {
-            case "=":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::EQUAL_TO;
-                break;
-            case "!=":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::NOT_EQUAL_TO;
-                break;
-            case ">":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::GREATER_THAN;
-                break;
-            case ">=":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::GREATER_THAN_OR_EQUAL_TO;
-                break;
-            case "<":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::LESS_THAN;
-                break;
-            case "<=":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::LESS_THAN_OR_EQUAL_TO;
-                break;
-            case "~":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::CONTAINS;
-                break;
-            case "!~":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::DOES_NOT_CONTAIN;
-                break;
-            case "$":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::HAS_SUFFIX;
-                break;
-            case "^":
-                $this->operator = \sajari\engine\query\v1\Filter\Field\Operator::HAS_PREFIX;
-                break;
-
-            default:
-                throw new \Exception(sprintf("invalid field filter operator: %s", $operator), 1);
-        }
+        $this->operator = $operator;
         $this->field = $field;
         $this->value = $value;
     }
@@ -90,6 +56,7 @@ class FieldFilter implements Filter, Proto
 
     /**
      * @return \sajari\engine\query\v1\Filter
+     * @throws \Sajari\Error\Exception
      */
     public function Proto()
     {
@@ -110,7 +77,43 @@ class FieldFilter implements Filter, Proto
         }
 
         $ff->setValue($value);
-        $ff->setOperator($this->operator);
+        $op = null;
+        switch ($this->operator) {
+            case "=":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::EQUAL_TO;
+                break;
+            case "!=":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::NOT_EQUAL_TO;
+                break;
+            case ">":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::GREATER_THAN;
+                break;
+            case ">=":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::GREATER_THAN_OR_EQUAL_TO;
+                break;
+            case "<":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::LESS_THAN;
+                break;
+            case "<=":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::LESS_THAN_OR_EQUAL_TO;
+                break;
+            case "~":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::CONTAINS;
+                break;
+            case "!~":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::DOES_NOT_CONTAIN;
+                break;
+            case "$":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::HAS_SUFFIX;
+                break;
+            case "^":
+                $op = \sajari\engine\query\v1\Filter\Field\Operator::HAS_PREFIX;
+                break;
+
+            default:
+                throw new \Sajari\Error\Exception(sprintf("invalid field filter operator: %s", $op), 1);
+        }
+        $ff->setOperator($op);
 
         $f = new \sajari\engine\query\v1\Filter();
         $f->setField($ff);
