@@ -8,24 +8,24 @@ namespace Sajari\Search;
  */
 class ClickToken
 {
-  /** @var string $click */
-  private $click;
+  /** @var string $token */
+  private $token;
 
   /**
    * Token constructor
-   * @param string $click
+   * @param string $token
    */
-  public function __constructor($click)
+  public function __constructor($token)
   {
-      $this->click = $click;
+      $this->token = $token;
   }
 
   /**
    * Gets Click token
    * @return string
    */
-  public function getClick()
+  public function getToken()
   {
-      return $this->click;
+      return $this->token;
   }
 }
