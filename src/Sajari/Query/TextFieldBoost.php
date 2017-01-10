@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class TextFieldBoost
  * @package Sajari\Query
  */
-class TextFieldBoost implements Proto
+class TextFieldBoost implements \Sajari\Engine\Proto
 {
     /** @var string $field */
     private $field;
@@ -44,15 +44,15 @@ class TextFieldBoost implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function Proto()
     {
-        $tmb = new \sajari\engine\query\v1\FieldBoost\Text();
+        $tmb = new \sajariGen\engine\query\v1\FieldBoost\Text();
         $tmb->setField($this->field);
         $tmb->setText($this->text);
 
-        $mb = new \sajari\engine\query\v1\FieldBoost();
+        $mb = new \sajariGen\engine\query\v1\FieldBoost();
         $mb->setText($tmb);
         return $mb;
     }

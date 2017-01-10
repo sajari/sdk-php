@@ -7,7 +7,7 @@ class TransformTest extends \PHPUnit_Framework_TestCase
     public function testTransformProto()
     {
         $identifier = 'test-transform';
-        $expectedProto = new \sajari\engine\store\record\Transform();
+        $expectedProto = new \sajariGen\engine\store\record\Transform();
         $expectedProto->setIdentifier($identifier);
 
         $this->assertEquals(
@@ -16,19 +16,19 @@ class TransformTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testStopStemmerTransform()
+    public function testStopStemmer()
     {
         $this->assertSame(
             'stop-stemmer',
-            Transform::StopStemmerTransform()->Proto()->getIdentifier()
+            Transform::StopStemmer()->Proto()->getIdentifier()
         );
     }
 
-    public function testSplitIndexFieldsTransform()
+    public function testSplitIndexFields()
     {
         $this->assertSame(
             'split-index-fields',
-            Transform::SplitIndexFieldsTransform()->Proto()->getIdentifier()
+            Transform::SplitIndexFields()->Proto()->getIdentifier()
         );
     }
 }

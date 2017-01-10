@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Record;
+namespace Sajari\Engine;
 
 /**
  * Class Value
@@ -9,10 +9,10 @@ namespace Sajari\Record;
 class Value
 {
     /**
-     * @param \sajari\engine\Value $protoValue
+     * @param \sajariGen\engine\Value $protoValue
      * @return mixed
      */
-    public static function FromProto(\sajari\engine\Value $protoValue)
+    public static function FromProto(\sajariGen\engine\Value $protoValue)
     {
         if ($protoValue->hasSingle()) {
           return $protoValue->getSingle();
@@ -24,14 +24,14 @@ class Value
 
     /**
      * @param mixed $value
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public static function ToProto($value)
     {
-        $protoValue = new \sajari\engine\Value();
+        $protoValue = new \sajariGen\engine\Value();
 
         if (is_array($value)) {
-            $repeated = new \sajari\engine\Value\Repeated();
+            $repeated = new \sajariGen\engine\Value\Repeated();
             foreach ($value as $v) {
                 if ($v instanceof \DateTime) {
                     $repeated->addValues($v->format(\DateTime::ATOM));

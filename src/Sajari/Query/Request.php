@@ -247,11 +247,11 @@ class Request
     }
 
     /**
-     * @return \sajari\api\query\v1\SearchRequest
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
     public function ToProto()
     {
-        $er = new \sajari\engine\query\v1\SearchRequest();
+        $er = new \sajariGen\engine\query\v1\SearchRequest();
 
         // Offset
         if (isset($this->offset)) {
@@ -300,7 +300,7 @@ class Request
             }
         }
 
-        $r = new \sajari\api\query\v1\SearchRequest();
+        $r = new \sajariGen\api\query\v1\SearchRequest();
 
         $r->setSearchRequest($er);
 

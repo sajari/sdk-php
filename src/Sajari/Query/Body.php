@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class Body
  * @package Sajari\Query
  */
-class Body implements Proto
+class Body implements \Sajari\Engine\Proto
 {
     /** @var string $text */
     private $text;
@@ -28,10 +28,10 @@ class Body implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function Proto() {
-        $b = new \sajari\engine\query\v1\Body();
+        $b = new \sajariGen\engine\query\v1\Body();
 
         $b->setText($this->text);
         $b->setWeight($this->weight);

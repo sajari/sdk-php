@@ -105,7 +105,7 @@ class GeoFilter implements Filter, Proto
      * @return GeoFilter
      */
     public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajari\engine\query\v1\Filter\Geo\Region::INSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajariGen\engine\query\v1\Filter\Geo\Region::INSIDE);
     }
 
     /**
@@ -117,15 +117,15 @@ class GeoFilter implements Filter, Proto
      * @return GeoFilter
      */
     public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajari\engine\query\v1\Filter\Geo\Region::OUTSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajariGen\engine\query\v1\Filter\Geo\Region::OUTSIDE);
     }
 
     /**
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function Proto()
     {
-        $gmb = new \sajari\engine\query\v1\Filter\Geo();
+        $gmb = new \sajariGen\engine\query\v1\Filter\Geo();
         $gmb->setFieldLat($this->fieldLat);
         $gmb->setFieldLng($this->fieldLng);
         $gmb->setLat($this->lat);
@@ -133,7 +133,7 @@ class GeoFilter implements Filter, Proto
         $gmb->setRadius($this->radius);
         $gmb->setRegion($this->region);
 
-        $mb = new \sajari\engine\query\v1\Filter();
+        $mb = new \sajariGen\engine\query\v1\Filter();
         $mb->setGeo($gmb);
         return $mb;
     }

@@ -7,8 +7,8 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
     public static function protoKeyValues($keyValues)
     {
         list($key, $values) = $keyValues;
-        $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
-        $protoKeyValue->setKey((new \Sajari\Record\Key($key[0], $key[1]))->Proto());
+        $protoKeyValue = new \sajariGen\engine\store\record\KeysValues\KeyValues();
+        $protoKeyValue->setKey((new \Sajari\Engine\Key($key[0], $key[1]))->Proto());
         foreach ($values as $value) {
             $protoKeyValue->addValues((new \Sajari\Record\KeyValue($value[0], $value[1]))->Proto());
         }
@@ -17,6 +17,7 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
 
     public function __construct()
     {
+        parent::__construct();
         $this->keysValuesTestValues = array_map(
             "self::protoKeyValues",
             [
@@ -28,7 +29,7 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
     public function testGetKey()
     {
         foreach ($this->keysValuesTestValues as list($keyValues, $protoKeyValues)) {
-            $key = new \Sajari\Record\Key($keyValues[0][0], $keyValues[0][1]);
+            $key = new \Sajari\Engine\Key($keyValues[0][0], $keyValues[0][1]);
             $this->assertSame(
                 $key,
                 (new \Sajari\Record\KeyValues($key, []))->getKey()
@@ -39,7 +40,7 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
     public function testGetValues()
     {
         foreach ($this->keysValuesTestValues as list($keyValues, $protoKeyValues)) {
-            $key = new \Sajari\Record\Key($keyValues[0][0], $keyValues[0][1]);
+            $key = new \Sajari\Engine\Key($keyValues[0][0], $keyValues[0][1]);
             $values = [];
             foreach ($keyValues[1] as $keyValue) {
                 $values[] = new \Sajari\Record\KeyValue($keyValue[0], $keyValue[1]);
@@ -54,7 +55,7 @@ class KeyValuesTest extends \PHPUnit_Framework_TestCase
     public function testToProto()
     {
         foreach ($this->keysValuesTestValues as list($keyValues, $protoKeyValues)) {
-            $key = new \Sajari\Record\Key($keyValues[0][0], $keyValues[0][1]);
+            $key = new \Sajari\Engine\Key($keyValues[0][0], $keyValues[0][1]);
             $values = [];
             foreach ($keyValues[1] as $keyValue) {
                 $values[] = new \Sajari\Record\KeyValue($keyValue[0], $keyValue[1]);

@@ -43,17 +43,17 @@ class ElementFieldBoost implements FieldBoost, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function Proto()
     {
-        $emb = new \sajari\engine\query\v1\FieldBoost\Element();
+        $emb = new \sajariGen\engine\query\v1\FieldBoost\Element();
         $emb->setField($this->field);
         foreach ($this->elements as $element) {
             $emb->addElts($element);
         }
 
-        $mb = new \sajari\engine\query\v1\FieldBoost();
+        $mb = new \sajariGen\engine\query\v1\FieldBoost();
         $mb->setElement($emb);
         return $mb;
     }

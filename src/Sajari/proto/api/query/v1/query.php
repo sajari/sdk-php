@@ -3,7 +3,7 @@
 // Source: api/query/v1/query.proto
 //   Date: 2017-01-10 02:02:08
 
-namespace sajari\api\query\v1\SearchRequest\Tracking {
+namespace sajariGen\api\query\v1\SearchRequest\Tracking {
 
   class Type extends \DrSlump\Protobuf\Enum {
     const NONE = 0;
@@ -11,7 +11,7 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
     const POS_NEG = 2;
   }
 }
-namespace sajari\api\query\v1\SearchRequest\Tracking {
+namespace sajariGen\api\query\v1\SearchRequest\Tracking {
 
   class DataEntry extends \DrSlump\Protobuf\Message {
 
@@ -64,7 +64,7 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
     /**
      * Clear <key> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -83,7 +83,7 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -101,7 +101,7 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
     /**
      * Clear <value> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -120,7 +120,7 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
      * Set <value> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -128,11 +128,11 @@ namespace sajari\api\query\v1\SearchRequest\Tracking {
   }
 }
 
-namespace sajari\api\query\v1\SearchRequest {
+namespace sajariGen\api\query\v1\SearchRequest {
 
   class Tracking extends \DrSlump\Protobuf\Message {
 
-    /**  @var int - \sajari\api\query\v1\SearchRequest\Tracking\Type */
+    /**  @var int - \sajariGen\api\query\v1\SearchRequest\Tracking\Type */
     public $type = null;
     
     /**  @var string */
@@ -144,7 +144,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**  @var string */
     public $field = null;
     
-    /**  @var \sajari\api\query\v1\SearchRequest\Tracking\DataEntry[]  */
+    /**  @var \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry[]  */
     public $data = array();
     
 
@@ -161,7 +161,7 @@ namespace sajari\api\query\v1\SearchRequest {
       $f->name      = "type";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\api\query\v1\SearchRequest\Tracking\Type';
+      $f->reference = '\sajariGen\api\query\v1\SearchRequest\Tracking\Type';
       $descriptor->addField($f);
 
       // OPTIONAL STRING query_id = 2
@@ -194,7 +194,7 @@ namespace sajari\api\query\v1\SearchRequest {
       $f->name      = "data";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\api\query\v1\SearchRequest\Tracking\DataEntry';
+      $f->reference = '\sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -216,7 +216,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Clear <type> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function clearType(){
       return $this->_clear(1);
@@ -225,7 +225,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Get <type> value
      *
-     * @return int - \sajari\api\query\v1\SearchRequest\Tracking\Type
+     * @return int - \sajariGen\api\query\v1\SearchRequest\Tracking\Type
      */
     public function getType(){
       return $this->_get(1);
@@ -234,8 +234,8 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Set <type> value
      *
-     * @param int - \sajari\api\query\v1\SearchRequest\Tracking\Type $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @param int - \sajariGen\api\query\v1\SearchRequest\Tracking\Type $value
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function setType( $value){
       return $this->_set(1, $value);
@@ -253,7 +253,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Clear <query_id> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function clearQueryId(){
       return $this->_clear(2);
@@ -272,7 +272,7 @@ namespace sajari\api\query\v1\SearchRequest {
      * Set <query_id> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function setQueryId( $value){
       return $this->_set(2, $value);
@@ -290,7 +290,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Clear <sequence> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function clearSequence(){
       return $this->_clear(3);
@@ -309,7 +309,7 @@ namespace sajari\api\query\v1\SearchRequest {
      * Set <sequence> value
      *
      * @param int $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function setSequence( $value){
       return $this->_set(3, $value);
@@ -327,7 +327,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Clear <field> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function clearField(){
       return $this->_clear(4);
@@ -346,7 +346,7 @@ namespace sajari\api\query\v1\SearchRequest {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function setField( $value){
       return $this->_set(4, $value);
@@ -364,7 +364,7 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Clear <data> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function clearData(){
       return $this->_clear(5);
@@ -374,7 +374,7 @@ namespace sajari\api\query\v1\SearchRequest {
      * Get <data> value
      *
      * @param int $idx
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry
      */
     public function getData($idx = NULL){
       return $this->_get(5, $idx);
@@ -383,17 +383,17 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Set <data> value
      *
-     * @param \sajari\api\query\v1\SearchRequest\Tracking\DataEntry $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @param \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry $value
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
-    public function setData(\sajari\api\query\v1\SearchRequest\Tracking\DataEntry $value, $idx = NULL){
+    public function setData(\sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry $value, $idx = NULL){
       return $this->_set(5, $value, $idx);
     }
     
     /**
      * Get all elements of <data>
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking\DataEntry[]
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry[]
      */
     public function getDataList(){
      return $this->_get(5);
@@ -402,26 +402,26 @@ namespace sajari\api\query\v1\SearchRequest {
     /**
      * Add a new element to <data>
      *
-     * @param \sajari\api\query\v1\SearchRequest\Tracking\DataEntry $value
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @param \sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry $value
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
-    public function addData(\sajari\api\query\v1\SearchRequest\Tracking\DataEntry $value){
+    public function addData(\sajariGen\api\query\v1\SearchRequest\Tracking\DataEntry $value){
      return $this->_add(5, $value);
     }
   }
 }
 
-namespace sajari\api\query\v1 {
+namespace sajariGen\api\query\v1 {
 
   class SearchRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchRequest */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest */
     public $search_request = null;
     
-    /**  @var \sajari\api\query\v1\SearchRequest\Tracking */
+    /**  @var \sajariGen\api\query\v1\SearchRequest\Tracking */
     public $tracking = null;
     
-    /**  @var \sajari\api\query\v1\Transform[]  */
+    /**  @var \sajariGen\api\query\v1\Transform[]  */
     public $transforms = array();
     
 
@@ -438,7 +438,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "search_request";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE tracking = 4
@@ -447,7 +447,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "tracking";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\api\query\v1\SearchRequest\Tracking';
+      $f->reference = '\sajariGen\api\query\v1\SearchRequest\Tracking';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE transforms = 5
@@ -456,7 +456,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "transforms";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\api\query\v1\Transform';
+      $f->reference = '\sajariGen\api\query\v1\Transform';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -478,7 +478,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <search_request> value
      *
-     * @return \sajari\api\query\v1\SearchRequest
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
     public function clearSearchRequest(){
       return $this->_clear(1);
@@ -487,7 +487,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <search_request> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function getSearchRequest(){
       return $this->_get(1);
@@ -496,10 +496,10 @@ namespace sajari\api\query\v1 {
     /**
      * Set <search_request> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest $value
-     * @return \sajari\api\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest $value
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
-    public function setSearchRequest(\sajari\engine\query\v1\SearchRequest $value){
+    public function setSearchRequest(\sajariGen\engine\query\v1\SearchRequest $value){
       return $this->_set(1, $value);
     }
     
@@ -515,7 +515,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <tracking> value
      *
-     * @return \sajari\api\query\v1\SearchRequest
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
     public function clearTracking(){
       return $this->_clear(4);
@@ -524,7 +524,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <tracking> value
      *
-     * @return \sajari\api\query\v1\SearchRequest\Tracking
+     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
      */
     public function getTracking(){
       return $this->_get(4);
@@ -533,10 +533,10 @@ namespace sajari\api\query\v1 {
     /**
      * Set <tracking> value
      *
-     * @param \sajari\api\query\v1\SearchRequest\Tracking $value
-     * @return \sajari\api\query\v1\SearchRequest
+     * @param \sajariGen\api\query\v1\SearchRequest\Tracking $value
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
-    public function setTracking(\sajari\api\query\v1\SearchRequest\Tracking $value){
+    public function setTracking(\sajariGen\api\query\v1\SearchRequest\Tracking $value){
       return $this->_set(4, $value);
     }
     
@@ -552,7 +552,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <transforms> value
      *
-     * @return \sajari\api\query\v1\SearchRequest
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
     public function clearTransforms(){
       return $this->_clear(5);
@@ -562,7 +562,7 @@ namespace sajari\api\query\v1 {
      * Get <transforms> value
      *
      * @param int $idx
-     * @return \sajari\api\query\v1\Transform
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function getTransforms($idx = NULL){
       return $this->_get(5, $idx);
@@ -571,17 +571,17 @@ namespace sajari\api\query\v1 {
     /**
      * Set <transforms> value
      *
-     * @param \sajari\api\query\v1\Transform $value
-     * @return \sajari\api\query\v1\SearchRequest
+     * @param \sajariGen\api\query\v1\Transform $value
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
-    public function setTransforms(\sajari\api\query\v1\Transform $value, $idx = NULL){
+    public function setTransforms(\sajariGen\api\query\v1\Transform $value, $idx = NULL){
       return $this->_set(5, $value, $idx);
     }
     
     /**
      * Get all elements of <transforms>
      *
-     * @return \sajari\api\query\v1\Transform[]
+     * @return \sajariGen\api\query\v1\Transform[]
      */
     public function getTransformsList(){
      return $this->_get(5);
@@ -590,26 +590,26 @@ namespace sajari\api\query\v1 {
     /**
      * Add a new element to <transforms>
      *
-     * @param \sajari\api\query\v1\Transform $value
-     * @return \sajari\api\query\v1\SearchRequest
+     * @param \sajariGen\api\query\v1\Transform $value
+     * @return \sajariGen\api\query\v1\SearchRequest
      */
-    public function addTransforms(\sajari\api\query\v1\Transform $value){
+    public function addTransforms(\sajariGen\api\query\v1\Transform $value){
      return $this->_add(5, $value);
     }
   }
 }
 
-namespace sajari\api\query\v1 {
+namespace sajariGen\api\query\v1 {
 
   class SearchResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchResponse */
+    /**  @var \sajariGen\engine\query\v1\SearchResponse */
     public $search_response = null;
     
-    /**  @var \sajari\engine\query\v1\SearchRequest */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest */
     public $search_request = null;
     
-    /**  @var \sajari\api\query\v1\Token[]  */
+    /**  @var \sajariGen\api\query\v1\Token[]  */
     public $tokens = array();
     
 
@@ -626,7 +626,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "search_response";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchResponse';
+      $f->reference = '\sajariGen\engine\query\v1\SearchResponse';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE search_request = 2
@@ -635,7 +635,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "search_request";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE tokens = 3
@@ -644,7 +644,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "tokens";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\api\query\v1\Token';
+      $f->reference = '\sajariGen\api\query\v1\Token';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -666,7 +666,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <search_response> value
      *
-     * @return \sajari\api\query\v1\SearchResponse
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
     public function clearSearchResponse(){
       return $this->_clear(1);
@@ -675,7 +675,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <search_response> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function getSearchResponse(){
       return $this->_get(1);
@@ -684,10 +684,10 @@ namespace sajari\api\query\v1 {
     /**
      * Set <search_response> value
      *
-     * @param \sajari\engine\query\v1\SearchResponse $value
-     * @return \sajari\api\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\SearchResponse $value
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
-    public function setSearchResponse(\sajari\engine\query\v1\SearchResponse $value){
+    public function setSearchResponse(\sajariGen\engine\query\v1\SearchResponse $value){
       return $this->_set(1, $value);
     }
     
@@ -703,7 +703,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <search_request> value
      *
-     * @return \sajari\api\query\v1\SearchResponse
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
     public function clearSearchRequest(){
       return $this->_clear(2);
@@ -712,7 +712,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <search_request> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function getSearchRequest(){
       return $this->_get(2);
@@ -721,10 +721,10 @@ namespace sajari\api\query\v1 {
     /**
      * Set <search_request> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest $value
-     * @return \sajari\api\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\SearchRequest $value
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
-    public function setSearchRequest(\sajari\engine\query\v1\SearchRequest $value){
+    public function setSearchRequest(\sajariGen\engine\query\v1\SearchRequest $value){
       return $this->_set(2, $value);
     }
     
@@ -740,7 +740,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <tokens> value
      *
-     * @return \sajari\api\query\v1\SearchResponse
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
     public function clearTokens(){
       return $this->_clear(3);
@@ -750,7 +750,7 @@ namespace sajari\api\query\v1 {
      * Get <tokens> value
      *
      * @param int $idx
-     * @return \sajari\api\query\v1\Token
+     * @return \sajariGen\api\query\v1\Token
      */
     public function getTokens($idx = NULL){
       return $this->_get(3, $idx);
@@ -759,17 +759,17 @@ namespace sajari\api\query\v1 {
     /**
      * Set <tokens> value
      *
-     * @param \sajari\api\query\v1\Token $value
-     * @return \sajari\api\query\v1\SearchResponse
+     * @param \sajariGen\api\query\v1\Token $value
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
-    public function setTokens(\sajari\api\query\v1\Token $value, $idx = NULL){
+    public function setTokens(\sajariGen\api\query\v1\Token $value, $idx = NULL){
       return $this->_set(3, $value, $idx);
     }
     
     /**
      * Get all elements of <tokens>
      *
-     * @return \sajari\api\query\v1\Token[]
+     * @return \sajariGen\api\query\v1\Token[]
      */
     public function getTokensList(){
      return $this->_get(3);
@@ -778,16 +778,16 @@ namespace sajari\api\query\v1 {
     /**
      * Add a new element to <tokens>
      *
-     * @param \sajari\api\query\v1\Token $value
-     * @return \sajari\api\query\v1\SearchResponse
+     * @param \sajariGen\api\query\v1\Token $value
+     * @return \sajariGen\api\query\v1\SearchResponse
      */
-    public function addTokens(\sajari\api\query\v1\Token $value){
+    public function addTokens(\sajariGen\api\query\v1\Token $value){
      return $this->_add(3, $value);
     }
   }
 }
 
-namespace sajari\api\query\v1\Token {
+namespace sajariGen\api\query\v1\Token {
 
   class Click extends \DrSlump\Protobuf\Message {
 
@@ -829,7 +829,7 @@ namespace sajari\api\query\v1\Token {
     /**
      * Clear <token> value
      *
-     * @return \sajari\api\query\v1\Token\Click
+     * @return \sajariGen\api\query\v1\Token\Click
      */
     public function clearToken(){
       return $this->_clear(1);
@@ -848,7 +848,7 @@ namespace sajari\api\query\v1\Token {
      * Set <token> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\Token\Click
+     * @return \sajariGen\api\query\v1\Token\Click
      */
     public function setToken( $value){
       return $this->_set(1, $value);
@@ -856,7 +856,7 @@ namespace sajari\api\query\v1\Token {
   }
 }
 
-namespace sajari\api\query\v1\Token {
+namespace sajariGen\api\query\v1\Token {
 
   class PosNeg extends \DrSlump\Protobuf\Message {
 
@@ -909,7 +909,7 @@ namespace sajari\api\query\v1\Token {
     /**
      * Clear <pos> value
      *
-     * @return \sajari\api\query\v1\Token\PosNeg
+     * @return \sajariGen\api\query\v1\Token\PosNeg
      */
     public function clearPos(){
       return $this->_clear(1);
@@ -928,7 +928,7 @@ namespace sajari\api\query\v1\Token {
      * Set <pos> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\Token\PosNeg
+     * @return \sajariGen\api\query\v1\Token\PosNeg
      */
     public function setPos( $value){
       return $this->_set(1, $value);
@@ -946,7 +946,7 @@ namespace sajari\api\query\v1\Token {
     /**
      * Clear <neg> value
      *
-     * @return \sajari\api\query\v1\Token\PosNeg
+     * @return \sajariGen\api\query\v1\Token\PosNeg
      */
     public function clearNeg(){
       return $this->_clear(2);
@@ -965,7 +965,7 @@ namespace sajari\api\query\v1\Token {
      * Set <neg> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\Token\PosNeg
+     * @return \sajariGen\api\query\v1\Token\PosNeg
      */
     public function setNeg( $value){
       return $this->_set(2, $value);
@@ -973,14 +973,14 @@ namespace sajari\api\query\v1\Token {
   }
 }
 
-namespace sajari\api\query\v1 {
+namespace sajariGen\api\query\v1 {
 
   class Token extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\api\query\v1\Token\Click */
+    /**  @var \sajariGen\api\query\v1\Token\Click */
     public $click = null;
     
-    /**  @var \sajari\api\query\v1\Token\PosNeg */
+    /**  @var \sajariGen\api\query\v1\Token\PosNeg */
     public $pos_neg = null;
     
 
@@ -997,7 +997,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "click";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\api\query\v1\Token\Click';
+      $f->reference = '\sajariGen\api\query\v1\Token\Click';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE pos_neg = 2
@@ -1006,7 +1006,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "pos_neg";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\api\query\v1\Token\PosNeg';
+      $f->reference = '\sajariGen\api\query\v1\Token\PosNeg';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1028,7 +1028,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <click> value
      *
-     * @return \sajari\api\query\v1\Token
+     * @return \sajariGen\api\query\v1\Token
      */
     public function clearClick(){
       return $this->_clear(1);
@@ -1037,7 +1037,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <click> value
      *
-     * @return \sajari\api\query\v1\Token\Click
+     * @return \sajariGen\api\query\v1\Token\Click
      */
     public function getClick(){
       return $this->_get(1);
@@ -1046,10 +1046,10 @@ namespace sajari\api\query\v1 {
     /**
      * Set <click> value
      *
-     * @param \sajari\api\query\v1\Token\Click $value
-     * @return \sajari\api\query\v1\Token
+     * @param \sajariGen\api\query\v1\Token\Click $value
+     * @return \sajariGen\api\query\v1\Token
      */
-    public function setClick(\sajari\api\query\v1\Token\Click $value){
+    public function setClick(\sajariGen\api\query\v1\Token\Click $value){
       return $this->_set(1, $value);
     }
     
@@ -1065,7 +1065,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <pos_neg> value
      *
-     * @return \sajari\api\query\v1\Token
+     * @return \sajariGen\api\query\v1\Token
      */
     public function clearPosNeg(){
       return $this->_clear(2);
@@ -1074,7 +1074,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <pos_neg> value
      *
-     * @return \sajari\api\query\v1\Token\PosNeg
+     * @return \sajariGen\api\query\v1\Token\PosNeg
      */
     public function getPosNeg(){
       return $this->_get(2);
@@ -1083,16 +1083,16 @@ namespace sajari\api\query\v1 {
     /**
      * Set <pos_neg> value
      *
-     * @param \sajari\api\query\v1\Token\PosNeg $value
-     * @return \sajari\api\query\v1\Token
+     * @param \sajariGen\api\query\v1\Token\PosNeg $value
+     * @return \sajariGen\api\query\v1\Token
      */
-    public function setPosNeg(\sajari\api\query\v1\Token\PosNeg $value){
+    public function setPosNeg(\sajariGen\api\query\v1\Token\PosNeg $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\api\query\v1\Transform {
+namespace sajariGen\api\query\v1\Transform {
 
   class RunType extends \DrSlump\Protobuf\Enum {
     const PRE_QUERY = 0;
@@ -1100,11 +1100,11 @@ namespace sajari\api\query\v1\Transform {
     const POST_EMPTY_PRE_RETRY = 2;
   }
 }
-namespace sajari\api\query\v1 {
+namespace sajariGen\api\query\v1 {
 
   class Transform extends \DrSlump\Protobuf\Message {
 
-    /**  @var int - \sajari\api\query\v1\Transform\RunType */
+    /**  @var int - \sajariGen\api\query\v1\Transform\RunType */
     public $run_type = null;
     
     /**  @var string */
@@ -1124,7 +1124,7 @@ namespace sajari\api\query\v1 {
       $f->name      = "run_type";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\api\query\v1\Transform\RunType';
+      $f->reference = '\sajariGen\api\query\v1\Transform\RunType';
       $descriptor->addField($f);
 
       // OPTIONAL STRING identifier = 2
@@ -1154,7 +1154,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <run_type> value
      *
-     * @return \sajari\api\query\v1\Transform
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function clearRunType(){
       return $this->_clear(1);
@@ -1163,7 +1163,7 @@ namespace sajari\api\query\v1 {
     /**
      * Get <run_type> value
      *
-     * @return int - \sajari\api\query\v1\Transform\RunType
+     * @return int - \sajariGen\api\query\v1\Transform\RunType
      */
     public function getRunType(){
       return $this->_get(1);
@@ -1172,8 +1172,8 @@ namespace sajari\api\query\v1 {
     /**
      * Set <run_type> value
      *
-     * @param int - \sajari\api\query\v1\Transform\RunType $value
-     * @return \sajari\api\query\v1\Transform
+     * @param int - \sajariGen\api\query\v1\Transform\RunType $value
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function setRunType( $value){
       return $this->_set(1, $value);
@@ -1191,7 +1191,7 @@ namespace sajari\api\query\v1 {
     /**
      * Clear <identifier> value
      *
-     * @return \sajari\api\query\v1\Transform
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function clearIdentifier(){
       return $this->_clear(2);
@@ -1210,7 +1210,7 @@ namespace sajari\api\query\v1 {
      * Set <identifier> value
      *
      * @param string $value
-     * @return \sajari\api\query\v1\Transform
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function setIdentifier( $value){
       return $this->_set(2, $value);
@@ -1218,7 +1218,7 @@ namespace sajari\api\query\v1 {
   }
 }
 
-namespace sajari\api\query\v1 {
+namespace sajariGen\api\query\v1 {
 
   class QueryClient extends \Grpc\BaseStub {
 
@@ -1226,10 +1226,10 @@ namespace sajari\api\query\v1 {
       parent::__construct($hostname, $opts, $channel);
     }
     /**
-     * @param sajari\api\query\v1\SearchRequest $input
+     * @param sajariGen\api\query\v1\SearchRequest $input
      */
-    public function Search(\sajari\api\query\v1\SearchRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.api.query.v1.Query/Query', $argument, '\sajari\api\query\v1\SearchResponse::deserialize', $metadata, $options);
+    public function Search(\sajariGen\api\query\v1\SearchRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.api.query.v1.Query/Query', $argument, '\sajariGen\api\query\v1\SearchResponse::deserialize', $metadata, $options);
     }
   }
 }

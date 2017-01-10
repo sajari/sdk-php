@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class FeatureQuery
  * @package Sajari\Query
  */
-class FeatureQuery implements Proto
+class FeatureQuery implements \Sajari\Engine\Proto
 {
     /** @var FieldBoost[] $fieldBoosts */
     private $fieldBoosts;
@@ -24,11 +24,11 @@ class FeatureQuery implements Proto
     /**
      * Proto returns the proto representation of a FeatureQuery
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
      */
     public function Proto()
     {
-        $fq = new \sajari\engine\query\v1\SearchRequest\FeatureQuery();
+        $fq = new \sajariGen\engine\query\v1\SearchRequest\FeatureQuery();
 
         if (isset($this->fieldBoosts)) {
             foreach ($this->fieldBoosts as $b) {

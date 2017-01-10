@@ -43,15 +43,15 @@ class FilterFieldBoost implements FieldBoost, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function Proto()
     {
-        $fmb = new \sajari\engine\query\v1\FieldBoost\Filter();
+        $fmb = new \sajariGen\engine\query\v1\FieldBoost\Filter();
         $fmb->setFilter($this->filter->Proto());
         $fmb->setValue($this->value);
 
-        $mb = new \sajari\engine\query\v1\FieldBoost();
+        $mb = new \sajariGen\engine\query\v1\FieldBoost();
         $mb->setFilter($fmb);
         return $mb;
     }

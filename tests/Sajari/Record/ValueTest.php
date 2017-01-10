@@ -8,14 +8,14 @@ class TestValue
     public $original;
     /** @var array|null|string The stringified value of the original value */
     public $string;
-    /** @var \sajari\engine\Value The proto value of the original value */
+    /** @var \sajariGen\engine\Value The proto value of the original value */
     public $proto;
 
     public function __construct($v)
     {
-        $pv = new \sajari\engine\Value();
+        $pv = new \sajariGen\engine\Value();
         if (is_array($v)) {
-            $repeated = new \sajari\engine\Value\Repeated();
+            $repeated = new \sajariGen\engine\Value\Repeated();
             foreach ($v as $x) {
                 if ($x instanceof \DateTime) {
                     $repeated->addValues($x->format(\DateTime::ATOM));
@@ -110,7 +110,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     {
         foreach ($this->protoValueTests as $test) {
             $this->assertEquals(
-                \Sajari\Record\Value::ToProto($test->original),
+                \Sajari\Engine\Value::ToProto($test->original),
                 $test->proto
             );
         }
@@ -123,7 +123,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     {
         foreach ($this->protoValueTests as $test) {
             $this->assertSame(
-                \Sajari\Record\Value::FromProto($test->proto),
+                \Sajari\Engine\Value::FromProto($test->proto),
                 $test->string
             );
         }
@@ -136,8 +136,8 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     {
         foreach ($this->protoValueTests as $test) {
             $this->assertSame(
-                \Sajari\Record\Value::FromProto(
-                    \Sajari\Record\Value::ToProto($test->original)
+                \Sajari\Engine\Value::FromProto(
+                    \Sajari\Engine\Value::ToProto($test->original)
                 ),
                 $test->string
             );

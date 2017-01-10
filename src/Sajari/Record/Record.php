@@ -2,7 +2,7 @@
 
 namespace Sajari\Record;
 
-class Record implements Proto
+class Record implements \Sajari\Engine\Proto
 {
     /** @var mixed[] $values */
     private $values;
@@ -25,31 +25,31 @@ class Record implements Proto
     }
 
     /**
-     * @param \sajari\engine\store\record\Record $protoRecord
+     * @param \sajariGen\engine\store\record\Record $protoRecord
      * @return Record
      */
-    public static function FromProto(\sajari\engine\store\record\Record $protoRecord)
+    public static function FromProto(\sajariGen\engine\store\record\Record $protoRecord)
     {
         $values = [];
 
         foreach ($protoRecord->getValuesList() as $v) {
-            $values[$v->getKey()] = \Sajari\Record\Value::FromProto($v->getValue());
+            $values[$v->getKey()] = \Sajari\Engine\Value::FromProto($v->getValue());
         }
 
         return new Record($values);
     }
 
     /**
-     * @return \sajari\engine\store\record\Record
+     * @return \sajariGen\engine\store\record\Record
      */
     public function Proto()
     {
-        $protoRecord = new \sajari\engine\store\record\Record();
+        $protoRecord = new \sajariGen\engine\store\record\Record();
 
         foreach ($this->values as $field => $value) {
-            $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
+            $valueEntry = new \sajariGen\engine\store\record\Record\ValuesEntry();
             $valueEntry->setKey($field);
-            $valueEntry->setValue(Value::ToProto($value));
+            $valueEntry->setValue(\Sajari\Engine\Value::ToProto($value));
             $protoRecord->addValues($valueEntry);
         }
 

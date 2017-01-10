@@ -43,15 +43,15 @@ class FieldInstanceBoost implements InstanceBoost, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
     public function Proto()
     {
-        $f = new \sajari\engine\query\v1\InstanceBoost\Field();
+        $f = new \sajariGen\engine\query\v1\InstanceBoost\Field();
         $f->setField($this->field);
         $f->setValue($this->value);
 
-        $ib = new \sajari\engine\query\v1\InstanceBoost();
+        $ib = new \sajariGen\engine\query\v1\InstanceBoost();
         $ib->setField($f);
 
         return $ib;

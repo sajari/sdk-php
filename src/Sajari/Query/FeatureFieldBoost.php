@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class FeatureFieldBoost
  * @package Sajari\Query
  */
-class FeatureFieldBoost implements Proto
+class FeatureFieldBoost implements \Sajari\Engine\Proto
 {
     /**
      * @var FieldBoost $fieldBoost
@@ -30,11 +30,11 @@ class FeatureFieldBoost implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function Proto()
     {
-        $fb = new \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost();
+        $fb = new \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost();
 
         $fb->setFieldBoost($this->fieldBoost->Proto());
         $fb->setValue($this->value);

@@ -6,11 +6,11 @@ class RecordTest extends \PHPUnit_Framework_TestCase
 
     public static function protoRecordFromValues($values)
     {
-        $protoRecord = new sajari\engine\store\record\Record();
+        $protoRecord = new sajariGen\engine\store\record\Record();
         foreach ($values as $field => $value) {
-            $valueEntry = new \sajari\engine\store\record\Record\ValuesEntry();
+            $valueEntry = new \sajariGen\engine\store\record\Record\ValuesEntry();
             $valueEntry->setKey($field);
-            $valueEntry->setValue(\Sajari\Record\Value::ToProto($value));
+            $valueEntry->setValue(\Sajari\Engine\Value::ToProto($value));
             $protoRecord->addValues($valueEntry);
         }
         return [$values, $protoRecord];

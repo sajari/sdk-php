@@ -3,11 +3,11 @@
 // Source: engine/schema/schema.proto
 //   Date: 2017-01-10 02:02:12
 
-namespace sajari\engine\schema {
+namespace sajariGen\engine\schema {
 
   class Fields extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\schema\Field[]  */
+    /**  @var \sajariGen\engine\schema\Field[]  */
     public $fields = array();
     
 
@@ -24,7 +24,7 @@ namespace sajari\engine\schema {
       $f->name      = "fields";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\schema\Field';
+      $f->reference = '\sajariGen\engine\schema\Field';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -46,7 +46,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <fields> value
      *
-     * @return \sajari\engine\schema\Fields
+     * @return \sajariGen\engine\schema\Fields
      */
     public function clearFields(){
       return $this->_clear(1);
@@ -56,7 +56,7 @@ namespace sajari\engine\schema {
      * Get <fields> value
      *
      * @param int $idx
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function getFields($idx = NULL){
       return $this->_get(1, $idx);
@@ -65,17 +65,17 @@ namespace sajari\engine\schema {
     /**
      * Set <fields> value
      *
-     * @param \sajari\engine\schema\Field $value
-     * @return \sajari\engine\schema\Fields
+     * @param \sajariGen\engine\schema\Field $value
+     * @return \sajariGen\engine\schema\Fields
      */
-    public function setFields(\sajari\engine\schema\Field $value, $idx = NULL){
+    public function setFields(\sajariGen\engine\schema\Field $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <fields>
      *
-     * @return \sajari\engine\schema\Field[]
+     * @return \sajariGen\engine\schema\Field[]
      */
     public function getFieldsList(){
      return $this->_get(1);
@@ -84,16 +84,16 @@ namespace sajari\engine\schema {
     /**
      * Add a new element to <fields>
      *
-     * @param \sajari\engine\schema\Field $value
-     * @return \sajari\engine\schema\Fields
+     * @param \sajariGen\engine\schema\Field $value
+     * @return \sajariGen\engine\schema\Fields
      */
-    public function addFields(\sajari\engine\schema\Field $value){
+    public function addFields(\sajariGen\engine\schema\Field $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\schema\Field {
+namespace sajariGen\engine\schema\Field {
 
   class Type extends \DrSlump\Protobuf\Enum {
     const STRING = 0;
@@ -103,7 +103,7 @@ namespace sajari\engine\schema\Field {
     const TIMESTAMP = 4;
   }
 }
-namespace sajari\engine\schema {
+namespace sajariGen\engine\schema {
 
   class Field extends \DrSlump\Protobuf\Message {
 
@@ -116,7 +116,7 @@ namespace sajari\engine\schema {
     /**  @var string */
     public $description = null;
     
-    /**  @var int - \sajari\engine\schema\Field\Type */
+    /**  @var int - \sajariGen\engine\schema\Field\Type */
     public $type = null;
     
     /**  @var boolean */
@@ -172,7 +172,7 @@ namespace sajari\engine\schema {
       $f->name      = "type";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\schema\Field\Type';
+      $f->reference = '\sajariGen\engine\schema\Field\Type';
       $descriptor->addField($f);
 
       // OPTIONAL BOOL repeated = 5
@@ -234,7 +234,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <id> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearId(){
       return $this->_clear(1);
@@ -253,7 +253,7 @@ namespace sajari\engine\schema {
      * Set <id> value
      *
      * @param int $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setId( $value){
       return $this->_set(1, $value);
@@ -271,7 +271,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <name> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearName(){
       return $this->_clear(2);
@@ -290,7 +290,7 @@ namespace sajari\engine\schema {
      * Set <name> value
      *
      * @param string $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setName( $value){
       return $this->_set(2, $value);
@@ -308,7 +308,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <description> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearDescription(){
       return $this->_clear(3);
@@ -327,7 +327,7 @@ namespace sajari\engine\schema {
      * Set <description> value
      *
      * @param string $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setDescription( $value){
       return $this->_set(3, $value);
@@ -345,7 +345,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <type> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearType(){
       return $this->_clear(4);
@@ -354,7 +354,7 @@ namespace sajari\engine\schema {
     /**
      * Get <type> value
      *
-     * @return int - \sajari\engine\schema\Field\Type
+     * @return int - \sajariGen\engine\schema\Field\Type
      */
     public function getType(){
       return $this->_get(4);
@@ -363,8 +363,8 @@ namespace sajari\engine\schema {
     /**
      * Set <type> value
      *
-     * @param int - \sajari\engine\schema\Field\Type $value
-     * @return \sajari\engine\schema\Field
+     * @param int - \sajariGen\engine\schema\Field\Type $value
+     * @return \sajariGen\engine\schema\Field
      */
     public function setType( $value){
       return $this->_set(4, $value);
@@ -382,7 +382,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <repeated> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearRepeated(){
       return $this->_clear(5);
@@ -401,7 +401,7 @@ namespace sajari\engine\schema {
      * Set <repeated> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setRepeated( $value){
       return $this->_set(5, $value);
@@ -419,7 +419,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <required> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearRequired(){
       return $this->_clear(6);
@@ -438,7 +438,7 @@ namespace sajari\engine\schema {
      * Set <required> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setRequired( $value){
       return $this->_set(6, $value);
@@ -456,7 +456,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <store> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearStore(){
       return $this->_clear(7);
@@ -475,7 +475,7 @@ namespace sajari\engine\schema {
      * Set <store> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setStore( $value){
       return $this->_set(7, $value);
@@ -493,7 +493,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <indexed> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearIndexed(){
       return $this->_clear(8);
@@ -512,7 +512,7 @@ namespace sajari\engine\schema {
      * Set <indexed> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setIndexed( $value){
       return $this->_set(8, $value);
@@ -530,7 +530,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <unique> value
      *
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function clearUnique(){
       return $this->_clear(9);
@@ -549,7 +549,7 @@ namespace sajari\engine\schema {
      * Set <unique> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function setUnique( $value){
       return $this->_set(9, $value);
@@ -557,11 +557,11 @@ namespace sajari\engine\schema {
   }
 }
 
-namespace sajari\engine\schema {
+namespace sajariGen\engine\schema {
 
   class Response extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -578,7 +578,7 @@ namespace sajari\engine\schema {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -600,7 +600,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\schema\Response
+     * @return \sajariGen\engine\schema\Response
      */
     public function clearStatus(){
       return $this->_clear(1);
@@ -610,7 +610,7 @@ namespace sajari\engine\schema {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
@@ -619,17 +619,17 @@ namespace sajari\engine\schema {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\schema\Response
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\schema\Response
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(1);
@@ -638,16 +638,16 @@ namespace sajari\engine\schema {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\schema\Response
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\schema\Response
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\schema\MutateFieldRequest {
+namespace sajariGen\engine\schema\MutateFieldRequest {
 
   class Mutation extends \DrSlump\Protobuf\Message {
 
@@ -657,7 +657,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**  @var string */
     public $description = null;
     
-    /**  @var int - \sajari\engine\schema\Field\Type */
+    /**  @var int - \sajariGen\engine\schema\Field\Type */
     public $type = null;
     
     /**  @var boolean */
@@ -702,7 +702,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
       $f->name      = "type";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\schema\Field\Type';
+      $f->reference = '\sajariGen\engine\schema\Field\Type';
       $descriptor->addField($f);
 
       // OPTIONAL BOOL repeated = 4
@@ -756,7 +756,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <name> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearName(){
       return $this->_clear(1);
@@ -775,7 +775,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <name> value
      *
      * @param string $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setName( $value){
       return $this->_set(1, $value);
@@ -793,7 +793,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <description> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearDescription(){
       return $this->_clear(2);
@@ -812,7 +812,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <description> value
      *
      * @param string $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setDescription( $value){
       return $this->_set(2, $value);
@@ -830,7 +830,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <type> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearType(){
       return $this->_clear(3);
@@ -839,7 +839,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Get <type> value
      *
-     * @return int - \sajari\engine\schema\Field\Type
+     * @return int - \sajariGen\engine\schema\Field\Type
      */
     public function getType(){
       return $this->_get(3);
@@ -848,8 +848,8 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Set <type> value
      *
-     * @param int - \sajari\engine\schema\Field\Type $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @param int - \sajariGen\engine\schema\Field\Type $value
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setType( $value){
       return $this->_set(3, $value);
@@ -867,7 +867,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <repeated> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearRepeated(){
       return $this->_clear(4);
@@ -886,7 +886,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <repeated> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setRepeated( $value){
       return $this->_set(4, $value);
@@ -904,7 +904,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <required> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearRequired(){
       return $this->_clear(5);
@@ -923,7 +923,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <required> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setRequired( $value){
       return $this->_set(5, $value);
@@ -941,7 +941,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <unique> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearUnique(){
       return $this->_clear(6);
@@ -960,7 +960,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <unique> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setUnique( $value){
       return $this->_set(6, $value);
@@ -978,7 +978,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
     /**
      * Clear <indexed> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function clearIndexed(){
       return $this->_clear(7);
@@ -997,7 +997,7 @@ namespace sajari\engine\schema\MutateFieldRequest {
      * Set <indexed> value
      *
      * @param boolean $value
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function setIndexed( $value){
       return $this->_set(7, $value);
@@ -1005,14 +1005,14 @@ namespace sajari\engine\schema\MutateFieldRequest {
   }
 }
 
-namespace sajari\engine\schema {
+namespace sajariGen\engine\schema {
 
   class MutateFieldRequest extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $name = null;
     
-    /**  @var \sajari\engine\schema\MutateFieldRequest\Mutation[]  */
+    /**  @var \sajariGen\engine\schema\MutateFieldRequest\Mutation[]  */
     public $mutations = array();
     
 
@@ -1037,7 +1037,7 @@ namespace sajari\engine\schema {
       $f->name      = "mutations";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\schema\MutateFieldRequest\Mutation';
+      $f->reference = '\sajariGen\engine\schema\MutateFieldRequest\Mutation';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1059,7 +1059,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <name> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
     public function clearName(){
       return $this->_clear(1);
@@ -1078,7 +1078,7 @@ namespace sajari\engine\schema {
      * Set <name> value
      *
      * @param string $value
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
     public function setName( $value){
       return $this->_set(1, $value);
@@ -1096,7 +1096,7 @@ namespace sajari\engine\schema {
     /**
      * Clear <mutations> value
      *
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
     public function clearMutations(){
       return $this->_clear(2);
@@ -1106,7 +1106,7 @@ namespace sajari\engine\schema {
      * Get <mutations> value
      *
      * @param int $idx
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation
      */
     public function getMutations($idx = NULL){
       return $this->_get(2, $idx);
@@ -1115,17 +1115,17 @@ namespace sajari\engine\schema {
     /**
      * Set <mutations> value
      *
-     * @param \sajari\engine\schema\MutateFieldRequest\Mutation $value
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @param \sajariGen\engine\schema\MutateFieldRequest\Mutation $value
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
-    public function setMutations(\sajari\engine\schema\MutateFieldRequest\Mutation $value, $idx = NULL){
+    public function setMutations(\sajariGen\engine\schema\MutateFieldRequest\Mutation $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <mutations>
      *
-     * @return \sajari\engine\schema\MutateFieldRequest\Mutation[]
+     * @return \sajariGen\engine\schema\MutateFieldRequest\Mutation[]
      */
     public function getMutationsList(){
      return $this->_get(2);
@@ -1134,16 +1134,16 @@ namespace sajari\engine\schema {
     /**
      * Add a new element to <mutations>
      *
-     * @param \sajari\engine\schema\MutateFieldRequest\Mutation $value
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @param \sajariGen\engine\schema\MutateFieldRequest\Mutation $value
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
-    public function addMutations(\sajari\engine\schema\MutateFieldRequest\Mutation $value){
+    public function addMutations(\sajariGen\engine\schema\MutateFieldRequest\Mutation $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\schema {
+namespace sajariGen\engine\schema {
 
   class SchemaClient extends \Grpc\BaseStub {
 
@@ -1151,22 +1151,22 @@ namespace sajari\engine\schema {
       parent::__construct($hostname, $opts, $channel);
     }
     /**
-     * @param sajari\engine\XEmpty $input
+     * @param sajariGen\engine\XEmpty $input
      */
-    public function GetFields(\sajari\engine\XEmpty $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/GetFields', $argument, '\sajari\engine\schema\Fields::deserialize', $metadata, $options);
+    public function GetFields(\sajariGen\engine\XEmpty $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.schema.Schema/GetFields', $argument, '\sajariGen\engine\schema\Fields::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\schema\Fields $input
+     * @param sajariGen\engine\schema\Fields $input
      */
-    public function AddFields(\sajari\engine\schema\Fields $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/AddFields', $argument, '\sajari\engine\schema\Response::deserialize', $metadata, $options);
+    public function AddFields(\sajariGen\engine\schema\Fields $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.schema.Schema/AddFields', $argument, '\sajariGen\engine\schema\Response::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\schema\MutateFieldRequest $input
+     * @param sajariGen\engine\schema\MutateFieldRequest $input
      */
-    public function MutateField(\sajari\engine\schema\MutateFieldRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/MutateField', $argument, '\sajari\engine\schema\Response::deserialize', $metadata, $options);
+    public function MutateField(\sajariGen\engine\schema\MutateFieldRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.schema.Schema/MutateField', $argument, '\sajariGen\engine\schema\Response::deserialize', $metadata, $options);
     }
   }
 }

@@ -3,7 +3,7 @@
 // Source: engine/status.proto
 //   Date: 2017-01-10 02:02:10
 
-namespace sajari\engine {
+namespace sajariGen\engine {
 
   class Status extends \DrSlump\Protobuf\Message {
 
@@ -56,7 +56,7 @@ namespace sajari\engine {
     /**
      * Clear <code> value
      *
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function clearCode(){
       return $this->_clear(1);
@@ -75,7 +75,7 @@ namespace sajari\engine {
      * Set <code> value
      *
      * @param int $value
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function setCode( $value){
       return $this->_set(1, $value);
@@ -93,7 +93,7 @@ namespace sajari\engine {
     /**
      * Clear <message> value
      *
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function clearMessage(){
       return $this->_clear(2);
@@ -112,7 +112,7 @@ namespace sajari\engine {
      * Set <message> value
      *
      * @param string $value
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function setMessage( $value){
       return $this->_set(2, $value);

@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class Sort
  * @package Sajari\Query
  */
-class Sort implements Proto
+class Sort implements \Sajari\Engine\Proto
 {
     /** @var string $field */
     private $field;
@@ -49,7 +49,7 @@ class Sort implements Proto
      */
     public static function Asc($field)
     {
-        return new Sort($field, \sajari\engine\query\v1\Sort\Order::ASC);
+        return new Sort($field, \sajariGen\engine\query\v1\Sort\Order::ASC);
     }
 
     /**
@@ -58,15 +58,15 @@ class Sort implements Proto
      */
     public static function Desc($field)
     {
-        return new Sort($field, \sajari\engine\query\v1\Sort\Order::DESC);
+        return new Sort($field, \sajariGen\engine\query\v1\Sort\Order::DESC);
     }
 
     /**
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function Proto()
     {
-        $s = new \sajari\engine\query\v1\Sort();
+        $s = new \sajariGen\engine\query\v1\Sort();
         $s->setField($this->field);
         $s->setOrder($this->order);
         return $s;

@@ -6,26 +6,26 @@ namespace Sajari\Record;
  * Class KeyValues
  * @package Sajari\Record
  */
-class KeyValues implements Proto
+class KeyValues implements \Sajari\Engine\Proto
 {
-    /** @var Key $key */
+    /** @var \Sajari\Engine\Key $key */
     private $key;
-    /** @var \Sajari\Record\KeyValue[] $values */
+    /** @var \Sajari\Engine\KeyValue[] $values */
     private $values;
 
     /**
      * KeyValue constructor.
-     * @param Key $key
-     * @param \Sajari\Record\KeyValue[] $values
+     * @param \Sajari\Engine\Key $key
+     * @param \Sajari\Engine\KeyValue[] $values
      */
-    public function __construct(Key $key, array $values)
+    public function __construct(\Sajari\Engine\Key $key, array $values)
     {
         $this->key = $key;
         $this->values = $values;
     }
 
     /**
-     * @return Key
+     * @return \Sajari\Engine\Key
      */
     public function getKey()
     {
@@ -33,7 +33,7 @@ class KeyValues implements Proto
     }
 
     /**
-     * @return Value[]
+     * @return mixed[]
      */
     public function getValues()
     {
@@ -41,16 +41,16 @@ class KeyValues implements Proto
     }
 
     /**
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
     public function Proto()
     {
-        $protoKeyValue = new \sajari\engine\store\record\KeysValues\KeyValues();
+        $protoKeyValue = new \sajariGen\engine\store\record\KeysValues\KeyValues();
 
-        $k = new \sajari\engine\Key();
+        $k = new \sajariGen\engine\Key();
         $k->setField($this->key->getField());
 
-        $v = new \sajari\engine\Value();
+        $v = new \sajariGen\engine\Value();
 
         $v->setSingle($this->key->getValue());
         $k->setValue($v);

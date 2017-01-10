@@ -3,7 +3,7 @@
 // Source: engine/XEmpty.proto
 //   Date: 2017-01-10 02:02:10
 
-namespace sajari\engine {
+namespace sajariGen\engine {
 
   class XEmpty extends \DrSlump\Protobuf\Message {
 

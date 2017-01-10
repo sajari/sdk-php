@@ -3,20 +3,20 @@
 // Source: engine/query/v1/query.proto
 //   Date: 2017-01-10 02:02:11
 
-namespace sajari\engine\query\v1\SearchRequest {
+namespace sajariGen\engine\query\v1\SearchRequest {
 
   class IndexQuery extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Body[]  */
+    /**  @var \sajariGen\engine\query\v1\Body[]  */
     public $body = array();
     
-    /**  @var \sajari\engine\query\v1\Term[]  */
+    /**  @var \sajariGen\engine\query\v1\Term[]  */
     public $terms = array();
     
-    /**  @var \sajari\engine\query\v1\InstanceBoost[]  */
+    /**  @var \sajariGen\engine\query\v1\InstanceBoost[]  */
     public $instance_boosts = array();
     
-    /**  @var \sajari\engine\query\v1\FieldBoost[]  */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost[]  */
     public $field_boosts = array();
     
 
@@ -33,7 +33,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "body";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Body';
+      $f->reference = '\sajariGen\engine\query\v1\Body';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE terms = 2
@@ -42,7 +42,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "terms";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Term';
+      $f->reference = '\sajariGen\engine\query\v1\Term';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE instance_boosts = 3
@@ -51,7 +51,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "instance_boosts";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\InstanceBoost';
+      $f->reference = '\sajariGen\engine\query\v1\InstanceBoost';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE field_boosts = 4
@@ -60,7 +60,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "field_boosts";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -82,7 +82,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <body> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function clearBody(){
       return $this->_clear(1);
@@ -92,7 +92,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Get <body> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function getBody($idx = NULL){
       return $this->_get(1, $idx);
@@ -101,17 +101,17 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <body> value
      *
-     * @param \sajari\engine\query\v1\Body $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\Body $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function setBody(\sajari\engine\query\v1\Body $value, $idx = NULL){
+    public function setBody(\sajariGen\engine\query\v1\Body $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <body>
      *
-     * @return \sajari\engine\query\v1\Body[]
+     * @return \sajariGen\engine\query\v1\Body[]
      */
     public function getBodyList(){
      return $this->_get(1);
@@ -120,10 +120,10 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Add a new element to <body>
      *
-     * @param \sajari\engine\query\v1\Body $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\Body $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function addBody(\sajari\engine\query\v1\Body $value){
+    public function addBody(\sajariGen\engine\query\v1\Body $value){
      return $this->_add(1, $value);
     }
     
@@ -139,7 +139,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <terms> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function clearTerms(){
       return $this->_clear(2);
@@ -149,7 +149,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Get <terms> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function getTerms($idx = NULL){
       return $this->_get(2, $idx);
@@ -158,17 +158,17 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <terms> value
      *
-     * @param \sajari\engine\query\v1\Term $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\Term $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function setTerms(\sajari\engine\query\v1\Term $value, $idx = NULL){
+    public function setTerms(\sajariGen\engine\query\v1\Term $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <terms>
      *
-     * @return \sajari\engine\query\v1\Term[]
+     * @return \sajariGen\engine\query\v1\Term[]
      */
     public function getTermsList(){
      return $this->_get(2);
@@ -177,10 +177,10 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Add a new element to <terms>
      *
-     * @param \sajari\engine\query\v1\Term $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\Term $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function addTerms(\sajari\engine\query\v1\Term $value){
+    public function addTerms(\sajariGen\engine\query\v1\Term $value){
      return $this->_add(2, $value);
     }
     
@@ -196,7 +196,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <instance_boosts> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function clearInstanceBoosts(){
       return $this->_clear(3);
@@ -206,7 +206,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Get <instance_boosts> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
     public function getInstanceBoosts($idx = NULL){
       return $this->_get(3, $idx);
@@ -215,17 +215,17 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <instance_boosts> value
      *
-     * @param \sajari\engine\query\v1\InstanceBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\InstanceBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function setInstanceBoosts(\sajari\engine\query\v1\InstanceBoost $value, $idx = NULL){
+    public function setInstanceBoosts(\sajariGen\engine\query\v1\InstanceBoost $value, $idx = NULL){
       return $this->_set(3, $value, $idx);
     }
     
     /**
      * Get all elements of <instance_boosts>
      *
-     * @return \sajari\engine\query\v1\InstanceBoost[]
+     * @return \sajariGen\engine\query\v1\InstanceBoost[]
      */
     public function getInstanceBoostsList(){
      return $this->_get(3);
@@ -234,10 +234,10 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Add a new element to <instance_boosts>
      *
-     * @param \sajari\engine\query\v1\InstanceBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\InstanceBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function addInstanceBoosts(\sajari\engine\query\v1\InstanceBoost $value){
+    public function addInstanceBoosts(\sajariGen\engine\query\v1\InstanceBoost $value){
      return $this->_add(3, $value);
     }
     
@@ -253,7 +253,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <field_boosts> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function clearFieldBoosts(){
       return $this->_clear(4);
@@ -263,7 +263,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Get <field_boosts> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function getFieldBoosts($idx = NULL){
       return $this->_get(4, $idx);
@@ -272,17 +272,17 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <field_boosts> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\FieldBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function setFieldBoosts(\sajari\engine\query\v1\FieldBoost $value, $idx = NULL){
+    public function setFieldBoosts(\sajariGen\engine\query\v1\FieldBoost $value, $idx = NULL){
       return $this->_set(4, $value, $idx);
     }
     
     /**
      * Get all elements of <field_boosts>
      *
-     * @return \sajari\engine\query\v1\FieldBoost[]
+     * @return \sajariGen\engine\query\v1\FieldBoost[]
      */
     public function getFieldBoostsList(){
      return $this->_get(4);
@@ -291,20 +291,20 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Add a new element to <field_boosts>
      *
-     * @param \sajari\engine\query\v1\FieldBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @param \sajariGen\engine\query\v1\FieldBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
-    public function addFieldBoosts(\sajari\engine\query\v1\FieldBoost $value){
+    public function addFieldBoosts(\sajariGen\engine\query\v1\FieldBoost $value){
      return $this->_add(4, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
+namespace sajariGen\engine\query\v1\SearchRequest\FeatureQuery {
 
   class FieldBoost extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\FieldBoost */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost */
     public $field_boost = null;
     
     /**  @var float */
@@ -324,7 +324,7 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
       $f->name      = "field_boost";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost';
       $descriptor->addField($f);
 
       // OPTIONAL DOUBLE value = 2
@@ -354,7 +354,7 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
     /**
      * Clear <field_boost> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function clearFieldBoost(){
       return $this->_clear(1);
@@ -363,7 +363,7 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
     /**
      * Get <field_boost> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function getFieldBoost(){
       return $this->_get(1);
@@ -372,10 +372,10 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
     /**
      * Set <field_boost> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @param \sajariGen\engine\query\v1\FieldBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
-    public function setFieldBoost(\sajari\engine\query\v1\FieldBoost $value){
+    public function setFieldBoost(\sajariGen\engine\query\v1\FieldBoost $value){
       return $this->_set(1, $value);
     }
     
@@ -391,7 +391,7 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -410,7 +410,7 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
      * Set <value> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -418,11 +418,11 @@ namespace sajari\engine\query\v1\SearchRequest\FeatureQuery {
   }
 }
 
-namespace sajari\engine\query\v1\SearchRequest {
+namespace sajariGen\engine\query\v1\SearchRequest {
 
   class FeatureQuery extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost[]  */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost[]  */
     public $field_boosts = array();
     
 
@@ -439,7 +439,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "field_boosts";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -461,7 +461,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <field_boosts> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
      */
     public function clearFieldBoosts(){
       return $this->_clear(1);
@@ -471,7 +471,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Get <field_boosts> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost
      */
     public function getFieldBoosts($idx = NULL){
       return $this->_get(1, $idx);
@@ -480,17 +480,17 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <field_boosts> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery
+     * @param \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
      */
-    public function setFieldBoosts(\sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value, $idx = NULL){
+    public function setFieldBoosts(\sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <field_boosts>
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost[]
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost[]
      */
     public function getFieldBoostsList(){
      return $this->_get(1);
@@ -499,23 +499,23 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Add a new element to <field_boosts>
      *
-     * @param \sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery
+     * @param \sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
      */
-    public function addFieldBoosts(\sajari\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value){
+    public function addFieldBoosts(\sajariGen\engine\query\v1\SearchRequest\FeatureQuery\FieldBoost $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\SearchRequest {
+namespace sajariGen\engine\query\v1\SearchRequest {
 
   class AggregatesEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\query\v1\Aggregate */
+    /**  @var \sajariGen\engine\query\v1\Aggregate */
     public $value = null;
     
 
@@ -540,7 +540,7 @@ namespace sajari\engine\query\v1\SearchRequest {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Aggregate';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -562,7 +562,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -581,7 +581,7 @@ namespace sajari\engine\query\v1\SearchRequest {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -599,7 +599,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -608,7 +608,7 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\query\v1\Aggregate
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
     public function getValue(){
       return $this->_get(2);
@@ -617,26 +617,26 @@ namespace sajari\engine\query\v1\SearchRequest {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\query\v1\Aggregate $value
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @param \sajariGen\engine\query\v1\Aggregate $value
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
-    public function setValue(\sajari\engine\query\v1\Aggregate $value){
+    public function setValue(\sajariGen\engine\query\v1\Aggregate $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class SearchRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Filter */
+    /**  @var \sajariGen\engine\query\v1\Filter */
     public $filter = null;
     
-    /**  @var \sajari\engine\query\v1\SearchRequest\IndexQuery */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest\IndexQuery */
     public $index_query = null;
     
-    /**  @var \sajari\engine\query\v1\SearchRequest\FeatureQuery */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest\FeatureQuery */
     public $feature_query = null;
     
     /**  @var int */
@@ -648,13 +648,13 @@ namespace sajari\engine\query\v1 {
     /**  @var string[]  */
     public $fields = array();
     
-    /**  @var \sajari\engine\query\v1\Sort[]  */
+    /**  @var \sajariGen\engine\query\v1\Sort[]  */
     public $sort = array();
     
-    /**  @var \sajari\engine\query\v1\SearchRequest\AggregatesEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry[]  */
     public $aggregates = array();
     
-    /**  @var \sajari\engine\query\v1\Transform[]  */
+    /**  @var \sajariGen\engine\query\v1\Transform[]  */
     public $transforms = array();
     
 
@@ -671,7 +671,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "filter";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter';
+      $f->reference = '\sajariGen\engine\query\v1\Filter';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE index_query = 2
@@ -680,7 +680,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "index_query";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest\IndexQuery';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest\IndexQuery';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE feature_query = 3
@@ -689,7 +689,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "feature_query";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest\FeatureQuery';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest\FeatureQuery';
       $descriptor->addField($f);
 
       // OPTIONAL INT32 offset = 4
@@ -722,7 +722,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "sort";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Sort';
+      $f->reference = '\sajariGen\engine\query\v1\Sort';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE aggregates = 8
@@ -731,7 +731,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "aggregates";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest\AggregatesEntry';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest\AggregatesEntry';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE transforms = 9
@@ -740,7 +740,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "transforms";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Transform';
+      $f->reference = '\sajariGen\engine\query\v1\Transform';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -762,7 +762,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <filter> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearFilter(){
       return $this->_clear(1);
@@ -771,7 +771,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <filter> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function getFilter(){
       return $this->_get(1);
@@ -780,10 +780,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <filter> value
      *
-     * @param \sajari\engine\query\v1\Filter $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\Filter $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setFilter(\sajari\engine\query\v1\Filter $value){
+    public function setFilter(\sajariGen\engine\query\v1\Filter $value){
       return $this->_set(1, $value);
     }
     
@@ -799,7 +799,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <index_query> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearIndexQuery(){
       return $this->_clear(2);
@@ -808,7 +808,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <index_query> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function getIndexQuery(){
       return $this->_get(2);
@@ -817,10 +817,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <index_query> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest\IndexQuery $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest\IndexQuery $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setIndexQuery(\sajari\engine\query\v1\SearchRequest\IndexQuery $value){
+    public function setIndexQuery(\sajariGen\engine\query\v1\SearchRequest\IndexQuery $value){
       return $this->_set(2, $value);
     }
     
@@ -836,7 +836,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <feature_query> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearFeatureQuery(){
       return $this->_clear(3);
@@ -845,7 +845,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <feature_query> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest\FeatureQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
      */
     public function getFeatureQuery(){
       return $this->_get(3);
@@ -854,10 +854,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <feature_query> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest\FeatureQuery $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest\FeatureQuery $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setFeatureQuery(\sajari\engine\query\v1\SearchRequest\FeatureQuery $value){
+    public function setFeatureQuery(\sajariGen\engine\query\v1\SearchRequest\FeatureQuery $value){
       return $this->_set(3, $value);
     }
     
@@ -873,7 +873,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <offset> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearOffset(){
       return $this->_clear(4);
@@ -892,7 +892,7 @@ namespace sajari\engine\query\v1 {
      * Set <offset> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function setOffset( $value){
       return $this->_set(4, $value);
@@ -910,7 +910,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <limit> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearLimit(){
       return $this->_clear(5);
@@ -929,7 +929,7 @@ namespace sajari\engine\query\v1 {
      * Set <limit> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function setLimit( $value){
       return $this->_set(5, $value);
@@ -947,7 +947,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <fields> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearFields(){
       return $this->_clear(6);
@@ -967,7 +967,7 @@ namespace sajari\engine\query\v1 {
      * Set <fields> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function setFields( $value, $idx = NULL){
       return $this->_set(6, $value, $idx);
@@ -986,7 +986,7 @@ namespace sajari\engine\query\v1 {
      * Add a new element to <fields>
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function addFields( $value){
      return $this->_add(6, $value);
@@ -1004,7 +1004,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <sort> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearSort(){
       return $this->_clear(7);
@@ -1014,7 +1014,7 @@ namespace sajari\engine\query\v1 {
      * Get <sort> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function getSort($idx = NULL){
       return $this->_get(7, $idx);
@@ -1023,17 +1023,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <sort> value
      *
-     * @param \sajari\engine\query\v1\Sort $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\Sort $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setSort(\sajari\engine\query\v1\Sort $value, $idx = NULL){
+    public function setSort(\sajariGen\engine\query\v1\Sort $value, $idx = NULL){
       return $this->_set(7, $value, $idx);
     }
     
     /**
      * Get all elements of <sort>
      *
-     * @return \sajari\engine\query\v1\Sort[]
+     * @return \sajariGen\engine\query\v1\Sort[]
      */
     public function getSortList(){
      return $this->_get(7);
@@ -1042,10 +1042,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <sort>
      *
-     * @param \sajari\engine\query\v1\Sort $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\Sort $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function addSort(\sajari\engine\query\v1\Sort $value){
+    public function addSort(\sajariGen\engine\query\v1\Sort $value){
      return $this->_add(7, $value);
     }
     
@@ -1061,7 +1061,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <aggregates> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearAggregates(){
       return $this->_clear(8);
@@ -1071,7 +1071,7 @@ namespace sajari\engine\query\v1 {
      * Get <aggregates> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function getAggregates($idx = NULL){
       return $this->_get(8, $idx);
@@ -1080,17 +1080,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <aggregates> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest\AggregatesEntry $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setAggregates(\sajari\engine\query\v1\SearchRequest\AggregatesEntry $value, $idx = NULL){
+    public function setAggregates(\sajariGen\engine\query\v1\SearchRequest\AggregatesEntry $value, $idx = NULL){
       return $this->_set(8, $value, $idx);
     }
     
     /**
      * Get all elements of <aggregates>
      *
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry[]
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry[]
      */
     public function getAggregatesList(){
      return $this->_get(8);
@@ -1099,10 +1099,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <aggregates>
      *
-     * @param \sajari\engine\query\v1\SearchRequest\AggregatesEntry $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function addAggregates(\sajari\engine\query\v1\SearchRequest\AggregatesEntry $value){
+    public function addAggregates(\sajariGen\engine\query\v1\SearchRequest\AggregatesEntry $value){
      return $this->_add(8, $value);
     }
     
@@ -1118,7 +1118,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <transforms> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function clearTransforms(){
       return $this->_clear(9);
@@ -1128,7 +1128,7 @@ namespace sajari\engine\query\v1 {
      * Get <transforms> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Transform
+     * @return \sajariGen\engine\query\v1\Transform
      */
     public function getTransforms($idx = NULL){
       return $this->_get(9, $idx);
@@ -1137,17 +1137,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <transforms> value
      *
-     * @param \sajari\engine\query\v1\Transform $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\Transform $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function setTransforms(\sajari\engine\query\v1\Transform $value, $idx = NULL){
+    public function setTransforms(\sajariGen\engine\query\v1\Transform $value, $idx = NULL){
       return $this->_set(9, $value, $idx);
     }
     
     /**
      * Get all elements of <transforms>
      *
-     * @return \sajari\engine\query\v1\Transform[]
+     * @return \sajariGen\engine\query\v1\Transform[]
      */
     public function getTransformsList(){
      return $this->_get(9);
@@ -1156,16 +1156,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <transforms>
      *
-     * @param \sajari\engine\query\v1\Transform $value
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @param \sajariGen\engine\query\v1\Transform $value
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
-    public function addTransforms(\sajari\engine\query\v1\Transform $value){
+    public function addTransforms(\sajariGen\engine\query\v1\Transform $value){
      return $this->_add(9, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Transform extends \DrSlump\Protobuf\Message {
 
@@ -1207,7 +1207,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <identifier> value
      *
-     * @return \sajari\engine\query\v1\Transform
+     * @return \sajariGen\engine\query\v1\Transform
      */
     public function clearIdentifier(){
       return $this->_clear(1);
@@ -1226,7 +1226,7 @@ namespace sajari\engine\query\v1 {
      * Set <identifier> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Transform
+     * @return \sajariGen\engine\query\v1\Transform
      */
     public function setIdentifier( $value){
       return $this->_set(1, $value);
@@ -1234,7 +1234,7 @@ namespace sajari\engine\query\v1 {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Term extends \DrSlump\Protobuf\Message {
 
@@ -1342,7 +1342,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearValue(){
       return $this->_clear(1);
@@ -1361,7 +1361,7 @@ namespace sajari\engine\query\v1 {
      * Set <value> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setValue( $value){
       return $this->_set(1, $value);
@@ -1379,7 +1379,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearField(){
       return $this->_clear(2);
@@ -1398,7 +1398,7 @@ namespace sajari\engine\query\v1 {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setField( $value){
       return $this->_set(2, $value);
@@ -1416,7 +1416,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <pos> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearPos(){
       return $this->_clear(3);
@@ -1435,7 +1435,7 @@ namespace sajari\engine\query\v1 {
      * Set <pos> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setPos( $value){
       return $this->_set(3, $value);
@@ -1453,7 +1453,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <neg> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearNeg(){
       return $this->_clear(4);
@@ -1472,7 +1472,7 @@ namespace sajari\engine\query\v1 {
      * Set <neg> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setNeg( $value){
       return $this->_set(4, $value);
@@ -1490,7 +1490,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <weight> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearWeight(){
       return $this->_clear(5);
@@ -1509,7 +1509,7 @@ namespace sajari\engine\query\v1 {
      * Set <weight> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setWeight( $value){
       return $this->_set(5, $value);
@@ -1527,7 +1527,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <word_offset> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearWordOffset(){
       return $this->_clear(6);
@@ -1546,7 +1546,7 @@ namespace sajari\engine\query\v1 {
      * Set <word_offset> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setWordOffset( $value){
       return $this->_set(6, $value);
@@ -1564,7 +1564,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <para_offset> value
      *
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function clearParaOffset(){
       return $this->_clear(7);
@@ -1583,7 +1583,7 @@ namespace sajari\engine\query\v1 {
      * Set <para_offset> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\Term
+     * @return \sajariGen\engine\query\v1\Term
      */
     public function setParaOffset( $value){
       return $this->_set(7, $value);
@@ -1591,7 +1591,7 @@ namespace sajari\engine\query\v1 {
   }
 }
 
-namespace sajari\engine\query\v1\EvaluateRequest {
+namespace sajariGen\engine\query\v1\EvaluateRequest {
 
   class DocumentEntry extends \DrSlump\Protobuf\Message {
 
@@ -1644,7 +1644,7 @@ namespace sajari\engine\query\v1\EvaluateRequest {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -1663,7 +1663,7 @@ namespace sajari\engine\query\v1\EvaluateRequest {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -1681,7 +1681,7 @@ namespace sajari\engine\query\v1\EvaluateRequest {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -1700,7 +1700,7 @@ namespace sajari\engine\query\v1\EvaluateRequest {
      * Set <value> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -1708,14 +1708,14 @@ namespace sajari\engine\query\v1\EvaluateRequest {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class EvaluateRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchRequest */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest */
     public $search_request = null;
     
-    /**  @var \sajari\engine\query\v1\EvaluateRequest\DocumentEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry[]  */
     public $document = array();
     
 
@@ -1732,7 +1732,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "search_request";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE document = 2
@@ -1741,7 +1741,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "document";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\EvaluateRequest\DocumentEntry';
+      $f->reference = '\sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1763,7 +1763,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <search_request> value
      *
-     * @return \sajari\engine\query\v1\EvaluateRequest
+     * @return \sajariGen\engine\query\v1\EvaluateRequest
      */
     public function clearSearchRequest(){
       return $this->_clear(1);
@@ -1772,7 +1772,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <search_request> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function getSearchRequest(){
       return $this->_get(1);
@@ -1781,10 +1781,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <search_request> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest $value
-     * @return \sajari\engine\query\v1\EvaluateRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest $value
+     * @return \sajariGen\engine\query\v1\EvaluateRequest
      */
-    public function setSearchRequest(\sajari\engine\query\v1\SearchRequest $value){
+    public function setSearchRequest(\sajariGen\engine\query\v1\SearchRequest $value){
       return $this->_set(1, $value);
     }
     
@@ -1800,7 +1800,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <document> value
      *
-     * @return \sajari\engine\query\v1\EvaluateRequest
+     * @return \sajariGen\engine\query\v1\EvaluateRequest
      */
     public function clearDocument(){
       return $this->_clear(2);
@@ -1810,7 +1810,7 @@ namespace sajari\engine\query\v1 {
      * Get <document> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry
      */
     public function getDocument($idx = NULL){
       return $this->_get(2, $idx);
@@ -1819,17 +1819,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <document> value
      *
-     * @param \sajari\engine\query\v1\EvaluateRequest\DocumentEntry $value
-     * @return \sajari\engine\query\v1\EvaluateRequest
+     * @param \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry $value
+     * @return \sajariGen\engine\query\v1\EvaluateRequest
      */
-    public function setDocument(\sajari\engine\query\v1\EvaluateRequest\DocumentEntry $value, $idx = NULL){
+    public function setDocument(\sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <document>
      *
-     * @return \sajari\engine\query\v1\EvaluateRequest\DocumentEntry[]
+     * @return \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry[]
      */
     public function getDocumentList(){
      return $this->_get(2);
@@ -1838,16 +1838,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <document>
      *
-     * @param \sajari\engine\query\v1\EvaluateRequest\DocumentEntry $value
-     * @return \sajari\engine\query\v1\EvaluateRequest
+     * @param \sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry $value
+     * @return \sajariGen\engine\query\v1\EvaluateRequest
      */
-    public function addDocument(\sajari\engine\query\v1\EvaluateRequest\DocumentEntry $value){
+    public function addDocument(\sajariGen\engine\query\v1\EvaluateRequest\DocumentEntry $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\SubstituteRequest {
+namespace sajariGen\engine\query\v1\SubstituteRequest {
 
   class DocumentEntry extends \DrSlump\Protobuf\Message {
 
@@ -1900,7 +1900,7 @@ namespace sajari\engine\query\v1\SubstituteRequest {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -1919,7 +1919,7 @@ namespace sajari\engine\query\v1\SubstituteRequest {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -1937,7 +1937,7 @@ namespace sajari\engine\query\v1\SubstituteRequest {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -1956,7 +1956,7 @@ namespace sajari\engine\query\v1\SubstituteRequest {
      * Set <value> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -1964,14 +1964,14 @@ namespace sajari\engine\query\v1\SubstituteRequest {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class SubstituteRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchRequest */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest */
     public $search_request = null;
     
-    /**  @var \sajari\engine\query\v1\SubstituteRequest\DocumentEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry[]  */
     public $document = array();
     
 
@@ -1988,7 +1988,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "search_request";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE document = 2
@@ -1997,7 +1997,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "document";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\SubstituteRequest\DocumentEntry';
+      $f->reference = '\sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2019,7 +2019,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <search_request> value
      *
-     * @return \sajari\engine\query\v1\SubstituteRequest
+     * @return \sajariGen\engine\query\v1\SubstituteRequest
      */
     public function clearSearchRequest(){
       return $this->_clear(1);
@@ -2028,7 +2028,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <search_request> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function getSearchRequest(){
       return $this->_get(1);
@@ -2037,10 +2037,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <search_request> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest $value
-     * @return \sajari\engine\query\v1\SubstituteRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest $value
+     * @return \sajariGen\engine\query\v1\SubstituteRequest
      */
-    public function setSearchRequest(\sajari\engine\query\v1\SearchRequest $value){
+    public function setSearchRequest(\sajariGen\engine\query\v1\SearchRequest $value){
       return $this->_set(1, $value);
     }
     
@@ -2056,7 +2056,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <document> value
      *
-     * @return \sajari\engine\query\v1\SubstituteRequest
+     * @return \sajariGen\engine\query\v1\SubstituteRequest
      */
     public function clearDocument(){
       return $this->_clear(2);
@@ -2066,7 +2066,7 @@ namespace sajari\engine\query\v1 {
      * Get <document> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry
      */
     public function getDocument($idx = NULL){
       return $this->_get(2, $idx);
@@ -2075,17 +2075,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <document> value
      *
-     * @param \sajari\engine\query\v1\SubstituteRequest\DocumentEntry $value
-     * @return \sajari\engine\query\v1\SubstituteRequest
+     * @param \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry $value
+     * @return \sajariGen\engine\query\v1\SubstituteRequest
      */
-    public function setDocument(\sajari\engine\query\v1\SubstituteRequest\DocumentEntry $value, $idx = NULL){
+    public function setDocument(\sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <document>
      *
-     * @return \sajari\engine\query\v1\SubstituteRequest\DocumentEntry[]
+     * @return \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry[]
      */
     public function getDocumentList(){
      return $this->_get(2);
@@ -2094,16 +2094,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <document>
      *
-     * @param \sajari\engine\query\v1\SubstituteRequest\DocumentEntry $value
-     * @return \sajari\engine\query\v1\SubstituteRequest
+     * @param \sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry $value
+     * @return \sajariGen\engine\query\v1\SubstituteRequest
      */
-    public function addDocument(\sajari\engine\query\v1\SubstituteRequest\DocumentEntry $value){
+    public function addDocument(\sajariGen\engine\query\v1\SubstituteRequest\DocumentEntry $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Body extends \DrSlump\Protobuf\Message {
 
@@ -2156,7 +2156,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <text> value
      *
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function clearText(){
       return $this->_clear(1);
@@ -2175,7 +2175,7 @@ namespace sajari\engine\query\v1 {
      * Set <text> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function setText( $value){
       return $this->_set(1, $value);
@@ -2193,7 +2193,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <weight> value
      *
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function clearWeight(){
       return $this->_clear(2);
@@ -2212,7 +2212,7 @@ namespace sajari\engine\query\v1 {
      * Set <weight> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Body
+     * @return \sajariGen\engine\query\v1\Body
      */
     public function setWeight( $value){
       return $this->_set(2, $value);
@@ -2220,7 +2220,7 @@ namespace sajari\engine\query\v1 {
   }
 }
 
-namespace sajari\engine\query\v1\Aggregate\Metric {
+namespace sajariGen\engine\query\v1\Aggregate\Metric {
 
   class Type extends \DrSlump\Protobuf\Enum {
     const AVG = 0;
@@ -2229,14 +2229,14 @@ namespace sajari\engine\query\v1\Aggregate\Metric {
     const SUM = 3;
   }
 }
-namespace sajari\engine\query\v1\Aggregate {
+namespace sajariGen\engine\query\v1\Aggregate {
 
   class Metric extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $field = null;
     
-    /**  @var int - \sajari\engine\query\v1\Aggregate\Metric\Type */
+    /**  @var int - \sajariGen\engine\query\v1\Aggregate\Metric\Type */
     public $type = null;
     
 
@@ -2261,7 +2261,7 @@ namespace sajari\engine\query\v1\Aggregate {
       $f->name      = "type";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Aggregate\Metric\Type';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate\Metric\Type';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2283,7 +2283,7 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Metric
+     * @return \sajariGen\engine\query\v1\Aggregate\Metric
      */
     public function clearField(){
       return $this->_clear(1);
@@ -2302,7 +2302,7 @@ namespace sajari\engine\query\v1\Aggregate {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Aggregate\Metric
+     * @return \sajariGen\engine\query\v1\Aggregate\Metric
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -2320,7 +2320,7 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Clear <type> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Metric
+     * @return \sajariGen\engine\query\v1\Aggregate\Metric
      */
     public function clearType(){
       return $this->_clear(2);
@@ -2329,7 +2329,7 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Get <type> value
      *
-     * @return int - \sajari\engine\query\v1\Aggregate\Metric\Type
+     * @return int - \sajariGen\engine\query\v1\Aggregate\Metric\Type
      */
     public function getType(){
       return $this->_get(2);
@@ -2338,8 +2338,8 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Set <type> value
      *
-     * @param int - \sajari\engine\query\v1\Aggregate\Metric\Type $value
-     * @return \sajari\engine\query\v1\Aggregate\Metric
+     * @param int - \sajariGen\engine\query\v1\Aggregate\Metric\Type $value
+     * @return \sajariGen\engine\query\v1\Aggregate\Metric
      */
     public function setType( $value){
       return $this->_set(2, $value);
@@ -2347,7 +2347,7 @@ namespace sajari\engine\query\v1\Aggregate {
   }
 }
 
-namespace sajari\engine\query\v1\Aggregate {
+namespace sajariGen\engine\query\v1\Aggregate {
 
   class Count extends \DrSlump\Protobuf\Message {
 
@@ -2389,7 +2389,7 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Count
+     * @return \sajariGen\engine\query\v1\Aggregate\Count
      */
     public function clearField(){
       return $this->_clear(1);
@@ -2408,7 +2408,7 @@ namespace sajari\engine\query\v1\Aggregate {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Aggregate\Count
+     * @return \sajariGen\engine\query\v1\Aggregate\Count
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -2416,14 +2416,14 @@ namespace sajari\engine\query\v1\Aggregate {
   }
 }
 
-namespace sajari\engine\query\v1\Aggregate\Bucket {
+namespace sajariGen\engine\query\v1\Aggregate\Bucket {
 
   class Bucket extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $name = null;
     
-    /**  @var \sajari\engine\query\v1\Filter */
+    /**  @var \sajariGen\engine\query\v1\Filter */
     public $filter = null;
     
 
@@ -2448,7 +2448,7 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
       $f->name      = "filter";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter';
+      $f->reference = '\sajariGen\engine\query\v1\Filter';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2470,7 +2470,7 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
     /**
      * Clear <name> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
     public function clearName(){
       return $this->_clear(1);
@@ -2489,7 +2489,7 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
      * Set <name> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
     public function setName( $value){
       return $this->_set(1, $value);
@@ -2507,7 +2507,7 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
     /**
      * Clear <filter> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
     public function clearFilter(){
       return $this->_clear(2);
@@ -2516,7 +2516,7 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
     /**
      * Get <filter> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function getFilter(){
       return $this->_get(2);
@@ -2525,20 +2525,20 @@ namespace sajari\engine\query\v1\Aggregate\Bucket {
     /**
      * Set <filter> value
      *
-     * @param \sajari\engine\query\v1\Filter $value
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @param \sajariGen\engine\query\v1\Filter $value
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
-    public function setFilter(\sajari\engine\query\v1\Filter $value){
+    public function setFilter(\sajariGen\engine\query\v1\Filter $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\Aggregate {
+namespace sajariGen\engine\query\v1\Aggregate {
 
   class Bucket extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Aggregate\Bucket\Bucket[]  */
+    /**  @var \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket[]  */
     public $buckets = array();
     
 
@@ -2555,7 +2555,7 @@ namespace sajari\engine\query\v1\Aggregate {
       $f->name      = "buckets";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Aggregate\Bucket\Bucket';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate\Bucket\Bucket';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2577,7 +2577,7 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Clear <buckets> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket
      */
     public function clearBuckets(){
       return $this->_clear(1);
@@ -2587,7 +2587,7 @@ namespace sajari\engine\query\v1\Aggregate {
      * Get <buckets> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
     public function getBuckets($idx = NULL){
       return $this->_get(1, $idx);
@@ -2596,17 +2596,17 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Set <buckets> value
      *
-     * @param \sajari\engine\query\v1\Aggregate\Bucket\Bucket $value
-     * @return \sajari\engine\query\v1\Aggregate\Bucket
+     * @param \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket $value
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket
      */
-    public function setBuckets(\sajari\engine\query\v1\Aggregate\Bucket\Bucket $value, $idx = NULL){
+    public function setBuckets(\sajariGen\engine\query\v1\Aggregate\Bucket\Bucket $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <buckets>
      *
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket[]
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket[]
      */
     public function getBucketsList(){
      return $this->_get(1);
@@ -2615,26 +2615,26 @@ namespace sajari\engine\query\v1\Aggregate {
     /**
      * Add a new element to <buckets>
      *
-     * @param \sajari\engine\query\v1\Aggregate\Bucket\Bucket $value
-     * @return \sajari\engine\query\v1\Aggregate\Bucket
+     * @param \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket $value
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket
      */
-    public function addBuckets(\sajari\engine\query\v1\Aggregate\Bucket\Bucket $value){
+    public function addBuckets(\sajariGen\engine\query\v1\Aggregate\Bucket\Bucket $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Aggregate extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Aggregate\Metric */
+    /**  @var \sajariGen\engine\query\v1\Aggregate\Metric */
     public $metric = null;
     
-    /**  @var \sajari\engine\query\v1\Aggregate\Count */
+    /**  @var \sajariGen\engine\query\v1\Aggregate\Count */
     public $count = null;
     
-    /**  @var \sajari\engine\query\v1\Aggregate\Bucket */
+    /**  @var \sajariGen\engine\query\v1\Aggregate\Bucket */
     public $bucket = null;
     
 
@@ -2651,7 +2651,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "metric";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Aggregate\Metric';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate\Metric';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE count = 2
@@ -2660,7 +2660,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "count";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Aggregate\Count';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate\Count';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE bucket = 3
@@ -2669,7 +2669,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "bucket";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Aggregate\Bucket';
+      $f->reference = '\sajariGen\engine\query\v1\Aggregate\Bucket';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2691,7 +2691,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <metric> value
      *
-     * @return \sajari\engine\query\v1\Aggregate
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
     public function clearMetric(){
       return $this->_clear(1);
@@ -2700,7 +2700,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <metric> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Metric
+     * @return \sajariGen\engine\query\v1\Aggregate\Metric
      */
     public function getMetric(){
       return $this->_get(1);
@@ -2709,10 +2709,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <metric> value
      *
-     * @param \sajari\engine\query\v1\Aggregate\Metric $value
-     * @return \sajari\engine\query\v1\Aggregate
+     * @param \sajariGen\engine\query\v1\Aggregate\Metric $value
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
-    public function setMetric(\sajari\engine\query\v1\Aggregate\Metric $value){
+    public function setMetric(\sajariGen\engine\query\v1\Aggregate\Metric $value){
       return $this->_set(1, $value);
     }
     
@@ -2728,7 +2728,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <count> value
      *
-     * @return \sajari\engine\query\v1\Aggregate
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
     public function clearCount(){
       return $this->_clear(2);
@@ -2737,7 +2737,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <count> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Count
+     * @return \sajariGen\engine\query\v1\Aggregate\Count
      */
     public function getCount(){
       return $this->_get(2);
@@ -2746,10 +2746,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <count> value
      *
-     * @param \sajari\engine\query\v1\Aggregate\Count $value
-     * @return \sajari\engine\query\v1\Aggregate
+     * @param \sajariGen\engine\query\v1\Aggregate\Count $value
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
-    public function setCount(\sajari\engine\query\v1\Aggregate\Count $value){
+    public function setCount(\sajariGen\engine\query\v1\Aggregate\Count $value){
       return $this->_set(2, $value);
     }
     
@@ -2765,7 +2765,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <bucket> value
      *
-     * @return \sajari\engine\query\v1\Aggregate
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
     public function clearBucket(){
       return $this->_clear(3);
@@ -2774,7 +2774,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <bucket> value
      *
-     * @return \sajari\engine\query\v1\Aggregate\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket
      */
     public function getBucket(){
       return $this->_get(3);
@@ -2783,23 +2783,23 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <bucket> value
      *
-     * @param \sajari\engine\query\v1\Aggregate\Bucket $value
-     * @return \sajari\engine\query\v1\Aggregate
+     * @param \sajariGen\engine\query\v1\Aggregate\Bucket $value
+     * @return \sajariGen\engine\query\v1\Aggregate
      */
-    public function setBucket(\sajari\engine\query\v1\Aggregate\Bucket $value){
+    public function setBucket(\sajariGen\engine\query\v1\Aggregate\Bucket $value){
       return $this->_set(3, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\Sort {
+namespace sajariGen\engine\query\v1\Sort {
 
   class Order extends \DrSlump\Protobuf\Enum {
     const ASC = 0;
     const DESC = 1;
   }
 }
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Sort extends \DrSlump\Protobuf\Message {
 
@@ -2815,7 +2815,7 @@ namespace sajari\engine\query\v1 {
     /**  @var string */
     public $field = null;
     
-    /**  @var int - \sajari\engine\query\v1\Sort\Order */
+    /**  @var int - \sajariGen\engine\query\v1\Sort\Order */
     public $order = null;
     
 
@@ -2864,7 +2864,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "order";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Sort\Order';
+      $f->reference = '\sajariGen\engine\query\v1\Sort\Order';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2886,7 +2886,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <score> value
      *
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function clearScore(){
       return $this->_clear(1);
@@ -2905,7 +2905,7 @@ namespace sajari\engine\query\v1 {
      * Set <score> value
      *
      * @param boolean $value
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function setScore( $value){
       return $this->_set(1, $value);
@@ -2923,7 +2923,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <query_score> value
      *
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function clearQueryScore(){
       return $this->_clear(2);
@@ -2942,7 +2942,7 @@ namespace sajari\engine\query\v1 {
      * Set <query_score> value
      *
      * @param boolean $value
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function setQueryScore( $value){
       return $this->_set(2, $value);
@@ -2960,7 +2960,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <feature_score> value
      *
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function clearFeatureScore(){
       return $this->_clear(3);
@@ -2979,7 +2979,7 @@ namespace sajari\engine\query\v1 {
      * Set <feature_score> value
      *
      * @param boolean $value
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function setFeatureScore( $value){
       return $this->_set(3, $value);
@@ -2997,7 +2997,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function clearField(){
       return $this->_clear(4);
@@ -3016,7 +3016,7 @@ namespace sajari\engine\query\v1 {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function setField( $value){
       return $this->_set(4, $value);
@@ -3034,7 +3034,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <order> value
      *
-     * @return \sajari\engine\query\v1\Sort
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function clearOrder(){
       return $this->_clear(5);
@@ -3043,7 +3043,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <order> value
      *
-     * @return int - \sajari\engine\query\v1\Sort\Order
+     * @return int - \sajariGen\engine\query\v1\Sort\Order
      */
     public function getOrder(){
       return $this->_get(5);
@@ -3052,8 +3052,8 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <order> value
      *
-     * @param int - \sajari\engine\query\v1\Sort\Order $value
-     * @return \sajari\engine\query\v1\Sort
+     * @param int - \sajariGen\engine\query\v1\Sort\Order $value
+     * @return \sajariGen\engine\query\v1\Sort
      */
     public function setOrder( $value){
       return $this->_set(5, $value);
@@ -3061,7 +3061,7 @@ namespace sajari\engine\query\v1 {
   }
 }
 
-namespace sajari\engine\query\v1\Filter\Field {
+namespace sajariGen\engine\query\v1\Filter\Field {
 
   class Operator extends \DrSlump\Protobuf\Enum {
     const EQUAL_TO = 0;
@@ -3076,17 +3076,17 @@ namespace sajari\engine\query\v1\Filter\Field {
     const HAS_PREFIX = 9;
   }
 }
-namespace sajari\engine\query\v1\Filter {
+namespace sajariGen\engine\query\v1\Filter {
 
   class Field extends \DrSlump\Protobuf\Message {
 
-    /**  @var int - \sajari\engine\query\v1\Filter\Field\Operator */
+    /**  @var int - \sajariGen\engine\query\v1\Filter\Field\Operator */
     public $operator = null;
     
     /**  @var string */
     public $field = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $value = null;
     
 
@@ -3103,7 +3103,7 @@ namespace sajari\engine\query\v1\Filter {
       $f->name      = "operator";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Field\Operator';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Field\Operator';
       $descriptor->addField($f);
 
       // OPTIONAL STRING field = 2
@@ -3120,7 +3120,7 @@ namespace sajari\engine\query\v1\Filter {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -3142,7 +3142,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <operator> value
      *
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function clearOperator(){
       return $this->_clear(1);
@@ -3151,7 +3151,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Get <operator> value
      *
-     * @return int - \sajari\engine\query\v1\Filter\Field\Operator
+     * @return int - \sajariGen\engine\query\v1\Filter\Field\Operator
      */
     public function getOperator(){
       return $this->_get(1);
@@ -3160,8 +3160,8 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Set <operator> value
      *
-     * @param int - \sajari\engine\query\v1\Filter\Field\Operator $value
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @param int - \sajariGen\engine\query\v1\Filter\Field\Operator $value
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function setOperator( $value){
       return $this->_set(1, $value);
@@ -3179,7 +3179,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function clearField(){
       return $this->_clear(2);
@@ -3198,7 +3198,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function setField( $value){
       return $this->_set(2, $value);
@@ -3216,7 +3216,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function clearValue(){
       return $this->_clear(3);
@@ -3225,7 +3225,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getValue(){
       return $this->_get(3);
@@ -3234,23 +3234,23 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
-    public function setValue(\sajari\engine\Value $value){
+    public function setValue(\sajariGen\engine\Value $value){
       return $this->_set(3, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\Filter\Geo {
+namespace sajariGen\engine\query\v1\Filter\Geo {
 
   class Region extends \DrSlump\Protobuf\Enum {
     const INSIDE = 0;
     const OUTSIDE = 1;
   }
 }
-namespace sajari\engine\query\v1\Filter {
+namespace sajariGen\engine\query\v1\Filter {
 
   class Geo extends \DrSlump\Protobuf\Message {
 
@@ -3269,7 +3269,7 @@ namespace sajari\engine\query\v1\Filter {
     /**  @var float */
     public $radius = null;
     
-    /**  @var int - \sajari\engine\query\v1\Filter\Geo\Region */
+    /**  @var int - \sajariGen\engine\query\v1\Filter\Geo\Region */
     public $region = null;
     
 
@@ -3326,7 +3326,7 @@ namespace sajari\engine\query\v1\Filter {
       $f->name      = "region";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Geo\Region';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Geo\Region';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -3348,7 +3348,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <field_lat> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearFieldLat(){
       return $this->_clear(1);
@@ -3367,7 +3367,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <field_lat> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setFieldLat( $value){
       return $this->_set(1, $value);
@@ -3385,7 +3385,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <field_lng> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearFieldLng(){
       return $this->_clear(2);
@@ -3404,7 +3404,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <field_lng> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setFieldLng( $value){
       return $this->_set(2, $value);
@@ -3422,7 +3422,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <lat> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearLat(){
       return $this->_clear(3);
@@ -3441,7 +3441,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <lat> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setLat( $value){
       return $this->_set(3, $value);
@@ -3459,7 +3459,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <lng> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearLng(){
       return $this->_clear(4);
@@ -3478,7 +3478,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <lng> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setLng( $value){
       return $this->_set(4, $value);
@@ -3496,7 +3496,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <radius> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearRadius(){
       return $this->_clear(5);
@@ -3515,7 +3515,7 @@ namespace sajari\engine\query\v1\Filter {
      * Set <radius> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setRadius( $value){
       return $this->_set(5, $value);
@@ -3533,7 +3533,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <region> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function clearRegion(){
       return $this->_clear(6);
@@ -3542,7 +3542,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Get <region> value
      *
-     * @return int - \sajari\engine\query\v1\Filter\Geo\Region
+     * @return int - \sajariGen\engine\query\v1\Filter\Geo\Region
      */
     public function getRegion(){
       return $this->_get(6);
@@ -3551,8 +3551,8 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Set <region> value
      *
-     * @param int - \sajari\engine\query\v1\Filter\Geo\Region $value
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @param int - \sajariGen\engine\query\v1\Filter\Geo\Region $value
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function setRegion( $value){
       return $this->_set(6, $value);
@@ -3560,7 +3560,7 @@ namespace sajari\engine\query\v1\Filter {
   }
 }
 
-namespace sajari\engine\query\v1\Filter\Combinator {
+namespace sajariGen\engine\query\v1\Filter\Combinator {
 
   class Operator extends \DrSlump\Protobuf\Enum {
     const ALL = 0;
@@ -3569,14 +3569,14 @@ namespace sajari\engine\query\v1\Filter\Combinator {
     const NONE = 3;
   }
 }
-namespace sajari\engine\query\v1\Filter {
+namespace sajariGen\engine\query\v1\Filter {
 
   class Combinator extends \DrSlump\Protobuf\Message {
 
-    /**  @var int - \sajari\engine\query\v1\Filter\Combinator\Operator */
+    /**  @var int - \sajariGen\engine\query\v1\Filter\Combinator\Operator */
     public $operator = null;
     
-    /**  @var \sajari\engine\query\v1\Filter[]  */
+    /**  @var \sajariGen\engine\query\v1\Filter[]  */
     public $filters = array();
     
 
@@ -3593,7 +3593,7 @@ namespace sajari\engine\query\v1\Filter {
       $f->name      = "operator";
       $f->type      = \DrSlump\Protobuf::TYPE_ENUM;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Combinator\Operator';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Combinator\Operator';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE filters = 2
@@ -3602,7 +3602,7 @@ namespace sajari\engine\query\v1\Filter {
       $f->name      = "filters";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Filter';
+      $f->reference = '\sajariGen\engine\query\v1\Filter';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -3624,7 +3624,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <operator> value
      *
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
     public function clearOperator(){
       return $this->_clear(1);
@@ -3633,7 +3633,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Get <operator> value
      *
-     * @return int - \sajari\engine\query\v1\Filter\Combinator\Operator
+     * @return int - \sajariGen\engine\query\v1\Filter\Combinator\Operator
      */
     public function getOperator(){
       return $this->_get(1);
@@ -3642,8 +3642,8 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Set <operator> value
      *
-     * @param int - \sajari\engine\query\v1\Filter\Combinator\Operator $value
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @param int - \sajariGen\engine\query\v1\Filter\Combinator\Operator $value
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
     public function setOperator( $value){
       return $this->_set(1, $value);
@@ -3661,7 +3661,7 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Clear <filters> value
      *
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
     public function clearFilters(){
       return $this->_clear(2);
@@ -3671,7 +3671,7 @@ namespace sajari\engine\query\v1\Filter {
      * Get <filters> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function getFilters($idx = NULL){
       return $this->_get(2, $idx);
@@ -3680,17 +3680,17 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Set <filters> value
      *
-     * @param \sajari\engine\query\v1\Filter $value
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @param \sajariGen\engine\query\v1\Filter $value
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
-    public function setFilters(\sajari\engine\query\v1\Filter $value, $idx = NULL){
+    public function setFilters(\sajariGen\engine\query\v1\Filter $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <filters>
      *
-     * @return \sajari\engine\query\v1\Filter[]
+     * @return \sajariGen\engine\query\v1\Filter[]
      */
     public function getFiltersList(){
      return $this->_get(2);
@@ -3699,26 +3699,26 @@ namespace sajari\engine\query\v1\Filter {
     /**
      * Add a new element to <filters>
      *
-     * @param \sajari\engine\query\v1\Filter $value
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @param \sajariGen\engine\query\v1\Filter $value
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
-    public function addFilters(\sajari\engine\query\v1\Filter $value){
+    public function addFilters(\sajariGen\engine\query\v1\Filter $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Filter extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Filter\Combinator */
+    /**  @var \sajariGen\engine\query\v1\Filter\Combinator */
     public $combinator = null;
     
-    /**  @var \sajari\engine\query\v1\Filter\Field */
+    /**  @var \sajariGen\engine\query\v1\Filter\Field */
     public $field = null;
     
-    /**  @var \sajari\engine\query\v1\Filter\Geo */
+    /**  @var \sajariGen\engine\query\v1\Filter\Geo */
     public $geo = null;
     
 
@@ -3735,7 +3735,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "combinator";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Combinator';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Combinator';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE field = 2
@@ -3744,7 +3744,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "field";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Field';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Field';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE geo = 3
@@ -3753,7 +3753,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "geo";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter\Geo';
+      $f->reference = '\sajariGen\engine\query\v1\Filter\Geo';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -3775,7 +3775,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <combinator> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function clearCombinator(){
       return $this->_clear(1);
@@ -3784,7 +3784,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <combinator> value
      *
-     * @return \sajari\engine\query\v1\Filter\Combinator
+     * @return \sajariGen\engine\query\v1\Filter\Combinator
      */
     public function getCombinator(){
       return $this->_get(1);
@@ -3793,10 +3793,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <combinator> value
      *
-     * @param \sajari\engine\query\v1\Filter\Combinator $value
-     * @return \sajari\engine\query\v1\Filter
+     * @param \sajariGen\engine\query\v1\Filter\Combinator $value
+     * @return \sajariGen\engine\query\v1\Filter
      */
-    public function setCombinator(\sajari\engine\query\v1\Filter\Combinator $value){
+    public function setCombinator(\sajariGen\engine\query\v1\Filter\Combinator $value){
       return $this->_set(1, $value);
     }
     
@@ -3812,7 +3812,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function clearField(){
       return $this->_clear(2);
@@ -3821,7 +3821,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <field> value
      *
-     * @return \sajari\engine\query\v1\Filter\Field
+     * @return \sajariGen\engine\query\v1\Filter\Field
      */
     public function getField(){
       return $this->_get(2);
@@ -3830,10 +3830,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <field> value
      *
-     * @param \sajari\engine\query\v1\Filter\Field $value
-     * @return \sajari\engine\query\v1\Filter
+     * @param \sajariGen\engine\query\v1\Filter\Field $value
+     * @return \sajariGen\engine\query\v1\Filter
      */
-    public function setField(\sajari\engine\query\v1\Filter\Field $value){
+    public function setField(\sajariGen\engine\query\v1\Filter\Field $value){
       return $this->_set(2, $value);
     }
     
@@ -3849,7 +3849,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <geo> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function clearGeo(){
       return $this->_clear(3);
@@ -3858,7 +3858,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <geo> value
      *
-     * @return \sajari\engine\query\v1\Filter\Geo
+     * @return \sajariGen\engine\query\v1\Filter\Geo
      */
     public function getGeo(){
       return $this->_get(3);
@@ -3867,20 +3867,20 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <geo> value
      *
-     * @param \sajari\engine\query\v1\Filter\Geo $value
-     * @return \sajari\engine\query\v1\Filter
+     * @param \sajariGen\engine\query\v1\Filter\Geo $value
+     * @return \sajariGen\engine\query\v1\Filter
      */
-    public function setGeo(\sajari\engine\query\v1\Filter\Geo $value){
+    public function setGeo(\sajariGen\engine\query\v1\Filter\Geo $value){
       return $this->_set(3, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\FieldBoost {
+namespace sajariGen\engine\query\v1\FieldBoost {
 
   class Filter extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Filter */
+    /**  @var \sajariGen\engine\query\v1\Filter */
     public $filter = null;
     
     /**  @var float */
@@ -3900,7 +3900,7 @@ namespace sajari\engine\query\v1\FieldBoost {
       $f->name      = "filter";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\Filter';
+      $f->reference = '\sajariGen\engine\query\v1\Filter';
       $descriptor->addField($f);
 
       // OPTIONAL DOUBLE value = 2
@@ -3930,7 +3930,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <filter> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Filter
+     * @return \sajariGen\engine\query\v1\FieldBoost\Filter
      */
     public function clearFilter(){
       return $this->_clear(1);
@@ -3939,7 +3939,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Get <filter> value
      *
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function getFilter(){
       return $this->_get(1);
@@ -3948,10 +3948,10 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Set <filter> value
      *
-     * @param \sajari\engine\query\v1\Filter $value
-     * @return \sajari\engine\query\v1\FieldBoost\Filter
+     * @param \sajariGen\engine\query\v1\Filter $value
+     * @return \sajariGen\engine\query\v1\FieldBoost\Filter
      */
-    public function setFilter(\sajari\engine\query\v1\Filter $value){
+    public function setFilter(\sajariGen\engine\query\v1\Filter $value){
       return $this->_set(1, $value);
     }
     
@@ -3967,7 +3967,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Filter
+     * @return \sajariGen\engine\query\v1\FieldBoost\Filter
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -3986,7 +3986,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <value> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\FieldBoost\Filter
+     * @return \sajariGen\engine\query\v1\FieldBoost\Filter
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -3994,7 +3994,7 @@ namespace sajari\engine\query\v1\FieldBoost {
   }
 }
 
-namespace sajari\engine\query\v1\FieldBoost\Interval {
+namespace sajariGen\engine\query\v1\FieldBoost\Interval {
 
   class Point extends \DrSlump\Protobuf\Message {
 
@@ -4047,7 +4047,7 @@ namespace sajari\engine\query\v1\FieldBoost\Interval {
     /**
      * Clear <point> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function clearPoint(){
       return $this->_clear(1);
@@ -4066,7 +4066,7 @@ namespace sajari\engine\query\v1\FieldBoost\Interval {
      * Set <point> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function setPoint( $value){
       return $this->_set(1, $value);
@@ -4084,7 +4084,7 @@ namespace sajari\engine\query\v1\FieldBoost\Interval {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -4103,7 +4103,7 @@ namespace sajari\engine\query\v1\FieldBoost\Interval {
      * Set <value> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -4111,14 +4111,14 @@ namespace sajari\engine\query\v1\FieldBoost\Interval {
   }
 }
 
-namespace sajari\engine\query\v1\FieldBoost {
+namespace sajariGen\engine\query\v1\FieldBoost {
 
   class Interval extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $field = null;
     
-    /**  @var \sajari\engine\query\v1\FieldBoost\Interval\Point[]  */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost\Interval\Point[]  */
     public $points = array();
     
 
@@ -4143,7 +4143,7 @@ namespace sajari\engine\query\v1\FieldBoost {
       $f->name      = "points";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost\Interval\Point';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost\Interval\Point';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -4165,7 +4165,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
     public function clearField(){
       return $this->_clear(1);
@@ -4184,7 +4184,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -4202,7 +4202,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <points> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
     public function clearPoints(){
       return $this->_clear(2);
@@ -4212,7 +4212,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Get <points> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function getPoints($idx = NULL){
       return $this->_get(2, $idx);
@@ -4221,17 +4221,17 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Set <points> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Interval\Point $value
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @param \sajariGen\engine\query\v1\FieldBoost\Interval\Point $value
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
-    public function setPoints(\sajari\engine\query\v1\FieldBoost\Interval\Point $value, $idx = NULL){
+    public function setPoints(\sajariGen\engine\query\v1\FieldBoost\Interval\Point $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <points>
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point[]
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point[]
      */
     public function getPointsList(){
      return $this->_get(2);
@@ -4240,16 +4240,16 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Add a new element to <points>
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Interval\Point $value
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @param \sajariGen\engine\query\v1\FieldBoost\Interval\Point $value
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
-    public function addPoints(\sajari\engine\query\v1\FieldBoost\Interval\Point $value){
+    public function addPoints(\sajariGen\engine\query\v1\FieldBoost\Interval\Point $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\FieldBoost {
+namespace sajariGen\engine\query\v1\FieldBoost {
 
   class Element extends \DrSlump\Protobuf\Message {
 
@@ -4302,7 +4302,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function clearField(){
       return $this->_clear(1);
@@ -4321,7 +4321,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -4339,7 +4339,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <elts> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function clearElts(){
       return $this->_clear(3);
@@ -4359,7 +4359,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <elts> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function setElts( $value, $idx = NULL){
       return $this->_set(3, $value, $idx);
@@ -4378,7 +4378,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Add a new element to <elts>
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function addElts( $value){
      return $this->_add(3, $value);
@@ -4386,7 +4386,7 @@ namespace sajari\engine\query\v1\FieldBoost {
   }
 }
 
-namespace sajari\engine\query\v1\FieldBoost {
+namespace sajariGen\engine\query\v1\FieldBoost {
 
   class Text extends \DrSlump\Protobuf\Message {
 
@@ -4439,7 +4439,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Text
+     * @return \sajariGen\engine\query\v1\FieldBoost\Text
      */
     public function clearField(){
       return $this->_clear(1);
@@ -4458,7 +4458,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Text
+     * @return \sajariGen\engine\query\v1\FieldBoost\Text
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -4476,7 +4476,7 @@ namespace sajari\engine\query\v1\FieldBoost {
     /**
      * Clear <text> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Text
+     * @return \sajariGen\engine\query\v1\FieldBoost\Text
      */
     public function clearText(){
       return $this->_clear(3);
@@ -4495,7 +4495,7 @@ namespace sajari\engine\query\v1\FieldBoost {
      * Set <text> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\FieldBoost\Text
+     * @return \sajariGen\engine\query\v1\FieldBoost\Text
      */
     public function setText( $value){
       return $this->_set(3, $value);
@@ -4503,20 +4503,20 @@ namespace sajari\engine\query\v1\FieldBoost {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class FieldBoost extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\FieldBoost\Filter */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost\Filter */
     public $filter = null;
     
-    /**  @var \sajari\engine\query\v1\FieldBoost\Interval */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost\Interval */
     public $interval = null;
     
-    /**  @var \sajari\engine\query\v1\FieldBoost\Element */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost\Element */
     public $element = null;
     
-    /**  @var \sajari\engine\query\v1\FieldBoost\Text */
+    /**  @var \sajariGen\engine\query\v1\FieldBoost\Text */
     public $text = null;
     
 
@@ -4533,7 +4533,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "filter";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost\Filter';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost\Filter';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE interval = 2
@@ -4542,7 +4542,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "interval";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost\Interval';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost\Interval';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE element = 3
@@ -4551,7 +4551,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "element";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost\Element';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost\Element';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE text = 4
@@ -4560,7 +4560,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "text";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\FieldBoost\Text';
+      $f->reference = '\sajariGen\engine\query\v1\FieldBoost\Text';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -4582,7 +4582,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <filter> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function clearFilter(){
       return $this->_clear(1);
@@ -4591,7 +4591,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <filter> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Filter
+     * @return \sajariGen\engine\query\v1\FieldBoost\Filter
      */
     public function getFilter(){
       return $this->_get(1);
@@ -4600,10 +4600,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <filter> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Filter $value
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @param \sajariGen\engine\query\v1\FieldBoost\Filter $value
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
-    public function setFilter(\sajari\engine\query\v1\FieldBoost\Filter $value){
+    public function setFilter(\sajariGen\engine\query\v1\FieldBoost\Filter $value){
       return $this->_set(1, $value);
     }
     
@@ -4619,7 +4619,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <interval> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function clearInterval(){
       return $this->_clear(2);
@@ -4628,7 +4628,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <interval> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Interval
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval
      */
     public function getInterval(){
       return $this->_get(2);
@@ -4637,10 +4637,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <interval> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Interval $value
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @param \sajariGen\engine\query\v1\FieldBoost\Interval $value
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
-    public function setInterval(\sajari\engine\query\v1\FieldBoost\Interval $value){
+    public function setInterval(\sajariGen\engine\query\v1\FieldBoost\Interval $value){
       return $this->_set(2, $value);
     }
     
@@ -4656,7 +4656,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <element> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function clearElement(){
       return $this->_clear(3);
@@ -4665,7 +4665,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <element> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Element
+     * @return \sajariGen\engine\query\v1\FieldBoost\Element
      */
     public function getElement(){
       return $this->_get(3);
@@ -4674,10 +4674,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <element> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Element $value
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @param \sajariGen\engine\query\v1\FieldBoost\Element $value
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
-    public function setElement(\sajari\engine\query\v1\FieldBoost\Element $value){
+    public function setElement(\sajariGen\engine\query\v1\FieldBoost\Element $value){
       return $this->_set(3, $value);
     }
     
@@ -4693,7 +4693,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <text> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function clearText(){
       return $this->_clear(4);
@@ -4702,7 +4702,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <text> value
      *
-     * @return \sajari\engine\query\v1\FieldBoost\Text
+     * @return \sajariGen\engine\query\v1\FieldBoost\Text
      */
     public function getText(){
       return $this->_get(4);
@@ -4711,16 +4711,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <text> value
      *
-     * @param \sajari\engine\query\v1\FieldBoost\Text $value
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @param \sajariGen\engine\query\v1\FieldBoost\Text $value
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
-    public function setText(\sajari\engine\query\v1\FieldBoost\Text $value){
+    public function setText(\sajariGen\engine\query\v1\FieldBoost\Text $value){
       return $this->_set(4, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\InstanceBoost {
+namespace sajariGen\engine\query\v1\InstanceBoost {
 
   class Field extends \DrSlump\Protobuf\Message {
 
@@ -4773,7 +4773,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Field
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Field
      */
     public function clearField(){
       return $this->_clear(1);
@@ -4792,7 +4792,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\InstanceBoost\Field
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Field
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -4810,7 +4810,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Field
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Field
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -4829,7 +4829,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
      * Set <value> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\InstanceBoost\Field
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Field
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -4837,7 +4837,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
   }
 }
 
-namespace sajari\engine\query\v1\InstanceBoost {
+namespace sajariGen\engine\query\v1\InstanceBoost {
 
   class Score extends \DrSlump\Protobuf\Message {
 
@@ -4890,7 +4890,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
     /**
      * Clear <threshold> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Score
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Score
      */
     public function clearThreshold(){
       return $this->_clear(1);
@@ -4909,7 +4909,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
      * Set <threshold> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\InstanceBoost\Score
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Score
      */
     public function setThreshold( $value){
       return $this->_set(1, $value);
@@ -4927,7 +4927,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
     /**
      * Clear <min_count> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Score
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Score
      */
     public function clearMinCount(){
       return $this->_clear(2);
@@ -4946,7 +4946,7 @@ namespace sajari\engine\query\v1\InstanceBoost {
      * Set <min_count> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\InstanceBoost\Score
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Score
      */
     public function setMinCount( $value){
       return $this->_set(2, $value);
@@ -4954,14 +4954,14 @@ namespace sajari\engine\query\v1\InstanceBoost {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class InstanceBoost extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\InstanceBoost\Field */
+    /**  @var \sajariGen\engine\query\v1\InstanceBoost\Field */
     public $field = null;
     
-    /**  @var \sajari\engine\query\v1\InstanceBoost\Score */
+    /**  @var \sajariGen\engine\query\v1\InstanceBoost\Score */
     public $score = null;
     
 
@@ -4978,7 +4978,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "field";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\InstanceBoost\Field';
+      $f->reference = '\sajariGen\engine\query\v1\InstanceBoost\Field';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE score = 2
@@ -4987,7 +4987,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "score";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\InstanceBoost\Score';
+      $f->reference = '\sajariGen\engine\query\v1\InstanceBoost\Score';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5009,7 +5009,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
     public function clearField(){
       return $this->_clear(1);
@@ -5018,7 +5018,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <field> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Field
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Field
      */
     public function getField(){
       return $this->_get(1);
@@ -5027,10 +5027,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <field> value
      *
-     * @param \sajari\engine\query\v1\InstanceBoost\Field $value
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @param \sajariGen\engine\query\v1\InstanceBoost\Field $value
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
-    public function setField(\sajari\engine\query\v1\InstanceBoost\Field $value){
+    public function setField(\sajariGen\engine\query\v1\InstanceBoost\Field $value){
       return $this->_set(1, $value);
     }
     
@@ -5046,7 +5046,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <score> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
     public function clearScore(){
       return $this->_clear(2);
@@ -5055,7 +5055,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <score> value
      *
-     * @return \sajari\engine\query\v1\InstanceBoost\Score
+     * @return \sajariGen\engine\query\v1\InstanceBoost\Score
      */
     public function getScore(){
       return $this->_get(2);
@@ -5064,16 +5064,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <score> value
      *
-     * @param \sajari\engine\query\v1\InstanceBoost\Score $value
-     * @return \sajari\engine\query\v1\InstanceBoost
+     * @param \sajariGen\engine\query\v1\InstanceBoost\Score $value
+     * @return \sajariGen\engine\query\v1\InstanceBoost
      */
-    public function setScore(\sajari\engine\query\v1\InstanceBoost\Score $value){
+    public function setScore(\sajariGen\engine\query\v1\InstanceBoost\Score $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse {
+namespace sajariGen\engine\query\v1\AggregateResponse {
 
   class Metric extends \DrSlump\Protobuf\Message {
 
@@ -5115,7 +5115,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Metric
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Metric
      */
     public function clearValue(){
       return $this->_clear(1);
@@ -5134,7 +5134,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
      * Set <value> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Metric
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Metric
      */
     public function setValue( $value){
       return $this->_set(1, $value);
@@ -5142,7 +5142,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse\Count {
+namespace sajariGen\engine\query\v1\AggregateResponse\Count {
 
   class CountsEntry extends \DrSlump\Protobuf\Message {
 
@@ -5195,7 +5195,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Count {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -5214,7 +5214,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Count {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -5232,7 +5232,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Count {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -5251,7 +5251,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Count {
      * Set <value> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry
      */
     public function setValue( $value){
       return $this->_set(2, $value);
@@ -5259,11 +5259,11 @@ namespace sajari\engine\query\v1\AggregateResponse\Count {
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse {
+namespace sajariGen\engine\query\v1\AggregateResponse {
 
   class Count extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry[]  */
     public $counts = array();
     
 
@@ -5280,7 +5280,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
       $f->name      = "counts";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Count\CountsEntry';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5302,7 +5302,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Clear <counts> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Count
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count
      */
     public function clearCounts(){
       return $this->_clear(1);
@@ -5312,7 +5312,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
      * Get <counts> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry
      */
     public function getCounts($idx = NULL){
       return $this->_get(1, $idx);
@@ -5321,17 +5321,17 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Set <counts> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Count
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count
      */
-    public function setCounts(\sajari\engine\query\v1\AggregateResponse\Count\CountsEntry $value, $idx = NULL){
+    public function setCounts(\sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <counts>
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry[]
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry[]
      */
     public function getCountsList(){
      return $this->_get(1);
@@ -5340,16 +5340,16 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Add a new element to <counts>
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Count\CountsEntry $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Count
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count
      */
-    public function addCounts(\sajari\engine\query\v1\AggregateResponse\Count\CountsEntry $value){
+    public function addCounts(\sajariGen\engine\query\v1\AggregateResponse\Count\CountsEntry $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse\Buckets {
+namespace sajariGen\engine\query\v1\AggregateResponse\Buckets {
 
   class Bucket extends \DrSlump\Protobuf\Message {
 
@@ -5402,7 +5402,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Clear <name> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket
      */
     public function clearName(){
       return $this->_clear(1);
@@ -5421,7 +5421,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
      * Set <name> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket
      */
     public function setName( $value){
       return $this->_set(1, $value);
@@ -5439,7 +5439,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Clear <count> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket
      */
     public function clearCount(){
       return $this->_clear(2);
@@ -5458,7 +5458,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
      * Set <count> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket
      */
     public function setCount( $value){
       return $this->_set(2, $value);
@@ -5466,14 +5466,14 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse\Buckets {
+namespace sajariGen\engine\query\v1\AggregateResponse\Buckets {
 
   class BucketsEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket */
     public $value = null;
     
 
@@ -5498,7 +5498,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Buckets\Bucket';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5520,7 +5520,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -5539,7 +5539,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -5557,7 +5557,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -5566,7 +5566,7 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket
      */
     public function getValue(){
       return $this->_get(2);
@@ -5575,20 +5575,20 @@ namespace sajari\engine\query\v1\AggregateResponse\Buckets {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Buckets\Bucket $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
      */
-    public function setValue(\sajari\engine\query\v1\AggregateResponse\Buckets\Bucket $value){
+    public function setValue(\sajariGen\engine\query\v1\AggregateResponse\Buckets\Bucket $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\AggregateResponse {
+namespace sajariGen\engine\query\v1\AggregateResponse {
 
   class Buckets extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry[]  */
     public $buckets = array();
     
 
@@ -5605,7 +5605,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
       $f->name      = "buckets";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5627,7 +5627,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Clear <buckets> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets
      */
     public function clearBuckets(){
       return $this->_clear(1);
@@ -5637,7 +5637,7 @@ namespace sajari\engine\query\v1\AggregateResponse {
      * Get <buckets> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry
      */
     public function getBuckets($idx = NULL){
       return $this->_get(1, $idx);
@@ -5646,17 +5646,17 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Set <buckets> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets
      */
-    public function setBuckets(\sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value, $idx = NULL){
+    public function setBuckets(\sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <buckets>
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry[]
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry[]
      */
     public function getBucketsList(){
      return $this->_get(1);
@@ -5665,26 +5665,26 @@ namespace sajari\engine\query\v1\AggregateResponse {
     /**
      * Add a new element to <buckets>
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets
      */
-    public function addBuckets(\sajari\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value){
+    public function addBuckets(\sajariGen\engine\query\v1\AggregateResponse\Buckets\BucketsEntry $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class AggregateResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Metric */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Metric */
     public $metric = null;
     
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Count */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Count */
     public $count = null;
     
-    /**  @var \sajari\engine\query\v1\AggregateResponse\Buckets */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse\Buckets */
     public $buckets = null;
     
 
@@ -5701,7 +5701,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "metric";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Metric';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Metric';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE count = 2
@@ -5710,7 +5710,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "count";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Count';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Count';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE buckets = 3
@@ -5719,7 +5719,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "buckets";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse\Buckets';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse\Buckets';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5741,7 +5741,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <metric> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
     public function clearMetric(){
       return $this->_clear(1);
@@ -5750,7 +5750,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <metric> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Metric
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Metric
      */
     public function getMetric(){
       return $this->_get(1);
@@ -5759,10 +5759,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <metric> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Metric $value
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Metric $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
-    public function setMetric(\sajari\engine\query\v1\AggregateResponse\Metric $value){
+    public function setMetric(\sajariGen\engine\query\v1\AggregateResponse\Metric $value){
       return $this->_set(1, $value);
     }
     
@@ -5778,7 +5778,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <count> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
     public function clearCount(){
       return $this->_clear(2);
@@ -5787,7 +5787,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <count> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Count
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Count
      */
     public function getCount(){
       return $this->_get(2);
@@ -5796,10 +5796,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <count> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Count $value
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Count $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
-    public function setCount(\sajari\engine\query\v1\AggregateResponse\Count $value){
+    public function setCount(\sajariGen\engine\query\v1\AggregateResponse\Count $value){
       return $this->_set(2, $value);
     }
     
@@ -5815,7 +5815,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <buckets> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
     public function clearBuckets(){
       return $this->_clear(3);
@@ -5824,7 +5824,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <buckets> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse\Buckets
+     * @return \sajariGen\engine\query\v1\AggregateResponse\Buckets
      */
     public function getBuckets(){
       return $this->_get(3);
@@ -5833,23 +5833,23 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <buckets> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse\Buckets $value
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @param \sajariGen\engine\query\v1\AggregateResponse\Buckets $value
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
-    public function setBuckets(\sajari\engine\query\v1\AggregateResponse\Buckets $value){
+    public function setBuckets(\sajariGen\engine\query\v1\AggregateResponse\Buckets $value){
       return $this->_set(3, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\SearchResponse {
+namespace sajariGen\engine\query\v1\SearchResponse {
 
   class AggregatesEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\query\v1\AggregateResponse */
+    /**  @var \sajariGen\engine\query\v1\AggregateResponse */
     public $value = null;
     
 
@@ -5874,7 +5874,7 @@ namespace sajari\engine\query\v1\SearchResponse {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\AggregateResponse';
+      $f->reference = '\sajariGen\engine\query\v1\AggregateResponse';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -5896,7 +5896,7 @@ namespace sajari\engine\query\v1\SearchResponse {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -5915,7 +5915,7 @@ namespace sajari\engine\query\v1\SearchResponse {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -5933,7 +5933,7 @@ namespace sajari\engine\query\v1\SearchResponse {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -5942,7 +5942,7 @@ namespace sajari\engine\query\v1\SearchResponse {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\query\v1\AggregateResponse
+     * @return \sajariGen\engine\query\v1\AggregateResponse
      */
     public function getValue(){
       return $this->_get(2);
@@ -5951,16 +5951,16 @@ namespace sajari\engine\query\v1\SearchResponse {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\query\v1\AggregateResponse $value
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry
+     * @param \sajariGen\engine\query\v1\AggregateResponse $value
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry
      */
-    public function setValue(\sajari\engine\query\v1\AggregateResponse $value){
+    public function setValue(\sajariGen\engine\query\v1\AggregateResponse $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class SearchResponse extends \DrSlump\Protobuf\Message {
 
@@ -5973,10 +5973,10 @@ namespace sajari\engine\query\v1 {
     /**  @var string */
     public $time = null;
     
-    /**  @var \sajari\engine\query\v1\SearchResponse\AggregatesEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry[]  */
     public $aggregates = array();
     
-    /**  @var \sajari\engine\query\v1\Result[]  */
+    /**  @var \sajariGen\engine\query\v1\Result[]  */
     public $results = array();
     
 
@@ -6017,7 +6017,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "aggregates";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\SearchResponse\AggregatesEntry';
+      $f->reference = '\sajariGen\engine\query\v1\SearchResponse\AggregatesEntry';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE results = 5
@@ -6026,7 +6026,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "results";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Result';
+      $f->reference = '\sajariGen\engine\query\v1\Result';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -6048,7 +6048,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <reads> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function clearReads(){
       return $this->_clear(1);
@@ -6067,7 +6067,7 @@ namespace sajari\engine\query\v1 {
      * Set <reads> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function setReads( $value){
       return $this->_set(1, $value);
@@ -6085,7 +6085,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <total_results> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function clearTotalResults(){
       return $this->_clear(2);
@@ -6104,7 +6104,7 @@ namespace sajari\engine\query\v1 {
      * Set <total_results> value
      *
      * @param int $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function setTotalResults( $value){
       return $this->_set(2, $value);
@@ -6122,7 +6122,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <time> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function clearTime(){
       return $this->_clear(3);
@@ -6141,7 +6141,7 @@ namespace sajari\engine\query\v1 {
      * Set <time> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function setTime( $value){
       return $this->_set(3, $value);
@@ -6159,7 +6159,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <aggregates> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function clearAggregates(){
       return $this->_clear(4);
@@ -6169,7 +6169,7 @@ namespace sajari\engine\query\v1 {
      * Get <aggregates> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry
      */
     public function getAggregates($idx = NULL){
       return $this->_get(4, $idx);
@@ -6178,17 +6178,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <aggregates> value
      *
-     * @param \sajari\engine\query\v1\SearchResponse\AggregatesEntry $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry $value
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
-    public function setAggregates(\sajari\engine\query\v1\SearchResponse\AggregatesEntry $value, $idx = NULL){
+    public function setAggregates(\sajariGen\engine\query\v1\SearchResponse\AggregatesEntry $value, $idx = NULL){
       return $this->_set(4, $value, $idx);
     }
     
     /**
      * Get all elements of <aggregates>
      *
-     * @return \sajari\engine\query\v1\SearchResponse\AggregatesEntry[]
+     * @return \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry[]
      */
     public function getAggregatesList(){
      return $this->_get(4);
@@ -6197,10 +6197,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <aggregates>
      *
-     * @param \sajari\engine\query\v1\SearchResponse\AggregatesEntry $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\SearchResponse\AggregatesEntry $value
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
-    public function addAggregates(\sajari\engine\query\v1\SearchResponse\AggregatesEntry $value){
+    public function addAggregates(\sajariGen\engine\query\v1\SearchResponse\AggregatesEntry $value){
      return $this->_add(4, $value);
     }
     
@@ -6216,7 +6216,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <results> value
      *
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
     public function clearResults(){
       return $this->_clear(5);
@@ -6226,7 +6226,7 @@ namespace sajari\engine\query\v1 {
      * Get <results> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function getResults($idx = NULL){
       return $this->_get(5, $idx);
@@ -6235,17 +6235,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <results> value
      *
-     * @param \sajari\engine\query\v1\Result $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\Result $value
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
-    public function setResults(\sajari\engine\query\v1\Result $value, $idx = NULL){
+    public function setResults(\sajariGen\engine\query\v1\Result $value, $idx = NULL){
       return $this->_set(5, $value, $idx);
     }
     
     /**
      * Get all elements of <results>
      *
-     * @return \sajari\engine\query\v1\Result[]
+     * @return \sajariGen\engine\query\v1\Result[]
      */
     public function getResultsList(){
      return $this->_get(5);
@@ -6254,23 +6254,23 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <results>
      *
-     * @param \sajari\engine\query\v1\Result $value
-     * @return \sajari\engine\query\v1\SearchResponse
+     * @param \sajariGen\engine\query\v1\Result $value
+     * @return \sajariGen\engine\query\v1\SearchResponse
      */
-    public function addResults(\sajari\engine\query\v1\Result $value){
+    public function addResults(\sajariGen\engine\query\v1\Result $value){
      return $this->_add(5, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\Result {
+namespace sajariGen\engine\query\v1\Result {
 
   class ValuesEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $value = null;
     
 
@@ -6295,7 +6295,7 @@ namespace sajari\engine\query\v1\Result {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -6317,7 +6317,7 @@ namespace sajari\engine\query\v1\Result {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\query\v1\Result\ValuesEntry
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -6336,7 +6336,7 @@ namespace sajari\engine\query\v1\Result {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\Result\ValuesEntry
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -6354,7 +6354,7 @@ namespace sajari\engine\query\v1\Result {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\query\v1\Result\ValuesEntry
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -6363,7 +6363,7 @@ namespace sajari\engine\query\v1\Result {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getValue(){
       return $this->_get(2);
@@ -6372,20 +6372,20 @@ namespace sajari\engine\query\v1\Result {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\query\v1\Result\ValuesEntry
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry
      */
-    public function setValue(\sajari\engine\Value $value){
+    public function setValue(\sajariGen\engine\Value $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class Result extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\Result\ValuesEntry[]  */
+    /**  @var \sajariGen\engine\query\v1\Result\ValuesEntry[]  */
     public $values = array();
     
     /**  @var float */
@@ -6408,7 +6408,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "values";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\Result\ValuesEntry';
+      $f->reference = '\sajariGen\engine\query\v1\Result\ValuesEntry';
       $descriptor->addField($f);
 
       // OPTIONAL DOUBLE score = 2
@@ -6446,7 +6446,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <values> value
      *
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function clearValues(){
       return $this->_clear(1);
@@ -6456,7 +6456,7 @@ namespace sajari\engine\query\v1 {
      * Get <values> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\Result\ValuesEntry
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry
      */
     public function getValues($idx = NULL){
       return $this->_get(1, $idx);
@@ -6465,17 +6465,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <values> value
      *
-     * @param \sajari\engine\query\v1\Result\ValuesEntry $value
-     * @return \sajari\engine\query\v1\Result
+     * @param \sajariGen\engine\query\v1\Result\ValuesEntry $value
+     * @return \sajariGen\engine\query\v1\Result
      */
-    public function setValues(\sajari\engine\query\v1\Result\ValuesEntry $value, $idx = NULL){
+    public function setValues(\sajariGen\engine\query\v1\Result\ValuesEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <values>
      *
-     * @return \sajari\engine\query\v1\Result\ValuesEntry[]
+     * @return \sajariGen\engine\query\v1\Result\ValuesEntry[]
      */
     public function getValuesList(){
      return $this->_get(1);
@@ -6484,10 +6484,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <values>
      *
-     * @param \sajari\engine\query\v1\Result\ValuesEntry $value
-     * @return \sajari\engine\query\v1\Result
+     * @param \sajariGen\engine\query\v1\Result\ValuesEntry $value
+     * @return \sajariGen\engine\query\v1\Result
      */
-    public function addValues(\sajari\engine\query\v1\Result\ValuesEntry $value){
+    public function addValues(\sajariGen\engine\query\v1\Result\ValuesEntry $value){
      return $this->_add(1, $value);
     }
     
@@ -6503,7 +6503,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <score> value
      *
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function clearScore(){
       return $this->_clear(2);
@@ -6522,7 +6522,7 @@ namespace sajari\engine\query\v1 {
      * Set <score> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function setScore( $value){
       return $this->_set(2, $value);
@@ -6540,7 +6540,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <index_score> value
      *
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function clearIndexScore(){
       return $this->_clear(3);
@@ -6559,7 +6559,7 @@ namespace sajari\engine\query\v1 {
      * Set <index_score> value
      *
      * @param float $value
-     * @return \sajari\engine\query\v1\Result
+     * @return \sajariGen\engine\query\v1\Result
      */
     public function setIndexScore( $value){
       return $this->_set(3, $value);
@@ -6567,14 +6567,14 @@ namespace sajari\engine\query\v1 {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class AnalyseRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\SearchRequest */
+    /**  @var \sajariGen\engine\query\v1\SearchRequest */
     public $search_request = null;
     
-    /**  @var \sajari\engine\Key[]  */
+    /**  @var \sajariGen\engine\Key[]  */
     public $keys = array();
     
 
@@ -6591,7 +6591,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "search_request";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\query\v1\SearchRequest';
+      $f->reference = '\sajariGen\engine\query\v1\SearchRequest';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE keys = 2
@@ -6600,7 +6600,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "keys";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Key';
+      $f->reference = '\sajariGen\engine\Key';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -6622,7 +6622,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <search_request> value
      *
-     * @return \sajari\engine\query\v1\AnalyseRequest
+     * @return \sajariGen\engine\query\v1\AnalyseRequest
      */
     public function clearSearchRequest(){
       return $this->_clear(1);
@@ -6631,7 +6631,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Get <search_request> value
      *
-     * @return \sajari\engine\query\v1\SearchRequest
+     * @return \sajariGen\engine\query\v1\SearchRequest
      */
     public function getSearchRequest(){
       return $this->_get(1);
@@ -6640,10 +6640,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <search_request> value
      *
-     * @param \sajari\engine\query\v1\SearchRequest $value
-     * @return \sajari\engine\query\v1\AnalyseRequest
+     * @param \sajariGen\engine\query\v1\SearchRequest $value
+     * @return \sajariGen\engine\query\v1\AnalyseRequest
      */
-    public function setSearchRequest(\sajari\engine\query\v1\SearchRequest $value){
+    public function setSearchRequest(\sajariGen\engine\query\v1\SearchRequest $value){
       return $this->_set(1, $value);
     }
     
@@ -6659,7 +6659,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <keys> value
      *
-     * @return \sajari\engine\query\v1\AnalyseRequest
+     * @return \sajariGen\engine\query\v1\AnalyseRequest
      */
     public function clearKeys(){
       return $this->_clear(2);
@@ -6669,7 +6669,7 @@ namespace sajari\engine\query\v1 {
      * Get <keys> value
      *
      * @param int $idx
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function getKeys($idx = NULL){
       return $this->_get(2, $idx);
@@ -6678,17 +6678,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <keys> value
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\query\v1\AnalyseRequest
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\query\v1\AnalyseRequest
      */
-    public function setKeys(\sajari\engine\Key $value, $idx = NULL){
+    public function setKeys(\sajariGen\engine\Key $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <keys>
      *
-     * @return \sajari\engine\Key[]
+     * @return \sajariGen\engine\Key[]
      */
     public function getKeysList(){
      return $this->_get(2);
@@ -6697,16 +6697,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <keys>
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\query\v1\AnalyseRequest
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\query\v1\AnalyseRequest
      */
-    public function addKeys(\sajari\engine\Key $value){
+    public function addKeys(\sajariGen\engine\Key $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1\AnalyseResponse {
+namespace sajariGen\engine\query\v1\AnalyseResponse {
 
   class Terms extends \DrSlump\Protobuf\Message {
 
@@ -6748,7 +6748,7 @@ namespace sajari\engine\query\v1\AnalyseResponse {
     /**
      * Clear <terms> value
      *
-     * @return \sajari\engine\query\v1\AnalyseResponse\Terms
+     * @return \sajariGen\engine\query\v1\AnalyseResponse\Terms
      */
     public function clearTerms(){
       return $this->_clear(1);
@@ -6768,7 +6768,7 @@ namespace sajari\engine\query\v1\AnalyseResponse {
      * Set <terms> value
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\AnalyseResponse\Terms
+     * @return \sajariGen\engine\query\v1\AnalyseResponse\Terms
      */
     public function setTerms( $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
@@ -6787,7 +6787,7 @@ namespace sajari\engine\query\v1\AnalyseResponse {
      * Add a new element to <terms>
      *
      * @param string $value
-     * @return \sajari\engine\query\v1\AnalyseResponse\Terms
+     * @return \sajariGen\engine\query\v1\AnalyseResponse\Terms
      */
     public function addTerms( $value){
      return $this->_add(1, $value);
@@ -6795,14 +6795,14 @@ namespace sajari\engine\query\v1\AnalyseResponse {
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class AnalyseResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\query\v1\AnalyseResponse\Terms[]  */
+    /**  @var \sajariGen\engine\query\v1\AnalyseResponse\Terms[]  */
     public $terms = array();
     
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -6819,7 +6819,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "terms";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\query\v1\AnalyseResponse\Terms';
+      $f->reference = '\sajariGen\engine\query\v1\AnalyseResponse\Terms';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE status = 2
@@ -6828,7 +6828,7 @@ namespace sajari\engine\query\v1 {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -6850,7 +6850,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <terms> value
      *
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
     public function clearTerms(){
       return $this->_clear(1);
@@ -6860,7 +6860,7 @@ namespace sajari\engine\query\v1 {
      * Get <terms> value
      *
      * @param int $idx
-     * @return \sajari\engine\query\v1\AnalyseResponse\Terms
+     * @return \sajariGen\engine\query\v1\AnalyseResponse\Terms
      */
     public function getTerms($idx = NULL){
       return $this->_get(1, $idx);
@@ -6869,17 +6869,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <terms> value
      *
-     * @param \sajari\engine\query\v1\AnalyseResponse\Terms $value
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @param \sajariGen\engine\query\v1\AnalyseResponse\Terms $value
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
-    public function setTerms(\sajari\engine\query\v1\AnalyseResponse\Terms $value, $idx = NULL){
+    public function setTerms(\sajariGen\engine\query\v1\AnalyseResponse\Terms $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <terms>
      *
-     * @return \sajari\engine\query\v1\AnalyseResponse\Terms[]
+     * @return \sajariGen\engine\query\v1\AnalyseResponse\Terms[]
      */
     public function getTermsList(){
      return $this->_get(1);
@@ -6888,10 +6888,10 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <terms>
      *
-     * @param \sajari\engine\query\v1\AnalyseResponse\Terms $value
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @param \sajariGen\engine\query\v1\AnalyseResponse\Terms $value
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
-    public function addTerms(\sajari\engine\query\v1\AnalyseResponse\Terms $value){
+    public function addTerms(\sajariGen\engine\query\v1\AnalyseResponse\Terms $value){
      return $this->_add(1, $value);
     }
     
@@ -6907,7 +6907,7 @@ namespace sajari\engine\query\v1 {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
     public function clearStatus(){
       return $this->_clear(2);
@@ -6917,7 +6917,7 @@ namespace sajari\engine\query\v1 {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
@@ -6926,17 +6926,17 @@ namespace sajari\engine\query\v1 {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(2);
@@ -6945,16 +6945,16 @@ namespace sajari\engine\query\v1 {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\query\v1\AnalyseResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\query\v1\AnalyseResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\query\v1 {
+namespace sajariGen\engine\query\v1 {
 
   class QueryClient extends \Grpc\BaseStub {
 
@@ -6962,28 +6962,28 @@ namespace sajari\engine\query\v1 {
       parent::__construct($hostname, $opts, $channel);
     }
     /**
-     * @param sajari\engine\query\v1\SearchRequest $input
+     * @param sajariGen\engine\query\v1\SearchRequest $input
      */
-    public function Search(\sajari\engine\query\v1\SearchRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Query', $argument, '\sajari\engine\query\v1\SearchResponse::deserialize', $metadata, $options);
+    public function Search(\sajariGen\engine\query\v1\SearchRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Query', $argument, '\sajariGen\engine\query\v1\SearchResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\query\v1\EvaluateRequest $input
+     * @param sajariGen\engine\query\v1\EvaluateRequest $input
      */
-    public function Evaluate(\sajari\engine\query\v1\EvaluateRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Evaluate', $argument, '\sajari\engine\query\v1\SearchResponse::deserialize', $metadata, $options);
+    public function Evaluate(\sajariGen\engine\query\v1\EvaluateRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Evaluate', $argument, '\sajariGen\engine\query\v1\SearchResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\query\v1\SubstituteRequest $input
+     * @param sajariGen\engine\query\v1\SubstituteRequest $input
      */
-    public function Substitute(\sajari\engine\query\v1\SubstituteRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Substitute', $argument, '\sajari\engine\query\v1\SearchRequest::deserialize', $metadata, $options);
+    public function Substitute(\sajariGen\engine\query\v1\SubstituteRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Substitute', $argument, '\sajariGen\engine\query\v1\SearchRequest::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\query\v1\AnalyseRequest $input
+     * @param sajariGen\engine\query\v1\AnalyseRequest $input
      */
-    public function Analyse(\sajari\engine\query\v1\AnalyseRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Analyse', $argument, '\sajari\engine\query\v1\AnalyseResponse::deserialize', $metadata, $options);
+    public function Analyse(\sajariGen\engine\query\v1\AnalyseRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.query.v1.Query/Analyse', $argument, '\sajariGen\engine\query\v1\AnalyseResponse::deserialize', $metadata, $options);
     }
   }
 }

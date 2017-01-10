@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Schema;
+namespace Sajari\Engine;
 
 interface Proto
 {

@@ -17,10 +17,10 @@ class Response
     }
 
     /**
-     * @param \sajari\engine\schema\Response $response
+     * @param \sajariGen\engine\schema\Response $response
      * @return Response
      */
-    public static function FromProto(\sajari\engine\schema\Response $response)
+    public static function FromProto(\sajariGen\engine\schema\Response $response)
     {
         $statuses = [];
         foreach ($response->getStatusList() as $status) {

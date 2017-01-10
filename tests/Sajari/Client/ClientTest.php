@@ -2,7 +2,7 @@
 
 namespace Sajari\Client;
 
-class MockQueryClient extends \sajari\api\query\v1\QueryClient
+class MockQueryClient extends \sajariGen\api\query\v1\QueryClient
 {
     public function __construct()
     {
@@ -55,26 +55,31 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $mockQueryClient = new MockQueryClient();
 
-        $response = new \sajari\engine\store\record\DeleteResponse();
-        $status = new \sajari\engine\Status();
+        $response = new \sajariGen\engine\store\record\DeleteResponse();
+        $status = new \sajariGen\engine\Status();
         $status->setCode(0);
         $response->setStatus($status);
 
         $storeStub = $this
-            ->getMockBuilder(\sajari\engine\store\record\StoreClient::class)
+            ->getMockBuilder(\sajariGen\engine\store\record\StoreClient::class)
             ->disableOriginalConstructor()
             ->getMock();
         $storeStub
             ->method("Delete")
             ->willReturn(new DeleteWaiter([$response, new MockStatus(0, '')]));
 
-        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, "", "", [
-            new \Sajari\Client\WithAuth("", "")
+        $schemaStub = $this
+            ->getMockBuilder(\sajariGen\engine\schema\SchemaClient::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, $schemaStub, "", "", [
+            new \Sajari\Client\WithKeyCredentials("", "")
         ]);
 
-        $key = new \Sajari\Record\Key("id", "value");
+        $key = new \Sajari\Engine\Key("id", "value");
 
-        $expectedKeys = new \sajari\engine\store\record\Keys();
+        $expectedKeys = new \sajariGen\engine\store\record\Keys();
         $expectedKeys->addKeys($key->Proto());
 
         $storeStub
@@ -99,18 +104,23 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $expectedException = new \Exception();
 
         $storeStub = $this
-            ->getMockBuilder(\sajari\engine\store\record\StoreClient::class)
+            ->getMockBuilder(\sajariGen\engine\store\record\StoreClient::class)
             ->disableOriginalConstructor()
             ->getMock();
         $storeStub
             ->method("Delete")
             ->willThrowException($expectedException);
 
-        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, "", "", [
-            new \Sajari\Client\WithAuth("", "")
+        $schemaStub = $this
+            ->getMockBuilder(\sajariGen\engine\schema\SchemaClient::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $client = new \Sajari\Client\Client($mockQueryClient, $storeStub, $schemaStub, "", "", [
+            new \Sajari\Client\WithKeyCredentials("", "")
         ]);
 
-        $key = new \Sajari\Record\Key("id", "value");
+        $key = new \Sajari\Engine\Key("id", "value");
 
         try {
             $client->Delete($key);

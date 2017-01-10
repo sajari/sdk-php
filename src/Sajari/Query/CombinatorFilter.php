@@ -50,7 +50,7 @@ class CombinatorFilter implements Filter, Proto
      */
     public static function All($filters)
     {
-      return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ALL, $filters);
+      return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ALL, $filters);
     }
 
     /**
@@ -59,7 +59,7 @@ class CombinatorFilter implements Filter, Proto
      */
     public static function Any($filters)
     {
-        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ANY, $filters);
+        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ANY, $filters);
     }
 
     /**
@@ -68,7 +68,7 @@ class CombinatorFilter implements Filter, Proto
      */
     public static function One($filters)
     {
-        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::ONE, $filters);
+        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ONE, $filters);
     }
 
     /**
@@ -77,22 +77,22 @@ class CombinatorFilter implements Filter, Proto
      */
     public static function None($filters)
     {
-        return new CombinatorFilter(\sajari\engine\query\v1\Filter\Combinator\Operator::NONE, $filters);
+        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::NONE, $filters);
     }
 
     /**
-     * @return \sajari\engine\query\v1\Filter
+     * @return \sajariGen\engine\query\v1\Filter
      */
     public function Proto()
     {
-        $fc = new \sajari\engine\query\v1\Filter\Combinator();
+        $fc = new \sajariGen\engine\query\v1\Filter\Combinator();
         $fc->setOperator($this->operator);
 
         foreach ($this->filters as $filter) {
             $fc->addFilters($filter->Proto());
         }
 
-        $f = new \sajari\engine\query\v1\Filter();
+        $f = new \sajariGen\engine\query\v1\Filter();
         $f->setCombinator($fc);
 
         return $f;

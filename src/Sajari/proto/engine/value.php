@@ -3,7 +3,7 @@
 // Source: engine/value.proto
 //   Date: 2017-01-10 02:02:10
 
-namespace sajari\engine\Value {
+namespace sajariGen\engine\Value {
 
   class Repeated extends \DrSlump\Protobuf\Message {
 
@@ -45,7 +45,7 @@ namespace sajari\engine\Value {
     /**
      * Clear <values> value
      *
-     * @return \sajari\engine\Value\Repeated
+     * @return \sajariGen\engine\Value\Repeated
      */
     public function clearValues(){
       return $this->_clear(1);
@@ -65,7 +65,7 @@ namespace sajari\engine\Value {
      * Set <values> value
      *
      * @param string $value
-     * @return \sajari\engine\Value\Repeated
+     * @return \sajariGen\engine\Value\Repeated
      */
     public function setValues( $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
@@ -84,7 +84,7 @@ namespace sajari\engine\Value {
      * Add a new element to <values>
      *
      * @param string $value
-     * @return \sajari\engine\Value\Repeated
+     * @return \sajariGen\engine\Value\Repeated
      */
     public function addValues( $value){
      return $this->_add(1, $value);
@@ -92,7 +92,7 @@ namespace sajari\engine\Value {
   }
 }
 
-namespace sajari\engine {
+namespace sajariGen\engine {
 
   class Value extends \DrSlump\Protobuf\Message {
 
@@ -102,7 +102,7 @@ namespace sajari\engine {
     /**  @var string */
     public $single = null;
     
-    /**  @var \sajari\engine\Value\Repeated */
+    /**  @var \sajariGen\engine\Value\Repeated */
     public $repeated = null;
     
 
@@ -135,7 +135,7 @@ namespace sajari\engine {
       $f->name      = "repeated";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value\Repeated';
+      $f->reference = '\sajariGen\engine\Value\Repeated';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -157,7 +157,7 @@ namespace sajari\engine {
     /**
      * Clear <null> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function clearNull(){
       return $this->_clear(1);
@@ -176,7 +176,7 @@ namespace sajari\engine {
      * Set <null> value
      *
      * @param boolean $value
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function setNull( $value){
       return $this->_set(1, $value);
@@ -194,7 +194,7 @@ namespace sajari\engine {
     /**
      * Clear <single> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function clearSingle(){
       return $this->_clear(2);
@@ -213,7 +213,7 @@ namespace sajari\engine {
      * Set <single> value
      *
      * @param string $value
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function setSingle( $value){
       return $this->_set(2, $value);
@@ -231,7 +231,7 @@ namespace sajari\engine {
     /**
      * Clear <repeated> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function clearRepeated(){
       return $this->_clear(3);
@@ -240,7 +240,7 @@ namespace sajari\engine {
     /**
      * Get <repeated> value
      *
-     * @return \sajari\engine\Value\Repeated
+     * @return \sajariGen\engine\Value\Repeated
      */
     public function getRepeated(){
       return $this->_get(3);
@@ -249,10 +249,10 @@ namespace sajari\engine {
     /**
      * Set <repeated> value
      *
-     * @param \sajari\engine\Value\Repeated $value
-     * @return \sajari\engine\Value
+     * @param \sajariGen\engine\Value\Repeated $value
+     * @return \sajariGen\engine\Value
      */
-    public function setRepeated(\sajari\engine\Value\Repeated $value){
+    public function setRepeated(\sajariGen\engine\Value\Repeated $value){
       return $this->_set(3, $value);
     }
   }

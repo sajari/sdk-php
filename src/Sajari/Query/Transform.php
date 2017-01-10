@@ -2,7 +2,7 @@
 
 namespace Sajari\Query;
 
-class Transform implements Proto
+class Transform implements \Sajari\Engine\Proto
 {
     /** @var string $identifier */
     private $identifier;
@@ -27,7 +27,7 @@ class Transform implements Proto
      */
     public static function PreQuery($identifier)
     {
-        return new Transform($identifier, \sajari\api\query\v1\Transform\RunType::PRE_QUERY);
+        return new Transform($identifier, \sajariGen\api\query\v1\Transform\RunType::PRE_QUERY);
     }
 
     /**
@@ -36,7 +36,7 @@ class Transform implements Proto
      */
     public static function PostNonEmpty($identifier)
     {
-        return new Transform($identifier, \sajari\api\query\v1\Transform\RunType::POST_NON_EMPTY);
+        return new Transform($identifier, \sajariGen\api\query\v1\Transform\RunType::POST_NON_EMPTY);
     }
 
     /**
@@ -45,15 +45,15 @@ class Transform implements Proto
      */
     public static function PostEmptyPreRetry($identifier)
     {
-        return new Transform($identifier, \sajari\api\query\v1\Transform\RunType::POST_EMPTY_PRE_RETRY);
+        return new Transform($identifier, \sajariGen\api\query\v1\Transform\RunType::POST_EMPTY_PRE_RETRY);
     }
 
     /**
-     * @return \sajari\api\query\v1\Transform
+     * @return \sajariGen\api\query\v1\Transform
      */
     public function Proto()
     {
-        $protoTransform = new \sajari\api\query\v1\Transform();
+        $protoTransform = new \sajariGen\api\query\v1\Transform();
         $protoTransform->setIdentifier($this->identifier);
         $protoTransform->setRunType($this->runType);
         return $protoTransform;

@@ -6,13 +6,13 @@ namespace Sajari\Schema;
  * Class Field
  * @package Sajari\Schema
  */
-class Field implements Proto
+class Field implements \Sajari\Engine\Proto
 {
-    public static $STRING = \sajari\engine\schema\Field\Type::STRING;
-    public static $INTEGER = \sajari\engine\schema\Field\Type::INTEGER;
-    public static $FLOAT = \sajari\engine\schema\Field\Type::FLOAT;
-    public static $BOOLEAN = \sajari\engine\schema\Field\Type::BOOLEAN;
-    public static $TIMESTAMP = \sajari\engine\schema\Field\Type::TIMESTAMP;
+    public static $STRING = \sajariGen\engine\schema\Field\Type::STRING;
+    public static $INTEGER = \sajariGen\engine\schema\Field\Type::INTEGER;
+    public static $FLOAT = \sajariGen\engine\schema\Field\Type::FLOAT;
+    public static $BOOLEAN = \sajariGen\engine\schema\Field\Type::BOOLEAN;
+    public static $TIMESTAMP = \sajariGen\engine\schema\Field\Type::TIMESTAMP;
 
     /** @var int $id */
     private $id;
@@ -67,10 +67,10 @@ class Field implements Proto
     }
 
     /**
-     * @param \sajari\engine\schema\Field $field
+     * @param \sajariGen\engine\schema\Field $field
      * @return Field
      */
-    public static function FromProto(\sajari\engine\schema\Field $field)
+    public static function FromProto(\sajariGen\engine\schema\Field $field)
     {
         return new Field(
             $field->getId(),
@@ -86,11 +86,11 @@ class Field implements Proto
     }
 
     /**
-     * @return \sajari\engine\schema\Field
+     * @return \sajariGen\engine\schema\Field
      */
     public function Proto()
     {
-        $field = new \sajari\engine\schema\Field();
+        $field = new \sajariGen\engine\schema\Field();
         $field->setId($this->id);
         $field->setName($this->name);
         $field->setDescription($this->description);

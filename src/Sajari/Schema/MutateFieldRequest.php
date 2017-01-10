@@ -6,7 +6,7 @@ namespace Sajari\Schema;
  * Class MutateFieldRequest
  * @package Sajari\Schema
  */
-class MutateFieldRequest implements Proto
+class MutateFieldRequest implements \Sajari\Engine\Proto
 {
     /** @var string $name */
     private $name;
@@ -26,11 +26,11 @@ class MutateFieldRequest implements Proto
     }
 
     /**
-     * @return \sajari\engine\schema\MutateFieldRequest
+     * @return \sajariGen\engine\schema\MutateFieldRequest
      */
     public function Proto()
     {
-        $r = new \sajari\engine\schema\MutateFieldRequest();
+        $r = new \sajariGen\engine\schema\MutateFieldRequest();
         $r->setName($this->name);
         foreach ($this->mutations as $mutation) {
             $r->addMutations($mutation->Proto());

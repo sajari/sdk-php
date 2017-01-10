@@ -4,7 +4,7 @@ namespace Sajari\Query;
 
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-class IndexQuery implements Proto
+class IndexQuery implements \Sajari\Engine\Proto
 {
 
     /** @var Body[] body */
@@ -41,11 +41,11 @@ class IndexQuery implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\SearchRequest\IndexQuery
+     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
      */
     public function Proto()
     {
-        $fq = new \sajari\engine\query\v1\SearchRequest\IndexQuery();
+        $fq = new \sajariGen\engine\query\v1\SearchRequest\IndexQuery();
 
         // Body
         if (isset($this->body)) {

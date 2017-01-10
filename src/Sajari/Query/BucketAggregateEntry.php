@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class BucketAggregateEntry
  * @package Sajari\Query
  */
-class BucketAggregateEntry implements Proto
+class BucketAggregateEntry implements \Sajari\Engine\Proto
 {
     /** @var string $name */
     private $name;
@@ -43,11 +43,11 @@ class BucketAggregateEntry implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
      */
     public function Proto()
     {
-        $be = new \sajari\engine\query\v1\Aggregate\Bucket\Bucket();
+        $be = new \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket();
         $be->setName($this->name);
         $be->setFilter($this->filter->Proto());
         return $be;

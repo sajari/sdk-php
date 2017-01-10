@@ -1,12 +1,12 @@
 <?php
 
-namespace Sajari\Record;
+namespace Sajari\Engine;
 
 /**
  * Class Key
  * @package Sajari\Record
  */
-class Key implements Proto
+class Key implements \Sajari\Engine\Proto
 {
     /** @var $field string */
     private $field;
@@ -40,10 +40,10 @@ class Key implements Proto
     }
 
     /**
-     * @param \sajari\engine\Key $engineKey
+     * @param \sajariGen\engine\Key $engineKey
      * @return Key
      */
-    public static function FromProto(\sajari\engine\Key $engineKey)
+    public static function FromProto(\sajariGen\engine\Key $engineKey)
     {
         $v = $engineKey->getValue();
         if ($v->hasSingle()) {
@@ -56,16 +56,16 @@ class Key implements Proto
     }
 
     /**
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function Proto()
     {
-        $protoKey = new \sajari\engine\Key();
+        $protoKey = new \sajariGen\engine\Key();
         $protoKey->setField($this->field);
 
-        $value = new \sajari\engine\Value();
+        $value = new \sajariGen\engine\Value();
         if (is_array($this->value)) {
-          $repeated = new \sajari\engine\Value\Repeated();
+          $repeated = new \sajariGen\engine\Value\Repeated();
           foreach ($this->value as $v) {
             $repeated->addValues($v);
           }

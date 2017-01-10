@@ -26,10 +26,10 @@ class Status
     }
 
     /**
-     * @param \sajari\engine\Status $protoStatus
+     * @param \sajariGen\engine\Status $protoStatus
      * @return Status
      */
-    public static function FromProto(\sajari\engine\Status $protoStatus)
+    public static function FromProto(\sajariGen\engine\Status $protoStatus)
     {
         return new Status($protoStatus->getCode(), $protoStatus->getMessage());
     }

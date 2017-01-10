@@ -3,14 +3,14 @@
 // Source: engine/key.proto
 //   Date: 2017-01-10 02:02:10
 
-namespace sajari\engine {
+namespace sajariGen\engine {
 
   class Key extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $field = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $value = null;
     
 
@@ -35,7 +35,7 @@ namespace sajari\engine {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -57,7 +57,7 @@ namespace sajari\engine {
     /**
      * Clear <field> value
      *
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function clearField(){
       return $this->_clear(1);
@@ -76,7 +76,7 @@ namespace sajari\engine {
      * Set <field> value
      *
      * @param string $value
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function setField( $value){
       return $this->_set(1, $value);
@@ -94,7 +94,7 @@ namespace sajari\engine {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -103,7 +103,7 @@ namespace sajari\engine {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getValue(){
       return $this->_get(2);
@@ -112,10 +112,10 @@ namespace sajari\engine {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\Key
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\Key
      */
-    public function setValue(\sajari\engine\Value $value){
+    public function setValue(\sajariGen\engine\Value $value){
       return $this->_set(2, $value);
     }
   }

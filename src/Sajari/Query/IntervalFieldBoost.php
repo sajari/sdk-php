@@ -54,17 +54,17 @@ class IntervalFieldBoost implements FieldBoost, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\FieldBoost
+     * @return \sajariGen\engine\query\v1\FieldBoost
      */
     public function Proto()
     {
-        $imb = new \sajari\engine\query\v1\FieldBoost\Interval();
+        $imb = new \sajariGen\engine\query\v1\FieldBoost\Interval();
         $imb->setField($this->field);
         foreach ($this->points as $point) {
             $imb->addPoints($point->Proto());
         }
 
-        $mb = new \sajari\engine\query\v1\FieldBoost();
+        $mb = new \sajariGen\engine\query\v1\FieldBoost();
         $mb->setInterval($imb);
         return $mb;
     }

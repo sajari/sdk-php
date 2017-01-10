@@ -69,7 +69,8 @@ class Response
     }
 
     /**
-     * @return BucketResponseAggregate|CountResponseAggregate|MetricResponseAggregate[]
+     * Returns an associative array of Name -> Aggregate
+     * @return array[string]BucketResponseAggregate|CountResponseAggregate|MetricResponseAggregate
      */
     public function getAggregates()
     {
@@ -82,11 +83,11 @@ class Response
     }
 
     /**
-     * @param \sajari\engine\query\v1\SearchResponse $protoResponse
-     * @param \sajari\api\query\v1\Token[] $protoTokens
+     * @param \sajariGen\engine\query\v1\SearchResponse $protoResponse
+     * @param \sajariGen\api\query\v1\Token[] $protoTokens
      * @return Response
      */
-    public static function FromProto(\sajari\engine\query\v1\SearchResponse $protoResponse, array $protoTokens)
+    public static function FromProto(\sajariGen\engine\query\v1\SearchResponse $protoResponse, array $protoTokens)
     {
         $reads = $protoResponse->getReads();
         $time = $protoResponse->getTime();
@@ -99,7 +100,7 @@ class Response
         foreach ($protoResponseList as $protoResult) {
             $values = array();
             foreach ($protoResult->getValuesList() as $m) {
-                $values[$m->getKey()] = \Sajari\Record\Value::FromProto($m->getValue());
+                $values[$m->getKey()] = \Sajari\Engine\Value::FromProto($m->getValue());
             }
             $result = new Result (
                 $protoResult->getScore(),

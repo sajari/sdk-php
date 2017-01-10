@@ -43,20 +43,20 @@ class BucketAggregate implements Aggregate, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function Proto()
     {
-        $b = new \sajari\engine\query\v1\Aggregate\Bucket();
+        $b = new \sajariGen\engine\query\v1\Aggregate\Bucket();
 
         foreach ($this->buckets as $bucket) {
             $b->addBuckets($bucket->Proto());
         }
 
-        $a = new \sajari\engine\query\v1\Aggregate();
+        $a = new \sajariGen\engine\query\v1\Aggregate();
         $a->setBucket($b);
 
-        $ae = new \sajari\engine\query\v1\SearchRequest\AggregatesEntry();
+        $ae = new \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

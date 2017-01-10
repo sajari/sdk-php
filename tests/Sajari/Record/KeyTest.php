@@ -18,9 +18,9 @@ class KeyTest extends \PHPUnit_Framework_TestCase
 
     public static function makeProtoKey($field, $value)
     {
-        $keyValue = new sajari\engine\Value();
+        $keyValue = new sajariGen\engine\Value();
         if (is_array($value)) {
-            $keyValueRepeated = new sajari\engine\Value\Repeated();
+            $keyValueRepeated = new sajariGen\engine\Value\Repeated();
             foreach ($value as $v) {
                 $keyValueRepeated->addValues($v);
             }
@@ -30,7 +30,7 @@ class KeyTest extends \PHPUnit_Framework_TestCase
         } else {
             $keyValue->setSingle(sprintf("%s", $value));
         }
-        $key = new \sajari\engine\Key();
+        $key = new \sajariGen\engine\Key();
         $key->setField($field);
         $key->setValue($keyValue);
         return $key;
@@ -39,7 +39,7 @@ class KeyTest extends \PHPUnit_Framework_TestCase
     public function testGetField()
     {
         $field = "test";
-        $key = new \Sajari\Record\Key($field, "");
+        $key = new \Sajari\Engine\Key($field, "");
         $this->assertSame(
             $field,
             $key->getField()
@@ -49,7 +49,7 @@ class KeyTest extends \PHPUnit_Framework_TestCase
     public function testGetValue()
     {
         $value = "test";
-        $key = new \Sajari\Record\Key("", $value);
+        $key = new \Sajari\Engine\Key("", $value);
         $this->assertSame(
             $value,
             $key->getValue()
@@ -61,8 +61,8 @@ class KeyTest extends \PHPUnit_Framework_TestCase
         $field = "testField";
         foreach ($this->protoKeyTestValues as $protoKeyTestValue) {
             $this->assertEquals(
-                new \Sajari\Record\Key($field, $protoKeyTestValue),
-                \Sajari\Record\Key::FromProto($this->makeProtoKey($field, $protoKeyTestValue))
+                new \Sajari\Engine\Key($field, $protoKeyTestValue),
+                \Sajari\Engine\Key::FromProto($this->makeProtoKey($field, $protoKeyTestValue))
             );
         }
     }
@@ -73,7 +73,7 @@ class KeyTest extends \PHPUnit_Framework_TestCase
         foreach ($this->protoKeyTestValues as $protoKeyTestValue) {
             $this->assertEquals(
                 $this->makeProtoKey($field, $protoKeyTestValue),
-                (new \Sajari\Record\Key($field, $protoKeyTestValue))->Proto()
+                (new \Sajari\Engine\Key($field, $protoKeyTestValue))->Proto()
             );
         }
     }

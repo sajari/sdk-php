@@ -3,7 +3,7 @@
 // Source: engine/store/record/record.proto
 //   Date: 2017-01-10 02:02:13
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class Transform extends \DrSlump\Protobuf\Message {
 
@@ -45,7 +45,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <identifier> value
      *
-     * @return \sajari\engine\store\record\Transform
+     * @return \sajariGen\engine\store\record\Transform
      */
     public function clearIdentifier(){
       return $this->_clear(1);
@@ -64,7 +64,7 @@ namespace sajari\engine\store\record {
      * Set <identifier> value
      *
      * @param string $value
-     * @return \sajari\engine\store\record\Transform
+     * @return \sajariGen\engine\store\record\Transform
      */
     public function setIdentifier( $value){
       return $this->_set(1, $value);
@@ -72,14 +72,14 @@ namespace sajari\engine\store\record {
   }
 }
 
-namespace sajari\engine\store\record\Record {
+namespace sajariGen\engine\store\record\Record {
 
   class ValuesEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $value = null;
     
 
@@ -104,7 +104,7 @@ namespace sajari\engine\store\record\Record {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -126,7 +126,7 @@ namespace sajari\engine\store\record\Record {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\store\record\Record\ValuesEntry
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -145,7 +145,7 @@ namespace sajari\engine\store\record\Record {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\store\record\Record\ValuesEntry
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -163,7 +163,7 @@ namespace sajari\engine\store\record\Record {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\store\record\Record\ValuesEntry
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -172,7 +172,7 @@ namespace sajari\engine\store\record\Record {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getValue(){
       return $this->_get(2);
@@ -181,20 +181,20 @@ namespace sajari\engine\store\record\Record {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\store\record\Record\ValuesEntry
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry
      */
-    public function setValue(\sajari\engine\Value $value){
+    public function setValue(\sajariGen\engine\Value $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class Record extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\Record\ValuesEntry[]  */
+    /**  @var \sajariGen\engine\store\record\Record\ValuesEntry[]  */
     public $values = array();
     
 
@@ -211,7 +211,7 @@ namespace sajari\engine\store\record {
       $f->name      = "values";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\Record\ValuesEntry';
+      $f->reference = '\sajariGen\engine\store\record\Record\ValuesEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -233,7 +233,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <values> value
      *
-     * @return \sajari\engine\store\record\Record
+     * @return \sajariGen\engine\store\record\Record
      */
     public function clearValues(){
       return $this->_clear(1);
@@ -243,7 +243,7 @@ namespace sajari\engine\store\record {
      * Get <values> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\Record\ValuesEntry
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry
      */
     public function getValues($idx = NULL){
       return $this->_get(1, $idx);
@@ -252,17 +252,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <values> value
      *
-     * @param \sajari\engine\store\record\Record\ValuesEntry $value
-     * @return \sajari\engine\store\record\Record
+     * @param \sajariGen\engine\store\record\Record\ValuesEntry $value
+     * @return \sajariGen\engine\store\record\Record
      */
-    public function setValues(\sajari\engine\store\record\Record\ValuesEntry $value, $idx = NULL){
+    public function setValues(\sajariGen\engine\store\record\Record\ValuesEntry $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <values>
      *
-     * @return \sajari\engine\store\record\Record\ValuesEntry[]
+     * @return \sajariGen\engine\store\record\Record\ValuesEntry[]
      */
     public function getValuesList(){
      return $this->_get(1);
@@ -271,23 +271,23 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <values>
      *
-     * @param \sajari\engine\store\record\Record\ValuesEntry $value
-     * @return \sajari\engine\store\record\Record
+     * @param \sajariGen\engine\store\record\Record\ValuesEntry $value
+     * @return \sajariGen\engine\store\record\Record
      */
-    public function addValues(\sajari\engine\store\record\Record\ValuesEntry $value){
+    public function addValues(\sajariGen\engine\store\record\Record\ValuesEntry $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class Records extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\Record[]  */
+    /**  @var \sajariGen\engine\store\record\Record[]  */
     public $records = array();
     
-    /**  @var \sajari\engine\store\record\Transform[]  */
+    /**  @var \sajariGen\engine\store\record\Transform[]  */
     public $transforms = array();
     
 
@@ -304,7 +304,7 @@ namespace sajari\engine\store\record {
       $f->name      = "records";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\Record';
+      $f->reference = '\sajariGen\engine\store\record\Record';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE transforms = 2
@@ -313,7 +313,7 @@ namespace sajari\engine\store\record {
       $f->name      = "transforms";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\Transform';
+      $f->reference = '\sajariGen\engine\store\record\Transform';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -335,7 +335,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <records> value
      *
-     * @return \sajari\engine\store\record\Records
+     * @return \sajariGen\engine\store\record\Records
      */
     public function clearRecords(){
       return $this->_clear(1);
@@ -345,7 +345,7 @@ namespace sajari\engine\store\record {
      * Get <records> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\Record
+     * @return \sajariGen\engine\store\record\Record
      */
     public function getRecords($idx = NULL){
       return $this->_get(1, $idx);
@@ -354,17 +354,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <records> value
      *
-     * @param \sajari\engine\store\record\Record $value
-     * @return \sajari\engine\store\record\Records
+     * @param \sajariGen\engine\store\record\Record $value
+     * @return \sajariGen\engine\store\record\Records
      */
-    public function setRecords(\sajari\engine\store\record\Record $value, $idx = NULL){
+    public function setRecords(\sajariGen\engine\store\record\Record $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <records>
      *
-     * @return \sajari\engine\store\record\Record[]
+     * @return \sajariGen\engine\store\record\Record[]
      */
     public function getRecordsList(){
      return $this->_get(1);
@@ -373,10 +373,10 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <records>
      *
-     * @param \sajari\engine\store\record\Record $value
-     * @return \sajari\engine\store\record\Records
+     * @param \sajariGen\engine\store\record\Record $value
+     * @return \sajariGen\engine\store\record\Records
      */
-    public function addRecords(\sajari\engine\store\record\Record $value){
+    public function addRecords(\sajariGen\engine\store\record\Record $value){
      return $this->_add(1, $value);
     }
     
@@ -392,7 +392,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <transforms> value
      *
-     * @return \sajari\engine\store\record\Records
+     * @return \sajariGen\engine\store\record\Records
      */
     public function clearTransforms(){
       return $this->_clear(2);
@@ -402,7 +402,7 @@ namespace sajari\engine\store\record {
      * Get <transforms> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\Transform
+     * @return \sajariGen\engine\store\record\Transform
      */
     public function getTransforms($idx = NULL){
       return $this->_get(2, $idx);
@@ -411,17 +411,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <transforms> value
      *
-     * @param \sajari\engine\store\record\Transform $value
-     * @return \sajari\engine\store\record\Records
+     * @param \sajariGen\engine\store\record\Transform $value
+     * @return \sajariGen\engine\store\record\Records
      */
-    public function setTransforms(\sajari\engine\store\record\Transform $value, $idx = NULL){
+    public function setTransforms(\sajariGen\engine\store\record\Transform $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <transforms>
      *
-     * @return \sajari\engine\store\record\Transform[]
+     * @return \sajariGen\engine\store\record\Transform[]
      */
     public function getTransformsList(){
      return $this->_get(2);
@@ -430,23 +430,23 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <transforms>
      *
-     * @param \sajari\engine\store\record\Transform $value
-     * @return \sajari\engine\store\record\Records
+     * @param \sajariGen\engine\store\record\Transform $value
+     * @return \sajariGen\engine\store\record\Records
      */
-    public function addTransforms(\sajari\engine\store\record\Transform $value){
+    public function addTransforms(\sajariGen\engine\store\record\Transform $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class AddResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Key[]  */
+    /**  @var \sajariGen\engine\Key[]  */
     public $keys = array();
     
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -463,7 +463,7 @@ namespace sajari\engine\store\record {
       $f->name      = "keys";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Key';
+      $f->reference = '\sajariGen\engine\Key';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE status = 2
@@ -472,7 +472,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -494,7 +494,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <keys> value
      *
-     * @return \sajari\engine\store\record\AddResponse
+     * @return \sajariGen\engine\store\record\AddResponse
      */
     public function clearKeys(){
       return $this->_clear(1);
@@ -504,7 +504,7 @@ namespace sajari\engine\store\record {
      * Get <keys> value
      *
      * @param int $idx
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function getKeys($idx = NULL){
       return $this->_get(1, $idx);
@@ -513,17 +513,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <keys> value
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\AddResponse
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\AddResponse
      */
-    public function setKeys(\sajari\engine\Key $value, $idx = NULL){
+    public function setKeys(\sajariGen\engine\Key $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <keys>
      *
-     * @return \sajari\engine\Key[]
+     * @return \sajariGen\engine\Key[]
      */
     public function getKeysList(){
      return $this->_get(1);
@@ -532,10 +532,10 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <keys>
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\AddResponse
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\AddResponse
      */
-    public function addKeys(\sajari\engine\Key $value){
+    public function addKeys(\sajariGen\engine\Key $value){
      return $this->_add(1, $value);
     }
     
@@ -551,7 +551,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\AddResponse
+     * @return \sajariGen\engine\store\record\AddResponse
      */
     public function clearStatus(){
       return $this->_clear(2);
@@ -561,7 +561,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
@@ -570,17 +570,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\AddResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\AddResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(2);
@@ -589,23 +589,23 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\AddResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\AddResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class GetResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\Record[]  */
+    /**  @var \sajariGen\engine\store\record\Record[]  */
     public $records = array();
     
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -622,7 +622,7 @@ namespace sajari\engine\store\record {
       $f->name      = "records";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\Record';
+      $f->reference = '\sajariGen\engine\store\record\Record';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE status = 2
@@ -631,7 +631,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -653,7 +653,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <records> value
      *
-     * @return \sajari\engine\store\record\GetResponse
+     * @return \sajariGen\engine\store\record\GetResponse
      */
     public function clearRecords(){
       return $this->_clear(1);
@@ -663,7 +663,7 @@ namespace sajari\engine\store\record {
      * Get <records> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\Record
+     * @return \sajariGen\engine\store\record\Record
      */
     public function getRecords($idx = NULL){
       return $this->_get(1, $idx);
@@ -672,17 +672,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <records> value
      *
-     * @param \sajari\engine\store\record\Record $value
-     * @return \sajari\engine\store\record\GetResponse
+     * @param \sajariGen\engine\store\record\Record $value
+     * @return \sajariGen\engine\store\record\GetResponse
      */
-    public function setRecords(\sajari\engine\store\record\Record $value, $idx = NULL){
+    public function setRecords(\sajariGen\engine\store\record\Record $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <records>
      *
-     * @return \sajari\engine\store\record\Record[]
+     * @return \sajariGen\engine\store\record\Record[]
      */
     public function getRecordsList(){
      return $this->_get(1);
@@ -691,10 +691,10 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <records>
      *
-     * @param \sajari\engine\store\record\Record $value
-     * @return \sajari\engine\store\record\GetResponse
+     * @param \sajariGen\engine\store\record\Record $value
+     * @return \sajariGen\engine\store\record\GetResponse
      */
-    public function addRecords(\sajari\engine\store\record\Record $value){
+    public function addRecords(\sajariGen\engine\store\record\Record $value){
      return $this->_add(1, $value);
     }
     
@@ -710,7 +710,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\GetResponse
+     * @return \sajariGen\engine\store\record\GetResponse
      */
     public function clearStatus(){
       return $this->_clear(2);
@@ -720,7 +720,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(2, $idx);
@@ -729,17 +729,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\GetResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\GetResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(2);
@@ -748,20 +748,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\GetResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\GetResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class DeleteResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -778,7 +778,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -800,7 +800,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\DeleteResponse
+     * @return \sajariGen\engine\store\record\DeleteResponse
      */
     public function clearStatus(){
       return $this->_clear(1);
@@ -810,7 +810,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
@@ -819,17 +819,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\DeleteResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\DeleteResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(1);
@@ -838,20 +838,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\DeleteResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\DeleteResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class PatchResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -868,7 +868,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -890,7 +890,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\PatchResponse
+     * @return \sajariGen\engine\store\record\PatchResponse
      */
     public function clearStatus(){
       return $this->_clear(1);
@@ -900,7 +900,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
@@ -909,17 +909,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\PatchResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\PatchResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(1);
@@ -928,20 +928,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\PatchResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\PatchResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class Keys extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Key[]  */
+    /**  @var \sajariGen\engine\Key[]  */
     public $keys = array();
     
 
@@ -958,7 +958,7 @@ namespace sajari\engine\store\record {
       $f->name      = "keys";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Key';
+      $f->reference = '\sajariGen\engine\Key';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -980,7 +980,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <keys> value
      *
-     * @return \sajari\engine\store\record\Keys
+     * @return \sajariGen\engine\store\record\Keys
      */
     public function clearKeys(){
       return $this->_clear(1);
@@ -990,7 +990,7 @@ namespace sajari\engine\store\record {
      * Get <keys> value
      *
      * @param int $idx
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function getKeys($idx = NULL){
       return $this->_get(1, $idx);
@@ -999,17 +999,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <keys> value
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\Keys
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\Keys
      */
-    public function setKeys(\sajari\engine\Key $value, $idx = NULL){
+    public function setKeys(\sajariGen\engine\Key $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <keys>
      *
-     * @return \sajari\engine\Key[]
+     * @return \sajariGen\engine\Key[]
      */
     public function getKeysList(){
      return $this->_get(1);
@@ -1018,26 +1018,26 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <keys>
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\Keys
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\Keys
      */
-    public function addKeys(\sajari\engine\Key $value){
+    public function addKeys(\sajariGen\engine\Key $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record\KeysValues\KeyValues {
+namespace sajariGen\engine\store\record\KeysValues\KeyValues {
 
   class Value extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $set = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $increment = null;
     
-    /**  @var \sajari\engine\Value */
+    /**  @var \sajariGen\engine\Value */
     public $append = null;
     
 
@@ -1054,7 +1054,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
       $f->name      = "set";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE increment = 2
@@ -1063,7 +1063,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
       $f->name      = "increment";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       // OPTIONAL MESSAGE append = 3
@@ -1072,7 +1072,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
       $f->name      = "append";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Value';
+      $f->reference = '\sajariGen\engine\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1094,7 +1094,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Clear <set> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
     public function clearSet(){
       return $this->_clear(1);
@@ -1103,7 +1103,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Get <set> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getSet(){
       return $this->_get(1);
@@ -1112,10 +1112,10 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Set <set> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
-    public function setSet(\sajari\engine\Value $value){
+    public function setSet(\sajariGen\engine\Value $value){
       return $this->_set(1, $value);
     }
     
@@ -1131,7 +1131,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Clear <increment> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
     public function clearIncrement(){
       return $this->_clear(2);
@@ -1140,7 +1140,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Get <increment> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getIncrement(){
       return $this->_get(2);
@@ -1149,10 +1149,10 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Set <increment> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
-    public function setIncrement(\sajari\engine\Value $value){
+    public function setIncrement(\sajariGen\engine\Value $value){
       return $this->_set(2, $value);
     }
     
@@ -1168,7 +1168,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Clear <append> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
     public function clearAppend(){
       return $this->_clear(3);
@@ -1177,7 +1177,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Get <append> value
      *
-     * @return \sajari\engine\Value
+     * @return \sajariGen\engine\Value
      */
     public function getAppend(){
       return $this->_get(3);
@@ -1186,23 +1186,23 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Set <append> value
      *
-     * @param \sajari\engine\Value $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @param \sajariGen\engine\Value $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
-    public function setAppend(\sajari\engine\Value $value){
+    public function setAppend(\sajariGen\engine\Value $value){
       return $this->_set(3, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record\KeysValues\KeyValues {
+namespace sajariGen\engine\store\record\KeysValues\KeyValues {
 
   class ValuesEntry extends \DrSlump\Protobuf\Message {
 
     /**  @var string */
     public $key = null;
     
-    /**  @var \sajari\engine\store\record\KeysValues\KeyValues\Value */
+    /**  @var \sajariGen\engine\store\record\KeysValues\KeyValues\Value */
     public $value = null;
     
 
@@ -1227,7 +1227,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
       $f->name      = "value";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\store\record\KeysValues\KeyValues\Value';
+      $f->reference = '\sajariGen\engine\store\record\KeysValues\KeyValues\Value';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1249,7 +1249,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -1268,7 +1268,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
      * Set <key> value
      *
      * @param string $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
     public function setKey( $value){
       return $this->_set(1, $value);
@@ -1286,7 +1286,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Clear <value> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
     public function clearValue(){
       return $this->_clear(2);
@@ -1295,7 +1295,7 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Get <value> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\Value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\Value
      */
     public function getValue(){
       return $this->_get(2);
@@ -1304,23 +1304,23 @@ namespace sajari\engine\store\record\KeysValues\KeyValues {
     /**
      * Set <value> value
      *
-     * @param \sajari\engine\store\record\KeysValues\KeyValues\Value $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
+     * @param \sajariGen\engine\store\record\KeysValues\KeyValues\Value $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
-    public function setValue(\sajari\engine\store\record\KeysValues\KeyValues\Value $value){
+    public function setValue(\sajariGen\engine\store\record\KeysValues\KeyValues\Value $value){
       return $this->_set(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record\KeysValues {
+namespace sajariGen\engine\store\record\KeysValues {
 
   class KeyValues extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Key */
+    /**  @var \sajariGen\engine\Key */
     public $key = null;
     
-    /**  @var \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry[]  */
+    /**  @var \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry[]  */
     public $values = array();
     
 
@@ -1337,7 +1337,7 @@ namespace sajari\engine\store\record\KeysValues {
       $f->name      = "key";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Key';
+      $f->reference = '\sajariGen\engine\Key';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE values = 2
@@ -1346,7 +1346,7 @@ namespace sajari\engine\store\record\KeysValues {
       $f->name      = "values";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry';
+      $f->reference = '\sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1368,7 +1368,7 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -1377,7 +1377,7 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Get <key> value
      *
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function getKey(){
       return $this->_get(1);
@@ -1386,10 +1386,10 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Set <key> value
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
-    public function setKey(\sajari\engine\Key $value){
+    public function setKey(\sajariGen\engine\Key $value){
       return $this->_set(1, $value);
     }
     
@@ -1405,7 +1405,7 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Clear <values> value
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
     public function clearValues(){
       return $this->_clear(2);
@@ -1415,7 +1415,7 @@ namespace sajari\engine\store\record\KeysValues {
      * Get <values> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry
      */
     public function getValues($idx = NULL){
       return $this->_get(2, $idx);
@@ -1424,17 +1424,17 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Set <values> value
      *
-     * @param \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @param \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
-    public function setValues(\sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry $value, $idx = NULL){
+    public function setValues(\sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <values>
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry[]
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry[]
      */
     public function getValuesList(){
      return $this->_get(2);
@@ -1443,20 +1443,20 @@ namespace sajari\engine\store\record\KeysValues {
     /**
      * Add a new element to <values>
      *
-     * @param \sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry $value
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @param \sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry $value
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
-    public function addValues(\sajari\engine\store\record\KeysValues\KeyValues\ValuesEntry $value){
+    public function addValues(\sajariGen\engine\store\record\KeysValues\KeyValues\ValuesEntry $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class KeysValues extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\KeysValues\KeyValues[]  */
+    /**  @var \sajariGen\engine\store\record\KeysValues\KeyValues[]  */
     public $keys_values = array();
     
 
@@ -1473,7 +1473,7 @@ namespace sajari\engine\store\record {
       $f->name      = "keys_values";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\KeysValues\KeyValues';
+      $f->reference = '\sajariGen\engine\store\record\KeysValues\KeyValues';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1495,7 +1495,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <keys_values> value
      *
-     * @return \sajari\engine\store\record\KeysValues
+     * @return \sajariGen\engine\store\record\KeysValues
      */
     public function clearKeysValues(){
       return $this->_clear(1);
@@ -1505,7 +1505,7 @@ namespace sajari\engine\store\record {
      * Get <keys_values> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\KeysValues\KeyValues
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues
      */
     public function getKeysValues($idx = NULL){
       return $this->_get(1, $idx);
@@ -1514,17 +1514,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <keys_values> value
      *
-     * @param \sajari\engine\store\record\KeysValues\KeyValues $value
-     * @return \sajari\engine\store\record\KeysValues
+     * @param \sajariGen\engine\store\record\KeysValues\KeyValues $value
+     * @return \sajariGen\engine\store\record\KeysValues
      */
-    public function setKeysValues(\sajari\engine\store\record\KeysValues\KeyValues $value, $idx = NULL){
+    public function setKeysValues(\sajariGen\engine\store\record\KeysValues\KeyValues $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <keys_values>
      *
-     * @return \sajari\engine\store\record\KeysValues\KeyValues[]
+     * @return \sajariGen\engine\store\record\KeysValues\KeyValues[]
      */
     public function getKeysValuesList(){
      return $this->_get(1);
@@ -1533,20 +1533,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <keys_values>
      *
-     * @param \sajari\engine\store\record\KeysValues\KeyValues $value
-     * @return \sajari\engine\store\record\KeysValues
+     * @param \sajariGen\engine\store\record\KeysValues\KeyValues $value
+     * @return \sajariGen\engine\store\record\KeysValues
      */
-    public function addKeysValues(\sajari\engine\store\record\KeysValues\KeyValues $value){
+    public function addKeysValues(\sajariGen\engine\store\record\KeysValues\KeyValues $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class SetRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\KeyScores[]  */
+    /**  @var \sajariGen\engine\store\record\KeyScores[]  */
     public $keys_scores = array();
     
 
@@ -1563,7 +1563,7 @@ namespace sajari\engine\store\record {
       $f->name      = "keys_scores";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\KeyScores';
+      $f->reference = '\sajariGen\engine\store\record\KeyScores';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1585,7 +1585,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <keys_scores> value
      *
-     * @return \sajari\engine\store\record\SetRequest
+     * @return \sajariGen\engine\store\record\SetRequest
      */
     public function clearKeysScores(){
       return $this->_clear(1);
@@ -1595,7 +1595,7 @@ namespace sajari\engine\store\record {
      * Get <keys_scores> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\KeyScores
+     * @return \sajariGen\engine\store\record\KeyScores
      */
     public function getKeysScores($idx = NULL){
       return $this->_get(1, $idx);
@@ -1604,17 +1604,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <keys_scores> value
      *
-     * @param \sajari\engine\store\record\KeyScores $value
-     * @return \sajari\engine\store\record\SetRequest
+     * @param \sajariGen\engine\store\record\KeyScores $value
+     * @return \sajariGen\engine\store\record\SetRequest
      */
-    public function setKeysScores(\sajari\engine\store\record\KeyScores $value, $idx = NULL){
+    public function setKeysScores(\sajariGen\engine\store\record\KeyScores $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <keys_scores>
      *
-     * @return \sajari\engine\store\record\KeyScores[]
+     * @return \sajariGen\engine\store\record\KeyScores[]
      */
     public function getKeysScoresList(){
      return $this->_get(1);
@@ -1623,20 +1623,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <keys_scores>
      *
-     * @param \sajari\engine\store\record\KeyScores $value
-     * @return \sajari\engine\store\record\SetRequest
+     * @param \sajariGen\engine\store\record\KeyScores $value
+     * @return \sajariGen\engine\store\record\SetRequest
      */
-    public function addKeysScores(\sajari\engine\store\record\KeyScores $value){
+    public function addKeysScores(\sajariGen\engine\store\record\KeyScores $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class SetResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -1653,7 +1653,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1675,7 +1675,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\SetResponse
+     * @return \sajariGen\engine\store\record\SetResponse
      */
     public function clearStatus(){
       return $this->_clear(1);
@@ -1685,7 +1685,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
@@ -1694,17 +1694,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\SetResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\SetResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(1);
@@ -1713,20 +1713,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\SetResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\SetResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class IncrementRequest extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\store\record\KeyScores[]  */
+    /**  @var \sajariGen\engine\store\record\KeyScores[]  */
     public $keys_scores = array();
     
 
@@ -1743,7 +1743,7 @@ namespace sajari\engine\store\record {
       $f->name      = "keys_scores";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\KeyScores';
+      $f->reference = '\sajariGen\engine\store\record\KeyScores';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1765,7 +1765,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <keys_scores> value
      *
-     * @return \sajari\engine\store\record\IncrementRequest
+     * @return \sajariGen\engine\store\record\IncrementRequest
      */
     public function clearKeysScores(){
       return $this->_clear(1);
@@ -1775,7 +1775,7 @@ namespace sajari\engine\store\record {
      * Get <keys_scores> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\KeyScores
+     * @return \sajariGen\engine\store\record\KeyScores
      */
     public function getKeysScores($idx = NULL){
       return $this->_get(1, $idx);
@@ -1784,17 +1784,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <keys_scores> value
      *
-     * @param \sajari\engine\store\record\KeyScores $value
-     * @return \sajari\engine\store\record\IncrementRequest
+     * @param \sajariGen\engine\store\record\KeyScores $value
+     * @return \sajariGen\engine\store\record\IncrementRequest
      */
-    public function setKeysScores(\sajari\engine\store\record\KeyScores $value, $idx = NULL){
+    public function setKeysScores(\sajariGen\engine\store\record\KeyScores $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <keys_scores>
      *
-     * @return \sajari\engine\store\record\KeyScores[]
+     * @return \sajariGen\engine\store\record\KeyScores[]
      */
     public function getKeysScoresList(){
      return $this->_get(1);
@@ -1803,20 +1803,20 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <keys_scores>
      *
-     * @param \sajari\engine\store\record\KeyScores $value
-     * @return \sajari\engine\store\record\IncrementRequest
+     * @param \sajariGen\engine\store\record\KeyScores $value
+     * @return \sajariGen\engine\store\record\IncrementRequest
      */
-    public function addKeysScores(\sajari\engine\store\record\KeyScores $value){
+    public function addKeysScores(\sajariGen\engine\store\record\KeyScores $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class IncrementResponse extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Status[]  */
+    /**  @var \sajariGen\engine\Status[]  */
     public $status = array();
     
 
@@ -1833,7 +1833,7 @@ namespace sajari\engine\store\record {
       $f->name      = "status";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\Status';
+      $f->reference = '\sajariGen\engine\Status';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -1855,7 +1855,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <status> value
      *
-     * @return \sajari\engine\store\record\IncrementResponse
+     * @return \sajariGen\engine\store\record\IncrementResponse
      */
     public function clearStatus(){
       return $this->_clear(1);
@@ -1865,7 +1865,7 @@ namespace sajari\engine\store\record {
      * Get <status> value
      *
      * @param int $idx
-     * @return \sajari\engine\Status
+     * @return \sajariGen\engine\Status
      */
     public function getStatus($idx = NULL){
       return $this->_get(1, $idx);
@@ -1874,17 +1874,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <status> value
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\IncrementResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\IncrementResponse
      */
-    public function setStatus(\sajari\engine\Status $value, $idx = NULL){
+    public function setStatus(\sajariGen\engine\Status $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
     }
     
     /**
      * Get all elements of <status>
      *
-     * @return \sajari\engine\Status[]
+     * @return \sajariGen\engine\Status[]
      */
     public function getStatusList(){
      return $this->_get(1);
@@ -1893,16 +1893,16 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <status>
      *
-     * @param \sajari\engine\Status $value
-     * @return \sajari\engine\store\record\IncrementResponse
+     * @param \sajariGen\engine\Status $value
+     * @return \sajariGen\engine\store\record\IncrementResponse
      */
-    public function addStatus(\sajari\engine\Status $value){
+    public function addStatus(\sajariGen\engine\Status $value){
      return $this->_add(1, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record\KeyScores {
+namespace sajariGen\engine\store\record\KeyScores {
 
   class Score extends \DrSlump\Protobuf\Message {
 
@@ -1966,7 +1966,7 @@ namespace sajari\engine\store\record\KeyScores {
     /**
      * Clear <terms> value
      *
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function clearTerms(){
       return $this->_clear(1);
@@ -1986,7 +1986,7 @@ namespace sajari\engine\store\record\KeyScores {
      * Set <terms> value
      *
      * @param string $value
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function setTerms( $value, $idx = NULL){
       return $this->_set(1, $value, $idx);
@@ -2005,7 +2005,7 @@ namespace sajari\engine\store\record\KeyScores {
      * Add a new element to <terms>
      *
      * @param string $value
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function addTerms( $value){
      return $this->_add(1, $value);
@@ -2023,7 +2023,7 @@ namespace sajari\engine\store\record\KeyScores {
     /**
      * Clear <count> value
      *
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function clearCount(){
       return $this->_clear(2);
@@ -2042,7 +2042,7 @@ namespace sajari\engine\store\record\KeyScores {
      * Set <count> value
      *
      * @param int $value
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function setCount( $value){
       return $this->_set(2, $value);
@@ -2060,7 +2060,7 @@ namespace sajari\engine\store\record\KeyScores {
     /**
      * Clear <score> value
      *
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function clearScore(){
       return $this->_clear(3);
@@ -2079,7 +2079,7 @@ namespace sajari\engine\store\record\KeyScores {
      * Set <score> value
      *
      * @param float $value
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function setScore( $value){
       return $this->_set(3, $value);
@@ -2087,14 +2087,14 @@ namespace sajari\engine\store\record\KeyScores {
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class KeyScores extends \DrSlump\Protobuf\Message {
 
-    /**  @var \sajari\engine\Key */
+    /**  @var \sajariGen\engine\Key */
     public $key = null;
     
-    /**  @var \sajari\engine\store\record\KeyScores\Score[]  */
+    /**  @var \sajariGen\engine\store\record\KeyScores\Score[]  */
     public $scores = array();
     
 
@@ -2111,7 +2111,7 @@ namespace sajari\engine\store\record {
       $f->name      = "key";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_OPTIONAL;
-      $f->reference = '\sajari\engine\Key';
+      $f->reference = '\sajariGen\engine\Key';
       $descriptor->addField($f);
 
       // REPEATED MESSAGE scores = 2
@@ -2120,7 +2120,7 @@ namespace sajari\engine\store\record {
       $f->name      = "scores";
       $f->type      = \DrSlump\Protobuf::TYPE_MESSAGE;
       $f->rule      = \DrSlump\Protobuf::RULE_REPEATED;
-      $f->reference = '\sajari\engine\store\record\KeyScores\Score';
+      $f->reference = '\sajariGen\engine\store\record\KeyScores\Score';
       $descriptor->addField($f);
 
       foreach (self::$__extensions as $cb) {
@@ -2142,7 +2142,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <key> value
      *
-     * @return \sajari\engine\store\record\KeyScores
+     * @return \sajariGen\engine\store\record\KeyScores
      */
     public function clearKey(){
       return $this->_clear(1);
@@ -2151,7 +2151,7 @@ namespace sajari\engine\store\record {
     /**
      * Get <key> value
      *
-     * @return \sajari\engine\Key
+     * @return \sajariGen\engine\Key
      */
     public function getKey(){
       return $this->_get(1);
@@ -2160,10 +2160,10 @@ namespace sajari\engine\store\record {
     /**
      * Set <key> value
      *
-     * @param \sajari\engine\Key $value
-     * @return \sajari\engine\store\record\KeyScores
+     * @param \sajariGen\engine\Key $value
+     * @return \sajariGen\engine\store\record\KeyScores
      */
-    public function setKey(\sajari\engine\Key $value){
+    public function setKey(\sajariGen\engine\Key $value){
       return $this->_set(1, $value);
     }
     
@@ -2179,7 +2179,7 @@ namespace sajari\engine\store\record {
     /**
      * Clear <scores> value
      *
-     * @return \sajari\engine\store\record\KeyScores
+     * @return \sajariGen\engine\store\record\KeyScores
      */
     public function clearScores(){
       return $this->_clear(2);
@@ -2189,7 +2189,7 @@ namespace sajari\engine\store\record {
      * Get <scores> value
      *
      * @param int $idx
-     * @return \sajari\engine\store\record\KeyScores\Score
+     * @return \sajariGen\engine\store\record\KeyScores\Score
      */
     public function getScores($idx = NULL){
       return $this->_get(2, $idx);
@@ -2198,17 +2198,17 @@ namespace sajari\engine\store\record {
     /**
      * Set <scores> value
      *
-     * @param \sajari\engine\store\record\KeyScores\Score $value
-     * @return \sajari\engine\store\record\KeyScores
+     * @param \sajariGen\engine\store\record\KeyScores\Score $value
+     * @return \sajariGen\engine\store\record\KeyScores
      */
-    public function setScores(\sajari\engine\store\record\KeyScores\Score $value, $idx = NULL){
+    public function setScores(\sajariGen\engine\store\record\KeyScores\Score $value, $idx = NULL){
       return $this->_set(2, $value, $idx);
     }
     
     /**
      * Get all elements of <scores>
      *
-     * @return \sajari\engine\store\record\KeyScores\Score[]
+     * @return \sajariGen\engine\store\record\KeyScores\Score[]
      */
     public function getScoresList(){
      return $this->_get(2);
@@ -2217,16 +2217,16 @@ namespace sajari\engine\store\record {
     /**
      * Add a new element to <scores>
      *
-     * @param \sajari\engine\store\record\KeyScores\Score $value
-     * @return \sajari\engine\store\record\KeyScores
+     * @param \sajariGen\engine\store\record\KeyScores\Score $value
+     * @return \sajariGen\engine\store\record\KeyScores
      */
-    public function addScores(\sajari\engine\store\record\KeyScores\Score $value){
+    public function addScores(\sajariGen\engine\store\record\KeyScores\Score $value){
      return $this->_add(2, $value);
     }
   }
 }
 
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class StoreClient extends \Grpc\BaseStub {
 
@@ -2234,32 +2234,32 @@ namespace sajari\engine\store\record {
       parent::__construct($hostname, $opts, $channel);
     }
     /**
-     * @param sajari\engine\store\record\Records $input
+     * @param sajariGen\engine\store\record\Records $input
      */
-    public function Add(\sajari\engine\store\record\Records $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Store/Add', $argument, '\sajari\engine\store\record\AddResponse::deserialize', $metadata, $options);
+    public function Add(\sajariGen\engine\store\record\Records $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Store/Add', $argument, '\sajariGen\engine\store\record\AddResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\store\record\Keys $input
+     * @param sajariGen\engine\store\record\Keys $input
      */
-    public function Get(\sajari\engine\store\record\Keys $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Store/Get', $argument, '\sajari\engine\store\record\GetResponse::deserialize', $metadata, $options);
+    public function Get(\sajariGen\engine\store\record\Keys $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Store/Get', $argument, '\sajariGen\engine\store\record\GetResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\store\record\Keys $input
+     * @param sajariGen\engine\store\record\Keys $input
      */
-    public function Delete(\sajari\engine\store\record\Keys $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Store/Delete', $argument, '\sajari\engine\store\record\DeleteResponse::deserialize', $metadata, $options);
+    public function Delete(\sajariGen\engine\store\record\Keys $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Store/Delete', $argument, '\sajariGen\engine\store\record\DeleteResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\store\record\KeysValues $input
+     * @param sajariGen\engine\store\record\KeysValues $input
      */
-    public function Patch(\sajari\engine\store\record\KeysValues $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Store/Patch', $argument, '\sajari\engine\store\record\PatchResponse::deserialize', $metadata, $options);
+    public function Patch(\sajariGen\engine\store\record\KeysValues $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Store/Patch', $argument, '\sajariGen\engine\store\record\PatchResponse::deserialize', $metadata, $options);
     }
   }
 }
-namespace sajari\engine\store\record {
+namespace sajariGen\engine\store\record {
 
   class ScoreClient extends \Grpc\BaseStub {
 
@@ -2267,16 +2267,16 @@ namespace sajari\engine\store\record {
       parent::__construct($hostname, $opts, $channel);
     }
     /**
-     * @param sajari\engine\store\record\SetRequest $input
+     * @param sajariGen\engine\store\record\SetRequest $input
      */
-    public function Set(\sajari\engine\store\record\SetRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Score/Set', $argument, '\sajari\engine\store\record\SetResponse::deserialize', $metadata, $options);
+    public function Set(\sajariGen\engine\store\record\SetRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Score/Set', $argument, '\sajariGen\engine\store\record\SetResponse::deserialize', $metadata, $options);
     }
     /**
-     * @param sajari\engine\store\record\IncrementRequest $input
+     * @param sajariGen\engine\store\record\IncrementRequest $input
      */
-    public function Increment(\sajari\engine\store\record\IncrementRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Score/Increment', $argument, '\sajari\engine\store\record\IncrementResponse::deserialize', $metadata, $options);
+    public function Increment(\sajariGen\engine\store\record\IncrementRequest $argument, $metadata = array(), $options = array()) {
+      return $this->_simpleRequest('/sajari.engine.store.record.Score/Increment', $argument, '\sajariGen\engine\store\record\IncrementResponse::deserialize', $metadata, $options);
     }
   }
 }

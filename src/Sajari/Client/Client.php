@@ -25,11 +25,11 @@ class Client
     private $collection = '';
     /** @var string $endpoint */
     private $endpoint = 'api.sajari.com:443';
-    /** @var \sajari\engine\store\record\StoreClient $storeClient */
+    /** @var \sajariGen\engine\store\record\StoreClient $storeClient */
     private $storeClient;
-    /** @var \sajari\api\query\v1\QueryClient $searchClient */
+    /** @var \sajariGen\api\query\v1\QueryClient $searchClient */
     private $searchClient;
-    /** @var \sajari\engine\schema\SchemaClient $schemaClient */
+    /** @var \sajariGen\engine\schema\SchemaClient $schemaClient */
     private $schemaClient;
     /** @var string $auth */
     private $auth;
@@ -44,13 +44,13 @@ class Client
 
     /**
      * Client constructor
-     * @param \sajari\api\query\v1\QueryClient $queryClient
-     * @param \sajari\engine\store\record\StoreClient $storeClient
+     * @param \sajariGen\api\query\v1\QueryClient $queryClient
+     * @param \sajariGen\engine\store\record\StoreClient $storeClient
      * @param string $projectID
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
      */
-    public function __construct(\sajari\api\query\v1\QueryClient $queryClient, \sajari\engine\store\record\StoreClient $storeClient, \sajari\engine\schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
+    public function __construct(\sajariGen\api\query\v1\QueryClient $queryClient, \sajariGen\engine\store\record\StoreClient $storeClient, \sajariGen\engine\schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
     {
         $this->projectID = $projectID;
         $this->collection = $collection;
@@ -76,13 +76,13 @@ class Client
         $credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         return new Client(
-            new \sajari\api\query\v1\QueryClient('api.sajari.com:443', [
+            new \sajariGen\api\query\v1\QueryClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
-            new \sajari\engine\store\record\StoreClient('api.sajari.com:443', [
+            new \sajariGen\engine\store\record\StoreClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
-            new \sajari\engine\schema\SchemaClient('api.sajari.com:443', [
+            new \sajariGen\engine\schema\SchemaClient('api.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
             $projectID,
@@ -104,11 +104,11 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\Key $key
+     * @param \Sajari\Engine\Key $key
      * @return array
      * @throws \Sajari\Error\RecordNotFoundException
      */
-    public function Get(\Sajari\Record\Key $key)
+    public function Get(\Sajari\Engine\Key $key)
     {
         try {
             list($res, $status) = $this->GetMulti([$key]);
@@ -120,7 +120,7 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\Key[] $keys
+     * @param \Sajari\Engine\Key[] $keys
      * @return \Sajari\Record\Record[]
      * @throws \Exception
      */
@@ -128,7 +128,7 @@ class Client
     {
         $protoKeys = $this->keysToProto($keys);
 
-        /** @var \sajari\engine\store\record\GetResponse $reply */
+        /** @var \sajariGen\engine\store\record\GetResponse $reply */
         list($reply, $status) = $this->storeClient->Get(
             $protoKeys,
             $this->getCallMeta()
@@ -156,13 +156,13 @@ class Client
 
     /**
      * @param array $keys
-     * @return \sajari\engine\store\record\Keys
+     * @return \sajariGen\engine\store\record\Keys
      */
     private function keysToProto(array $keys)
     {
-        $protoKeys = new \sajari\engine\store\record\Keys();
+        $protoKeys = new \sajariGen\engine\store\record\Keys();
 
-        /** @var \Sajari\Record\Key $k */
+        /** @var \Sajari\Engine\Key $k */
         foreach ($keys as $k) {
             $protoKeys->addKeys($k->Proto());
         }
@@ -192,7 +192,7 @@ class Client
      */
     public function AddMulti(array $records, array $transforms)
     {
-        $protoRecords = new \sajari\engine\store\record\Records();
+        $protoRecords = new \sajariGen\engine\store\record\Records();
 
         foreach ($records as $r) {
             $protoRecords->addRecords($r->Proto());
@@ -211,7 +211,7 @@ class Client
             }
         }
 
-        /** @var \sajari\engine\store\record\AddResponse $reply */
+        /** @var \sajariGen\engine\store\record\AddResponse $reply */
         list($reply, $status) = $this->storeClient->Add(
             $protoRecords,
             $this->getCallMeta()
@@ -223,7 +223,7 @@ class Client
         $keys = [];
 
         foreach ($reply->getKeysList() as $k) {
-            $keys[] = \Sajari\Record\Key::FromProto($k);
+            $keys[] = \Sajari\Engine\Key::FromProto($k);
         }
 
         return [$keys, $reply->getStatusList()];
@@ -264,7 +264,7 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\KeyValues $keyValues
+     * @param \Sajari\Engine\KeyValues $keyValues
      * @return null
      */
     public function Patch($keyValues)
@@ -278,13 +278,13 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\KeyValues[] $keyValues
+     * @param \Sajari\Engine\KeyValues[] $keyValues
      * @return mixed
      * @throws \Exception
      */
     public function PatchMulti(array $keyValues)
     {
-        $protoKeyValues = new \sajari\engine\store\record\KeysValues();
+        $protoKeyValues = new \sajariGen\engine\store\record\KeysValues();
 
         foreach ($keyValues as $keyValue) {
             $protoKeyValues->addKeysValues($keyValue->Proto());
@@ -324,7 +324,7 @@ class Client
      */
     public function GetFields()
     {
-        /** @var \sajari\engine\schema\Fields $reply */
+        /** @var \sajariGen\engine\schema\Fields $reply */
         list($reply, $status) = $this->schemaClient->GetFields(
             $this->getCallMeta()
         )->wait();
@@ -346,12 +346,12 @@ class Client
      */
     public function AddFields(array $fields)
     {
-        $protoFields = new \sajari\engine\schema\Fields();
+        $protoFields = new \sajariGen\engine\schema\Fields();
         foreach ($fields as $field) {
             $protoFields->addFields($field->Proto);
         }
 
-        /** @var \sajari\engine\schema\Response $reply */
+        /** @var \sajariGen\engine\schema\Response $reply */
         list($reply, $status) = $this->schemaClient->AddFields(
             $protoFields,
             $this->getCallMeta()
@@ -368,7 +368,7 @@ class Client
      */
     public function MutateFields(\Sajari\Schema\MutateFieldRequest $request)
     {
-        /** @var \sajari\engine\schema\Response $reply */
+        /** @var \sajariGen\engine\schema\Response $reply */
         list($reply, $status) = $this->schemaClient->MutateFields(
             $request->Proto(),
             $this->getCallMeta()

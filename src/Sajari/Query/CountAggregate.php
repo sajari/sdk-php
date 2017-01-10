@@ -43,17 +43,17 @@ class CountAggregate implements Aggregate, Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
      */
     public function Proto()
     {
-        $ca = new \sajari\engine\query\v1\Aggregate\Count();
+        $ca = new \sajariGen\engine\query\v1\Aggregate\Count();
         $ca->setField($this->field);
 
-        $a = new \sajari\engine\query\v1\Aggregate();
+        $a = new \sajariGen\engine\query\v1\Aggregate();
         $a->setCount($ca);
 
-        $ae = new \sajari\engine\query\v1\SearchRequest\AggregatesEntry();
+        $ae = new \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

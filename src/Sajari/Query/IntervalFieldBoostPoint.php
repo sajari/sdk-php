@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class IntervalFieldBoostPoint
  * @package Sajari\Query
  */
-class IntervalFieldBoostPoint implements Proto
+class IntervalFieldBoostPoint implements \Sajari\Engine\Proto
 {
     /** @var float $point */
     private $point;
@@ -43,11 +43,11 @@ class IntervalFieldBoostPoint implements Proto
     }
 
     /**
-     * @return \sajari\engine\query\v1\FieldBoost\Interval\Point
+     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
      */
     public function Proto()
     {
-        $p = new \sajari\engine\query\v1\FieldBoost\Interval\Point();
+        $p = new \sajariGen\engine\query\v1\FieldBoost\Interval\Point();
         $p->setPoint($this->point);
         $p->setValue($this->value);
         return $p;
