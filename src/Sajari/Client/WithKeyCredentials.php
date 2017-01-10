@@ -2,7 +2,7 @@
 
 namespace Sajari\Client;
 
-class WithAuth implements Opt
+class WithKeyCredentials implements Opt
 {
     /** @var $auth string */
     private $auth;
