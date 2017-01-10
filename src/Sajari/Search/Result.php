@@ -2,8 +2,6 @@
 
 namespace Sajari\Search;
 
-use Sajari\Record\Value;
-
 class Result
 {
     /** @var double $score */
@@ -12,15 +10,15 @@ class Result
     /** @var double $indexScore */
     private $indexScore;
 
-    /** @var Value[] $value */
-    private $value;
+    /** @var mixed[] $values */
+    private $values;
 
     /**
-     * @return Value[]
+     * @return mixed[]
      */
     public function getValues()
     {
-        return $this->value;
+        return $this->values;
     }
 
     /**
@@ -43,12 +41,12 @@ class Result
      * Result constructor.
      * @param float $score
      * @param float $indexScore
-     * @param Value[] $value
+     * @param mixed[] $values
      */
-    public function __construct($score, $indexScore, $value)
+    public function __construct($score, $indexScore, $values)
     {
         $this->score = $score;
         $this->indexScore = $indexScore;
-        $this->value = $value;
+        $this->values = $values;
     }
 }
