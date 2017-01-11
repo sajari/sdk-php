@@ -1229,7 +1229,7 @@ namespace sajariGen\api\query\v1 {
      * @param sajariGen\api\query\v1\SearchRequest $input
      */
     public function Search(\sajariGen\api\query\v1\SearchRequest $argument, $metadata = array(), $options = array()) {
-      return $this->_simpleRequest('/sajari.api.query.v1.Query/Query', $argument, '\sajariGen\api\query\v1\SearchResponse::deserialize', $metadata, $options);
+      return $this->_simpleRequest('/sajari.api.query.v1.Query/Search', $argument, '\sajariGen\api\query\v1\SearchResponse::deserialize', $metadata, $options);
     }
   }
 }
