@@ -305,7 +305,7 @@ class Request
         $r->setSearchRequest($er);
 
         // Tracking
-        $r->setTracking(isset($this->tracking) ? $this->tracking->Proto() : new \Sajari\Query\Tracking());
+        $r->setTracking(isset($this->tracking) ? $this->tracking->Proto() : (new \Sajari\Query\Tracking())->Proto());
 
         // Transforms
         if (isset($this->transforms)) {
