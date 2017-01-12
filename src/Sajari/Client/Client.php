@@ -10,6 +10,7 @@ namespace Sajari\Client;
 require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/engine/key.php';
 require_once __DIR__.'/../proto/engine/status.php';
+require_once __DIR__.'/../proto/engine/empty.php';
 require_once __DIR__.'/../proto/engine/store/record/record.php';
 require_once __DIR__.'/../proto/api/query/v1/query.php';
 require_once __DIR__.'/../proto/engine/schema/schema.php';
@@ -62,6 +63,7 @@ class Client
 
         $this->searchClient = $queryClient;
         $this->storeClient = $storeClient;
+        $this->schemaClient = $schemaClient;
     }
 
     /**
@@ -70,9 +72,17 @@ class Client
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
      * @return Client
+     * @throws \Sajari\Error\Exception
      */
     public static function NewClient($projectID, $collection, array $dialOptions)
     {
+        if (gettype($projectID) !== "string" || $projectID === "") {
+            throw new \Sajari\Error\Exception("invalid project supplied");
+        }
+        if (gettype($collection) !== "string" || $collection === "") {
+            throw new \Sajari\Error\Exception("invalid collection supplied");
+        }
+
         $credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         return new Client(
@@ -176,7 +186,7 @@ class Client
      * @return mixed
      * @throws Exception
      */
-    public function Add(\Sajari\Record\Record $rec, array $transforms)
+    public function Add(\Sajari\Record\Record $rec, array $transforms = [])
     {
         $multiResult = $this->AddMulti([$rec], $transforms);
 
@@ -190,7 +200,7 @@ class Client
      * @return array
      * @throws \Sajari\Error\Exception
      */
-    public function AddMulti(array $records, array $transforms)
+    public function AddMulti(array $records, array $transforms = [])
     {
         $protoRecords = new \sajariGen\engine\store\record\Records();
 
@@ -200,8 +210,8 @@ class Client
 
         if (!isset($transforms) || count($transforms) === 0) {
             $transforms = [
-                \Sajari\Record\Transform::SplitIndexFieldsTransform(),
-                \Sajari\Record\Transform::StopStemmerTransform()
+                \Sajari\Record\Transform::SplitIndexFields(),
+                \Sajari\Record\Transform::StopStemmer()
             ];
         }
 
@@ -326,6 +336,7 @@ class Client
     {
         /** @var \sajariGen\engine\schema\Fields $reply */
         list($reply, $status) = $this->schemaClient->GetFields(
+            new \sajariGen\engine\XEmpty(),
             $this->getCallMeta()
         )->wait();
 
