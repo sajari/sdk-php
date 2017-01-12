@@ -76,7 +76,7 @@ class Field implements \Sajari\Engine\Proto
             $field->getId(),
             $field->getName(),
             $field->getDescription(),
-            $field->getType(),
+            intval($field->getType()), // values corresponding to type "string" come back as null, so we have to convert to int to get 0, the expected value
             $field->getRepeated(),
             $field->getRequired(),
             $field->getStore(),
@@ -101,5 +101,92 @@ class Field implements \Sajari\Engine\Proto
         $field->setIndexed($this->indexed);
         $field->setUnique($this->unique);
         return $field;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param bool $asString
+     * @return int|string
+     */
+    public function getType($asString = false)
+    {
+        if ($asString) {
+            switch ($this->type) {
+                case self::$STRING:
+                    return "string";
+                case self::$INTEGER:
+                    return "integer";
+                case self::$FLOAT:
+                    return "float";
+                case self::$BOOLEAN:
+                    return "boolean";
+                case self::$TIMESTAMP:
+                    return "timestamp";
+            }
+        }
+        return $this->type;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRepeated()
+    {
+        return $this->repeated;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRequired()
+    {
+        return $this->required;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStore()
+    {
+        return $this->store;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIndexed()
+    {
+        return $this->indexed;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUnique()
+    {
+        return $this->unique;
     }
 }
