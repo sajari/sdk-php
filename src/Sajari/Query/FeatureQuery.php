@@ -15,10 +15,12 @@ class FeatureQuery implements \Sajari\Engine\Proto
 
     /**
      * @param FieldBoost[] $fieldBoosts
+     * @return $this
      */
     public function setFieldBoosts(array $fieldBoosts)
     {
         $this->fieldBoosts = $fieldBoosts;
+        return $this;
     }
 
     /**

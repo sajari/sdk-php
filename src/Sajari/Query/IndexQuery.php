@@ -18,26 +18,32 @@ class IndexQuery implements \Sajari\Engine\Proto
 
     /**
      * @param Body[] $body
+     * @return $this
      */
     public function setBody(array $body)
     {
         $this->body = $body;
+        return $this;
     }
 
     /**
      * @param InstanceBoost[] $instanceBoosts
+     * @return $this
      */
     public function setInstanceBoosts(array $instanceBoosts)
     {
         $this->instanceBoosts = $instanceBoosts;
+        return $this;
     }
 
     /**
      * @param FieldBoost[] $fieldBoosts
+     * @return $this
      */
     public function setFieldBoosts(array $fieldBoosts)
     {
         $this->fieldBoosts = $fieldBoosts;
+        return $this;
     }
 
     /**

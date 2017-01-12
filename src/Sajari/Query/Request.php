@@ -42,19 +42,6 @@ class Request
     private $transforms;
 
     /**
-     * Request constructor.
-     * @param string $text
-     * @param int $limit
-     */
-    public function __construct($text = "", $limit = 10)
-    {
-        if ($text !== "") {
-            $this->body = [new Body($text)];
-        }
-        $this->limit = $limit;
-    }
-
-    /**
      * @return Tracking
      */
     public function getTracking()
@@ -63,11 +50,13 @@ class Request
     }
 
     /**
-     * @param Tracking $tracking
+     * @param $tracking
+     * @return $this
      */
     public function setTracking($tracking)
     {
         $this->tracking = $tracking;
+        return $this;
     }
 
     /**
@@ -79,11 +68,13 @@ class Request
     }
 
     /**
-     * @param Filter $filter
+     * @param $filter
+     * @return $this
      */
     public function setFilter($filter)
     {
         $this->filter = $filter;
+        return $this;
     }
 
     /**
@@ -95,11 +86,13 @@ class Request
     }
 
     /**
-     * @param IndexQuery $indexQuery
+     * @param $indexQuery
+     * @return $this
      */
     public function setIndexQuery($indexQuery)
     {
         $this->indexQuery = $indexQuery;
+        return $this;
     }
 
     /**
@@ -111,11 +104,13 @@ class Request
     }
 
     /**
-     * @param FeatureQuery $featureQuery
+     * @param $featureQuery
+     * @return $this
      */
     public function setFeatureQuery($featureQuery)
     {
         $this->featureQuery = $featureQuery;
+        return $this;
     }
 
     /**
@@ -127,11 +122,13 @@ class Request
     }
 
     /**
-     * @param integer $offset
+     * @param $offset
+     * @return $this
      */
     public function setOffset($offset)
     {
         $this->offset = $offset;
+        return $this;
     }
 
     /**
@@ -143,11 +140,13 @@ class Request
     }
 
     /**
-     * @param integer $limit
+     * @param $limit
+     * @return $this
      */
     public function setLimit($limit)
     {
         $this->limit = $limit;
+        return $this;
     }
 
     /**
@@ -159,43 +158,13 @@ class Request
     }
 
     /**
-     * @param Sort[] $sorts
+     * @param array $sorts
+     * @return $this
      */
     public function setSorts(array $sorts)
     {
         $this->sorts = $sorts;
-    }
-
-    /**
-     * @return FieldBoost[]
-     */
-    public function getFieldBoosts()
-    {
-        return $this->fieldBoosts;
-    }
-
-    /**
-     * @param FieldBoost[] $fieldBoosts
-     */
-    public function setFieldBoosts(array $fieldBoosts)
-    {
-        $this->fieldBoosts = $fieldBoosts;
-    }
-
-    /**
-     * @return InstanceBoost[]
-     */
-    public function getInstanceBoosts()
-    {
-        return $this->instanceBoosts;
-    }
-
-    /**
-     * @param InstanceBoost[] $instanceBoosts
-     */
-    public function setInstanceBoosts(array $instanceBoosts)
-    {
-        $this->instanceBoosts = $instanceBoosts;
+        return $this;
     }
 
     /**
@@ -207,11 +176,13 @@ class Request
     }
 
     /**
-     * @param \string[] $fields
+     * @param array $fields
+     * @return $this
      */
     public function setFields(array $fields)
     {
         $this->fields = $fields;
+        return $this;
     }
 
     /**
@@ -223,11 +194,13 @@ class Request
     }
 
     /**
-     * @param Aggregate[] $aggregates
+     * @param array $aggregates
+     * @return $this
      */
     public function setAggregates(array $aggregates)
     {
         $this->aggregates = $aggregates;
+        return $this;
     }
 
     /**
@@ -239,11 +212,13 @@ class Request
     }
 
     /**
-     * @param Transform[] $transforms
+     * @param array $transforms
+     * @return $this
      */
     public function setTransforms(array $transforms)
     {
         $this->transforms = $transforms;
+        return $this;
     }
 
     /**
