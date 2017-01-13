@@ -4,14 +4,26 @@
 
 The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
+If you're serving up the results of searches to users in a web browser we recommend using the [js](https://github.com/sajari/sajari-sdk-js) or [react](https://github.com/sajari/sajari-sdk-react) libraries. Benefits include:
+
+- Better user experience for users, queries will use the Sajari server closest to them  
+- Faster responses from your service, there's no need to talk to us
+- Real time learning based on result popularity and user interactions
+
 ## Table of Contents
 
 * [Setup](#setup)
   * [Prerequisites](#prerequisites)
-  * [PHP 5](#php-5)
-  * [Install Sajari](#install-sajari)
+  * [Adding the SDK to your project](#adding-the-sdk-to-your-project)
+  * [Example install on a fresh Ubuntu 16.04](#example-install-on-a-fresh-ubuntu-16.04)
 * [Getting Started](#getting-started)
-* [Documentation](#documentation)
+* [Snippets](#snippets)
+  * [Performing a text search](#performing-a-text-search)
+  * [Getting a record](#getting-a-record)
+  * [Deleting a record](#deleting-a-record)
+  * [Adding a record](#adding-a-record)
+  * [Patching a record](#patching-a-record)
+  * [Getting fields from a schema](#getting-fields-from-a-schema)
 * [License](#license)
 
 ## Setup
@@ -26,7 +38,7 @@ The minimum php versions required for this sdk are php 5.5 and 7.0. This limitat
 
 The [gRPC](https://pecl.php.net/package/gRPC) extension is required for this library. It can be installed from Pecl. You can find more information about it [here](https://github.com/grpc/grpc/tree/master/src/php). 
 
-### Adding to your project
+### Adding the SDK to your project
 
 Add these sections to your `composer.json` to install the latest version from master.
 ```
@@ -45,12 +57,13 @@ Add these sections to your `composer.json` to install the latest version from ma
 }
 ```
 
-### Example install on Ubuntu 16.04
+### Example install on a fresh Ubuntu 16.04
 
 ```bash
 sudo apt install php-cli php-dev php-pear
 sudo pecl install grpc
 # add "extension=grpc.so" to php.ini
+# add to composer
 ```
 
 ## Getting Started
@@ -127,100 +140,6 @@ $client = Client::NewClient('project', 'collection', [
 ]);
 ```
 
-## Request
-
-### Creating a request
-
-```php
-$req = new Request();
-```
-
-### Setting a limit
-
-```php
-$req->setLimit(10);
-```
-
-### Setting an offset
-
-```php
-$req->setOffset(5);
-```
-
-### Setting an IndexQuery
-
-```php
-$req->setIndexQuery($iq);
-```
-
-### Setting a FeatureQuery
-
-```php
-$req->setFeatureQuery($fq);
-```
-
-### Setting a filter
-
-```php
-$req->setFilter($f);
-```
-
-### Setting sorts
-
-```php
-$req->setSorts($sorts);
-```
-
-### Setting fields
-
-```php
-$req->setFields(["_id", "title", "description");
-```
-
-### Setting aggregates
-
-```php
-$req->setAggregates($aggs);
-```
-
-### Setting tracking
-
-```php
-$req->setTracking($tracking);
-```
-
-### Setting transforms
-
-```php
-$req->setTransforms($transforms);
-```
-
-## IndexQuery
-
-### Creating an IndexQuery
-
-```php
-$iq = new IndexQuery();
-```
-
-### Setting the body
-
-```php
-$iq->setBody([$body]);
-```
-
-### Setting InstanceBoosts
-
-```php
-$iq->setInstanceBoosts([$ib]);
-```
-
-### Setting FieldBoosts
-
-```php
-$iq->setFieldBoosts([$fb]);
-```
-
 ## License
 
-We use the [MIT License](./LICENSE.md)
+We use the [MIT License](./LICENSE.md).
