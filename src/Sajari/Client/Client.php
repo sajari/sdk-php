@@ -274,7 +274,7 @@ class Client
     }
 
     /**
-     * @param \Sajari\Engine\KeyValues $keyValues
+     * @param \Sajari\Record\KeyValues $keyValues
      * @return null
      */
     public function Patch($keyValues)
@@ -288,7 +288,7 @@ class Client
     }
 
     /**
-     * @param \Sajari\Engine\KeyValues[] $keyValues
+     * @param \Sajari\Record\KeyValues[] $keyValues
      * @return mixed
      * @throws \Exception
      */
