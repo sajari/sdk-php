@@ -20,33 +20,15 @@ The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
 The minimum php versions required for this sdk are php 5.5 and 7.0. This limitation is set by the underlying [gRPC](https://github.com/grpc/grpc/tree/master/src/php) library.
 
-[Pecl](https://pecl.php.net/) is required for installing the `grpc` extension. Pecl can be installed by your system through `brew install pecl
+[Pecl](https://pecl.php.net/) is required for installing the `grpc` extension.
 
 [Composer](https://getcomposer.org/) for package management and distribution. Get composer from [here](https://getcomposer.org/download/).
 
-### PHP-5
-
-Installing on Ubuntu 14.04 LTS
-
-default php
-```
-sudo apt-get install php5 php5-dev php-pear
-sudo pecl install grpc
-```
-
-php 5.6
-```
-sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-sudo apt-get install --fix-missing php5.6 php5.6-dev php5.6-xml
-sudo pecl install grpc
-```
-
-Add `extension=grpc.so` to your `php.ini` to enable the grpc extension.
+The [gRPC](https://pecl.php.net/package/gRPC) extension is required for this library. It can be installed from Pecl. You can find more information about it [here](https://github.com/grpc/grpc/tree/master/src/php). 
 
 ### Adding to your project
 
-Add these sections to your `composer.json` to keep up with the latest version.
+Add these sections to your `composer.json` to install the latest version from master.
 ```
 {
   "repositories": [
@@ -63,9 +45,17 @@ Add these sections to your `composer.json` to keep up with the latest version.
 }
 ```
 
+### Example install on Ubuntu 16.04
+
+```bash
+sudo apt install php-cli php-dev php-pear
+sudo pecl install grpc
+# add "extension=grpc.so" to php.ini
+```
+
 ## Getting Started
 
-See [examples](./examples) for the easiest way to get going.
+See [examples](./examples) for code you can copy and paste to get started.
 
 - [Performing a search](./examples/search.php)
 - [Adding a record](./examples/add.php)
@@ -73,9 +63,163 @@ See [examples](./examples) for the easiest way to get going.
 - [Patching a record](./examples/patch.php)
 - [Deleting a record](./examples/delete.php)
 
-## Documentation
+## Snippets
 
-The documentation is generated from the source code and is available at [https://sajari.github.io/sajari-sdk-php/](https://sajari.github.io/sajari-sdk-php/).
+### Performing a text search
+
+```php
+$client->Search(
+    (new Request())->setIndexQuery(
+        (new IndexQuery())->setBody(
+            [new Body("foo")]
+        )
+    )
+)
+```
+
+### Getting a record
+
+```php
+$client->Get(
+    new Key("_id", "123")
+)
+```
+
+### Deleting a record
+
+```php
+$client->Delete(
+    new Key("_id", "123")
+)
+```
+
+### Adding a record
+
+```php
+$client->Add(
+    new Record(["text" => "foo"])
+)
+```
+
+### Patching a record
+
+```php
+$client->Patch(
+    new KeyValues(
+        new Key("_id", "123), [new KeyValue("text", "foo")]
+    )
+)
+```
+
+### Getting fields from a schema
+
+```php
+$client->GetFields()
+```
+
+## Client
+
+### Creating a Client
+
+```php
+$client = Client::NewClient('project', 'collection', [
+    WithKeyCredentials('key', 'secret')
+]);
+```
+
+## Request
+
+### Creating a request
+
+```php
+$req = new Request();
+```
+
+### Setting a limit
+
+```php
+$req->setLimit(10);
+```
+
+### Setting an offset
+
+```php
+$req->setOffset(5);
+```
+
+### Setting an IndexQuery
+
+```php
+$req->setIndexQuery($iq);
+```
+
+### Setting a FeatureQuery
+
+```php
+$req->setFeatureQuery($fq);
+```
+
+### Setting a filter
+
+```php
+$req->setFilter($f);
+```
+
+### Setting sorts
+
+```php
+$req->setSorts($sorts);
+```
+
+### Setting fields
+
+```php
+$req->setFields(["_id", "title", "description");
+```
+
+### Setting aggregates
+
+```php
+$req->setAggregates($aggs);
+```
+
+### Setting tracking
+
+```php
+$req->setTracking($tracking);
+```
+
+### Setting transforms
+
+```php
+$req->setTransforms($transforms);
+```
+
+## IndexQuery
+
+### Creating an IndexQuery
+
+```php
+$iq = new IndexQuery();
+```
+
+### Setting the body
+
+```php
+$iq->setBody([$body]);
+```
+
+### Setting InstanceBoosts
+
+```php
+$iq->setInstanceBoosts([$ib]);
+```
+
+### Setting FieldBoosts
+
+```php
+$iq->setFieldBoosts([$fb]);
+```
 
 ## License
 
