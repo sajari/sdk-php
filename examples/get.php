@@ -2,16 +2,17 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
+// Get config from environment
 $project = getenv("SJ_PROJECT");
 $collection = getenv("SJ_COLLECTION");
 $key_id = getenv("SJ_KEY_ID");
 $key_secret = getenv("SJ_KEY_SECRET");
 
-$opts = [new \Sajari\Client\WithAuth($key_id, $key_secret)];
+$opts = [new \Sajari\Client\WithKeyCredentials($key_id, $key_secret)];
 
 $c = \Sajari\Client\Client::NewClient($project, $collection, $opts);
 
-$k = new \Sajari\Record\Key("_id", "<value>");
+$k = new \Sajari\Engine\Key("_id", "<value>");
 
 /** @var \Sajari\Record\Record $res */
 try {
@@ -30,7 +31,6 @@ try {
 $values = $res->getValues();
 ksort($values);
 
-/** @var \Sajari\Record\Value $v */
 foreach ($values as $field => $value) {
     printf("  %s:\n    %s\n", $field, $value);
 }

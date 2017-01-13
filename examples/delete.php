@@ -12,10 +12,10 @@ $key_secret = getenv("SJ_KEY_SECRET");
 $client = \Sajari\Client\Client::NewClient(
     $project,
     $collection,
-    [new \Sajari\Client\WithAuth($key_id, $key_secret)]
+    [new \Sajari\Client\WithKeyCredentials($key_id, $key_secret)]
 );
 
-$k = new \Sajari\Record\Key("_id", "<value>");
+$k = new \Sajari\Engine\Key("_id", "<value>");
 
 try {
     $status = $client->Delete($k);

@@ -12,7 +12,7 @@ $key_secret = getenv("SJ_KEY_SECRET");
 $client = \Sajari\Client\Client::NewClient(
     $project,
     $collection,
-    [new \Sajari\Client\WithAuth($key_id, $key_secret)]
+    [new \Sajari\Client\WithKeyCredentials($key_id, $key_secret)]
 );
 
 $values = [];
