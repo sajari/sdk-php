@@ -4,9 +4,11 @@ require  __DIR__ . '/vendor/autoload.php';
 
 include_once "ExampleUtils.php";
 
+use Sajari\Record\Record;
+
 /** @var \Sajari\Engine\Key $key */
 list($key, $status) = ExampleUtils::CreateClient()->Add(
-    new \Sajari\Record\Record([
+    new Record([
         "id" => 1,
         "name" => "Jones",
         "url" => "site.com/1"

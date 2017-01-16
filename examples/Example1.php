@@ -7,34 +7,62 @@ require  __DIR__ . '/vendor/autoload.php';
 include_once "ExampleUtils.php";
 
 use \Sajari\Schema\Field;
+use \Sajari\Record\Record;
+use \Sajari\Query\Request;
 
 $client = ExampleUtils::CreateClient();
 
 $fields = [
-    new Field("id"  , "id of the user"        , Field::$INTEGER, false, true, false, false, true ),
-    new Field("name", "name of the user"      , Field::$STRING , false, true, false, true , false),
-    new Field("url" , "url of the user's page", Field::$STRING , false, true, false, false, false)
+    (new Field("title", Field::$STRING))
+        ->setRequired(true)
+        ->setIndexed(true),
+    (new Field("slug", Field::$STRING))
+        ->setRequired(true),
+    (new Field("draft", Field::$BOOLEAN)),
+    (new Field("body", Field::$STRING))
+        ->setRequired(true)
+        ->setIndexed(true),
+    (new Field("tags", Field::$STRING))
+        ->setRepeated(true),
+    (new Field("datecreated", Field::$TIMESTAMP))
+        ->setRequired(true),
+    (new Field("views", Field::$INTEGER))
 ];
 
 // Set up schema
 $addStatuses = $client->AddFields($fields);
 
 foreach ($addStatuses->getStatus() as $k => $s) {
-    if ($s->getCode() !== 0) {
+    if ($s->getCode() != 0) {
         printf("error adding field %s: (%s) %s\n", $fields[$k]->getName(), $s->getCode(), $s->getMessage());
     }
 }
 
 // Add record
-$client->Add(
-    new \Sajari\Record\Record([
-        "id" => 1,
-        "name" => "Jones",
-        "url" => "sajari.com/1"
-    ]), []
+$client->AddMulti(
+    [
+        new Record([
+            "title" => "My holiday story",
+            "slug" => "my-holiday-story",
+            "draft" => "false",
+            "body" => "My holiday began with...",
+            "tags" => ["holiday", "story"],
+            "datecreated" => new DateTime(),
+            "views" => 100, // If only it were that easy..
+        ]),
+        new Record([
+            "title" => "The new neighbours",
+            "slug" => "the-new-neighbours",
+            "draft" => "true",
+            "body" => "Let me tell you about the new neighbours...",
+            "tags" => ["neighbours", "local"],
+            "datecreated" => new DateTime(),
+            "views" => 0,
+        ])
+    ], []
 );
 
 // Search for the record
 ExampleUtils::PrintSearchResults(
-    $client->Search(new \Sajari\Query\Request("Jones"))
+    $client->Search(new Request("Holiday"))
 );
