@@ -232,8 +232,8 @@ class Client
 
         $keys = [];
 
-        foreach ($reply->getKeysList() as $k) {
-            $keys[] = \Sajari\Engine\Key::FromProto($k);
+        foreach ($reply->getKeysList() as $i => $k) {
+            $keys[] = $reply->getStatus($i)->getCode() == 0 ? \Sajari\Engine\Key::FromProto($k) : null;
         }
 
         return [$keys, $reply->getStatusList()];
