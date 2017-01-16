@@ -19,16 +19,24 @@ class TransformTest extends \PHPUnit_Framework_TestCase
     public function testStopStemmer()
     {
         $this->assertSame(
-            'stop-stemmer',
-            Transform::StopStemmer()->Proto()->getIdentifier()
+            'stop-stem',
+            Transform::StopStem()->Proto()->getIdentifier()
         );
     }
 
     public function testSplitIndexFields()
     {
         $this->assertSame(
-            'split-index-fields',
-            Transform::SplitIndexFields()->Proto()->getIdentifier()
+            'split-indexed-fields',
+            Transform::SplitIndexedFields()->Proto()->getIdentifier()
+        );
+    }
+
+    public function testSplitStopStemIndexedFields()
+    {
+        $this->assertSame(
+            'split-stop-stem-indexed-fields',
+            Transform::SplitStopStemIndexedFields()->Proto()->getIdentifier()
         );
     }
 }

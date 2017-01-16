@@ -23,17 +23,25 @@ class Transform implements \Sajari\Engine\Proto
     /**
      * @return Transform
      */
-    public static function StopStemmer()
+    public static function StopStem()
     {
-        return new Transform("stop-stemmer");
+        return new Transform("stop-stem");
     }
 
     /**
      * @return Transform
      */
-    public static function SplitIndexFields()
+    public static function SplitIndexedFields()
     {
-        return new Transform("split-index-fields");
+        return new Transform("split-indexed-fields");
+    }
+
+    /**
+     * @return Transform
+     */
+    public static function SplitStopStemIndexedFields()
+    {
+        return new Transform("split-stop-stem-indexed-fields");
     }
 
     /**

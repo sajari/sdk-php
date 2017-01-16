@@ -210,8 +210,7 @@ class Client
 
         if (!isset($transforms) || count($transforms) === 0) {
             $transforms = [
-                \Sajari\Record\Transform::SplitIndexFields(),
-                \Sajari\Record\Transform::StopStemmer()
+                \Sajari\Record\Transform::SplitStopStemIndexedFields()
             ];
         }
 
