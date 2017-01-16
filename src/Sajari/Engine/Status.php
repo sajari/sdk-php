@@ -26,6 +26,22 @@ class Status
     }
 
     /**
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
      * @param \sajariGen\engine\Status $protoStatus
      * @return Status
      */
