@@ -53,9 +53,8 @@ class Field implements \Sajari\Engine\Proto
      * @param boolean $indexed
      * @param boolean $unique
      */
-    public function __construct($id, $name, $description, $type, $repeated, $required, $store, $indexed, $unique)
+    public function __construct($name, $description, $type, $repeated, $required, $store, $indexed, $unique)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->type = $type;
@@ -91,7 +90,6 @@ class Field implements \Sajari\Engine\Proto
     public function Proto()
     {
         $field = new \sajariGen\engine\schema\Field();
-        $field->setId($this->id);
         $field->setName($this->name);
         $field->setDescription($this->description);
         $field->setType($this->type);
