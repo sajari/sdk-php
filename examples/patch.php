@@ -2,34 +2,13 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
-// Get config from environment
-$project = getenv("SJ_PROJECT");
-$collection = getenv("SJ_COLLECTION");
-$key_id = getenv("SJ_KEY_ID");
-$key_secret = getenv("SJ_KEY_SECRET");
+include_once "ExampleUtils.php";
 
-// Create a client with the default configuration
-$client = \Sajari\Client\Client::NewClient(
-    $project,
-    $collection,
-    [new \Sajari\Client\WithKeyCredentials($key_id, $key_secret)]
+$status = ExampleUtils::CreateClient()->Patch(
+    new \Sajari\Record\KeyValues(
+        new \Sajari\Engine\Key("_id", "<record id>"),
+        [new \Sajari\Record\KeyValue("name", "Alex")]
+    )
 );
 
-$k = new \Sajari\Engine\Key("_id", "<value>");
-
-$m = new \Sajari\Record\KeyValue("text", "i got patched!");
-
-$km = new \Sajari\Record\KeyValues($k, [$m]);
-
-try {
-    $status = $client->Patch($km);
-} catch (\Exception $e) {
-    printf("%s\n", $e);
-    exit(1);
-}
-
-if ($status && $status->getCode() != 0) {
-    echo $status->getMessage()."\n";
-} else {
-    echo "Success\n";
-}
+ExampleUtils::CheckStatusForErrors($status);
