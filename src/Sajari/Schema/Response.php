@@ -8,12 +8,20 @@ namespace Sajari\Schema;
  */
 class Response
 {
-    /** @var \Sajari\Engine\Status $status */
+    /** @var \Sajari\Engine\Status[] $status */
     private $status;
 
     private function __construct($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return \Sajari\Engine\Status[]
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
