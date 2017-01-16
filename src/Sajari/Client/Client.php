@@ -359,7 +359,7 @@ class Client
     {
         $protoFields = new \sajariGen\engine\schema\Fields();
         foreach ($fields as $field) {
-            $protoFields->addFields($field->Proto);
+            $protoFields->addFields($field->Proto());
         }
 
         /** @var \sajariGen\engine\schema\Response $reply */
