@@ -20,8 +20,8 @@ require_once __DIR__.'/../proto/engine/schema/schema.php';
  */
 class Client
 {
-    /** @var string $projectID */
-    private $projectID = '';
+    /** @var string $project */
+    private $project = '';
     /** @var string $collection */
     private $collection = '';
     /** @var string $endpoint */
@@ -53,7 +53,7 @@ class Client
      */
     public function __construct(\sajariGen\api\query\v1\QueryClient $queryClient, \sajariGen\engine\store\record\StoreClient $storeClient, \sajariGen\engine\schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
     {
-        $this->projectID = $projectID;
+        $this->project = $projectID;
         $this->collection = $collection;
 
         /** @var $opt Opt */
@@ -107,7 +107,7 @@ class Client
     private function getCallMeta()
     {
         return array(
-            'project' => [$this->projectID],
+            'project' => [$this->project],
             'collection' => [$this->collection],
             'authorization' => [$this->auth],
         );
