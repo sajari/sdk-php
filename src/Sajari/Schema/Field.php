@@ -43,26 +43,13 @@ class Field implements \Sajari\Engine\Proto
 
     /**
      * Field constructor.
-     * @param int $id
      * @param string $name
-     * @param string $description
      * @param int $type
-     * @param boolean $repeated
-     * @param boolean $required
-     * @param boolean $store
-     * @param boolean $indexed
-     * @param boolean $unique
      */
-    public function __construct($name, $description, $type, $repeated, $required, $store, $indexed, $unique)
+    public function __construct($name, $type)
     {
         $this->name = $name;
-        $this->description = $description;
         $this->type = $type;
-        $this->repeated = $repeated;
-        $this->required = $required;
-        $this->store = $store;
-        $this->indexed = $indexed;
-        $this->unique = $unique;
     }
 
     /**
@@ -71,17 +58,16 @@ class Field implements \Sajari\Engine\Proto
      */
     public static function FromProto(\sajariGen\engine\schema\Field $field)
     {
-        return new Field(
-            $field->getId(),
-            $field->getName(),
-            $field->getDescription(),
-            intval($field->getType()), // values corresponding to type "string" come back as null, so we have to convert to int to get 0, the expected value
-            $field->getRepeated(),
-            $field->getRequired(),
-            $field->getStore(),
-            $field->getIndexed(),
-            $field->getUnique()
-        );
+        // values corresponding to type "string" come back as null, so we have to convert to int to get 0, the expected value
+        $f = new Field($field->getName(), intval($field->getType()));
+        $f->id = $field->getId();
+        $f->description = $field->getDescription();
+        $f->repeated = $field->getRepeated();
+        $f->required = $field->getRequired();
+        $f->store = $field->getStore();
+        $f->indexed = $field->getIndexed();
+        $f->unique = $field->getUnique();
+        return $f;
     }
 
     /**
@@ -178,6 +164,86 @@ class Field implements \Sajari\Engine\Proto
     public function isIndexed()
     {
         return $this->indexed;
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param string $description
+     * @return Field
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @param int $type
+     * @return Field
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @param bool $repeated
+     * @return Field
+     */
+    public function setRepeated($repeated)
+    {
+        $this->repeated = $repeated;
+        return $this;
+    }
+
+    /**
+     * @param bool $required
+     * @return Field
+     */
+    public function setRequired($required)
+    {
+        $this->required = $required;
+        return $this;
+    }
+
+    /**
+     * @param bool $store
+     * @return Field
+     */
+    public function setStore($store)
+    {
+        $this->store = $store;
+        return $this;
+    }
+
+    /**
+     * @param bool $indexed
+     * @return Field
+     */
+    public function setIndexed($indexed)
+    {
+        $this->indexed = $indexed;
+        return $this;
+    }
+
+    /**
+     * @param bool $unique
+     * @return Field
+     */
+    public function setUnique($unique)
+    {
+        $this->unique = $unique;
+        return $this;
     }
 
     /**
