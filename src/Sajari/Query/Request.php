@@ -41,6 +41,18 @@ class Request
     /** @var Transform[] $transforms */
     private $transforms;
 
+    public function __construct($body = "", $limit = 10)
+    {
+        if (gettype($body) === "string" && $body !== "") {
+            $this->setIndexQuery(
+                (new IndexQuery())->setBody([
+                    new Body($body)
+                ])
+            );
+        }
+        $this->limit = $limit;
+    }
+
     /**
      * @return Tracking
      */

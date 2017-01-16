@@ -11,7 +11,7 @@
         <directory>src/Sajari/Client</directory>
         <directory>src/Sajari/Error</directory>
         <directory>src/Sajari/Record</directory>
-        <directory>src/Sajari/Search</directory>
+        <directory>src/Sajari/Query</directory>
     </files>
     <transformations>
         <template name="clean"/>
