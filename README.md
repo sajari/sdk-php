@@ -34,7 +34,7 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
 - [Pecl](https://pecl.php.net/)
 - [Composer](https://getcomposer.org/) package manager
 - [gRPC](https://pecl.php.net/package/gRPC) php extension
-2
+
 ### Adding the SDK to your project
 
 Add these sections to your `composer.json` to install the latest version from master.
