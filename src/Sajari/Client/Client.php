@@ -200,7 +200,7 @@ class Client
      * @return array
      * @throws \Sajari\Error\Exception
      */
-    public function AddMulti(array $records, array $transforms = [])
+    public function AddMulti(array $records, array $transforms = null)
     {
         $protoRecords = new \sajariGen\engine\store\record\Records();
 
@@ -208,7 +208,7 @@ class Client
             $protoRecords->addRecords($r->Proto());
         }
 
-        if (!isset($transforms) || count($transforms) === 0) {
+        if (!isset($transforms)) {
             $transforms = [
                 \Sajari\Record\Transform::SplitStopStemIndexedFields()
             ];
