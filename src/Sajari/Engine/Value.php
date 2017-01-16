@@ -35,6 +35,10 @@ class Value
             foreach ($value as $v) {
                 if ($v instanceof \DateTime) {
                     $repeated->addValues($v->format(\DateTime::ATOM));
+                } else if ($v === true) {
+                    $repeated->addValues("true");
+                } else if ($v === false) {
+                    $repeated->addValues("false");
                 } else {
                     $repeated->addValues(sprintf("%s", $v));
                 }
@@ -45,6 +49,10 @@ class Value
         } else {
             if ($value instanceof \DateTime) {
                 $protoValue->setSingle($value->format(\DateTime::ATOM));
+            } else if ($value === true) {
+                $protoValue->setSingle("true");
+            } else if ($value === false) {
+                $protoValue->setSingle("false");
             } else {
                 $protoValue->setSingle(sprintf("%s", $value));
             }
