@@ -6,8 +6,8 @@ The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
 If you're serving up the results of searches to users in a web browser we recommend using the [js](https://github.com/sajari/sajari-sdk-js) or [react](https://github.com/sajari/sajari-sdk-react) libraries. Benefits include:
 
-- Better user experience for users, queries will use the Sajari server closest to them  
-- Faster responses from your service, there's no need to talk to us
+- Queries will go directly from the browser to our servers instead of routing via your app servers, avoiding extra latency
+- Faster responses from your service, there's no need to talk to us before serving your users
 - Real time learning based on result popularity and user interactions
 
 ## Table of Contents
@@ -30,14 +30,11 @@ If you're serving up the results of searches to users in a web browser we recomm
 
 ### Prerequisites
 
-The minimum php versions required for this sdk are php 5.5 and 7.0. This limitation is set by the underlying [gRPC](https://github.com/grpc/grpc/tree/master/src/php) library.
-
-[Pecl](https://pecl.php.net/) is required for installing the `grpc` extension.
-
-[Composer](https://getcomposer.org/) for package management and distribution. Get composer from [here](https://getcomposer.org/download/).
-
-The [gRPC](https://pecl.php.net/package/gRPC) extension is required for this library. It can be installed from Pecl. You can find more information about it [here](https://github.com/grpc/grpc/tree/master/src/php). 
-
+- Php 5.5+, 7.0+ (requirement from gRPC)
+- [Pecl](https://pecl.php.net/)
+- [Composer](https://getcomposer.org/) package manager
+- [gRPC](https://pecl.php.net/package/gRPC) php extension
+2
 ### Adding the SDK to your project
 
 Add these sections to your `composer.json` to install the latest version from master.
@@ -62,67 +59,69 @@ Add these sections to your `composer.json` to install the latest version from ma
 ```bash
 sudo apt install php-cli php-dev php-pear
 sudo pecl install grpc
-# add "extension=grpc.so" to php.ini
-# add to composer
 ```
+
+Add "extension=grpc.so" to php.ini, then add this sdk to your composer.json
 
 ## Getting Started
 
 See [examples](./examples) for code you can copy and paste to get started.
-
-- [Performing a search](./examples/search.php)
-- [Adding a record](./examples/add.php)
-- [Getting a record](./examples/get.php)
-- [Patching a record](./examples/patch.php)
-- [Deleting a record](./examples/delete.php)
 
 ## Snippets
 
 ### Performing a text search
 
 ```php
-$client->Search(
-    (new Request())->setIndexQuery(
-        (new IndexQuery())->setBody(
-            [new Body("foo")]
-        )
-    )
-)
+$client->Search(new Request("alex"))
 ```
+
+Full example: [`./examples/search.php`](./examples/search.php)
 
 ### Getting a record
 
 ```php
 $client->Get(
-    new Key("_id", "123")
+    new Key("_id", 123)
 )
 ```
+
+Full example: [`./examples/get.php`](./examples/get.php)
 
 ### Deleting a record
 
 ```php
 $client->Delete(
-    new Key("_id", "123")
+    new Key("_id", 123)
 )
 ```
+
+Full example: [`./examples/delete.php`](./examples/delete.php)
 
 ### Adding a record
 
 ```php
 $client->Add(
-    new Record(["text" => "foo"])
+    new Record([
+        "id" => 123
+        "name" => "alex",
+        "url" => "site.com/12345"
+    ])
 )
 ```
+
+Full example: [`./examples/add.php`](./examples/add.php)
 
 ### Patching a record
 
 ```php
 $client->Patch(
     new KeyValues(
-        new Key("_id", "123), [new KeyValue("text", "foo")]
+        new Key("_id", 123), [new KeyValue("name", "bob")]
     )
 )
 ```
+
+Full example: [`./examples/patch.php`](./examples/patch.php)
 
 ### Getting fields from a schema
 
