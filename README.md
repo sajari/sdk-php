@@ -4,11 +4,11 @@
 
 The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
-If you're serving up the results of searches to users in a web browser we recommend using the [js](https://github.com/sajari/sajari-sdk-js) or [react](https://github.com/sajari/sajari-sdk-react) libraries. Benefits include:
+We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or [React](https://github.com/sajari/sajari-sdk-react) SDKs if you're serving up search results in a web browser:
 
-- Queries will go directly from the browser to our servers instead of routing via your app servers, avoiding extra latency
-- Faster responses from your service, there's no need to talk to us before serving your users
-- Real time learning based on result popularity and user interactions
+- Avoids backend integration.
+- Minimises latency by sending queries directly to our servers instead of routing via your infrastructure.
+- Provides automatic real-time learning using user interactions and other metrics.
 
 ## Table of Contents
 
