@@ -30,14 +30,14 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
 
 ### Prerequisites
 
-- Php 5.5+, 7.0+ (requirement from gRPC)
-- [Pecl](https://pecl.php.net/)
-- [Composer](https://getcomposer.org/) package manager
-- [gRPC](https://pecl.php.net/package/gRPC) php extension
+- PHP 5.5+, 7.0+ (required by gRPC)
+- [Composer](https://getcomposer.org/)
+- [PECL](https://pecl.php.net/)
+- [gRPC PHP Extension](https://pecl.php.net/package/gRPC)
 
-### Adding the SDK to your project
+### Using with Composer
 
-Add these sections to your `composer.json` to install the latest version from master.
+Add `sajari/sajari-sdk-php` to your `composer.json`:
 ```
 {
   "require": {
@@ -48,14 +48,16 @@ Add these sections to your `composer.json` to install the latest version from ma
 }
 ```
 
-### Example install on a fresh Ubuntu 16.04
+### Basic install structions for gRPC extension on a fresh install of Ubuntu 16.04
+
+A more complete guide to installing the PHP extention for gRPC can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).
 
 ```bash
 sudo apt install php-cli php-dev php-pear
 sudo pecl install grpc
 ```
 
-Add "extension=grpc.so" to php.ini, then add this sdk to your composer.json
+Now add `extension=grpc.so` to your `php.ini` file.
 
 ## Getting Started
 
