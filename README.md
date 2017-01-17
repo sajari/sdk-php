@@ -40,12 +40,6 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
 Add these sections to your `composer.json` to install the latest version from master.
 ```
 {
-  "repositories": [
-    {
-      "type": "path",
-      "url": "https://sajari.github/com/sajari-sdk-php/"
-    }
-  ],
   "require": {
     "sajari/sajari-sdk-php": "master-dev"
   },
