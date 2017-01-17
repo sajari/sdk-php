@@ -14,8 +14,8 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
 
 * [Setup](#setup)
   * [Prerequisites](#prerequisites)
-  * [Adding the SDK to your project](#adding-the-sdk-to-your-project)
-  * [Example install on a fresh Ubuntu 16.04](#example-install-on-a-fresh-ubuntu-16.04)
+  * [Using with Composer](#using-with-composer)
+  * [Basic install of gRPC PHP extension on a fresh install of Ubuntu 16.04](#basic-install-of-grpc-php-extension-on-a-fresh-install-of-ubuntu-1604)
 * [Getting Started](#getting-started)
 * [Snippets](#snippets)
   * [Performing a text search](#performing-a-text-search)
@@ -48,7 +48,7 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 }
 ```
 
-### Basic install structions for gRPC extension on a fresh install of Ubuntu 16.04
+### Basic install of gRPC PHP extension on a fresh install of Ubuntu 16.04
 
 A more complete guide to installing the PHP extention for gRPC can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).
 
