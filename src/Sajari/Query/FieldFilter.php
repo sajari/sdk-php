@@ -5,7 +5,7 @@ namespace Sajari\Query;
 require_once __DIR__.'/../proto/engine/value.php';
 require_once __DIR__.'/../proto/engine/query/v1/query.php';
 
-class FieldFilter implements Filter, Proto
+class FieldFilter implements Filter, \Sajari\Engine\Proto
 {
     /** @var string $operator */
     private $operator;

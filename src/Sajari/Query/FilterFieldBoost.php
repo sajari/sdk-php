@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class FilterFieldBoost
  * @package Sajari\Query
  */
-class FilterFieldBoost implements FieldBoost, Proto
+class FilterFieldBoost implements FieldBoost, \Sajari\Engine\Proto
 {
     /** @var Filter $filter */
     private $filter;
