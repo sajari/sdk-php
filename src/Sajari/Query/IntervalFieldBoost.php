@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class IntervalFieldBoost
  * @package Sajari\Query
  */
-class IntervalFieldBoost implements FieldBoost, Proto
+class IntervalFieldBoost implements FieldBoost, \Sajari\Engine\Proto
 {
     /** @var string $field */
     private $field;

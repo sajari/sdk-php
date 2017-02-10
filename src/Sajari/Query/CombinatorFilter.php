@@ -8,7 +8,7 @@ require_once __DIR__.'/../proto/engine/query/v1/query.php';
  * Class CombinatorFilter
  * @package Sajari\Query
  */
-class CombinatorFilter implements Filter, Proto
+class CombinatorFilter implements Filter, \Sajari\Engine\Proto
 {
 
     /** @var int $operator */

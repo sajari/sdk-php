@@ -63,14 +63,14 @@ class IndexQuery implements \Sajari\Engine\Proto
         // InstanceBoosts
         if (isset($this->instanceBoosts)) {
             foreach ($this->instanceBoosts as $b) {
-                $fq->addInstanceBoosts($b);
+                $fq->addInstanceBoosts($b->Proto());
             }
         }
 
         // FieldBoosts
         if (isset($this->fieldBoosts)) {
             foreach ($this->fieldBoosts as $b) {
-                $fq->addFieldBoosts($b);
+                $fq->addFieldBoosts($b->Proto());
             }
         }
 
