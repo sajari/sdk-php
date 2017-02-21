@@ -1,9 +1,7 @@
 <?php
 
 namespace Sajari\Query;
-
-require_once __DIR__.'/../proto/api/query/v1/query.php';
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+use Sajari\Engine\Value;
 
 /**
  * Class Request
@@ -238,58 +236,60 @@ class Request
      */
     public function ToProto()
     {
-        $er = new \sajariGen\engine\query\v1\SearchRequest();
+
+        $inner = new \Sajari\Engine\Query\V1\SearchRequest();
 
         // Offset
         if (isset($this->offset)) {
-            $er->setOffset($this->offset);
+            $inner->setOffset($this->offset);
         }
 
         // Limit
         if (isset($this->limit)) {
-            $er->setLimit($this->limit);
+            $inner->setLimit($this->limit);
         }
 
         // IndexQuery
         if (isset($this->indexQuery))
         {
-            $er->setIndexQuery($this->indexQuery->Proto());
+            $inner->setIndexQuery($this->indexQuery->Proto());
         }
 
         // FeatureQuery
         if (isset($this->featureQuery))
         {
-            $er->setFeatureQuery($this->featureQuery->Proto());
+            $inner->setFeatureQuery($this->featureQuery->Proto());
         }
 
         // Filter
         if (isset($this->filter)) {
-            $er->setFilter($this->filter->Proto());
+            $inner->setFilter($this->filter->Proto());
         }
 
         // Sorts
         if (isset($this->sorts)) {
             foreach ($this->sorts as $s) {
-                $er->addSort($s->Proto());
+                $inner->addSort($s->Proto());
             }
         }
 
         // Fields
         if (isset($this->fields))
         {
-            $er->setFields($this->fields);
+            $inner->setFields($this->fields);
         }
 
         // Aggregates
         if (isset($this->aggregates)) {
             foreach ($this->aggregates as $agg) {
-                $er->addAggregates($agg->Proto());
+                $inner->addAggregates($agg->Proto());
             }
         }
 
-        $r = new \sajariGen\api\query\v1\SearchRequest();
+        // $r = new \sajariGen\api\query\v1\SearchRequest();
+        $r = new \Sajari\Api\Query\V1\SearchRequest();
 
-        $r->setSearchRequest($er);
+        $r->setSearchRequest($inner);
 
         // Tracking
         $r->setTracking(isset($this->tracking) ? $this->tracking->Proto() : (new \Sajari\Query\Tracking())->Proto());

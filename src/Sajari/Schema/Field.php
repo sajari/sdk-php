@@ -8,11 +8,11 @@ namespace Sajari\Schema;
  */
 class Field implements \Sajari\Engine\Proto
 {
-    public static $STRING = \sajariGen\engine\schema\Field\Type::STRING;
-    public static $INTEGER = \sajariGen\engine\schema\Field\Type::INTEGER;
-    public static $FLOAT = \sajariGen\engine\schema\Field\Type::FLOAT;
-    public static $BOOLEAN = \sajariGen\engine\schema\Field\Type::BOOLEAN;
-    public static $TIMESTAMP = \sajariGen\engine\schema\Field\Type::TIMESTAMP;
+    public static $STRING = \Sajari\Engine\Schema\Field_Type::STRING;
+    public static $INTEGER = \Sajari\Engine\Schema\Field_Type::INTEGER;
+    public static $FLOAT = \Sajari\Engine\Schema\Field_Type::FLOAT;
+    public static $BOOLEAN = \Sajari\Engine\Schema\Field_Type::BOOLEAN;
+    public static $TIMESTAMP = \Sajari\Engine\Schema\Field_Type::TIMESTAMP;
 
     /** @var int $id */
     private $id;
@@ -53,10 +53,10 @@ class Field implements \Sajari\Engine\Proto
     }
 
     /**
-     * @param \sajariGen\engine\schema\Field $field
+     * @param \Sajari\Engine\Schema\Field $field
      * @return Field
      */
-    public static function FromProto(\sajariGen\engine\schema\Field $field)
+    public static function FromProto(\Sajari\Engine\Schema\Field $field)
     {
         // values corresponding to type "string" come back as null, so we have to convert to int to get 0, the expected value
         $f = new Field($field->getName(), intval($field->getType()));
@@ -71,11 +71,11 @@ class Field implements \Sajari\Engine\Proto
     }
 
     /**
-     * @return \sajariGen\engine\schema\Field
+     * @return \Sajari\Engine\Schema\Field
      */
     public function Proto()
     {
-        $field = new \sajariGen\engine\schema\Field();
+        $field = new \Sajari\Engine\Schema\Field();
         $field->setName($this->name);
         $field->setDescription($this->description);
         $field->setType($this->type);
@@ -252,5 +252,50 @@ class Field implements \Sajari\Engine\Proto
     public function isUnique()
     {
         return $this->unique;
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public static function String($name)
+    {
+        return new Field($name, Field::$STRING);
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public static function Integer($name)
+    {
+        return new Field($name, Field::$INTEGER);
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public static function Float($name)
+    {
+        return new Field($name, Field::$FLOAT);
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public static function Boolean($name)
+    {
+        return new Field($name, Field::$BOOLEAN);
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public static function Timestamp($name)
+    {
+        return new Field($name, Field::$TIMESTAMP);
     }
 }

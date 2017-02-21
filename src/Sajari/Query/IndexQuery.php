@@ -2,9 +2,7 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
-
-class IndexQuery implements \Sajari\Engine\Proto
+class IndexQuery implements \Sajari\Misc\Proto
 {
 
     /** @var Body[] body */
@@ -51,7 +49,7 @@ class IndexQuery implements \Sajari\Engine\Proto
      */
     public function Proto()
     {
-        $fq = new \sajariGen\engine\query\v1\SearchRequest\IndexQuery();
+        $fq = new \Sajari\Engine\Query\V1\SearchRequest_IndexQuery();
 
         // Body
         if (isset($this->body)) {
@@ -69,9 +67,11 @@ class IndexQuery implements \Sajari\Engine\Proto
 
         // FieldBoosts
         if (isset($this->fieldBoosts)) {
+            $fbs = [];
             foreach ($this->fieldBoosts as $b) {
-                $fq->addFieldBoosts($b->Proto());
+                $fbs[] = $b->Proto();
             }
+            $fq->setFieldBoosts($fbs);
         }
 
         return $fq;

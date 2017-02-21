@@ -2,13 +2,11 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
-
 /**
  * Class IntervalFieldBoostPoint
  * @package Sajari\Query
  */
-class IntervalFieldBoostPoint implements \Sajari\Engine\Proto
+class IntervalFieldBoostPoint implements \Sajari\Misc\Proto
 {
     /** @var float $point */
     private $point;

@@ -2,13 +2,11 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
-
 /**
  * Class FilterFieldBoost
  * @package Sajari\Query
  */
-class FilterFieldBoost implements FieldBoost, \Sajari\Engine\Proto
+class FilterFieldBoost implements FieldBoost, \Sajari\Misc\Proto
 {
     /** @var Filter $filter */
     private $filter;
@@ -47,11 +45,11 @@ class FilterFieldBoost implements FieldBoost, \Sajari\Engine\Proto
      */
     public function Proto()
     {
-        $fmb = new \sajariGen\engine\query\v1\FieldBoost\Filter();
+        $fmb = new \Sajari\Engine\Query\V1\FieldBoost_Filter();
         $fmb->setFilter($this->filter->Proto());
         $fmb->setValue($this->value);
 
-        $mb = new \sajariGen\engine\query\v1\FieldBoost();
+        $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setFilter($fmb);
         return $mb;
     }
