@@ -2,10 +2,7 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/value.php';
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
-
-class FieldFilter implements Filter, \Sajari\Engine\Proto
+class FieldFilter implements Filter, \Sajari\Misc\Proto
 {
     /** @var string $operator */
     private $operator;
@@ -55,47 +52,47 @@ class FieldFilter implements Filter, \Sajari\Engine\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\Filter
+     * @return \Sajari\Engine\Query\V1\Filter
      * @throws \Sajari\Error\Exception
      */
     public function Proto()
     {
-        $ff = new \sajariGen\engine\query\v1\Filter\Field();
+        $ff = new \Sajari\Engine\Query\V1\Filter_Field();
         $ff->setField($this->field);
 
-        $ff->setValue(\Sajari\Engine\Value::ToProto($this->value));
+        $ff->setValue(\Sajari\Misc\Value::ToProto($this->value));
 
         $op = null;
         switch ($this->operator) {
             case "=":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::EQUAL_TO;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::EQUAL_TO;
                 break;
             case "!=":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::NOT_EQUAL_TO;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::NOT_EQUAL_TO;
                 break;
             case ">":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::GREATER_THAN;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::GREATER_THAN;
                 break;
             case ">=":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::GREATER_THAN_OR_EQUAL_TO;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::GREATER_THAN_OR_EQUAL_TO;
                 break;
             case "<":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::LESS_THAN;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::LESS_THAN;
                 break;
             case "<=":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::LESS_THAN_OR_EQUAL_TO;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::LESS_THAN_OR_EQUAL_TO;
                 break;
             case "~":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::CONTAINS;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::CONTAINS;
                 break;
             case "!~":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::DOES_NOT_CONTAIN;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::DOES_NOT_CONTAIN;
                 break;
             case "$":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::HAS_SUFFIX;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::HAS_SUFFIX;
                 break;
             case "^":
-                $op = \sajariGen\engine\query\v1\Filter\Field\Operator::HAS_PREFIX;
+                $op = \Sajari\Engine\Query\V1\Filter_Field_Operator::HAS_PREFIX;
                 break;
 
             default:
@@ -103,7 +100,7 @@ class FieldFilter implements Filter, \Sajari\Engine\Proto
         }
         $ff->setOperator($op);
 
-        $f = new \sajariGen\engine\query\v1\Filter();
+        $f = new \Sajari\Engine\Query\V1\Filter();
         $f->setField($ff);
 
         return $f;

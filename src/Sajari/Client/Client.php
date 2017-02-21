@@ -7,13 +7,19 @@
 
 namespace Sajari\Client;
 
-require_once __DIR__.'/../proto/engine/value.php';
-require_once __DIR__.'/../proto/engine/key.php';
-require_once __DIR__.'/../proto/engine/status.php';
-require_once __DIR__.'/../proto/engine/empty.php';
-require_once __DIR__.'/../proto/engine/store/record/record.php';
-require_once __DIR__.'/../proto/api/query/v1/query.php';
-require_once __DIR__.'/../proto/engine/schema/schema.php';
+function _require_all($dir, $depth=0) {
+        // require all php files
+        $scan = glob("$dir/*");
+        foreach ($scan as $path) {
+            if (preg_match('/\.php$/', $path)) {
+                require_once $path;
+            }
+            elseif (is_dir($path)) {
+                _require_all($path, $depth+1);
+            }
+        }
+    }
+_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class Client
@@ -25,7 +31,7 @@ class Client
     /** @var string $collection */
     private $collection = '';
     /** @var string $endpoint */
-    private $endpoint = 'api.sajari.com:443';
+    private $endpoint = 'apid.sajari.com:4433';
     /** @var \sajariGen\engine\store\record\StoreClient $storeClient */
     private $storeClient;
     /** @var \sajariGen\api\query\v1\QueryClient $searchClient */
@@ -51,7 +57,7 @@ class Client
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
      */
-    public function __construct(\sajariGen\api\query\v1\QueryClient $queryClient, \sajariGen\engine\store\record\StoreClient $storeClient, \sajariGen\engine\schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
+    public function __construct(\Sajari\Api\Query\V1\QueryClient $queryClient, \Sajari\Engine\Store\Record\StoreClient $storeClient, \Sajari\Engine\Schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
     {
         $this->project = $projectID;
         $this->collection = $collection;
@@ -83,16 +89,16 @@ class Client
             throw new \Sajari\Error\Exception("invalid collection supplied");
         }
 
-        $credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
+        $credentials = null;//\Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         return new Client(
-            new \sajariGen\api\query\v1\QueryClient('api.sajari.com:443', [
+            new \Sajari\Api\Query\V1\QueryClient('apid.sajari.com:4433', [
                 'credentials' => $credentials,
             ]),
-            new \sajariGen\engine\store\record\StoreClient('api.sajari.com:443', [
+            new \Sajari\Engine\Store\Record\StoreClient('apid.sajari.com:4433', [
                 'credentials' => $credentials,
             ]),
-            new \sajariGen\engine\schema\SchemaClient('api.sajari.com:443', [
+            new \Sajari\Engine\Schema\SchemaClient('apid.sajari.com:4433', [
                 'credentials' => $credentials,
             ]),
             $projectID,
@@ -335,7 +341,7 @@ class Client
     {
         /** @var \sajariGen\engine\schema\Fields $reply */
         list($reply, $status) = $this->schemaClient->GetFields(
-            new \sajariGen\engine\XEmpty(),
+            new \Sajari\Rpc\GPBEmpty(),
             $this->getCallMeta()
         )->wait();
 
@@ -343,7 +349,7 @@ class Client
 
         $fields = [];
 
-        foreach ($reply->getFieldsList() as $field) {
+        foreach ($reply->getFields() as $field) {
             $fields[] = \Sajari\Schema\Field::FromProto($field);
         }
 

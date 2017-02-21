@@ -2,13 +2,26 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+function _require_all($dir, $depth=0) {
+        // require all php files
+        $scan = glob("$dir/*");
+        foreach ($scan as $path) {
+            if (preg_match('/\.php$/', $path)) {
+                require_once $path;
+            }
+            elseif (is_dir($path)) {
+                _require_all($path, $depth+1);
+            }
+        }
+    }
+
+_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class CombinatorFilter
  * @package Sajari\Query
  */
-class CombinatorFilter implements Filter, \Sajari\Engine\Proto
+class CombinatorFilter implements Filter, \Sajari\Misc\Proto
 {
 
     /** @var int $operator */
@@ -50,7 +63,7 @@ class CombinatorFilter implements Filter, \Sajari\Engine\Proto
      */
     public static function All($filters)
     {
-      return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ALL, $filters);
+      return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::ALL, $filters);
     }
 
     /**

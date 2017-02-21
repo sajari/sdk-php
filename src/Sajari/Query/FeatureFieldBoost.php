@@ -2,13 +2,11 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
-
 /**
  * Class FeatureFieldBoost
  * @package Sajari\Query
  */
-class FeatureFieldBoost implements \Sajari\Engine\Proto
+class FeatureFieldBoost implements \Sajari\Misc\Proto
 {
     /**
      * @var FieldBoost $fieldBoost
