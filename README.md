@@ -18,6 +18,7 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
   * [Basic install of gRPC PHP extension on a fresh install of Ubuntu 16.04](#basic-install-of-grpc-php-extension-on-a-fresh-install-of-ubuntu-1604)
 * [Getting Started](#getting-started)
 * [Snippets](#snippets)
+  * [Using the website pipeline](#using-the-website-pipeline)
   * [Performing a text search](#performing-a-text-search)
   * [Getting a record](#getting-a-record)
   * [Deleting a record](#deleting-a-record)
@@ -64,6 +65,18 @@ Now add `extension=grpc.so` to your `php.ini` file.
 See [examples](./examples) for code you can copy and paste to get started.
 
 ## Snippets
+
+### Using the website pipeline
+
+Pipelines are the recommended way to query Sajari. They wrap up lots of our functionality and provide a super simple interface.
+
+```php
+$client->SearchPipeline(
+  new Request("website", [
+    "q" => "Game of Thrones"
+  ])
+);
+```
 
 ### Performing a text search
 
@@ -124,6 +137,8 @@ Full example: [`./examples/patch.php`](./examples/patch.php)
 ```php
 $client->GetFields()
 ```
+
+Full example: [`./examples/fields.php`](./examples/fields.php)
 
 ## Client
 
