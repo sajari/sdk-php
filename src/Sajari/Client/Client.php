@@ -38,6 +38,8 @@ class Client
     private $searchClient;
     /** @var \sajariGen\engine\schema\SchemaClient $schemaClient */
     private $schemaClient;
+
+    private $pipelineClient;
     /** @var string $auth */
     private $auth;
 
@@ -57,7 +59,7 @@ class Client
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
      */
-    public function __construct(\Sajari\Api\Query\V1\QueryClient $queryClient, \Sajari\Engine\Store\Record\StoreClient $storeClient, \Sajari\Engine\Schema\SchemaClient $schemaClient, $projectID, $collection, $dialOptions)
+    public function __construct(\Sajari\Api\Query\V1\QueryClient $queryClient, \Sajari\Engine\Store\Record\StoreClient $storeClient, \Sajari\Engine\Schema\SchemaClient $schemaClient, \Sajari\Api\Pipeline\V1\QueryClient $pipelineClient, $projectID, $collection, $dialOptions)
     {
         $this->project = $projectID;
         $this->collection = $collection;
@@ -70,6 +72,7 @@ class Client
         $this->searchClient = $queryClient;
         $this->storeClient = $storeClient;
         $this->schemaClient = $schemaClient;
+        $this->pipelineClient = $pipelineClient;
     }
 
     /**
@@ -101,6 +104,9 @@ class Client
             new \Sajari\Engine\Schema\SchemaClient('apid.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
+            new \Sajari\Api\Pipeline\V1\QueryClient('apid.sajari.com:443', [
+                'credentials' => $credentials,
+            ]),
             $projectID,
             $collection,
             $dialOptions
@@ -119,12 +125,29 @@ class Client
         );
     }
 
+
+
+    public function SearchPipeline(\Sajari\Pipeline\Request $req) {
+        list($reply, $status) = $this->pipelineClient->Search(
+            $req->ToProto(),
+            $this->getCallMeta()
+        )->wait();
+
+        $this->checkForError($status);
+
+        $reply = $reply->getSearchResponse();
+
+        return \Sajari\Query\Response::FromProto($reply->getSearchResponse(), iterator_to_array($reply->getTokens()));
+    }
+
+
+
     /**
      * @param \Sajari\Engine\Key $key
      * @return array
      * @throws \Sajari\Error\RecordNotFoundException
      */
-    public function Get(\Sajari\Engine\Key $key)
+    public function Get(\Sajari\Misc\Key $key)
     {
         try {
             list($res, $status) = $this->GetMulti([$key]);
