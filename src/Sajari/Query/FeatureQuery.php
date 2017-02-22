@@ -24,16 +24,18 @@ class FeatureQuery implements \Sajari\Misc\Proto
     /**
      * Proto returns the proto representation of a FeatureQuery
      *
-     * @return \sajariGen\engine\query\v1\SearchRequest\FeatureQuery
+     * @return \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery
      */
     public function Proto()
     {
-        $fq = new \sajariGen\engine\query\v1\SearchRequest\FeatureQuery();
+        $fq = new \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery();
 
         if (isset($this->fieldBoosts)) {
+            $fb = [];
             foreach ($this->fieldBoosts as $b) {
-                $fq->addFieldBoosts($b->Proto());
+                $fb[] = $b->Proto();
             }
+            $fq->setFieldBoosts(\Sajari\Misc\Utils::MakeRepeated($fb, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class));
         }
 
         return $fq;

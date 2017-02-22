@@ -41,11 +41,11 @@ class IntervalFieldBoostPoint implements \Sajari\Misc\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\FieldBoost\Interval\Point
+     * @return \Sajari\Engine\Query\V1\FieldBoost_Interval_Point
      */
     public function Proto()
     {
-        $p = new \sajariGen\engine\query\v1\FieldBoost\Interval\Point();
+        $p = new \Sajari\Engine\Query\V1\FieldBoost_Interval_Point();
         $p->setPoint($this->point);
         $p->setValue($this->value);
         return $p;

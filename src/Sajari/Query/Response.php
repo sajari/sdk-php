@@ -87,7 +87,7 @@ class Response
      * @param \sajariGen\api\query\v1\Token[] $protoTokens
      * @return Response
      */
-    public static function FromProto(\sajariGen\engine\query\v1\SearchResponse $protoResponse, array $protoTokens)
+    public static function FromProto(\Sajari\Engine\Query\V1\SearchResponse $protoResponse, array $protoTokens)
     {
         $reads = $protoResponse->getReads();
         $time = $protoResponse->getTime();
@@ -95,12 +95,21 @@ class Response
 
         $results = array();
 
-        $protoResponseList = $protoResponse->getResultsList();
+        $protoResponseList = $protoResponse->getResults();
 
         foreach ($protoResponseList as $protoResult) {
             $values = array();
-            foreach ($protoResult->getValuesList() as $m) {
-                $values[$m->getKey()] = \Sajari\Engine\Value::FromProto($m->getValue());
+            foreach ($protoResult->getValues() as $k => $m) {
+                $tv = $m->getValue()->getValue();
+                if ($tv instanceof \Sajari\Engine\Value_Repeated) {
+                    $arr = [];
+                    foreach ($tv->getValues() as $value) {
+                        $arr[] = $value;
+                    }
+                    $values[$k] = $arr;
+                } else {
+                    $values[$k] = $tv;
+                }
             }
             $result = new Result (
                 $protoResult->getScore(),
@@ -110,7 +119,7 @@ class Response
             $results[] = $result;
         }
 
-        $protoAggregateList = $protoResponse->getAggregatesList();
+        $protoAggregateList = $protoResponse->getAggregates();
 
         $aggregateList = array();
         foreach ($protoAggregateList as $a) {

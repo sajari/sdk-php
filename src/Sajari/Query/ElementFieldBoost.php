@@ -41,17 +41,20 @@ class ElementFieldBoost implements FieldBoost, \Sajari\Misc\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\FieldBoost
+     * @return \Sajari\Engine\Query\V1\FieldBoost
      */
     public function Proto()
     {
-        $emb = new \sajariGen\engine\query\v1\FieldBoost\Element();
+        $emb = new \Sajari\Engine\Query\V1\FieldBoost_Element();
         $emb->setField($this->field);
-        foreach ($this->elements as $element) {
-            $emb->addElts($element);
-        }
 
-        $mb = new \sajariGen\engine\query\v1\FieldBoost();
+        $elts = [];
+        foreach ($this->elements as $element) {
+            $elts[] = $element;
+        }
+        $emb->setElts(\Sajari\Misc\Utils::MakeRepeated($elts, \Google\Protobuf\Internal\GPBType::STRING));
+
+        $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setElement($emb);
         return $mb;
     }
