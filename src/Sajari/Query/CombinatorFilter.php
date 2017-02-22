@@ -72,7 +72,7 @@ class CombinatorFilter implements Filter, \Sajari\Misc\Proto
      */
     public static function Any($filters)
     {
-        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ANY, $filters);
+        return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::ANY, $filters);
     }
 
     /**
@@ -81,7 +81,7 @@ class CombinatorFilter implements Filter, \Sajari\Misc\Proto
      */
     public static function One($filters)
     {
-        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::ONE, $filters);
+        return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::ONE, $filters);
     }
 
     /**
@@ -90,22 +90,25 @@ class CombinatorFilter implements Filter, \Sajari\Misc\Proto
      */
     public static function None($filters)
     {
-        return new CombinatorFilter(\sajariGen\engine\query\v1\Filter\Combinator\Operator::NONE, $filters);
+        return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::NONE, $filters);
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\Filter
+     * @return \Sajari\Engine\Query\V1\Filter
      */
     public function Proto()
     {
-        $fc = new \sajariGen\engine\query\v1\Filter\Combinator();
+        $fc = new \Sajari\Engine\Query\V1\Filter_Combinator();
         $fc->setOperator($this->operator);
 
+        $filters = [];
         foreach ($this->filters as $filter) {
-            $fc->addFilters($filter->Proto());
-        }
+            $filters[] = $filter->Proto();
 
-        $f = new \sajariGen\engine\query\v1\Filter();
+        }
+        $fc->setFilters(\Sajari\Misc\Utils::MakeRepeated($filters, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Filter::class));
+
+        $f = new \Sajari\Engine\Query\V1\Filter();
         $f->setCombinator($fc);
 
         return $f;

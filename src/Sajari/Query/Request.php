@@ -1,6 +1,7 @@
 <?php
 
 namespace Sajari\Query;
+
 use Sajari\Engine\Value;
 
 /**
@@ -232,7 +233,7 @@ class Request
     }
 
     /**
-     * @return \sajariGen\api\query\v1\SearchRequest
+     * @return \Sajari\Api\Query\V1\SearchRequest
      */
     public function ToProto()
     {
@@ -268,15 +269,17 @@ class Request
 
         // Sorts
         if (isset($this->sorts)) {
+            $sorts = [];
             foreach ($this->sorts as $s) {
-                $inner->addSort($s->Proto());
+                $sorts[] = $s->Proto();
             }
+            $inner->setSorts(\Sajari\Misc\Utils::MakeRepeated($sorts, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class));
         }
 
         // Fields
         if (isset($this->fields))
         {
-            $inner->setFields($this->fields);
+            $inner->setFields(\Sajari\Misc\Utils::MakeRepeated($this->fields, \Google\Protobuf\Internal\GPBType::STRING));
         }
 
         // Aggregates
@@ -286,7 +289,6 @@ class Request
             }
         }
 
-        // $r = new \sajariGen\api\query\v1\SearchRequest();
         $r = new \Sajari\Api\Query\V1\SearchRequest();
 
         $r->setSearchRequest($inner);
@@ -296,9 +298,11 @@ class Request
 
         // Transforms
         if (isset($this->transforms)) {
+            $transforms = [];
             foreach ($this->transforms as $t) {
-                $r->addTransforms($t->Proto());
+                $transforms[] = $t->Proto();
             }
+            $inner->setTransforms(\Sajari\Misc\Utils::MakeRepeated($transforms, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class));
         }
 
         return $r;

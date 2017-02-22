@@ -31,7 +31,7 @@ class Client
     /** @var string $collection */
     private $collection = '';
     /** @var string $endpoint */
-    private $endpoint = 'apid.sajari.com:4433';
+    private $endpoint = 'apid.sajari.com:443';
     /** @var \sajariGen\engine\store\record\StoreClient $storeClient */
     private $storeClient;
     /** @var \sajariGen\api\query\v1\QueryClient $searchClient */
@@ -89,16 +89,16 @@ class Client
             throw new \Sajari\Error\Exception("invalid collection supplied");
         }
 
-        $credentials = null;//\Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
+        $credentials = \Grpc\ChannelCredentials::createSsl(file_get_contents(dirname(__FILE__) . "/roots.pem"));
 
         return new Client(
-            new \Sajari\Api\Query\V1\QueryClient('apid.sajari.com:4433', [
+            new \Sajari\Api\Query\V1\QueryClient('apid.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
-            new \Sajari\Engine\Store\Record\StoreClient('apid.sajari.com:4433', [
+            new \Sajari\Engine\Store\Record\StoreClient('apid.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
-            new \Sajari\Engine\Schema\SchemaClient('apid.sajari.com:4433', [
+            new \Sajari\Engine\Schema\SchemaClient('apid.sajari.com:443', [
                 'credentials' => $credentials,
             ]),
             $projectID,
@@ -331,7 +331,19 @@ class Client
 
         $this->checkForError($status);
 
-        return \Sajari\Query\Response::FromProto($reply->getSearchResponse(), $reply->getTokensList());
+        // $x = $reply->getTokens();
+        //
+        // echo "\n\n~~~\n\n";
+        //
+        // print_r($x);
+        //
+        // echo "\n\n~~~\n\n";
+        //
+        // $method_names = preg_grep('/^bla_/', get_class_methods($x));
+        //
+        // print_r($method_names);
+
+        return \Sajari\Query\Response::FromProto($reply->getSearchResponse(), iterator_to_array($reply->getTokens()));
     }
 
     /**
