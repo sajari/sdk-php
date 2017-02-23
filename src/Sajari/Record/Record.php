@@ -25,7 +25,7 @@ class Record implements \Sajari\Internal\Proto
     }
 
     /**
-     * @param \sajariGen\engine\store\record\Record $protoRecord
+     * @param \Sajari\Engine\Store\Record\Record $protoRecord
      * @return Record
      */
     public static function FromProto(\Sajari\Engine\Store\Record\Record $protoRecord)
@@ -40,18 +40,20 @@ class Record implements \Sajari\Internal\Proto
     }
 
     /**
-     * @return \sajariGen\engine\store\record\Record
+     * @return \Sajari\Engine\Store\Record\Record
      */
     public function Proto()
     {
-        $protoRecord = new \sajariGen\engine\store\record\Record();
+        $protoRecord = new \Sajari\Engine\Store\Record\Record();
 
+        $records = [];
         foreach ($this->values as $field => $value) {
-            $valueEntry = new \sajariGen\engine\store\record\Record\ValuesEntry();
-            $valueEntry->setKey($field);
-            $valueEntry->setValue(\Sajari\Engine\Value::ToProto($value));
-            $protoRecord->addValues($valueEntry);
+            // $valueEntry = new \Sajari\Engine\Store\Record\Record\ValuesEntry();
+            $records[$field] = \Sajari\Value\Value::ToProto($value);
+            // $valueEntry->setKey($field);
+            // $valueEntry->setValue();
         }
+        $protoRecord->setValues($records);
 
         return $protoRecord;
     }

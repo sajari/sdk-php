@@ -46,10 +46,10 @@ class Key implements \Sajari\Internal\Proto
     public static function FromProto(\Sajari\Engine\Key $engineKey)
     {
         $v = $engineKey->getValue();
-        if ($v->hasSingle()) {
+        if (!is_null($v->getSingle())) {
             return new Key($engineKey->getField(), $v->getSingle());
-        } else if ($v->hasRepeated()) {
-            return new Key($engineKey->getField(), $v->getRepeated()->getValuesList());
+        } else if (!is_null($v->getRepeated())) {
+            return new Key($engineKey->getField(), $v->getRepeated()->getValues());
         } else {
             return new Key($engineKey->getField(), NULL);
         }

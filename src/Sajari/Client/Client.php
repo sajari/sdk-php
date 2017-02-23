@@ -32,7 +32,7 @@ class Client
     private $collection = '';
     /** @var string $endpoint */
     private $endpoint = 'apid.sajari.com:443';
-    /** @var \sajariGen\engine\store\record\StoreClient $storeClient */
+    /** @var \Sajari\Engine\Store\Record\StoreClient $storeClient */
     private $storeClient;
     /** @var \sajariGen\api\query\v1\QueryClient $searchClient */
     private $searchClient;
@@ -54,7 +54,7 @@ class Client
     /**
      * Client constructor
      * @param \sajariGen\api\query\v1\QueryClient $queryClient
-     * @param \sajariGen\engine\store\record\StoreClient $storeClient
+     * @param \Sajari\Engine\Store\Record\StoreClient $storeClient
      * @param string $projectID
      * @param string $collection
      * @param \Sajari\Client\Opt[] $dialOptions
@@ -237,11 +237,13 @@ class Client
      */
     public function AddMulti(array $records, array $transforms = null)
     {
-        $protoRecords = new \sajariGen\engine\store\record\Records();
+        $protoRecords = new \Sajari\Engine\Store\Record\Records();
 
+        $tempRecords = [];
         foreach ($records as $r) {
-            $protoRecords->addRecords($r->Proto());
+            $tempRecords[] = $r->Proto();
         }
+        $protoRecords->setRecords(\Sajari\Internal\Utils::MakeRepeated($tempRecords, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class));
 
         if (!isset($transforms)) {
             $transforms = [
@@ -255,7 +257,7 @@ class Client
             }
         }
 
-        /** @var \sajariGen\engine\store\record\AddResponse $reply */
+        /** @var \Sajari\Engine\Store\Record\AddResponse $reply */
         list($reply, $status) = $this->storeClient->Add(
             $protoRecords,
             $this->getCallMeta()
@@ -266,11 +268,11 @@ class Client
 
         $keys = [];
 
-        foreach ($reply->getKeysList() as $i => $k) {
-            $keys[] = $reply->getStatus($i)->getCode() == 0 ? \Sajari\Engine\Key::FromProto($k) : null;
+        foreach ($reply->getKeys() as $i => $k) {
+            $keys[] = $reply->getStatus()[$i]->getCode() == 0 ? \Sajari\Key\Key::FromProto($k) : null;
         }
 
-        return [$keys, $reply->getStatusList()];
+        return [$keys, $reply->getStatus()];
     }
 
     /**
@@ -304,7 +306,7 @@ class Client
         // Check for server error
         $this->checkForError($status);
 
-        return $reply->getStatusList();
+        return $reply->getStatus();
     }
 
     /**
@@ -328,7 +330,7 @@ class Client
      */
     public function PatchMulti(array $keyValues)
     {
-        $protoKeyValues = new \sajariGen\engine\store\record\KeysValues();
+        $protoKeyValues = new \Sajari\Engine\Store\Record\KeysValues();
 
         foreach ($keyValues as $keyValue) {
             $protoKeyValues->addKeysValues($keyValue->Proto());
