@@ -21,7 +21,7 @@ namespace Sajari\Pipeline {
             }
 
             $pipeline = new \Sajari\Api\Pipeline\V1\Pipeline();
-            $pipeline->setname($this->pipelineName);
+            $pipeline->setName($this->pipelineName);
 
             $searchRequest = new \Sajari\Api\Pipeline\V1\SearchRequest();
             $searchRequest->setPipeline($pipeline);
