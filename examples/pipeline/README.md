@@ -23,7 +23,7 @@ Set your details in the environment. Your Key and Secret can be found in the [Co
 
 ```sh
 export SJ_PROJECT="<PROJECT_NAME>"
-export SJ_COLLECTION="<COLLECTION_NAME"
+export SJ_COLLECTION="<COLLECTION_NAME>"
 export SJ_KEY_ID="<KEY>"
 export SJ_KEY_SECRET="<SECRET>"
 ```
