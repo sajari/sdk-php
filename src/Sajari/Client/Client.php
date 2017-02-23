@@ -113,6 +113,10 @@ class Client
         );
     }
 
+    public function Pipeline($name) {
+        return new \Sajari\Pipeline\Client($this->pipelineClient, $this->getCallMeta(), $name);
+    }
+
     /**
      * @return array
      */
