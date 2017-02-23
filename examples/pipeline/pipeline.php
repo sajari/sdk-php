@@ -8,8 +8,8 @@ include_once "../ExampleUtils.php";
 
 // SJ_PROJECT = <Project>
 // SJ_COLLECTION = <Collection>
-// SJ_KEY_ID = <Key from https://www.sajari.com/app/#/collection/edit/suse-main>
-// SJ_KEY_SECRET = <Secret from https://www.sajari.com/app/#/collection/edit/suse-main>
+// SJ_KEY_ID = <Key from https://www.sajari.com/app/#/collection/list>
+// SJ_KEY_SECRET = <Secret from https://www.sajari.com/app/#/collection/list>
 
 $params = [
     "q" => "foo bar",
