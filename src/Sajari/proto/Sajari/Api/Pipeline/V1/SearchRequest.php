@@ -27,7 +27,7 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     private $pipeline = null;
     /**
      * <pre>
-     * Values is a mapping of label -&gt; value which should be substituted
+     * Values is a mapping of key -&gt; value which should be substituted
      * into the algorithm inputs.
      * </pre>
      *
@@ -75,7 +75,7 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * <pre>
-     * Values is a mapping of label -&gt; value which should be substituted
+     * Values is a mapping of key -&gt; value which should be substituted
      * into the algorithm inputs.
      * </pre>
      *
@@ -88,7 +88,7 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * <pre>
-     * Values is a mapping of label -&gt; value which should be substituted
+     * Values is a mapping of key -&gt; value which should be substituted
      * into the algorithm inputs.
      * </pre>
      *

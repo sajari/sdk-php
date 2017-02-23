@@ -26,24 +26,24 @@ class Pipeline extends \Google\Protobuf\Internal\Message
 
     /**
      * <pre>
-     * Label is a pipeline identifier.
+     * Name uniquely defines a pipeline.
      * </pre>
      *
-     * <code>string label = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public function getLabel()
+    public function getName()
     {
         return $this->readOneof(1);
     }
 
     /**
      * <pre>
-     * Label is a pipeline identifier.
+     * Name uniquely defines a pipeline.
      * </pre>
      *
-     * <code>string label = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public function setLabel($var)
+    public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->writeOneof(1, $var);
