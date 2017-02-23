@@ -148,7 +148,7 @@ class Response
         $tokens = [];
         if (isset($protoTokens)) {
             foreach ($protoTokens as $protoToken) {
-                if ($protoToken->hasClick()) {
+                if (!is_null($protoToken->getClick())) {
                     $tokens[] = new ClickToken($protoToken->getClick()->getToken());
                 } else {
                     $tokens[] = new PosNegToken(
