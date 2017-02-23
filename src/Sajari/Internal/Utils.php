@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Misc {
+namespace Sajari\Internal {
     class Utils {
         public static function MakeRepeated(array $values, $type, $messageType = null) {
 

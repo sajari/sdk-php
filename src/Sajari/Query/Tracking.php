@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class Tracking
  * @package Sajari\Query
  */
-class Tracking implements \Sajari\Misc\Proto
+class Tracking implements \Sajari\Internal\Proto
 {
   /** @var integer $type */
   private $type;

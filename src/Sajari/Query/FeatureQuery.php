@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class FeatureQuery
  * @package Sajari\Query
  */
-class FeatureQuery implements \Sajari\Misc\Proto
+class FeatureQuery implements \Sajari\Internal\Proto
 {
     /** @var FieldBoost[] $fieldBoosts */
     private $fieldBoosts;
@@ -35,7 +35,7 @@ class FeatureQuery implements \Sajari\Misc\Proto
             foreach ($this->fieldBoosts as $b) {
                 $fb[] = $b->Proto();
             }
-            $fq->setFieldBoosts(\Sajari\Misc\Utils::MakeRepeated($fb, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class));
+            $fq->setFieldBoosts(\Sajari\Internal\Utils::MakeRepeated($fb, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class));
         }
 
         return $fq;

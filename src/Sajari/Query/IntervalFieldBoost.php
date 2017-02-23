@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class IntervalFieldBoost
  * @package Sajari\Query
  */
-class IntervalFieldBoost implements FieldBoost, \Sajari\Misc\Proto
+class IntervalFieldBoost implements FieldBoost, \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -63,7 +63,7 @@ class IntervalFieldBoost implements FieldBoost, \Sajari\Misc\Proto
             $points[] = $point->Proto();
 
         }
-        $imb->setPoints(\Sajari\Misc\Utils::MakeRepeated($points, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class));
+        $imb->setPoints(\Sajari\Internal\Utils::MakeRepeated($points, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class));
 
         $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setInterval($imb);

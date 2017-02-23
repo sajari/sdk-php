@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Misc;
+namespace Sajari\Value;
 
 /**
  * Class Value
@@ -14,9 +14,9 @@ class Value
      */
     public static function FromProto(\Sajari\Engine\Value $protoValue)
     {
-        if ($protoValue->hasSingle()) {
+        if (!is_null($protoValue->getSingle())) {
           return $protoValue->getSingle();
-        } else if ($protoValue->hasRepeated()) {
+        } else if (!is_null($protoValue->getRepeated())) {
           return $protoValue->getRepeated()->getValuesList();
         }
         return null;

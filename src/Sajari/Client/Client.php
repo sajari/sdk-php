@@ -147,7 +147,7 @@ class Client
      * @return array
      * @throws \Sajari\Error\RecordNotFoundException
      */
-    public function Get(\Sajari\Misc\Key $key)
+    public function Get(\Sajari\Key\Key $key)
     {
         try {
             list($res, $status) = $this->GetMulti([$key]);
@@ -166,8 +166,7 @@ class Client
     public function GetMulti(array $keys)
     {
         $protoKeys = $this->keysToProto($keys);
-
-        /** @var \sajariGen\engine\store\record\GetResponse $reply */
+        /** @var \Sajari\Engine\Store\Record\GetResponse $reply */
         list($reply, $status) = $this->storeClient->Get(
             $protoKeys,
             $this->getCallMeta()
@@ -178,15 +177,15 @@ class Client
 
         $records = [];
 
-        foreach ($reply->getRecordsList() as $protoRecord) {
+        foreach ($reply->getRecords() as $protoRecord) {
             $records[] = \Sajari\Record\Record::FromProto($protoRecord);
         }
 
-        $statuses = $reply->getStatusList();
+        $statuses = $reply->getStatus();
 
         foreach ($statuses as $s) {
-            if (isset($s) && $s->code === 5) {
-                throw new \Sajari\Error\MultiRecordNotFoundException($s->message, $s->code, null);
+            if (isset($s) && $s->getCode() === 5) {
+                throw new \Sajari\Error\MultiRecordNotFoundException($s->getMessage(), $s->getCode(), null);
             }
         }
 
@@ -195,16 +194,19 @@ class Client
 
     /**
      * @param array $keys
-     * @return \sajariGen\engine\store\record\Keys
+     * @return \Sajari\Engine\Store\Record\Keys
      */
     private function keysToProto(array $keys)
     {
-        $protoKeys = new \sajariGen\engine\store\record\Keys();
+        $protoKeys = new \Sajari\Engine\Store\Record\Keys();
 
+        $tkeys = [];
         /** @var \Sajari\Engine\Key $k */
         foreach ($keys as $k) {
-            $protoKeys->addKeys($k->Proto());
+            $tkeys[] = $k->Proto();
         }
+
+        $protoKeys->setKeys(\Sajari\Internal\Utils::MakeRepeated($tkeys, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class));
 
         return $protoKeys;
     }

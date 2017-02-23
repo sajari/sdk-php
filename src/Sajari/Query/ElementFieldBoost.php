@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class ElementFieldBoost
  * @package Sajari\Query
  */
-class ElementFieldBoost implements FieldBoost, \Sajari\Misc\Proto
+class ElementFieldBoost implements FieldBoost, \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -52,7 +52,7 @@ class ElementFieldBoost implements FieldBoost, \Sajari\Misc\Proto
         foreach ($this->elements as $element) {
             $elts[] = $element;
         }
-        $emb->setElts(\Sajari\Misc\Utils::MakeRepeated($elts, \Google\Protobuf\Internal\GPBType::STRING));
+        $emb->setElts(\Sajari\Internal\Utils::MakeRepeated($elts, \Google\Protobuf\Internal\GPBType::STRING));
 
         $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setElement($emb);

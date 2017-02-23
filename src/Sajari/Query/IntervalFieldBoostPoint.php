@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class IntervalFieldBoostPoint
  * @package Sajari\Query
  */
-class IntervalFieldBoostPoint implements \Sajari\Misc\Proto
+class IntervalFieldBoostPoint implements \Sajari\Internal\Proto
 {
     /** @var float $point */
     private $point;

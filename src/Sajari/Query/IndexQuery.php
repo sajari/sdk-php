@@ -2,7 +2,7 @@
 
 namespace Sajari\Query;
 
-class IndexQuery implements \Sajari\Misc\Proto
+class IndexQuery implements \Sajari\Internal\Proto
 {
 
     /** @var Body[] body */
@@ -57,7 +57,7 @@ class IndexQuery implements \Sajari\Misc\Proto
             foreach ($this->body as $b) {
                 $bodies[] = $b->Proto();
             }
-            $fq->setBody(\Sajari\Misc\Utils::MakeRepeated($bodies, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body::class));
+            $fq->setBody(\Sajari\Internal\Utils::MakeRepeated($bodies, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body::class));
         }
 
         // InstanceBoosts
@@ -66,7 +66,7 @@ class IndexQuery implements \Sajari\Misc\Proto
             foreach ($this->instanceBoosts as $b) {
                 $ibs[] = $b->Proto();
             }
-            $fq->setInstanceBoosts(\Sajari\Misc\Utils::MakeRepeated($ibs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class));
+            $fq->setInstanceBoosts(\Sajari\Internal\Utils::MakeRepeated($ibs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class));
         }
 
         // FieldBoosts
@@ -75,7 +75,7 @@ class IndexQuery implements \Sajari\Misc\Proto
             foreach ($this->fieldBoosts as $b) {
                 $fbs[] = $b->Proto();
             }
-            $fq->setFieldBoosts(\Sajari\Misc\Utils::MakeRepeated($fbs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class));
+            $fq->setFieldBoosts(\Sajari\Internal\Utils::MakeRepeated($fbs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class));
         }
 
         return $fq;

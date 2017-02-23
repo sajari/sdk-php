@@ -21,7 +21,7 @@ _require_all(__DIR__.'/../proto', 10);
  * Class CombinatorFilter
  * @package Sajari\Query
  */
-class CombinatorFilter implements Filter, \Sajari\Misc\Proto
+class CombinatorFilter implements Filter, \Sajari\Internal\Proto
 {
 
     /** @var int $operator */
@@ -106,7 +106,7 @@ class CombinatorFilter implements Filter, \Sajari\Misc\Proto
             $filters[] = $filter->Proto();
 
         }
-        $fc->setFilters(\Sajari\Misc\Utils::MakeRepeated($filters, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Filter::class));
+        $fc->setFilters(\Sajari\Internal\Utils::MakeRepeated($filters, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Filter::class));
 
         $f = new \Sajari\Engine\Query\V1\Filter();
         $f->setCombinator($fc);

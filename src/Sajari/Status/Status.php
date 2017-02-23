@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Engine;
+namespace Sajari\Status;
 
 /**
  * Class Status

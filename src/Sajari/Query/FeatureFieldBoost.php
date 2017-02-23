@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class FeatureFieldBoost
  * @package Sajari\Query
  */
-class FeatureFieldBoost implements \Sajari\Misc\Proto
+class FeatureFieldBoost implements \Sajari\Internal\Proto
 {
     /**
      * @var FieldBoost $fieldBoost

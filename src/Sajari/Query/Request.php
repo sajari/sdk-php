@@ -273,13 +273,13 @@ class Request
             foreach ($this->sorts as $s) {
                 $sorts[] = $s->Proto();
             }
-            $inner->setSorts(\Sajari\Misc\Utils::MakeRepeated($sorts, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class));
+            $inner->setSorts(\Sajari\Internal\Utils::MakeRepeated($sorts, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class));
         }
 
         // Fields
         if (isset($this->fields))
         {
-            $inner->setFields(\Sajari\Misc\Utils::MakeRepeated($this->fields, \Google\Protobuf\Internal\GPBType::STRING));
+            $inner->setFields(\Sajari\Internal\Utils::MakeRepeated($this->fields, \Google\Protobuf\Internal\GPBType::STRING));
         }
 
         // Aggregates
@@ -302,7 +302,7 @@ class Request
             foreach ($this->transforms as $t) {
                 $transforms[] = $t->Proto();
             }
-            $inner->setTransforms(\Sajari\Misc\Utils::MakeRepeated($transforms, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class));
+            $inner->setTransforms(\Sajari\Internal\Utils::MakeRepeated($transforms, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class));
         }
 
         return $r;

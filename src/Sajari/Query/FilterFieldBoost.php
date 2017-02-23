@@ -6,7 +6,7 @@ namespace Sajari\Query;
  * Class FilterFieldBoost
  * @package Sajari\Query
  */
-class FilterFieldBoost implements FieldBoost, \Sajari\Misc\Proto
+class FilterFieldBoost implements FieldBoost, \Sajari\Internal\Proto
 {
     /** @var Filter $filter */
     private $filter;

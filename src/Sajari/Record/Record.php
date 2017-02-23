@@ -2,7 +2,7 @@
 
 namespace Sajari\Record;
 
-class Record implements \Sajari\Engine\Proto
+class Record implements \Sajari\Internal\Proto
 {
     /** @var mixed[] $values */
     private $values;
@@ -28,12 +28,12 @@ class Record implements \Sajari\Engine\Proto
      * @param \sajariGen\engine\store\record\Record $protoRecord
      * @return Record
      */
-    public static function FromProto(\sajariGen\engine\store\record\Record $protoRecord)
+    public static function FromProto(\Sajari\Engine\Store\Record\Record $protoRecord)
     {
         $values = [];
 
-        foreach ($protoRecord->getValuesList() as $v) {
-            $values[$v->getKey()] = \Sajari\Engine\Value::FromProto($v->getValue());
+        foreach ($protoRecord->getValues() as $k => $v) {
+            $values[$k] = \Sajari\Value\Value::FromProto($v);
         }
 
         return new Record($values);
