@@ -1,0 +1,7 @@
+{
+  "require": {
+    "sajari/sajari-sdk-php": "master-dev"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
