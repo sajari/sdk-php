@@ -7,8 +7,8 @@ The website pipeline is the easiest way to get started with Sajari. Once you've 
 Clone this repo and move into this example directory
 
 ```sh
-git clone https://github.com/sajari/sajari-sdk-js
-cd sajari-sdk-js/examples/pipeline
+git clone https://github.com/sajari/sajari-sdk-php
+cd sajari-sdk-php/examples/pipeline
 ```
 
 Get [Composer](https://getcomposer.org/download/).
