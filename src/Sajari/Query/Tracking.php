@@ -2,7 +2,7 @@
 
 namespace Sajari\Query;
 
-_require_all(__DIR__.'/../proto', 10);
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class Tracking

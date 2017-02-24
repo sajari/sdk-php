@@ -27,12 +27,20 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     private $values;
     /**
      * <pre>
-     * SearchResponse is the response returned by the raw API.
+     * SearchResponse from the engine request.
      * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchResponse search_response = 2;</code>
+     * <code>.sajari.engine.query.v1.SearchResponse search_response = 2;</code>
      */
     private $search_response = null;
+    /**
+     * <pre>
+     * Tokens which correspond to the result documents.
+     * </pre>
+     *
+     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     */
+    private $tokens;
 
     public function __construct() {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Pipeline::initOnce();
@@ -65,10 +73,10 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
 
     /**
      * <pre>
-     * SearchResponse is the response returned by the raw API.
+     * SearchResponse from the engine request.
      * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchResponse search_response = 2;</code>
+     * <code>.sajari.engine.query.v1.SearchResponse search_response = 2;</code>
      */
     public function getSearchResponse()
     {
@@ -77,15 +85,40 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
 
     /**
      * <pre>
-     * SearchResponse is the response returned by the raw API.
+     * SearchResponse from the engine request.
      * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchResponse search_response = 2;</code>
+     * <code>.sajari.engine.query.v1.SearchResponse search_response = 2;</code>
      */
     public function setSearchResponse(&$var)
     {
-        GPBUtil::checkMessage($var, \Sajari\Api\Query\V1\SearchResponse::class);
+        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchResponse::class);
         $this->search_response = $var;
+    }
+
+    /**
+     * <pre>
+     * Tokens which correspond to the result documents.
+     * </pre>
+     *
+     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     */
+    public function getTokens()
+    {
+        return $this->tokens;
+    }
+
+    /**
+     * <pre>
+     * Tokens which correspond to the result documents.
+     * </pre>
+     *
+     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     */
+    public function setTokens(&$var)
+    {
+        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
+        $this->tokens = $var;
     }
 
 }
