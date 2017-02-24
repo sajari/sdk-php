@@ -316,7 +316,7 @@ class Client
      * @return mixed
      * @throws \Exception
      */
-    public function MutatMulti(array $keyValues)
+    public function MutateMulti(array $keyValues)
     {
         $protoKeyValues = new \Sajari\Engine\Store\Record\MutateRequest();
 
