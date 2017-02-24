@@ -1,6 +1,6 @@
 # Sajari PHP SDK
 
-[![Packagist](https://img.shields.io/packagist/v/sajari/sajari-sdk-php.svg?style=flat-square)]() ![license](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
+[![Packagist](https://img.shields.io/packagist/v/sajari/sajari-sdk-php.svg?style=flat-square)](https://packagist.org/packages/sajari/sajari-sdk-php) [![license](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE.md)
 
 The Sajari PHP SDK enables use of the Sajari platform from PHP.
 
@@ -49,20 +49,23 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 }
 ```
 
-### Basic install of gRPC PHP extension on a fresh install of Ubuntu 16.04
+### Basic install
 
-A more complete guide to installing the PHP extention for gRPC can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).
+Get [Composer](https://getcomposer.org/download/).
 
-```bash
-sudo apt install php-cli php-dev php-pear
-sudo pecl install grpc
-```
+Get the [gRPC](https://pecl.php.net/package/gRPC) extension by running `sudo pecl install grpc`.
 
-Now add `extension=grpc.so` to your `php.ini` file.
+Add `extension=grpc.so` to your `php.ini` file.
+
+Run `php composer.phar install`.
+
+*Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).*
 
 ## Getting Started
 
 See [examples](./examples) for code you can copy and paste to get started.
+
+Also see the [website pipeline example](./examples/pipeline) for the fastest way to search your website collection.
 
 ## Snippets
 
