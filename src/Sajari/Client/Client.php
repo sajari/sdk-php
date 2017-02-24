@@ -330,13 +330,15 @@ class Client
      */
     public function PatchMulti(array $keyValues)
     {
-        $protoKeyValues = new \Sajari\Engine\Store\Record\KeysValues();
+        $protoKeyValues = new \Sajari\Engine\Store\Record\MutateRequest();
 
+        $mutations = [];
         foreach ($keyValues as $keyValue) {
-            $protoKeyValues->addKeysValues($keyValue->Proto());
+            $mutations[] = $keyValue->Proto();
         }
+        $protoKeyValues->setRecordMutations(\Sajari\Internal\Utils::MakeRepeated($mutations, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\MutateRequest_RecordMutation::class));
 
-        list($reply, $status) = $this->storeClient->Patch(
+        list($reply, $status) = $this->storeClient->Mutate(
             $protoKeyValues,
             $this->getCallMeta()
         )->wait();
@@ -344,7 +346,7 @@ class Client
         // Check for server error
         $this->checkForError($status);
 
-        return $reply->getStatusList();
+        return $reply->getStatus();
     }
 
     /**
