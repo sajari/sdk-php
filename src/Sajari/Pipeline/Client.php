@@ -38,8 +38,6 @@ namespace Sajari\Pipeline {
 
             $this->checkForError($status);
 
-            $reply = $reply->getSearchResponse();
-
             return \Sajari\Query\Response::FromProto($reply->getSearchResponse(), iterator_to_array($reply->getTokens()));
         }
 
