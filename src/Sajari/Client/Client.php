@@ -310,12 +310,12 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\KeyValues $keyValues
+     * @param \Sajari\Record\RecordMutation $keyValues
      * @return null
      */
-    public function Patch($keyValues)
+    public function Mutate($keyValues)
     {
-      $multiResult = $this->PatchMulti(array($keyValues));
+      $multiResult = $this->MutateMulti(array($keyValues));
       if ($multiResult == NULL) {
         return NULL;
       } else {
@@ -324,11 +324,11 @@ class Client
     }
 
     /**
-     * @param \Sajari\Record\KeyValues[] $keyValues
+     * @param \Sajari\Record\RecordMutation[] $keyValues
      * @return mixed
      * @throws \Exception
      */
-    public function PatchMulti(array $keyValues)
+    public function MutatMulti(array $keyValues)
     {
         $protoKeyValues = new \Sajari\Engine\Store\Record\MutateRequest();
 

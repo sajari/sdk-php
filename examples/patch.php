@@ -4,14 +4,13 @@ require  __DIR__ . '/vendor/autoload.php';
 
 include_once "ExampleUtils.php";
 
-use Sajari\Record\KeyValues;
-use Sajari\Engine\Key;
-use Sajari\Record\KeyValue;
+use Sajari\Record\RecordMutation;
+use Sajari\Key\Key;
 
-$status = ExampleUtils::CreateClient()->Patch(
-    new KeyValues(
+$status = ExampleUtils::CreateClient()->Mutate(
+    new RecordMutation(
         new Key("_id", "<record id>"),
-        [new KeyValue("name", "Alex")]
+        [RecordMutation::SetField("name", "Alex")]
     )
 );
 

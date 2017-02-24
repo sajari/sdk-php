@@ -23,7 +23,7 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
   * [Getting a record](#getting-a-record)
   * [Deleting a record](#deleting-a-record)
   * [Adding a record](#adding-a-record)
-  * [Patching a record](#patching-a-record)
+  * [Mutating a record](#mutating-a-record)
   * [Getting fields from a schema](#getting-fields-from-a-schema)
 * [License](#license)
 
@@ -120,12 +120,12 @@ $client->Add(
 
 Full example: [`./examples/add.php`](./examples/add.php)
 
-### Patching a record
+### Mutating a record
 
 ```php
-$client->Patch(
-    new KeyValues(
-        new Key("_id", 123), [new KeyValue("name", "bob")]
+$client->Mutate(
+    new RecordMutation(
+        new Key("_id", 123), [new RecordMutation::SetField("name", "bob")]
     )
 )
 ```
