@@ -130,7 +130,7 @@ $client->Mutate(
 )
 ```
 
-Full example: [`./examples/patch.php`](./examples/patch.php)
+Full example: [`./examples/mutate.php`](./examples/mutate.php)
 
 ### Getting fields from a schema
 
