@@ -2,6 +2,8 @@
 
 namespace Sajari\Query;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 class BucketResponseAggregate
 {
     /** @var string $name */

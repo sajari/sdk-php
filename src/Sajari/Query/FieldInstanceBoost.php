@@ -2,13 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class FieldInstanceBoost
  * @package Sajari\Query
  */
-class FieldInstanceBoost implements InstanceBoost, Proto
+class FieldInstanceBoost implements InstanceBoost, \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -43,15 +43,15 @@ class FieldInstanceBoost implements InstanceBoost, Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\InstanceBoost
+     * @return \Sajari\Engine\Query\V1\InstanceBoost
      */
     public function Proto()
     {
-        $f = new \sajariGen\engine\query\v1\InstanceBoost\Field();
+        $f = new \Sajari\Engine\Query\V1\InstanceBoost_Field();
         $f->setField($this->field);
         $f->setValue($this->value);
 
-        $ib = new \sajariGen\engine\query\v1\InstanceBoost();
+        $ib = new \Sajari\Engine\Query\V1\InstanceBoost();
         $ib->setField($f);
 
         return $ib;

@@ -2,6 +2,8 @@
 
 namespace Sajari\Schema;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 /**
  * Class Response
  * @package Sajari\Schema
@@ -25,10 +27,10 @@ class Response
     }
 
     /**
-     * @param \sajariGen\engine\schema\Response $response
+     * @param \Sajari\Engine\Schema\Response $response
      * @return Response
      */
-    public static function FromProto(\sajariGen\engine\schema\Response $response)
+    public static function FromProto(\Sajari\Engine\Schema\Response $response)
     {
         $statuses = [];
         foreach ($response->getStatusList() as $status) {

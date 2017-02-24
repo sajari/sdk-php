@@ -2,6 +2,8 @@
 
 namespace Sajari\Query;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 class IndexQuery implements \Sajari\Internal\Proto
 {
 
@@ -45,7 +47,7 @@ class IndexQuery implements \Sajari\Internal\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\SearchRequest\IndexQuery
+     * @return \Sajari\Engine\Query\V1\SearchRequest\IndexQuery
      */
     public function Proto()
     {

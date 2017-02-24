@@ -2,13 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class BucketAggregate
  * @package Sajari\Query
  */
-class BucketAggregate implements Aggregate, Proto
+class BucketAggregate implements Aggregate, \Sajari\Internal\Proto
 {
     /** @var string $name */
     private $name;
@@ -43,20 +43,20 @@ class BucketAggregate implements Aggregate, Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry
      */
     public function Proto()
     {
-        $b = new \sajariGen\engine\query\v1\Aggregate\Bucket();
+        $b = new \Sajari\Engine\Query\V1\Aggregate\Bucket();
 
         foreach ($this->buckets as $bucket) {
             $b->addBuckets($bucket->Proto());
         }
 
-        $a = new \sajariGen\engine\query\v1\Aggregate();
+        $a = new \Sajari\Engine\Query\V1\Aggregate();
         $a->setBucket($b);
 
-        $ae = new \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry();
+        $ae = new \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

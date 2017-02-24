@@ -61,7 +61,7 @@ class Tracking implements \Sajari\Internal\Proto
   }
 
     /**
-     * @return \sajariGen\api\query\v1\SearchRequest\Tracking
+     * @return \Sajari\Api\Query\V1\SearchRequest_Tracking
      */
     public function Proto()
   {

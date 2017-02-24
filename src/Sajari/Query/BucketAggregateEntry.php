@@ -2,7 +2,7 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class BucketAggregateEntry
@@ -43,11 +43,11 @@ class BucketAggregateEntry implements \Sajari\Engine\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket
+     * @return \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket
      */
     public function Proto()
     {
-        $be = new \sajariGen\engine\query\v1\Aggregate\Bucket\Bucket();
+        $be = new \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket();
         $be->setName($this->name);
         $be->setFilter($this->filter->Proto());
         return $be;

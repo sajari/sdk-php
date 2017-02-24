@@ -2,6 +2,8 @@
 
 namespace Sajari\Query;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 class Response
 {
     /** @var integer $totalResults */
@@ -83,8 +85,8 @@ class Response
     }
 
     /**
-     * @param \sajariGen\engine\query\v1\SearchResponse $protoResponse
-     * @param \sajariGen\api\query\v1\Token[] $protoTokens
+     * @param \Sajari\Engine\Query\V1\SearchResponse $protoResponse
+     * @param \Sajari\Api\Query\V1\Token[] $protoTokens
      * @return Response
      */
     public static function FromProto(\Sajari\Engine\Query\V1\SearchResponse $protoResponse, array $protoTokens)

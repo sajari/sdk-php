@@ -2,7 +2,7 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class Body
@@ -28,10 +28,10 @@ class Body implements \Sajari\Engine\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\Body
+     * @return \Sajari\Engine\Query\V1\Body
      */
     public function Proto() {
-        $b = new \sajariGen\engine\query\v1\Body();
+        $b = new \Sajari\Engine\Query\V1\Body();
 
         $b->setText($this->text);
         $b->setWeight($this->weight);

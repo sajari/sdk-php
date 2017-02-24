@@ -2,14 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/value.php';
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class GeoFilter
  * @package Sajari\Query
  */
-class GeoFilter implements Filter, Proto
+class GeoFilter implements Filter, \Sajari\Internal\Proto
 {
     /** @var string $fieldLat */
     private $fieldLat;
@@ -105,7 +104,7 @@ class GeoFilter implements Filter, Proto
      * @return GeoFilter
      */
     public static function Inside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajariGen\engine\query\v1\Filter\Geo\Region::INSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \Sajari\Engine\Query\V1\Filter_Geo_Region::INSIDE);
     }
 
     /**
@@ -117,15 +116,15 @@ class GeoFilter implements Filter, Proto
      * @return GeoFilter
      */
     public static function Outside($fieldLat, $fieldLng, $lat, $lng, $radius) {
-        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \sajariGen\engine\query\v1\Filter\Geo\Region::OUTSIDE);
+        return new GeoFilter($fieldLat, $fieldLng, $lat, $lng, $radius, \Sajari\Engine\Query\V1\Filter_Geo_Region::OUTSIDE);
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\Filter
+     * @return \Sajari\Engine\Query\V1\Filter
      */
     public function Proto()
     {
-        $gmb = new \sajariGen\engine\query\v1\Filter\Geo();
+        $gmb = new \Sajari\Engine\Query\V1\Filter_Geo();
         $gmb->setFieldLat($this->fieldLat);
         $gmb->setFieldLng($this->fieldLng);
         $gmb->setLat($this->lat);
@@ -133,7 +132,7 @@ class GeoFilter implements Filter, Proto
         $gmb->setRadius($this->radius);
         $gmb->setRegion($this->region);
 
-        $mb = new \sajariGen\engine\query\v1\Filter();
+        $mb = new \Sajari\Engine\Query\V1\Filter();
         $mb->setGeo($gmb);
         return $mb;
     }

@@ -2,6 +2,8 @@
 
 namespace Sajari\Client;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 class WithCredentials implements Opt
 {
     private $credentials;

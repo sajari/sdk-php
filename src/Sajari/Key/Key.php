@@ -2,6 +2,8 @@
 
 namespace Sajari\Key;
 
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
 /**
  * Class Key
  * @package Sajari\Record

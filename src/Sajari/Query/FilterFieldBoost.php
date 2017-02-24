@@ -41,7 +41,7 @@ class FilterFieldBoost implements FieldBoost, \Sajari\Internal\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\FieldBoost
+     * @return \Sajari\Engine\Query\V1\FieldBoost
      */
     public function Proto()
     {

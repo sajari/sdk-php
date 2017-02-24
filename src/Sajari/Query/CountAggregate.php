@@ -2,13 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class CountAggregate
  * @package Sajari\Query
  */
-class CountAggregate implements Aggregate, Proto
+class CountAggregate implements Aggregate, \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -43,17 +43,17 @@ class CountAggregate implements Aggregate, Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry
      */
     public function Proto()
     {
-        $ca = new \sajariGen\engine\query\v1\Aggregate\Count();
+        $ca = new \Sajari\Engine\Query\V1\Aggregate\Count();
         $ca->setField($this->field);
 
-        $a = new \sajariGen\engine\query\v1\Aggregate();
+        $a = new \Sajari\Engine\Query\V1\Aggregate();
         $a->setCount($ca);
 
-        $ae = new \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry();
+        $ae = new \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
         $ae->setValue($a);
         return $ae;

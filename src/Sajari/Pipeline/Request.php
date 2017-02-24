@@ -2,6 +2,8 @@
 
 namespace Sajari\Pipeline {
 
+    \Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+
     class Pipeline {
 
         private $name = '';

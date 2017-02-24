@@ -2,13 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class TextFieldBoost
  * @package Sajari\Query
  */
-class TextFieldBoost implements \Sajari\Engine\Proto
+class TextFieldBoost implements \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -44,15 +44,15 @@ class TextFieldBoost implements \Sajari\Engine\Proto
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\FieldBoost
+     * @return \Sajari\Engine\Query\V1\FieldBoost
      */
     public function Proto()
     {
-        $tmb = new \sajariGen\engine\query\v1\FieldBoost\Text();
+        $tmb = new \Sajari\Engine\Query\V1\FieldBoost\Text();
         $tmb->setField($this->field);
         $tmb->setText($this->text);
 
-        $mb = new \sajariGen\engine\query\v1\FieldBoost();
+        $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setText($tmb);
         return $mb;
     }

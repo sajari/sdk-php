@@ -2,13 +2,13 @@
 
 namespace Sajari\Query;
 
-require_once __DIR__.'/../proto/engine/query/v1/query.php';
+\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
 /**
  * Class MetricAggregate
  * @package Sajari\Query
  */
-class MetricAggregate implements Aggregate, Proto
+class MetricAggregate implements Aggregate, \Sajari\Internal\Proto
 {
     /** @var string $field */
     private $field;
@@ -63,7 +63,7 @@ class MetricAggregate implements Aggregate, Proto
      */
     public static function Avg($field, $name)
     {
-        return new MetricAggregate($field, \sajariGen\engine\query\v1\Aggregate\Metric\Type::AVG, $name);
+        return new MetricAggregate($field, \Sajari\Engine\Query\V1\Aggregate_Metric_Type::AVG, $name);
     }
 
     /**
@@ -73,7 +73,7 @@ class MetricAggregate implements Aggregate, Proto
      */
     public static function Min($field, $name)
     {
-        return new MetricAggregate($field, \sajariGen\engine\query\v1\Aggregate\Metric\Type::MIN, $name);
+        return new MetricAggregate($field, \Sajari\Engine\Query\V1\Aggregate_Metric_Type::MIN, $name);
     }
 
     /**
@@ -83,7 +83,7 @@ class MetricAggregate implements Aggregate, Proto
      */
     public static function Max($field, $name)
     {
-        return new MetricAggregate($field, \sajariGen\engine\query\v1\Aggregate\Metric\Type::MAX, $name);
+        return new MetricAggregate($field, \Sajari\Engine\Query\V1\Aggregate_Metric_Type::MAX, $name);
     }
 
     /**
@@ -93,22 +93,22 @@ class MetricAggregate implements Aggregate, Proto
      */
     public static function Sum($field, $name)
     {
-        return new MetricAggregate($field, \sajariGen\engine\query\v1\Aggregate\Metric\Type::SUM, $name);
+        return new MetricAggregate($field, \Sajari\Engine\Query\V1\Aggregate_Metric_Type::SUM, $name);
     }
 
     /**
-     * @return \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry
+     * @return \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry
      */
     public function Proto()
     {
-        $ae = new \sajariGen\engine\query\v1\SearchRequest\AggregatesEntry();
+        $ae = new \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);
 
-        $ma = new \sajariGen\engine\query\v1\Aggregate\Metric();
+        $ma = new \Sajari\Engine\Query\V1\Aggregate_Metric();
         $ma->setField($this->field);
         $ma->setType($this->type);
 
-        $a = new \sajariGen\engine\query\v1\Aggregate();
+        $a = new \Sajari\Engine\Query\V1\Aggregate();
         $a->setMetric($ma);
 
         $ae->setValue($a);
