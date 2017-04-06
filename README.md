@@ -69,19 +69,24 @@ Also see the [website pipeline example](./examples/pipeline) for the fastest way
 
 ## Snippets
 
-### Using the website pipeline
+### Querying
 
-Pipelines are the recommended way to query Sajari. They wrap up lots of our functionality and provide a super simple interface.
+#### Pipelines
+
+Pipelines are a recommended way to query your collection. They wrap up lots of our more complex functionality into a super simple interface.  We offer a few standard pipelines for specific purposes, eg "website" for querying website collections.
 
 ```php
 $client->SearchPipeline(
   new Request("website", [
-    "q" => "Game of Thrones"
+    "q" => "Game of Thrones" // query text
+    "resultsPerPage" => "10" // number of results to show per page
   ])
 );
 ```
 
-### Performing a text search
+### Search Queries
+
+It's also possible to run queries using the raw query API.
 
 ```php
 $client->Search(new Request("alex"))
@@ -135,7 +140,7 @@ $client->Mutate(
 
 Full example: [`./examples/mutate.php`](./examples/mutate.php)
 
-### Getting fields from a schema
+### Retrieving a collection schema
 
 ```php
 $client->GetFields()
