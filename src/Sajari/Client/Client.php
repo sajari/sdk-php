@@ -209,7 +209,7 @@ class Client
      * @return mixed
      * @throws Exception
      */
-    public function Add(\Sajari\Record\Record $rec, array $transforms = [])
+    public function Add(\Sajari\Record\Record $rec, array $transforms = null)
     {
         $multiResult = $this->AddMulti([$rec], $transforms);
 
