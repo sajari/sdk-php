@@ -240,9 +240,16 @@ class Client
         }
 
         if (isset($transforms)) {
+            $tempProtoTransforms = [];
             foreach ($transforms as $t) {
-                $protoRecords->addTransforms($t->Proto());
+                $tempProtoTransforms[] = $t->Proto();
             }
+            $repeatedProtoTransforms = \Sajari\Internal\Utils::MakeRepeated(
+                $tempProtoTransforms,
+                \Google\Protobuf\Internal\GPBType::MESSAGE,
+                \Sajari\Engine\Store\Record\Transform::class
+            );
+            $protoRecords->setTransforms($repeatedProtoTransforms);
         }
 
         /** @var \Sajari\Engine\Store\Record\AddResponse $reply */
