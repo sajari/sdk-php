@@ -76,12 +76,10 @@ Also see the [website pipeline example](./examples/pipeline) for the fastest way
 Pipelines are a recommended way to query your collection. They wrap up lots of our more complex functionality into a super simple interface.  We offer a few standard pipelines for specific purposes, eg "website" for querying website collections.
 
 ```php
-$client->SearchPipeline(
-  new Request("website", [
-    "q" => "Game of Thrones" // query text
-    "resultsPerPage" => "10" // number of results to show per page
-  ])
-);
+$pipeline = $client->Pipeline("website");
+$results = $pipeline([
+  "q" => "Game of Thrones" // query text
+]);
 ```
 
 ### Search Queries
