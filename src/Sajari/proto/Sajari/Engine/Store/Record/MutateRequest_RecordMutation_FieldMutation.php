@@ -144,7 +144,7 @@ class MutateRequest_RecordMutation_FieldMutation extends \Google\Protobuf\Intern
 
     public function getMutation()
     {
-        return $this->mutation;
+        return $this->whichOneof("mutation");
     }
 
 }

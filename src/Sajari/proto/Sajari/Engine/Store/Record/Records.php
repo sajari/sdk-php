@@ -61,8 +61,8 @@ class Records extends \Google\Protobuf\Internal\Message
      */
     public function setRecords(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
-        $this->records = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
+        $this->records = $arr;
     }
 
     /**
@@ -88,8 +88,8 @@ class Records extends \Google\Protobuf\Internal\Message
      */
     public function setTransforms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Transform::class);
-        $this->transforms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Transform::class);
+        $this->transforms = $arr;
     }
 
 }

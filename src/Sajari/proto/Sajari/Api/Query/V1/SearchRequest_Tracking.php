@@ -189,7 +189,8 @@ class SearchRequest_Tracking extends \Google\Protobuf\Internal\Message
      */
     public function setData(&$var)
     {
-        $this->data = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->data = $arr;
     }
 
 }

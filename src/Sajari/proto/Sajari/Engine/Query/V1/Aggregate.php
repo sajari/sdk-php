@@ -77,7 +77,7 @@ class Aggregate extends \Google\Protobuf\Internal\Message
 
     public function getAggregate()
     {
-        return $this->aggregate;
+        return $this->whichOneof("aggregate");
     }
 
 }

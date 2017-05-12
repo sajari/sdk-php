@@ -88,8 +88,8 @@ class FieldBoost_Element extends \Google\Protobuf\Internal\Message
      */
     public function setElts(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->elts = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->elts = $arr;
     }
 
 }

@@ -40,7 +40,8 @@ class AggregateResponse_Buckets extends \Google\Protobuf\Internal\Message
      */
     public function setBuckets(&$var)
     {
-        $this->buckets = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AggregateResponse_Buckets_Bucket::class);
+        $this->buckets = $arr;
     }
 
 }

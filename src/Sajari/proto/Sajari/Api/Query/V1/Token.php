@@ -61,7 +61,7 @@ class Token extends \Google\Protobuf\Internal\Message
 
     public function getToken()
     {
-        return $this->token;
+        return $this->whichOneof("token");
     }
 
 }

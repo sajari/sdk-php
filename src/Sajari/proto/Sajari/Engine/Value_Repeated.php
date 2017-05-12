@@ -40,8 +40,8 @@ class Value_Repeated extends \Google\Protobuf\Internal\Message
      */
     public function setValues(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->values = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->values = $arr;
     }
 
 }

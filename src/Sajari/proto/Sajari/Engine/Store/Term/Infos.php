@@ -52,8 +52,8 @@ class Infos extends \Google\Protobuf\Internal\Message
      */
     public function setInfos(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Term\Infos_Info::class);
-        $this->infos = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Term\Infos_Info::class);
+        $this->infos = $arr;
     }
 
 }

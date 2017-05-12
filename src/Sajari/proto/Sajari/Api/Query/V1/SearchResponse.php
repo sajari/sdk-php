@@ -119,8 +119,8 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
      */
     public function setTokens(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
-        $this->tokens = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
+        $this->tokens = $arr;
     }
 
 }

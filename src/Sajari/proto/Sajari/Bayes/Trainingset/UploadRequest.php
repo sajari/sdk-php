@@ -125,8 +125,8 @@ class UploadRequest extends \Google\Protobuf\Internal\Message
      */
     public function setData(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->data = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->data = $arr;
     }
 
 }

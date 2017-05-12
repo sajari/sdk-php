@@ -70,8 +70,8 @@ class Response extends \Google\Protobuf\Internal\Message
      */
     public function setErrors(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Bayes\Train\ClassError::class);
-        $this->errors = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Bayes\Train\ClassError::class);
+        $this->errors = $arr;
     }
 
     /**

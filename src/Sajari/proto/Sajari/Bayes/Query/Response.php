@@ -75,7 +75,8 @@ class Response extends \Google\Protobuf\Internal\Message
      */
     public function setScores(&$var)
     {
-        $this->scores = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::DOUBLE);
+        $this->scores = $arr;
     }
 
     /**

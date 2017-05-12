@@ -96,7 +96,7 @@ class FieldBoost extends \Google\Protobuf\Internal\Message
 
     public function getFieldBoost()
     {
-        return $this->field_boost;
+        return $this->whichOneof("field_boost");
     }
 
 }

@@ -118,8 +118,8 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
      */
     public function setTransforms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Transform::class);
-        $this->transforms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Transform::class);
+        $this->transforms = $arr;
     }
 
 }

@@ -15,8 +15,8 @@ class GPBEmpty
           return;
         }
         $pool->internalAddGeneratedFile(hex2bin(
-            "0a380a1673616a6172692f7270632f656d7074792e70726f746f120a7361" .
-            "6a6172692e727063220a0a08475042456d707479620670726f746f33"
+            "0a350a1673616a6172692f7270632f656d7074792e70726f746f120a7361" .
+            "6a6172692e72706322070a05456d707479620670726f746f33"
         ));
 
         static::$is_initialized = true;

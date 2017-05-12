@@ -68,8 +68,8 @@ class KeyScores_Score extends \Google\Protobuf\Internal\Message
      */
     public function setTerms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->terms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->terms = $arr;
     }
 
     /**

@@ -68,7 +68,8 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
      */
     public function setValues(&$var)
     {
-        $this->values = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->values = $arr;
     }
 
     /**
@@ -117,8 +118,8 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
      */
     public function setTokens(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
-        $this->tokens = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
+        $this->tokens = $arr;
     }
 
 }

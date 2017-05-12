@@ -36,8 +36,8 @@ class SetRequest extends \Google\Protobuf\Internal\Message
      */
     public function setKeysScores(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores::class);
-        $this->keys_scores = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores::class);
+        $this->keys_scores = $arr;
     }
 
 }

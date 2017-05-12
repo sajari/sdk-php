@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
  * from a call.
  * </pre>
  *
- * Protobuf type <code>sajari.rpc.GPBEmpty</code>
+ * Protobuf type <code>sajari.rpc.Empty</code>
  */
-class GPBEmpty extends \Google\Protobuf\Internal\Message
+class PBEmpty extends \Google\Protobuf\Internal\Message
 {
 
     public function __construct() {

@@ -159,7 +159,8 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
      */
     public function setAggregates(&$var)
     {
-        $this->aggregates = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AggregateResponse::class);
+        $this->aggregates = $arr;
     }
 
     /**
@@ -183,8 +184,8 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
      */
     public function setResults(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Result::class);
-        $this->results = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Result::class);
+        $this->results = $arr;
     }
 
 }

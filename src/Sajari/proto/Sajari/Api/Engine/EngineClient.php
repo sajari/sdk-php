@@ -10,7 +10,7 @@ namespace Sajari\Api\Engine {
     /**
      * @param string $hostname hostname
      * @param array $opts channel options
-     * @param Grpc\Channel $channel (optional) re-use channel object
+     * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
       parent::__construct($hostname, $opts, $channel);
@@ -26,7 +26,7 @@ namespace Sajari\Api\Engine {
       $metadata = [], $options = []) {
       return $this->_simpleRequest('/sajari.api.engine.Engine/CreateCollection',
       $argument,
-      ['\Sajari\Rpc\GPBEmpty', 'decode'],
+      ['\Sajari\Rpc\Empty', 'decode'],
       $metadata, $options);
     }
 
@@ -41,7 +41,7 @@ namespace Sajari\Api\Engine {
       $metadata = [], $options = []) {
       return $this->_simpleRequest('/sajari.api.engine.Engine/DeleteCollection',
       $argument,
-      ['\Sajari\Rpc\GPBEmpty', 'decode'],
+      ['\Sajari\Rpc\Empty', 'decode'],
       $metadata, $options);
     }
 

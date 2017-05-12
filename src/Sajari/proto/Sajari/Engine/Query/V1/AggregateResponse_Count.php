@@ -40,7 +40,8 @@ class AggregateResponse_Count extends \Google\Protobuf\Internal\Message
      */
     public function setCounts(&$var)
     {
-        $this->counts = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::INT32);
+        $this->counts = $arr;
     }
 
 }
