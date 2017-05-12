@@ -16,7 +16,7 @@ namespace Sajari\Pipeline {
             $this->pipelineName = $pipelineName;
         }
 
-        public function Search($values, $tracking) {
+        public function Search($values, $tracking = null) {
             $stringValues = [];
             foreach ($values as $key => $value) {
                 $stringValues[$key] = (string)$value;
