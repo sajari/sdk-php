@@ -59,7 +59,12 @@ class IndexQuery implements \Sajari\Internal\Proto
             foreach ($this->body as $b) {
                 $bodies[] = $b->Proto();
             }
-            $fq->setBody(\Sajari\Internal\Utils::MakeRepeated($bodies, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body::class));
+            $repeatedBodies = \Sajari\Internal\Utils::MakeRepeated(
+                $bodies,
+                \Google\Protobuf\Internal\GPBType::MESSAGE,
+                \Sajari\Engine\Query\V1\Body::class
+            );
+            $fq->setBody($repeatedBodies);
         }
 
         // InstanceBoosts

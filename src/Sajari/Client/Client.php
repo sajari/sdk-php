@@ -231,7 +231,12 @@ class Client
         foreach ($records as $r) {
             $tempRecords[] = $r->Proto();
         }
-        $protoRecords->setRecords(\Sajari\Internal\Utils::MakeRepeated($tempRecords, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class));
+        $repeatedProtoRecords = \Sajari\Internal\Utils::MakeRepeated(
+            $tempRecords,
+            \Google\Protobuf\Internal\GPBType::MESSAGE,
+            \Sajari\Engine\Store\Record\Record::class
+        );
+        $protoRecords->setRecords($repeatedProtoRecords);
 
         if (!isset($transforms)) {
             $transforms = [

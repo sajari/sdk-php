@@ -253,13 +253,15 @@ class Request
         // IndexQuery
         if (isset($this->indexQuery))
         {
-            $inner->setIndexQuery($this->indexQuery->Proto());
+            $protoIndexQuery = $this->indexQuery->Proto();
+            $inner->setIndexQuery($protoIndexQuery);
         }
 
         // FeatureQuery
         if (isset($this->featureQuery))
         {
-            $inner->setFeatureQuery($this->featureQuery->Proto());
+            $protoFeatureQuery = $this->featureQuery->Proto();
+            $inner->setFeatureQuery($protoFeatureQuery);
         }
 
         // Filter
