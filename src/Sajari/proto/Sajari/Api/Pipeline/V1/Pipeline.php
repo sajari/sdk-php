@@ -17,7 +17,14 @@ use Google\Protobuf\Internal\GPBUtil;
  */
 class Pipeline extends \Google\Protobuf\Internal\Message
 {
-    protected $pipeline;
+    /**
+     * <pre>
+     * Name uniquely defines a pipeline.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     */
+    private $name = '';
 
     public function __construct() {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Pipeline::initOnce();
@@ -33,7 +40,7 @@ class Pipeline extends \Google\Protobuf\Internal\Message
      */
     public function getName()
     {
-        return $this->readOneof(1);
+        return $this->name;
     }
 
     /**
@@ -46,12 +53,7 @@ class Pipeline extends \Google\Protobuf\Internal\Message
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
-        $this->writeOneof(1, $var);
-    }
-
-    public function getPipeline()
-    {
-        return $this->whichOneof("pipeline");
+        $this->name = $var;
     }
 
 }
