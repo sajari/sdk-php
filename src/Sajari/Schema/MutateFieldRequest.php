@@ -8,7 +8,7 @@ namespace Sajari\Schema;
  * Class MutateFieldRequest
  * @package Sajari\Schema
  */
-class MutateFieldRequest implements \Sajari\Engine\Proto
+class MutateFieldRequest implements \Sajari\Internal\Proto
 {
     /** @var string $name */
     private $name;

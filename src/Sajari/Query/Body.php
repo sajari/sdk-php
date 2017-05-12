@@ -8,7 +8,7 @@ namespace Sajari\Query;
  * Class Body
  * @package Sajari\Query
  */
-class Body implements \Sajari\Engine\Proto
+class Body implements \Sajari\Internal\Proto
 {
     /** @var string $text */
     private $text;

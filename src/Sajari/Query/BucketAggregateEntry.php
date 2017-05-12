@@ -8,7 +8,7 @@ namespace Sajari\Query;
  * Class BucketAggregateEntry
  * @package Sajari\Query
  */
-class BucketAggregateEntry implements \Sajari\Engine\Proto
+class BucketAggregateEntry implements \Sajari\Internal\Proto
 {
     /** @var string $name */
     private $name;

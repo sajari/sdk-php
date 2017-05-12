@@ -8,7 +8,7 @@ namespace Sajari\Schema;
  * Class Field
  * @package Sajari\Schema
  */
-class Field implements \Sajari\Engine\Proto
+class Field implements \Sajari\Internal\Proto
 {
     public static $STRING = \Sajari\Engine\Schema\Field_Type::STRING;
     public static $INTEGER = \Sajari\Engine\Schema\Field_Type::INTEGER;

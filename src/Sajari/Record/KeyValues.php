@@ -6,7 +6,7 @@ namespace Sajari\Record;
  * Class KeyValues
  * @package Sajari\Record
  */
-class KeyValues implements \Sajari\Engine\Proto
+class KeyValues implements \Sajari\Internal\Proto
 {
     /** @var \Sajari\Engine\Key $key */
     private $key;

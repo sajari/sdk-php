@@ -6,7 +6,7 @@ namespace Sajari\Record;
  * Class Transform
  * @package Sajari\Record
  */
-class Transform implements \Sajari\Engine\Proto
+class Transform implements \Sajari\Internal\Proto
 {
     /** @var string $transform */
     private $transform;
@@ -49,7 +49,7 @@ class Transform implements \Sajari\Engine\Proto
      */
     public function Proto()
     {
-        $protoTransform = new \sajariGen\engine\store\record\Transform();
+        $protoTransform = new \Sajari\Engine\Store\Record\Transform();
         $protoTransform->setIdentifier($this->transform);
         return $protoTransform;
     }
