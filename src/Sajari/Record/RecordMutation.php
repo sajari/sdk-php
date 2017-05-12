@@ -16,7 +16,7 @@ class setField implements \Sajari\Record\FieldMutation {
         $protoFieldMutation = new \Sajari\Engine\Store\Record\MutateRequest_RecordMutation_FieldMutation();
 
         $protoFieldMutation->setField($this->field);
-        $protoFieldMutation->setSet(\Sajari\Value\Value::ToProto($this->value));
+        $protoFieldMutation->setSet(\Sajari\Value::ToProto($this->value));
 
         return $protoFieldMutation;
     }
@@ -28,17 +28,17 @@ class setField implements \Sajari\Record\FieldMutation {
  */
 class RecordMutation implements \Sajari\Internal\Proto
 {
-    /** @var \Sajari\Key\Key $key */
+    /** @var \Sajari\Key $key */
     private $key;
     /** @var \Sajari\Record\FieldMutation[] $fieldMutations */
     private $fieldMutations;
 
     /**
      * KeyValue constructor.
-     * @param \Sajari\Key\Key $key
+     * @param \Sajari\Key $key
      * @param \Sajari\Record\FieldMutation[] $fieldMutations
      */
-    public function __construct(\Sajari\Key\Key $key, array $fieldMutations) {
+    public function __construct(\Sajari\Key $key, array $fieldMutations) {
         $this->key = $key;
         $this->fieldMutations = $fieldMutations;
     }

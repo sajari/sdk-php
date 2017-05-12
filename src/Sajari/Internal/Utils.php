@@ -42,6 +42,45 @@ namespace Sajari\Internal {
                 }
             }
         }
+
+        /**
+         * @param $status
+         * @throws \Sajari\Error\AlreadyExistsException
+         * @throws \Sajari\Error\Exception
+         * @throws \Sajari\Error\MalformedRequestException
+         * @throws \Sajari\Error\NotFoundException
+         * @throws \Sajari\Error\PermissionDeniedException
+         * @throws \Sajari\Error\ServiceUnavailableException
+         * @throws \Sajari\Error\UnauthenticatedException
+         */
+        public static function checkForError($status)
+        {
+            switch ($status->code) {
+                case 0:
+                    return;
+                case 3:
+                    // invalid argument
+                    throw new \Sajari\Error\MalformedRequestException($status->details, $status->code);
+                case 5:
+                    // not found
+                    throw new \Sajari\Error\NotFoundException($status->details, $status->code);
+                case 6:
+                    // already exists
+                    throw new \Sajari\Error\AlreadyExistsException($status->details, $status->code);
+                case 7:
+                    // permission denied
+                    throw new \Sajari\Error\PermissionDeniedException($status->details, $status->code);
+                case 14:
+                    // unavailable
+                    throw new \Sajari\Error\ServiceUnavailableException($status->details, $status->code);
+                case 16:
+                    // unauthenticated
+                    throw new \Sajari\Error\UnauthenticatedException($status->details, $status->code);;
+                default:
+                    // generic exception
+                    throw new \Sajari\Error\Exception($status->details, $status->code);
+            }
+        }
     }
 
 }

@@ -1,8 +1,6 @@
 <?php
 
-namespace Sajari\Client;
-
-\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
+namespace Sajari;
 
 class WithEndpoint implements Opt
 {

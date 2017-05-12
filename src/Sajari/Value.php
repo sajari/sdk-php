@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Value;
+namespace Sajari;
 
 \Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 

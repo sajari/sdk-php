@@ -8,7 +8,7 @@ class Record implements \Sajari\Internal\Proto
     private $values;
 
     /**
-     * Document constructor.
+     * Record constructor.
      * @param mixed[] $values
      */
     public function __construct(array $values)
@@ -33,7 +33,7 @@ class Record implements \Sajari\Internal\Proto
         $values = [];
 
         foreach ($protoRecord->getValues() as $k => $v) {
-            $values[$k] = \Sajari\Value\Value::FromProto($v);
+            $values[$k] = \Sajari\Value::FromProto($v);
         }
 
         return new Record($values);
@@ -48,10 +48,7 @@ class Record implements \Sajari\Internal\Proto
 
         $records = [];
         foreach ($this->values as $field => $value) {
-            // $valueEntry = new \Sajari\Engine\Store\Record\Record\ValuesEntry();
-            $records[$field] = \Sajari\Value\Value::ToProto($value);
-            // $valueEntry->setKey($field);
-            // $valueEntry->setValue();
+            $records[$field] = \Sajari\Value::ToProto($value);
         }
         $protoRecord->setValues($records);
 
