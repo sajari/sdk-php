@@ -102,16 +102,7 @@ class Response
         foreach ($protoResponseList as $protoResult) {
             $values = array();
             foreach ($protoResult->getValues() as $k => $m) {
-                $tv = $m->getValue()->getValue();
-                if ($tv instanceof \Sajari\Engine\Value_Repeated) {
-                    $arr = [];
-                    foreach ($tv->getValues() as $value) {
-                        $arr[] = $value;
-                    }
-                    $values[$k] = $arr;
-                } else {
-                    $values[$k] = $tv;
-                }
+                $values[$k] = \Sajari\Value\Value::FromProto($m);
             }
             $result = new Result (
                 $protoResult->getScore(),
