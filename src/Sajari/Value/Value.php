@@ -16,12 +16,18 @@ class Value
      */
     public static function FromProto(\Sajari\Engine\Value $protoValue)
     {
-        if (!is_null($protoValue->getSingle())) {
-          return $protoValue->getSingle();
-        } else if (!is_null($protoValue->getRepeated())) {
-          return $protoValue->getRepeated()->getValuesList();
+        switch ($protoValue->getValue()) {
+            case 'null':
+                return null;
+            case 'single':
+                return $protoValue->getSingle();
+            case 'repeated':
+                $valueArray = [];
+                foreach ($protoValue->getRepeated()->getValues() as $value) {
+                    $valueArray[] = $value;
+                }
+                return $valueArray;
         }
-        return null;
     }
 
     /**
@@ -36,13 +42,13 @@ class Value
             $repeated = new \Sajari\Engine\Value_Repeated();
             foreach ($value as $v) {
                 if ($v instanceof \DateTime) {
-                    $repeated->addValues($v->format(\DateTime::ATOM));
+                    $repeated->getValues()[] = $v->format(\DateTime::ATOM);
                 } else if ($v === true) {
-                    $repeated->addValues("true");
+                    $repeated->getValues()[] = "true";
                 } else if ($v === false) {
-                    $repeated->addValues("false");
+                    $repeated->getValues()[] = "false";
                 } else {
-                    $repeated->addValues(sprintf("%s", $v));
+                    $repeated->getValues()[] = sprintf("%s", $v);
                 }
             }
             $protoValue->setRepeated($repeated);
