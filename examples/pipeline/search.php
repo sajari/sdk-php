@@ -15,11 +15,11 @@ $client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
     new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
 ]);
 
-$pipeline = $client->pipeline("website");
+$pipeline = $client->pipeline("raw");
 
 $params = [
     "q" => "alex the cat",
-    "resultsPerPage" => "10",
+    "resultsPerPage" => "10"
 ];
 
 try  {
