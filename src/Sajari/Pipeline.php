@@ -64,9 +64,7 @@ class Pipeline
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         return Query\Response::fromProto(
             $reply->getSearchResponse(),
@@ -83,7 +81,7 @@ class Pipeline
      */
     public function add(array $values, array $record) {
         $resp = $this->addMulti($values, [$record]);
-        Internal\Status::checkForError($resp[0]->getStatus());
+        $resp[0]->getStatus()->throwIfError();
         return $resp[0]->getKey();
     }
 
@@ -109,9 +107,7 @@ class Pipeline
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         $resp = $resp->getResponse();
         $protoKeys = $resp->getKeys();

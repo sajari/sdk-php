@@ -35,9 +35,7 @@ class Schema
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         $fields = [];
         foreach ($reply->getFields() as $field) {
@@ -64,9 +62,7 @@ class Schema
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         return Internal\Status::fromProtoStatuses($resp->getStatus());
     }
@@ -88,8 +84,6 @@ class Schema
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
     }
 }

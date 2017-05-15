@@ -192,7 +192,7 @@ class Client
     public function get(Key $key)
     {
         $resp = $this->getMulti([$key]);
-        Internal\Status::checkForError($resp[0]->getStatus());
+        $resp[0]->getStatus()->throwIfError();
         return $resp[0]->getRecord();
     }
 
@@ -232,9 +232,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         $protoRecords = $resp->getRecords();
         $response = [];
@@ -270,7 +268,7 @@ class Client
     public function add(array $values, array $transforms = null)
     {
         $resp = $this->addMulti([$values], $transforms);
-        Internal\Status::checkForError($resp[0]->getStatus());
+        $resp[0]->getStatus()->throwIfError();
         return $resp[0]->getKey();
     }
 
@@ -332,9 +330,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         $protoKeys = $resp->getKeys();
         $response = [];
@@ -362,7 +358,7 @@ class Client
     public function delete(Key $key)
     {
         $status = $this->deleteMulti([$key]);
-        Internal\Status::checkForError($status[0]);
+        $status[0]->throwIfError();
     }
 
     /**
@@ -400,9 +396,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         return Internal\Status::fromProtoStatuses($resp->getStatus());
     }
@@ -418,7 +412,7 @@ class Client
     public function mutate(Key $key, array $setFields)
     {
         $status = $this->mutateMulti([$key], [$setFields]);
-        Internal\Status::checkForError($status[0]);
+        $status[0]->throwIfError();
     }
 
     /**
@@ -454,9 +448,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         return Internal\Status::fromProtoStatuses($resp->getStatus());
     }
@@ -501,9 +493,7 @@ class Client
             $this->getCallMeta()
         )->wait();
 
-        Internal\Status::checkForError(
-            new Status($status->code, $status->details)
-        );
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
 
         return Query\Response::fromProto($resp->getSearchResponse(), iterator_to_array($resp->getTokens()));
     }
