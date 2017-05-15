@@ -199,7 +199,7 @@ class Field
      * @param string $name
      * @return Field
      */
-    public static function String($name)
+    public static function string($name)
     {
         return new Field($name, Field::STRING);
     }
@@ -208,7 +208,7 @@ class Field
      * @param string $name
      * @return Field
      */
-    public static function Integer($name)
+    public static function integer($name)
     {
         return new Field($name, Field::INTEGER);
     }
@@ -217,7 +217,7 @@ class Field
      * @param string $name
      * @return Field
      */
-    public static function Float($name)
+    public static function float($name)
     {
         return new Field($name, Field::FLOAT);
     }
@@ -226,7 +226,7 @@ class Field
      * @param string $name
      * @return Field
      */
-    public static function Boolean($name)
+    public static function boolean($name)
     {
         return new Field($name, Field::BOOLEAN);
     }
@@ -235,7 +235,7 @@ class Field
      * @param string $name
      * @return Field
      */
-    public static function Timestamp($name)
+    public static function timestamp($name)
     {
         return new Field($name, Field::TIMESTAMP);
     }
