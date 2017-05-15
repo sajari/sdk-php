@@ -69,12 +69,12 @@ class Field
         $f = new \Sajari\Engine\Schema\Field();
         $f->setName($field->getName());
         $f->setDescription($field->getDescription());
-        $f->setType(Field::TypeToProto($field->getType()));
-        $f->setRepeated($field->getRepeated());
-        $f->setRequired($field->getRequired());
-        $f->setStore($field->getStore());
-        $f->setIndexed($field->getIndexed());
-        $f->setUnique($field->getUnique());
+        $f->setType(Field::protoFromType($field->getType()));
+        $f->setRepeated($field->isRepeated());
+        $f->setRequired($field->isRequired());
+        $f->setStore($field->isStore());
+        $f->setIndexed($field->isIndexed());
+        $f->setUnique($field->isUnique());
         return $f;
     }
 }
