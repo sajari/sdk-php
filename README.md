@@ -10,7 +10,7 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
 - Minimises latency by sending queries directly to our servers instead of routing via your infrastructure.
 - Provides automatic real-time learning using user interactions and other metrics.
 
-## Table of Contents
+# Table of Contents
 
 * [Setup](#setup)
   * [Prerequisites](#prerequisites)
@@ -27,16 +27,25 @@ We recommend using the [Javascript](https://github.com/sajari/sajari-sdk-js) or 
   * [Getting fields from a schema](#getting-fields-from-a-schema)
 * [License](#license)
 
-## Setup
+# Setup
 
-### Prerequisites
+## Prerequisites
 
 - PHP 5.5+, 7.0+ (required by gRPC)
 - [Composer](https://getcomposer.org/)
 - [PECL](https://pecl.php.net/)
 - [gRPC PHP Extension](https://pecl.php.net/package/gRPC)
 
-### Using with Composer
+## Basic install
+
+1. Get [Composer](https://getcomposer.org/download/).
+2. Get the [gRPC](https://pecl.php.net/package/gRPC) extension by running `sudo pecl install grpc`.
+3. Add `extension=grpc.so` to your `php.ini` file.
+4. Run `php composer.phar install`.
+
+*Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).*
+
+## Using with Composer
 
 Add `sajari/sajari-sdk-php` to your `composer.json`:
 ```
@@ -49,19 +58,7 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 }
 ```
 
-### Basic install
-
-Get [Composer](https://getcomposer.org/download/).
-
-Get the [gRPC](https://pecl.php.net/package/gRPC) extension by running `sudo pecl install grpc`.
-
-Add `extension=grpc.so` to your `php.ini` file.
-
-Run `php composer.phar install`.
-
-*Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).*
-
-## Getting Started
+# Getting Started
 
 See [examples](./examples) for code you can copy and paste to get started.
 
@@ -69,20 +66,89 @@ Also see the [website pipeline example](./examples/pipeline) for the fastest way
 
 ## Snippets
 
+### Creating a Client
+
+To start we need to create a client to make calls to the API:
+
+```php
+$client = new Client('your-project', 'your-collection', [
+    new WithKeyCredentials('your-key-id', 'your-key-secret')
+]);
+```
+
+### Adding a record
+
+A record can be added to a collection using the `add` method:
+
+```php
+$key = $client->add([
+    "id" => 123
+    "name" => "alex",
+    "url" => "site.com/12345"
+]);
+```
+
+If the add is successful, a `$key` (instance of `Key`) is returned which uniquely defines the newly inserted record.  This can be used later to get the inserted record.
+
+An exception will be thrown if an error occurred.
+
+### Getting a record
+
+A record can be retrieved from a collection using a `Key`.  Keys can be defined on any unique field.  Each collection has the unique field `_id` which is set by the system when records are added.  Unique fields can also be created using the API.
+
+```php
+$client->get($client->key("_id", 123));
+```
+
+An exception will be thrown if an error occurred.
+
+Full example: [`./examples/get.php`](./examples/get.php)
+
+### Deleting a record
+
+A record can be deleted from a collection using a `Key`.
+
+```php
+$client->delete($client->key("_id", 123));
+```
+
+An exception will be thrown if an error occurred.
+
+Full example: [`./examples/delete.php`](./examples/delete.php)
+
+### Mutating a record
+
+A record can be mutated using a `Key` and an associative array of field-value pairs to overwrite existing field values.
+
+```php
+$client->mutate($client->key("url", "site.com/12345"), [
+    "name" => "bob"
+]);
+```
+
+Full example: [`./examples/mutate.php`](./examples/mutate.php)
+
+### Retrieving a collection schema
+
+```php
+$client->schema()->getFields()
+```
+
+Full example: [`./examples/fields.php`](./examples/fields.php)
+
 ### Querying
 
 #### Pipelines
 
-Pipelines are a recommended way to query your collection. They wrap up lots of our more complex functionality into a super simple interface.  We offer a few standard pipelines for specific purposes, eg "website" for querying website collections.
+Pipelines are the recommended way to query your collection. They wrap up lots of our more complex functionality into a simple interface.  We offer a few standard pipelines for specific purposes, eg "website" for querying website collections.
 
 ```php
-$pipeline = $client->Pipeline("website");
-$results = $pipeline([
+$results = $client->pipeline("website")->search([
   "q" => "Game of Thrones" // query text
 ]);
 ```
 
-### Search Queries
+#### Raw search API
 
 It's also possible to run queries using the raw query API.
 
@@ -92,70 +158,7 @@ $client->Search(new Request("alex"))
 
 Full example: [`./examples/search.php`](./examples/search.php)
 
-### Getting a record
 
-```php
-$client->Get(
-    new Key("_id", 123)
-)
-```
-
-Full example: [`./examples/get.php`](./examples/get.php)
-
-### Deleting a record
-
-```php
-$client->Delete(
-    new Key("_id", 123)
-)
-```
-
-Full example: [`./examples/delete.php`](./examples/delete.php)
-
-### Adding a record
-
-```php
-$client->Add(
-    new Record([
-        "id" => 123
-        "name" => "alex",
-        "url" => "site.com/12345"
-    ])
-)
-```
-
-Full example: [`./examples/add.php`](./examples/add.php)
-
-### Mutating a record
-
-```php
-$client->Mutate(
-    new RecordMutation(
-        new Key("_id", 123), [new RecordMutation::SetField("name", "bob")]
-    )
-)
-```
-
-Full example: [`./examples/mutate.php`](./examples/mutate.php)
-
-### Retrieving a collection schema
-
-```php
-$client->GetFields()
-```
-
-Full example: [`./examples/fields.php`](./examples/fields.php)
-
-## Client
-
-### Creating a Client
-
-```php
-$client = Client::NewClient('project', 'collection', [
-    WithKeyCredentials('key', 'secret')
-]);
-```
-
-## License
+# License
 
 We use the [MIT License](./LICENSE.md).
