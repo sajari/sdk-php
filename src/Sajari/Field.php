@@ -108,75 +108,91 @@ class Field
     }
 
     /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @param int $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @param bool $repeated
-     */
-    public function setRepeated($repeated)
-    {
-        $this->repeated = $repeated;
-    }
-
-    /**
-     * @param bool $required
-     */
-    public function setRequired($required)
-    {
-        $this->required = $required;
-    }
-
-    /**
-     * @param bool $store
-     */
-    public function setStore($store)
-    {
-        $this->store = $store;
-    }
-
-    /**
-     * @param bool $indexed
-     */
-    public function setIndexed($indexed)
-    {
-        $this->indexed = $indexed;
-    }
-
-    /**
-     * @param bool $unique
-     */
-    public function setUnique($unique)
-    {
-        $this->unique = $unique;
-    }
-
-    /**
      * @return bool
      */
     public function isUnique()
     {
         return $this->unique;
+    }
+
+    /**
+     * @param string $name
+     * @return Field
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param string $description
+     * @return Field
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @param int $type
+     * @return Field
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @param bool $repeated
+     * @return Field
+     */
+    public function setRepeated($repeated)
+    {
+        $this->repeated = $repeated;
+        return $this;
+    }
+
+    /**
+     * @param bool $required
+     * @return Field
+     */
+    public function setRequired($required)
+    {
+        $this->required = $required;
+        return $this;
+    }
+
+    /**
+     * @param bool $store
+     * @return Field
+     */
+    public function setStore($store)
+    {
+        $this->store = $store;
+        return $this;
+    }
+
+    /**
+     * @param bool $indexed
+     * @return Field
+     */
+    public function setIndexed($indexed)
+    {
+        $this->indexed = $indexed;
+        return $this;
+    }
+
+    /**
+     * @param bool $unique
+     * @return Field
+     */
+    public function setUnique($unique)
+    {
+        $this->unique = $unique;
+        return $this;
     }
 
     /**
