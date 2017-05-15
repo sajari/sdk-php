@@ -144,6 +144,21 @@ class Client
     }
 
     /**
+     * Create multiple keys with the same field.
+     *
+     * @param string $field The field.
+     * @param array $values Values to create into keys.
+     * @return Key[] The keys.
+     */
+    public function keys($field, array $values) {
+        $keys = [];
+        foreach($values as $value) {
+            $keys[] = new Key($field, $value);
+        }
+        return $keys;
+    }
+
+    /**
      * Get returns a record corresponding to a unique key.
      *
      * This method is equivalent to GetMulti([$key]) except that any
