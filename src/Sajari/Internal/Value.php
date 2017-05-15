@@ -14,8 +14,12 @@ class Value
      * @param \Sajari\Engine\Value $protoValue
      * @return mixed
      */
-    public static function fromProto(\Sajari\Engine\Value $protoValue)
+    public static function fromProto(\Sajari\Engine\Value $protoValue = null)
     {
+        if ($protoValue === null) {
+            return null;
+        }
+
         switch ($protoValue->getValue()) {
             case 'null':
                 return null;
