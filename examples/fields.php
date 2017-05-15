@@ -6,8 +6,7 @@ $client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
     new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
 ]);
 
-$fields = $client->schema()->fetFields();
-
+$fields = $client->schema()->getFields();
 foreach ($fields as $field) {
-    printf("%s (%s\n)", $field->get);
+    printf("%s (%s\n)", $field->getName(), $field->getType());
 }
