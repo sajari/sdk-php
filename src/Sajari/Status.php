@@ -156,6 +156,46 @@ class Status
     }
 
     /**
+     * Throws an exception if this status corresponds to an error.
+     *
+     * @throws \Sajari\Error\Exception
+     * @throws \Sajari\Error\InvalidArgumentException
+     * @throws \Sajari\Error\NotFoundException
+     * @throws \Sajari\Error\AlreadyExistsException
+     * @throws \Sajari\Error\PermissionDeniedException
+     * @throws \Sajari\Error\UnavailableException
+     * @throws \Sajari\Error\UnauthenticatedException
+     */
+    public function throwIfError()
+    {
+        switch ($this->getCode()) {
+            case Status::OK:
+                return;
+
+            case Status::INVALID_ARGUMENT:
+                throw new Error\InvalidArgumentException((string)$this, $this->getCode());
+
+            case Status::NOT_FOUND:
+                throw new Error\NotFoundException((string)$this, $this->getCode());
+
+            case Status::ALREADY_EXISTS:
+                throw new Error\AlreadyExistsException((string)$this, $this->getCode());
+
+            case Status::PERMISSION_DENIED:
+                throw new Error\PermissionDeniedException((string)$this, $this->getCode());
+
+            case Status::UNAVAILABLE:
+                throw new Error\UnavailableException((string)$this, $this->getCode());
+
+            case Status::UNAUTHENTICATED:
+                throw new Error\UnauthenticatedException((string)$this, $this->getCode());
+
+            default:
+                throw new Error\Exception((string)$this, $this->getCode());
+        }
+    }
+
+    /**
     * @return string
     */
     public function __toString()
