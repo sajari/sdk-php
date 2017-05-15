@@ -29,15 +29,24 @@ class Client
     private $schemaClient;
 
     /**
-     * Client constructor creates a new client to make calls to a
-     * collection.
+     * Client constructor.
+     *
+     * Creates a new client to make calls to a collection.
+     *
+     * Example:
+     *
+     * ```
+     * $client = new Client("your-project", "your-collection", [
+     *     new WithKeyCredentials("key-id", "key-secret")
+     * ]);
+     * ```
      *
      * @param string $project The project.
      * @param string $collection The collection.
      * @param Opt[] $opts Options to configure dialing behaviour.
      * @return Client
      */
-    public function __construct($project, $collection, $opts = [])
+    public function __construct($project, $collection, array $opts = [])
     {
         $this->project = $project;
         $this->collection = $collection;
@@ -173,21 +182,21 @@ class Client
     }
 
     /**
-     * Get returns a record corresponding to a unique key.
+     * Get the record corresponding to a key.
      *
-     * This method is equivalent to GetMulti([$key]) except that any
-     * errors returned will be thrown as exceptions.
+     * This method is equivalent to getMulti([$key]) except any
+     * errors will be thrown as exceptions.
      *
      * Example:
      *
      * ```
-     * $resp = $client->get($client->key("url", "https://www.sajari.com"));
-     * print_r($resp);
+     * $record = $client->get($client->key("url", "https://www.sajari.com"));
+     * print_r($record);
      * ```
      *
-     * @param Key $key The
-     * @return array Field-value pairs.
-     * @throws Error\RecordNotFoundException
+     * @param Key $key The key corresponding to the record to fetch.
+     * @return array Field-value pairs of the record.
+     * @throws Error\Exception
      */
     public function get(Key $key)
     {
@@ -197,8 +206,11 @@ class Client
     }
 
     /**
-     * Get multi returns an array of records corresponding to
-     * an array of keys.
+     * Get the records corresponding to an array of keys.
+     *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual get
+     * operations check isError() on the returned GetResponse instances.
      *
      * Example:
      *
@@ -246,7 +258,10 @@ class Client
     }
 
     /**
-     * Add a record into a collection.
+     * Add a record to a collection.
+     *
+     * This method is equivalent to addMulti([$record]) except any
+     * errors will be thrown as exceptions.
      *
      * Example:
      *
@@ -258,22 +273,26 @@ class Client
      * $key = $client->add($record);
      * ```
      *
-     * @param array $values Associative array of field-value pairs which
-     * defines the Record.
-     * @param Record\Transform[] $transforms Optional list of transforms
-     * to run when adding the record.
-     * @return Key A Key which can be used in get to fetch the inserted record.
+     * @param array $record Associative array of field-value pairs which
+     * defines the record.
+     * @param Transform[] $transforms Optional list of transforms to run
+     * when adding the record.
+     * @return Key A key which uniquely defines the record.
      * @throws Exception
      */
-    public function add(array $values, array $transforms = null)
+    public function add(array $record, array $transforms = null)
     {
-        $resp = $this->addMulti([$values], $transforms);
+        $resp = $this->addMulti([$record], $transforms);
         $resp[0]->getStatus()->throwIfError();
         return $resp[0]->getKey();
     }
 
     /**
-     * Add multiple records into a collection.
+     * Add multiple records to a collection.
+     *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual add
+     * operations check isError() on the returned AddResponse instances.
      *
      * Example:
      *
@@ -346,6 +365,9 @@ class Client
     /**
      * Delete a record identified by a key.
      *
+     * This method is equivalent to deleteMulti([$key]) except any
+     * errors will be thrown as exceptions.
+     *
      * Example:
      *
      * ```
@@ -363,6 +385,10 @@ class Client
 
     /**
      * Delete multiple records identified by a list of keys.
+     *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual delete
+     * operations check isError() on the returned Status instances.
      *
      * Example:
      *
@@ -404,6 +430,9 @@ class Client
     /**
      * Mutate the record corresponding to key.
      *
+     * This method is equivalent to mutateMulti([$key],[$setField]) except
+     * that any errors will be thrown as exceptions.
+     *
      * @param Key $key The key of the record to be mutated.
      * @param array $setFields An associative array of field-value
      * pairs to set on the record.
@@ -418,11 +447,15 @@ class Client
     /**
      * Mutate multiple records.
      *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual mutate
+     * operations check isError() on the returned Status instances.
+     *
      * @param Key[] $keys List of keys corresponding to the
      * records to set values on.
      * @param array Array of associative arrays containing field-value
      * pairs to set on the records.
-     * @return mixed
+     * @return Status[]
      * @throws \Exception
      */
     public function mutateMulti(array $keys, array $setFields)
