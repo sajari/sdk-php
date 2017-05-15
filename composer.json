@@ -15,24 +15,14 @@
       "homepage": "https://www.sajari.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/stanley-cheung/Protobuf-PHP"
-    }
-  ],
   "require": {
     "php": ">=5.5.0",
     "grpc/grpc": "v1.3.2"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^4.8"
   },
   "autoload": {
     "psr-0": {
       "Sajari\\": "src/"
     }
   },
-  "minimum-stability": "dev",
   "prefer-stable": true
 }
