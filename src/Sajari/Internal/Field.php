@@ -10,7 +10,6 @@ class Field
      */
     public static function fromProto(\Sajari\Engine\Schema\Field $field)
     {
-        // values corresponding to type "string" come back as null, so we have to convert to int to get 0, the expected value
         $type = Field::typeFromProto($field->getType());
         $f = new \Sajari\Field($field->getName(), $type);
         $f->setDescription($field->getDescription());

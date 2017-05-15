@@ -8,7 +8,8 @@ class Schema
     private $callMeta;
 
     /**
-     * Create a Schema Client.
+     * Schema constructor.
+     *
      * @param Engine\Schema\SchemaClient $grpcSchemaClient Schema grpc Client.
      * @param array $callMeta Array of meta data to send with requests.
      */
@@ -22,8 +23,9 @@ class Schema
     }
 
     /**
-     * Gets a list of the fields defined in the schema.
-     * @return Field[] List of fields defining the schema.
+     * Returns a list of the fields defined in the schema.
+     *
+     * @return Field[].
      */
     public function getFields()
     {
@@ -46,7 +48,8 @@ class Schema
 
     /**
      * Add fields to the schema.
-     * @param Schema\Field[] $fields
+     *
+     * @param Field[] $fields Fields to add.
      * @return Status[] Array of Status objects.
      */
     public function addFields(array $fields)
@@ -56,7 +59,6 @@ class Schema
             $protoFields->getFields()[] = Internal\Field::toProto($field);
         }
 
-        /** @var \sajariGen\engine\schema\Response $reply */
         list($resp, $status) = $this->grpcSchemaClient->AddFields(
             $protoFields,
             $this->callMeta
@@ -70,19 +72,24 @@ class Schema
     }
 
     /**
-     * @param Schema\MutateFieldRequest $request
-     * @return Schema\Response
+     * Mutate a schema field.
+     *
+     * @param string $name The name of the field.
+     * @param FieldMutation The mutations to apply to the field.
      */
-    public function mutateFields(Schema\MutateFieldRequest $request)
-    {
-        /** @var \sajariGen\engine\schema\Response $reply */
-        list($reply, $status) = $this->grpcSchemaClient->MutateFields(
-            $request->proto(),
+    public function mutateField($name, FieldMutations $mutations) {
+        $protoRequest = new \Sajari\Engine\Schema\MutateFieldRequest();
+        $protoRequest->setName($name);
+        $protoMutations = $mutations->getMutations();
+        $protoRequest->setMutations($protoMutations);
+
+        list($resp, $status) = $this->grpcSchemaClient->MutateField(
+            $protoRequest,
             $this->callMeta
         )->wait();
 
-        Internal\Status::checkForError($status);
-
-        return Schema\Response::fromProto($reply);
+        Internal\Status::checkForError(
+            new Status($status->code, $status->details)
+        );
     }
 }
