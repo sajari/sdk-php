@@ -7,6 +7,11 @@ class Schema
     private $grpcSchemaClient;
     private $callMeta;
 
+    /**
+     * Create a Schema Client.
+     * @param Engine\Schema\SchemaClient $grpcSchemaClient Schema grpc Client.
+     * @param array $callMeta Array of meta data to send with requests.
+     */
     public function __construct(
         Engine\Schema\SchemaClient $grpcSchemaClient,
         array $callMeta
@@ -17,6 +22,7 @@ class Schema
     }
 
     /**
+     * Gets a list of the fields defined in the schema.
      * @return Field[] List of fields defining the schema.
      */
     public function getFields()
@@ -39,8 +45,9 @@ class Schema
     }
 
     /**
+     * Add fields to the schema.
      * @param Schema\Field[] $fields
-     * @return
+     * @return Status[] Array of Status objects.
      */
     public function addFields(array $fields)
     {

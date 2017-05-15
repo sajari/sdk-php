@@ -18,7 +18,7 @@ class Client
     private $project = '';
     /** @var string $collection */
     private $collection = '';
-    
+
     /** @var string $endpoint */
     private $endpoint = 'api.sajari.com:443';
     /** @var string $credentials */
@@ -58,7 +58,7 @@ class Client
     private function getQueryClient() {
         if ($this->queryClient === NULL) {
             $this->queryClient = new Api\Query\V1\QueryClient(
-                $this->endpoint, 
+                $this->endpoint,
                 ['credentials' => $this->channelCredentials]
             );
         }
@@ -68,7 +68,7 @@ class Client
     private function getStoreClient() {
         if ($this->storeClient === NULL) {
             $this->storeClient = new Engine\Store\Record\StoreClient(
-                $this->endpoint, 
+                $this->endpoint,
                 ['credentials' => $this->channelCredentials]
             );
         }
@@ -78,7 +78,7 @@ class Client
     private function getSchemaClient() {
         if ($this->schemaClient === NULL) {
             $this->schemaClient = new Engine\Schema\SchemaClient(
-                $this->endpoint, 
+                $this->endpoint,
                 ['credentials' => $this->channelCredentials]
             );
         }
@@ -86,7 +86,8 @@ class Client
     }
 
     /**
-     * Schema returns a handler.
+     * Schema returns a handler to a Schema client.
+     * @return Schema
      */
     public function schema() {
         return new Schema($this->getSchemaClient(), $this->getCallMeta());
@@ -194,8 +195,9 @@ class Client
      *
      * @param array $values Associative array of field-value pairs which
      * defines the Record.
-     * @param Record\Transform[] $transforms
-     * @return Key which can be used in get to fetch the inserted record.
+     * @param Record\Transform[] $transforms Optional list of transforms
+     * to run when adding the record.
+     * @return Key A Key which can be used in get to fetch the inserted record.
      * @throws Exception
      */
     public function add(array $values, array $transforms = null)
@@ -208,11 +210,9 @@ class Client
     /**
      * AddMulti inserts multiple Records into a Collection.
      *
-     * @param array of associative arrays representing the field-value
-     * pairs of Records to be added.
-     * @param Transform[] $transforms Optional list og
-     * transforms to run when adding each record.
-     * @return array
+     * @param array Array of associative arrays representing the field-value pairs of Records to be added.
+     * @param Transform[] $transforms Optional list of transforms to run when adding each record.
+     * @return array Tuple of size 2, element 1 is an Array of Keys of the records added, element 2 is a list of Statuses.
      * @throws Error\Exception
      */
     public function addMulti(array $records, array $transforms = null)
@@ -249,7 +249,7 @@ class Client
     /**
      * Delete a single record identified by a key.
      *
-     * @param Key $key
+     * @param Key $key Key of the record to be deleted.
      * @return null
      */
     public function delete(Key $key)
@@ -260,8 +260,8 @@ class Client
 
     /**
      * Delete multiple records identified by a list of keys.
-     * @param Key[] $keys
-     * @return Status[]
+     * @param Key[] $keys Array of Keys of the records to be deleted.
+     * @return Status[] Array of Status objects describing each record deletion operation. They correspond to the Key of the same index in the array of Keys passed to deleteMulti.
      * @throws Error\Exception
      */
     public function deleteMulti(array $keys)
@@ -283,7 +283,7 @@ class Client
     /**
      * Mutate the record corresponding to key.
      *
-     * @param Key $key The key.
+     * @param Key $key The key of the record to be mutated.
      * @param array $setFields An associative array of field-value
      * pairs to set on the record.
      * @return null
@@ -298,7 +298,7 @@ class Client
      * Mutate multiple records.
      *
      * @param Key[] $keys List of keys corresponding to the
-     * reacords to set values on.
+     * records to set values on.
      * @param array Array of associative arrays containing field-value
      * pairs to set on the records.
      * @return mixed
@@ -335,6 +335,7 @@ class Client
     }
 
     /**
+     * Create a handler for a Pipeline.
      * @param string $name Name of the pipeline to create a handler for.
      * @return Pipeline
      */
@@ -358,6 +359,7 @@ class Client
     }
 
     /**
+     * Performs a search on the collection.
      * @param Query\Request $r
      * @return Query\Response
      */

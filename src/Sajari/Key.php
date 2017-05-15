@@ -17,8 +17,8 @@ class Key
 
     /**
      * Key constructor.
-     * @param $field string
-     * @param $value mixed
+     * @param string $field  Field name.
+     * @param mixed $value Value in the field.
      */
     public function __construct($field, $value)
     {
@@ -27,6 +27,7 @@ class Key
     }
 
     /**
+     * Get the field of the key.
      * @return string
      */
     public function getField()
@@ -35,6 +36,7 @@ class Key
     }
 
     /**
+     * Get the value of the key.
      * @return mixed
      */
     public function getValue()

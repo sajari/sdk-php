@@ -15,6 +15,13 @@ class Pipeline
     private $callMeta;
     private $pipelineName;
 
+    /**
+     * Create a new Pipeline handler.
+     * @param Api\Pipeline\V1\QueryClient $grpcQueryClient Query client to use.
+     * @param Api\Pipeline\V1\StoreClient $grpcStoreClient Store client to use.
+     * @param array $callMeta Metadata to attach to calls.
+     * @param string $pipelineName Name of the pipeline.
+     */
     public function __construct(
         Api\Pipeline\V1\QueryClient $grpcQueryClient,
         Api\Pipeline\V1\StoreClient $grpcRecordClient,
@@ -35,9 +42,10 @@ class Pipeline
 
     /**
      * Search performs a search using a pipeline.
-     * 
+     *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
+     * @param Query\Tracking $tracking Optional Tracking object to use for the search.
      */
     public function search(array $values, Query\Tracking $tracking = null) {
         $searchRequest = new Api\Pipeline\V1\SearchRequest();
