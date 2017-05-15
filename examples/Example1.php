@@ -59,7 +59,7 @@ foreach ($statuses as $i => $status) {
 }
 
 // Search
-$results = $client->search(new Request("Holiday"))
+$results = $client->search(new Request("Holiday"));
 
 // Print the results.
 ExampleUtils::PrintSearchResults($results);
