@@ -45,12 +45,12 @@ class BucketAggregate implements Aggregate, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry
      */
-    public function Proto()
+    public function proto()
     {
         $b = new \Sajari\Engine\Query\V1\Aggregate\Bucket();
 
         foreach ($this->buckets as $bucket) {
-            $b->addBuckets($bucket->Proto());
+            $b->addBuckets($bucket->proto());
         }
 
         $a = new \Sajari\Engine\Query\V1\Aggregate();

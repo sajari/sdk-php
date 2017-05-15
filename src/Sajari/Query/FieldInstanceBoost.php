@@ -45,7 +45,7 @@ class FieldInstanceBoost implements InstanceBoost, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\InstanceBoost
      */
-    public function Proto()
+    public function proto()
     {
         $f = new \Sajari\Engine\Query\V1\InstanceBoost_Field();
         $f->setField($this->field);

@@ -30,7 +30,7 @@ class Body implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\Body
      */
-    public function Proto() {
+    public function proto() {
         $b = new \Sajari\Engine\Query\V1\Body();
 
         $b->setText($this->text);

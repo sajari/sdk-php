@@ -114,7 +114,7 @@ class Mutation implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Schema\MutateFieldRequest\Mutation
      */
-    public function Proto()
+    public function proto()
     {
         $m = new \Sajari\Engine\Schema\MutateFieldRequest\Mutation();
 

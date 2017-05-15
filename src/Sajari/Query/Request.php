@@ -235,7 +235,7 @@ class Request
     /**
      * @return \Sajari\Api\Query\V1\SearchRequest
      */
-    public function ToProto()
+    public function toProto()
     {
 
         $inner = new \Sajari\Engine\Query\V1\SearchRequest();
@@ -253,27 +253,27 @@ class Request
         // IndexQuery
         if (isset($this->indexQuery))
         {
-            $protoIndexQuery = $this->indexQuery->Proto();
+            $protoIndexQuery = $this->indexQuery->proto();
             $inner->setIndexQuery($protoIndexQuery);
         }
 
         // FeatureQuery
         if (isset($this->featureQuery))
         {
-            $protoFeatureQuery = $this->featureQuery->Proto();
+            $protoFeatureQuery = $this->featureQuery->proto();
             $inner->setFeatureQuery($protoFeatureQuery);
         }
 
         // Filter
         if (isset($this->filter)) {
-            $inner->setFilter($this->filter->Proto());
+            $inner->setFilter($this->filter->proto());
         }
 
         // Sorts
         if (isset($this->sorts)) {
             $sorts = [];
             foreach ($this->sorts as $s) {
-                $sorts[] = $s->Proto();
+                $sorts[] = $s->proto();
             }
             $inner->setSorts(\Sajari\Internal\Utils::MakeRepeated($sorts, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class));
         }
@@ -287,7 +287,7 @@ class Request
         // Aggregates
         if (isset($this->aggregates)) {
             foreach ($this->aggregates as $agg) {
-                $inner->addAggregates($agg->Proto());
+                $inner->addAggregates($agg->proto());
             }
         }
 
@@ -296,13 +296,13 @@ class Request
         $r->setSearchRequest($inner);
 
         // Tracking
-        $r->setTracking(isset($this->tracking) ? $this->tracking->Proto() : (new \Sajari\Query\Tracking())->Proto());
+        $r->setTracking(isset($this->tracking) ? $this->tracking->proto() : (new \Sajari\Query\Tracking())->proto());
 
         // Transforms
         if (isset($this->transforms)) {
             $transforms = [];
             foreach ($this->transforms as $t) {
-                $transforms[] = $t->Proto();
+                $transforms[] = $t->proto();
             }
             $inner->setTransforms(\Sajari\Internal\Utils::MakeRepeated($transforms, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class));
         }

@@ -2,13 +2,10 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
-include_once "ExampleUtils.php";
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
-use Sajari\Engine\Key;
+$record = $client->get($client->key("_id", "<record-id>"));
+print_r($record);
 
-/** @var \Sajari\Record\Record $rec */
-list($rec, $status) = ExampleUtils::CreateClient()->Get(
-    new Key("_id", "<record id>")
-);
-
-ExampleUtils::PrintRecord($rec);

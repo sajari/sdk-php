@@ -53,7 +53,7 @@ class Transform implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Api\Query\V1\Transform
      */
-    public function Proto()
+    public function proto()
     {
         $protoTransform = new \Sajari\Api\Query\V1\Transform();
         $protoTransform->setIdentifier($this->identifier);

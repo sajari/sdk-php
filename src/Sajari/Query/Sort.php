@@ -64,7 +64,7 @@ class Sort implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\Sort
      */
-    public function Proto()
+    public function proto()
     {
         $s = new \Sajari\Engine\Query\V1\Sort();
         $s->setField($this->field);

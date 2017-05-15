@@ -49,7 +49,7 @@ class IndexQuery implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\SearchRequest\IndexQuery
      */
-    public function Proto()
+    public function proto()
     {
         $fq = new \Sajari\Engine\Query\V1\SearchRequest_IndexQuery();
 
@@ -57,7 +57,7 @@ class IndexQuery implements \Sajari\Internal\Proto
         if (isset($this->body)) {
             $bodies = [];
             foreach ($this->body as $b) {
-                $bodies[] = $b->Proto();
+                $bodies[] = $b->proto();
             }
             $repeatedBodies = \Sajari\Internal\Utils::MakeRepeated(
                 $bodies,
@@ -71,7 +71,7 @@ class IndexQuery implements \Sajari\Internal\Proto
         if (isset($this->instanceBoosts)) {
             $ibs = [];
             foreach ($this->instanceBoosts as $b) {
-                $ibs[] = $b->Proto();
+                $ibs[] = $b->proto();
             }
             $fq->setInstanceBoosts(\Sajari\Internal\Utils::MakeRepeated($ibs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class));
         }
@@ -80,7 +80,7 @@ class IndexQuery implements \Sajari\Internal\Proto
         if (isset($this->fieldBoosts)) {
             $fbs = [];
             foreach ($this->fieldBoosts as $b) {
-                $fbs[] = $b->Proto();
+                $fbs[] = $b->proto();
             }
             $fq->setFieldBoosts(\Sajari\Internal\Utils::MakeRepeated($fbs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class));
         }

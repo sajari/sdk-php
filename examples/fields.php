@@ -2,10 +2,12 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
-include_once "ExampleUtils.php";
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
-$res = ExampleUtils::CreateClient()->GetFields();
+$fields = $client->schema()->fetFields();
 
-foreach ($res as $field) {
-    printf("%s %s\n", $field->getName(), $field->getType(true));
+foreach ($fields as $field) {
+    printf("%s (%s\n)", $field->get);
 }

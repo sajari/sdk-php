@@ -2,16 +2,10 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
-include_once "ExampleUtils.php";
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
-use Sajari\Record\RecordMutation;
-use Sajari\Key\Key;
-
-$status = ExampleUtils::CreateClient()->Mutate(
-    new RecordMutation(
-        new Key("_id", "<record id>"),
-        [RecordMutation::SetField("name", "Alex")]
-    )
-);
-
-ExampleUtils::CheckStatusForErrors($status);
+$key = $client->mutate($client->key("_id", "<record-id>"), [
+    "name" => "Alex",
+]);

@@ -2,22 +2,23 @@
 
 namespace Sajari;
 
-\Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
-
 /**
  * Class Key
- * @package Sajari\Record
+ *
+ * @package Sajari
  */
-class Key implements \Sajari\Internal\Proto
+class Key
 {
     /** @var $field string */
     private $field;
+
+    /** @var $value mixed */
     private $value;
 
     /**
      * Key constructor.
      * @param $field string
-     * @param $value
+     * @param $value mixed
      */
     public function __construct($field, $value)
     {
@@ -41,53 +42,7 @@ class Key implements \Sajari\Internal\Proto
         return $this->value;
     }
 
-    /**
-     * @param \Sajari\Engine\Key $engineKey
-     * @return Key
-     */
-    public static function FromProto(\Sajari\Engine\Key $engineKey)
-    {
-        $v = $engineKey->getValue();
-        if (!is_null($v->getSingle())) {
-            return new Key($engineKey->getField(), $v->getSingle());
-        } else if (!is_null($v->getRepeated())) {
-            return new Key($engineKey->getField(), $v->getRepeated()->getValues());
-        } else {
-            return new Key($engineKey->getField(), NULL);
-        }
-    }
-
-    /**
-     * @return \Sajari\Engine\Key
-     */
-    public function Proto()
-    {
-        $protoKey = new \Sajari\Engine\Key();
-        $protoKey->setField($this->field);
-
-        $value = new \Sajari\Engine\Value();
-        if (is_array($this->value)) {
-          $repeated = new \Sajari\Engine\Value\Repeated();
-          foreach ($this->value as $v) {
-            $repeated->addValues($v);
-          }
-          $value->setRepeated($repeated);
-        } else if (is_null($this->value)) {
-          $value->setNull(true);
-        } else {
-          $value->setSingle($this->value);
-        }
-
-        $protoKey->setValue($value);
-        return $protoKey;
-    }
-
-    /**
-     * @return string
-     * @codeCoverageIgnore
-     */
-    function __toString()
-    {
-        return sprintf("Key{ field: %s, value: %s }", $this->field, $this->value);
+    public function __toString() {
+        return sprintf("Key<%s:%s>", $this->field, $this->value);
     }
 }

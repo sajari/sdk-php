@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari\Record;
+namespace Sajari;
 
 /**
  * Class Transform
@@ -47,7 +47,7 @@ class Transform implements \Sajari\Internal\Proto
     /**
      * @return \sajariGen\engine\store\record\Transform
      */
-    public function Proto()
+    public function proto()
     {
         $protoTransform = new \Sajari\Engine\Store\Record\Transform();
         $protoTransform->setIdentifier($this->transform);

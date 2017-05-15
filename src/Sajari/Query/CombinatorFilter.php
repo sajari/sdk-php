@@ -83,14 +83,14 @@ class CombinatorFilter implements Filter, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\Filter
      */
-    public function Proto()
+    public function proto()
     {
         $fc = new \Sajari\Engine\Query\V1\Filter_Combinator();
         $fc->setOperator($this->operator);
 
         $filters = [];
         foreach ($this->filters as $filter) {
-            $filters[] = $filter->Proto();
+            $filters[] = $filter->proto();
 
         }
         $fc->setFilters(\Sajari\Internal\Utils::MakeRepeated($filters, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Filter::class));

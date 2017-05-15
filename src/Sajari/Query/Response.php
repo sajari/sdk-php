@@ -89,7 +89,7 @@ class Response
      * @param \Sajari\Api\Query\V1\Token[] $protoTokens
      * @return Response
      */
-    public static function FromProto(\Sajari\Engine\Query\V1\SearchResponse $protoResponse, array $protoTokens)
+    public static function fromProto(\Sajari\Engine\Query\V1\SearchResponse $protoResponse, array $protoTokens)
     {
         $reads = $protoResponse->getReads();
         $time = $protoResponse->getTime();
@@ -102,7 +102,7 @@ class Response
         foreach ($protoResponseList as $protoResult) {
             $values = array();
             foreach ($protoResult->getValues() as $k => $m) {
-                $values[$k] = \Sajari\Value::FromProto($m);
+                $values[$k] = \Sajari\Internal\Value::fromProto($m);
             }
             $result = new Result (
                 $protoResult->getScore(),

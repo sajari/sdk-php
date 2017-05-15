@@ -45,7 +45,7 @@ class ElementFieldBoost implements FieldBoost, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\FieldBoost
      */
-    public function Proto()
+    public function proto()
     {
         $emb = new \Sajari\Engine\Query\V1\FieldBoost_Element();
         $emb->setField($this->field);

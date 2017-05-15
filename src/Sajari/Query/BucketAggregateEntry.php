@@ -45,11 +45,11 @@ class BucketAggregateEntry implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket
      */
-    public function Proto()
+    public function proto()
     {
         $be = new \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket();
         $be->setName($this->name);
-        $be->setFilter($this->filter->Proto());
+        $be->setFilter($this->filter->proto());
         return $be;
     }
 }

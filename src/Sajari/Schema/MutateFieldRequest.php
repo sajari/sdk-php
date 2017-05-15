@@ -30,12 +30,12 @@ class MutateFieldRequest implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Schema\MutateFieldRequest
      */
-    public function Proto()
+    public function proto()
     {
         $r = new \Sajari\Engine\Schema\MutateFieldRequest();
         $r->setName($this->name);
         foreach ($this->mutations as $mutation) {
-            $r->addMutations($mutation->Proto());
+            $r->addMutations($mutation->proto());
         }
         return $r;
     }

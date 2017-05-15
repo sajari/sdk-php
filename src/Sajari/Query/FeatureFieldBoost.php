@@ -32,11 +32,11 @@ class FeatureFieldBoost implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost
      */
-    public function Proto()
+    public function proto()
     {
         $fb = new \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost();
 
-        $fb->setFieldBoost($this->fieldBoost->Proto());
+        $fb->setFieldBoost($this->fieldBoost->proto());
         $fb->setValue($this->value);
 
         return $fb;

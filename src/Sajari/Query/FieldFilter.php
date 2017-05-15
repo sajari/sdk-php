@@ -57,12 +57,12 @@ class FieldFilter implements Filter, \Sajari\Internal\Proto
      * @return \Sajari\Engine\Query\V1\Filter
      * @throws \Sajari\Error\Exception
      */
-    public function Proto()
+    public function proto()
     {
         $ff = new \Sajari\Engine\Query\V1\Filter_Field();
         $ff->setField($this->field);
 
-        $ff->setValue(\Sajari\Value::ToProto($this->value));
+        $ff->setValue(\Sajari\Internal\Value::toProto($this->value));
 
         $op = null;
         switch ($this->operator) {

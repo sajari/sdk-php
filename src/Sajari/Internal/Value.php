@@ -1,6 +1,6 @@
 <?php
 
-namespace Sajari;
+namespace Sajari\Internal;
 
 \Sajari\Internal\Utils::_require_all(__DIR__.'/../proto', 10);
 
@@ -14,7 +14,7 @@ class Value
      * @param \Sajari\Engine\Value $protoValue
      * @return mixed
      */
-    public static function FromProto(\Sajari\Engine\Value $protoValue)
+    public static function fromProto(\Sajari\Engine\Value $protoValue)
     {
         switch ($protoValue->getValue()) {
             case 'null':
@@ -34,7 +34,7 @@ class Value
      * @param mixed $value
      * @return \Sajari\Engine\Value
      */
-    public static function ToProto($value)
+    public static function toProto($value)
     {
         $protoValue = new \Sajari\Engine\Value();
 

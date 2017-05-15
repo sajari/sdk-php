@@ -22,7 +22,7 @@ class ScoreInstanceBoost extends \Sajari\Internal\Proto
         $this->threshold = $threshold;
     }
 
-    public function Proto()
+    public function proto()
     {
         $sib = new \Sajari\Engine\Query\V1\InstanceBoost_Score();
         $sib->setMinCount($this->minCount);

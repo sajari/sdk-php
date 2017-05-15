@@ -45,7 +45,7 @@ class IntervalFieldBoostPoint implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\FieldBoost_Interval_Point
      */
-    public function Proto()
+    public function proto()
     {
         $p = new \Sajari\Engine\Query\V1\FieldBoost_Interval_Point();
         $p->setPoint($this->point);

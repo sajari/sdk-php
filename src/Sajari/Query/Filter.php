@@ -3,5 +3,5 @@
 namespace Sajari\Query;
 
 interface Filter {
-    public function Proto();
+    public function proto();
 }

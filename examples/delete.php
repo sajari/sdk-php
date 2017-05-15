@@ -2,12 +2,10 @@
 
 require  __DIR__ . '/vendor/autoload.php';
 
-include_once "ExampleUtils.php";
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
-use Sajari\Engine\Key;
+$client->delete($client->key("_id", "<record-id>"));
 
-$status = ExampleUtils::CreateClient()->Delete(
-    new Key("_id", "<record id>")
-);
-
-ExampleUtils::CheckStatusForErrors($status);
+printf("Record deleted with key: %s\n", $key);
