@@ -5,6 +5,9 @@ namespace Sajari;
 /**
  * Class Key
  *
+ * A key is a unique identifier for a particular record in a collection.
+ * Keys can be defined on any unique field.
+ *
  * @package Sajari
  */
 class Key
@@ -17,7 +20,8 @@ class Key
 
     /**
      * Key constructor.
-     * @param string $field  Field name.
+     *
+     * @param string $field Field name.
      * @param mixed $value Value in the field.
      */
     public function __construct($field, $value)
@@ -28,6 +32,7 @@ class Key
 
     /**
      * Get the field of the key.
+     *
      * @return string
      */
     public function getField()
@@ -37,6 +42,7 @@ class Key
 
     /**
      * Get the value of the key.
+     *
      * @return mixed
      */
     public function getValue()

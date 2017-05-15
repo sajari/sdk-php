@@ -6,6 +6,9 @@ namespace Sajari;
 
 /**
  * Class Field
+ *
+ * A field defines attributes of collection fields.
+ *
  * @package Sajari
  */
 class Field

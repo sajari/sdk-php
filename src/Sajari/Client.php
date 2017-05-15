@@ -1,9 +1,4 @@
 <?php
-/**
- * Class Client | Sajari/Client/Client.php
- *
- * @package     sajari-sdk-php
- */
 
 namespace Sajari;
 
@@ -11,6 +6,7 @@ Internal\Utils::_require_all(__DIR__.'/proto', 10);
 
 /**
  * Class Client
+ * @package Sajari
  */
 class Client
 {
@@ -39,6 +35,7 @@ class Client
      * @param string $project The project.
      * @param string $collection The collection.
      * @param Opt[] $opts Options to configure dialing behaviour.
+     * @return Client
      */
     public function __construct($project, $collection, $opts = [])
     {
@@ -87,6 +84,7 @@ class Client
 
     /**
      * Schema returns a handler to a Schema client.
+     *
      * @return Schema
      */
     public function schema() {
@@ -133,7 +131,13 @@ class Client
     }
 
     /**
-     * A key is a unique identifier for a Record in a Collection.
+     * Create a key with a field and value.
+     *
+     * Example:
+     *
+     * ```
+     * $key = $client->key("url", "https://www.sajari.com");
+     * ```
      *
      * @param string $field The field.
      * @param string $value The value of the identifier.
@@ -145,6 +149,16 @@ class Client
 
     /**
      * Create multiple keys with the same field.
+     *
+     * Example:
+     *
+     * ```
+     * $keys = $client->keys("url", [
+     *     "https://www.sajari.com",
+     *     "https://www.sajari.com/blog",
+     *     "https://www.sajari.com/website-search",
+     * ]);
+     * ```
      *
      * @param string $field The field.
      * @param array $values Values to create into keys.
@@ -183,8 +197,8 @@ class Client
     }
 
     /**
-     * Get multi returns an array of records corresponding to an array of
-     * keys.
+     * Get multi returns an array of records corresponding to
+     * an array of keys.
      *
      * Example:
      *
@@ -234,7 +248,7 @@ class Client
     }
 
     /**
-     * Add inserts a record into a collection.
+     * Add a record into a collection.
      *
      * Example:
      *
@@ -261,7 +275,7 @@ class Client
     }
 
     /**
-     * AddMulti inserts multiple Records into a collection.
+     * Add multiple records into a collection.
      *
      * Example:
      *
@@ -334,7 +348,7 @@ class Client
     }
 
     /**
-     * Delete a single record identified by a key.
+     * Delete a record identified by a key.
      *
      * Example:
      *
@@ -448,7 +462,8 @@ class Client
     }
 
     /**
-     * Create a handler for a Pipeline.
+     * Create a handler for a pipeline.
+     *
      * @param string $name Name of the pipeline to create a handler for.
      * @return Pipeline
      */
@@ -473,6 +488,7 @@ class Client
 
     /**
      * Performs a search on the collection.
+     *
      * @param Query\Request $r
      * @return Query\Response
      */
