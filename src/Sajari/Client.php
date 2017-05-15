@@ -186,7 +186,6 @@ class Client
     public function getMulti(array $keys)
     {
         $protoKeys = Internal\Key::toProtoKeys($keys);
-        /** @var Engine\Store\Record\GetResponse $reply */
         list($resp, $status) = $this->getStoreClient()->Get(
             $protoKeys,
             $this->getCallMeta()
@@ -246,7 +245,6 @@ class Client
             $protoRecords->getTransforms()[] = $t->proto();
         }
 
-        /** @var Engine\Store\Record\AddResponse $reply */
         list($resp, $status) = $this->getStoreClient()->Add(
             $protoRecords,
             $this->getCallMeta()
@@ -305,8 +303,8 @@ class Client
      */
     public function mutate(Key $key, array $setFields)
     {
-      $status = $this->mutateMulti([$key], [$setFields]);
-      Internal\Status::checkForError($status[0]);
+        $status = $this->mutateMulti([$key], [$setFields]);
+        Internal\Status::checkForError($status[0]);
     }
 
     /**
