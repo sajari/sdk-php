@@ -11,17 +11,22 @@ include_once "../ExampleUtils.php";
 // SJ_KEY_ID = <Key from https://www.sajari.com/console/collections/credentials>
 // SJ_KEY_SECRET = <Secret from https://www.sajari.com/console/collections/credentials>
 
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
+
+$pipeline = $client->pipeline("website");
+
 $params = [
-    "q" => "foo bar",
+    "q" => "alex the cat",
     "resultsPerPage" => "10",
 ];
 
 try  {
-    $pipeline = ExampleUtils::CreateClient()->Pipeline("website");
-    $results = $pipeline->Search($params);
+    $response = $pipeline->search($params);
 } catch (\Exception $e) {
-    printf("%s\n", $e);
+    printf("a%s\n", $e);
     exit();
 }
 
-ExampleUtils::PrintSearchResults($results);
+ExampleUtils::PrintSearchResults($response);
