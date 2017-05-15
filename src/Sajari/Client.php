@@ -164,6 +164,13 @@ class Client
      * This method is equivalent to GetMulti([$key]) except that any
      * errors returned will be thrown as exceptions.
      *
+     * Example:
+     *
+     * ```
+     * $resp = $client->get($client->key("url", "https://www.sajari.com"));
+     * print_r($resp);
+     * ```
+     *
      * @param Key $key The
      * @return array Field-value pairs.
      * @throws Error\RecordNotFoundException
