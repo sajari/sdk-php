@@ -16,7 +16,8 @@ class Pipeline
     private $pipelineName;
 
     /**
-     * Create a new Pipeline handler.
+     * Create a new pipeline handler.
+     *
      * @param Api\Pipeline\V1\QueryClient $grpcQueryClient Query client to use.
      * @param Api\Pipeline\V1\StoreClient $grpcStoreClient Store client to use.
      * @param array $callMeta Metadata to attach to calls.
@@ -74,22 +75,24 @@ class Pipeline
     }
 
     /**
-     * Add a record to a Collection using a pipeline.
+     * Add a record to a collection using a pipeline.
      *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
+     * @return Key $key
      */
     public function add(array $values, array $record) {
-        list($resp, $status) = $this->addMulti($values, [$record]);
-        Internal\Status::checkForError($status[0]);
-        return $resp[0];
+        $resp = $this->addMulti($values, [$record]);
+        Internal\Status::checkForError($resp[0]->getStatus());
+        return $resp[0]->getKey();
     }
 
     /**
-     * Add multiple records to a Collection using a pipeline.
+     * Add multiple records to a collection using a pipeline.
      *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
+     * @return AddResponse[]
      */
     public function addMulti(array $values, array $records) {
         $addRequest = new Api\Pipeline\V1\AddRequest();
@@ -110,9 +113,15 @@ class Pipeline
             new Status($status->code, $status->details)
         );
 
-        $r = $resp->getResponse();
-        $statuses = Internal\Status::fromProtoStatuses($r->getStatus());
-        $keys = Internal\Key::fromProtoKeys($r->getKeys());
-        return [$keys, $statuses];
+        $resp = $resp->getResponse();
+        $protoKeys = $resp->getKeys();
+        $response = [];
+        foreach($resp->getStatus() as $i => $protoStatus) {
+            $response[] = new AddResponse(
+                Internal\Key::fromProto($protoKeys[$i]),
+                Internal\Status::fromProto($protoStatus)
+            );
+        }
+        return $response;
     }
 }

@@ -34,7 +34,7 @@ class Client
 
     /**
      * Client constructor creates a new client to make calls to a
-     * Collection.
+     * collection.
      *
      * @param string $project The project.
      * @param string $collection The collection.
@@ -177,17 +177,37 @@ class Client
      */
     public function get(Key $key)
     {
-        list($resp, $status) = $this->getMulti([$key]);
-        Internal\Status::checkForError($status[0]);
-        return $resp[0];
+        $resp = $this->getMulti([$key]);
+        Internal\Status::checkForError($resp[0]->getStatus());
+        return $resp[0]->getRecord();
     }
 
     /**
      * Get multi returns an array of records corresponding to an array of
      * keys.
      *
+     * Example:
+     *
+     * ```
+     * $keys = $client->keys("url", [
+     *     "https://www.sajari.com",
+     *     "https://www.sajari.com/blog",
+     *     "https://www.sajari.com/website-search",
+     * ]);
+     *
+     * $resps = $client->getMulti($keys);
+     *
+     * foreach($resps as $resp) {
+     *     if ($resp->isError()) {
+     *        echo "error fetching record: " . $resp->getStatus() . "\n";
+     *        continue;
+     *     }
+     *     print_r($resp->getRecord());
+     * }
+     * ```
+     *
      * @param Key[] $keys
-     * @return Record\Record[]
+     * @return GetResponse[]
      * @throws \Exception
      */
     public function getMulti(array $keys)
@@ -202,17 +222,29 @@ class Client
             new Status($status->code, $status->details)
         );
 
-        $statuses = Internal\Status::fromProtoStatuses($resp->getStatus());
-
-        $records = [];
-        foreach ($resp->getRecords() as $i => $protoRecord) {
-            $records[] = Internal\Record::fromProto($protoRecord);
+        $protoRecords = $resp->getRecords();
+        $response = [];
+        foreach($resp->getStatus() as $i => $protoStatus) {
+            $response[] = new AddResponse(
+                Internal\Record::fromProto($protoREcords[$i]),
+                Internal\Status::fromProto($protoStatus)
+            );
         }
-        return [$records, $statuses];
+        return $response;
     }
 
     /**
-     * Add inserts a Record into a Collection.
+     * Add inserts a record into a collection.
+     *
+     * Example:
+     *
+     * ```
+     * $record = [
+     *     "title" => "Sajari.com",
+     *     "url" => "https://www.sajari.com",
+     * ];
+     * $key = $client->add($record);
+     * ```
      *
      * @param array $values Associative array of field-value pairs which
      * defines the Record.
@@ -223,17 +255,46 @@ class Client
      */
     public function add(array $values, array $transforms = null)
     {
-        list($resp, $status) = $this->addMulti([$values], $transforms);
-        Internal\Status::checkForError($status[0]);
-        return $resp[0];
+        $resp = $this->addMulti([$values], $transforms);
+        Internal\Status::checkForError($resp[0]->getStatus());
+        return $resp[0]->getKey();
     }
 
     /**
-     * AddMulti inserts multiple Records into a Collection.
+     * AddMulti inserts multiple Records into a collection.
+     *
+     * Example:
+     *
+     * ```
+     * $records = [
+     *     [
+     *         "title" => "Sajari.com",
+     *         "url" => "https://www.sajari.com",
+     *     ],
+     *     [
+     *         "title" => "Sajari.com Blog",
+     *         "url" => "https://www.sajari.com/blog",
+     *     ],
+     *     [
+     *         "title" => "Sajari.com Website Search",
+     *         "url" => "https://www.sajari.com/website-search",
+     *     ]
+     * ];
+     *
+     * $resps = $client->addMulti($records);
+     *
+     * foreach($resps as $resp) {
+     *     if ($resp->isError()) {
+     *        echo "error adding record: " . $resp->getStatus() . "\n";
+     *        continue;
+     *     }
+     *     echo $resp->getKey();
+     * }
+     * ```
      *
      * @param array Array of associative arrays representing the field-value pairs of Records to be added.
      * @param Transform[] $transforms Optional list of transforms to run when adding each record.
-     * @return array Tuple of size 2, element 1 is an Array of Keys of the records added, element 2 is a list of Statuses.
+     * @return AddResponse[]
      * @throws Error\Exception
      */
     public function addMulti(array $records, array $transforms = null)
@@ -261,13 +322,25 @@ class Client
             new Status($status->code, $status->details)
         );
 
-        $statuses = Internal\Status::fromProtoStatuses($resp->getStatus());
-        $keys = Internal\Key::fromProtoKeys($resp->getKeys());
-        return [$keys, $statuses];
+        $protoKeys = $resp->getKeys();
+        $response = [];
+        foreach($resp->getStatus() as $i => $protoStatus) {
+            $response[] = new AddResponse(
+                Internal\Key::fromProto($protoKeys[$i]),
+                Internal\Status::fromProto($protoStatus)
+            );
+        }
+        return $response;
     }
 
     /**
      * Delete a single record identified by a key.
+     *
+     * Example:
+     *
+     * ```
+     * $client->delete($client->key("url", "https://www.sajari.com"));
+     * ```
      *
      * @param Key $key Key of the record to be deleted.
      * @return null
@@ -280,6 +353,26 @@ class Client
 
     /**
      * Delete multiple records identified by a list of keys.
+     *
+     * Example:
+     *
+     * ```
+     * $keys = $client->keys("url", [
+     *     "https://www.sajari.com",
+     *     "https://www.sajari.com/blog",
+     *     "https://www.sajari.com/website-search",
+     * ]);
+     *
+     * $resps = $client->deleteMulti($keys);
+     *
+     * foreach($resps as $resp) {
+     *     if ($resp->isError()) {
+     *        echo "error deleting record: " . $resp . "\n";
+     *        continue;
+     *     }
+     * }
+     * ```
+     *
      * @param Key[] $keys Array of Keys of the records to be deleted.
      * @return Status[] Array of Status objects describing each record deletion operation. They correspond to the Key of the same index in the array of Keys passed to deleteMulti.
      * @throws Error\Exception

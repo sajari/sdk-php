@@ -146,13 +146,13 @@ class Status
     }
 
     /**
-     * Returns true if getCode() == Status::OK.
+     * Returns true iff this status corresponds to an error.
      *
      * @return bool
      */
-    public function isOK()
+    public function isError()
     {
-        return $this->getCode() === Status::OK;
+        return $this->getCode() !== Status::OK;
     }
 
     /**
@@ -160,7 +160,7 @@ class Status
     */
     public function __toString()
     {
-        if ($this->isOK()) {
+        if (!$this->isError()) {
             return "OK";
         }
         return sprintf("%s: %s", Status::codeString($this->getCode()), $this->getMessage());
