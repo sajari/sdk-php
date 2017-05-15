@@ -2,12 +2,10 @@
 
 require  __DIR__ . "/vendor/autoload.php";
 
-include_once "ExampleUtils.php";
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
-use Sajari\Query\Request;
-
-$result = ExampleUtils::CreateClient()->Search(
-    new Request("Holiday")
-);
+$result = $client->search(new \Sajari\Query\Request("Holiday"));
 
 ExampleUtils::PrintSearchResults($result);
