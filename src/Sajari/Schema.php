@@ -46,7 +46,7 @@ class Schema
     {
         $protoFields = new Engine\Schema\Fields();
         foreach ($fields as $field) {
-            $protoFields->getFields()[] = Internal\Fields::toProto($field);
+            $protoFields->getFields()[] = Internal\Field::toProto($field);
         }
 
         /** @var \sajariGen\engine\schema\Response $reply */
@@ -59,13 +59,7 @@ class Schema
             new Status($status->code, $status->details)
         );
 
-        $protoStatus = $resp->getStatus();
-
-        $statuses = [];
-        foreach ($protoStatus as $status) {
-            $statuses[] = Status::fromProto($status);
-        }
-        return $statuses;
+        return Internal\Status::fromProtoStatuses($resp->getStatus());
     }
 
     /**
