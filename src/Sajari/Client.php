@@ -202,7 +202,7 @@ class Client
      *
      * This method will only throw an exception if there was an error
      * making the call.  To determine the success of individual get
-     * operations check isError() on the returned GetResponse instances.
+     * operations check `isError()` on the returned GetResponse instances.
      *
      * Example:
      *
@@ -280,7 +280,7 @@ class Client
      *
      * This method will only throw an exception if there was an error
      * making the call.  To determine the success of individual add
-     * operations check isError() on the returned AddResponse instances.
+     * operations check `isError()` on the returned AddResponse instances.
      *
      * Example:
      *
@@ -374,7 +374,7 @@ class Client
      *
      * This method will only throw an exception if there was an error
      * making the call.  To determine the success of individual delete
-     * operations check isError() on the returned Status instances.
+     * operations check `isError()` on the returned Status instances.
      *
      * Example:
      *
@@ -434,7 +434,7 @@ class Client
      *
      * This method will only throw an exception if there was an error
      * making the call.  To determine the success of individual mutate
-     * operations check isError() on the returned Status instances.
+     * operations check `isError()` on the returned Status instances.
      *
      * @param Key[] $keys Array of keys corresponding to the
      * records to set values on.
