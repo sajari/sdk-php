@@ -46,7 +46,9 @@ class Pipeline
      *
      * Example:
      *
-     *     $results = $client->pipeline("faq")->search([ "question" => "how do I train an autocomplete model" ]);
+     *     $results = $client->pipeline("books")->search([
+     *         "q" => "musketeers"
+     *     ]);
      *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
@@ -85,12 +87,18 @@ class Pipeline
      * Example:
      *
      *     $record = [
-     *         "question" => "How do I create a new collection",
-     *         "url" => "https://www.sajari.com/faq/how-to-create-a-new-collection",
+     *         "title" => "The Three Musketeers",
+     *         "slug" => "the-three-musketeers",
+     *         "author" => "Alexandre Dumas",
+     *         "price" => 10.00,
+     *         "qty" => 7,
      *     ];
      *
-     *     $key = $client->pipeline("faq")->add(
-     *         [ "autocomplete.train" => "question" ],
+     *     $key = $client->pipeline("books")->add(
+     *         [
+     *             "autocomplete.train.prefix" => "title,author",
+     *             "autocomplete.train.spelling" => "title,author"
+     *         ],
      *         $record
      *     );
      *
@@ -115,21 +123,33 @@ class Pipeline
      *
      *     $records = [
      *         [
-     *             "question" => "How do I create a new collection",
-     *             "url" => "https://www.sajari.com/faq/how-to-create-a-new-collection",
+     *             "title" => "The Three Musketeers",
+     *             "slug" => "the-three-musketeers",
+     *             "author" => "Alexandre Dumas",
+     *             "price" => 10.00,
+     *             "qty" => 7,
      *         ],
      *         [
-     *             "question" => "How do I train a bayes model",
-     *             "url" => "https://www.sajari.com/faq/how-to-train-a-bayes-model",
+     *             "title" => "The Remains of the Day",
+     *             "slug" => "the-remains-of-the-day",
+     *             "author" => "Kazuo Ishiguro",
+     *             "price" => 8.00,
+     *             "qty" => 10,
      *         ],
      *         [
-     *             "question" => "How do I train an autocomplete model",
-     *             "url" => "https://www.sajari.com/faq/how-to-train-an-autocomplete-model",
+     *             "title" => "1984",
+     *             "slug" => "1984",
+     *             "author" => "George Orwell",
+     *             "price" => 15.00,
+     *             "qty" => 0,
      *         ]
      *     ];
      *
-     *     $resps = $client->pipeline("faq")->addMulti(
-     *         [ "autocomplete.train" => "question" ],
+     *     $resps = $client->pipeline("books")->addMulti(
+     *         [
+     *             "autocomplete.train.prefix" => "title,author",
+     *             "autocomplete.train.spelling" => "title,author"
+     *         ],
      *         $records
      *     );
      *

@@ -142,7 +142,7 @@ class Client
      *
      * Example:
      *
-     *     $key = $client->key("url", "https://www.sajari.com");
+     *     $key = $client->key("slug", "the-three-musketeers");
      *
      * @param string $field The field.
      * @param string $value The value of the identifier.
@@ -157,10 +157,10 @@ class Client
      *
      * Example:
      *
-     *     $keys = $client->keys("url", [
-     *         "https://www.sajari.com",
-     *         "https://www.sajari.com/blog",
-     *         "https://www.sajari.com/website-search",
+     *     $keys = $client->keys("slug", [
+     *         "the-three-musketeers",
+     *         "the-remains-of-the-day",
+     *         "1984",
      *     ]);
      *
      * @param string $field The field.
@@ -183,7 +183,7 @@ class Client
      *
      * Example:
      *
-     *     $record = $client->get($client->key("url", "https://www.sajari.com"));
+     *     $record = $client->get($client->key("slug", "the-three-musketeers"));
      *     print_r($record);
      *
      * @param Key $key The key corresponding to the record to fetch.
@@ -206,10 +206,10 @@ class Client
      *
      * Example:
      *
-     *     $keys = $client->keys("url", [
-     *         "https://www.sajari.com",
-     *         "https://www.sajari.com/blog",
-     *         "https://www.sajari.com/website-search",
+     *     $keys = $client->keys("slug", [
+     *         "the-three-musketeers",
+     *         "the-remains-of-the-day",
+     *         "1984",
      *     ]);
      *
      *     $resps = $client->getMulti($keys);
@@ -256,8 +256,11 @@ class Client
      * Example:
      *
      *     $record = [
-     *         "title" => "Sajari.com",
-     *         "url" => "https://www.sajari.com",
+     *         "title" => "The Three Musketeers",
+     *         "slug" => "the-three-musketeers",
+     *         "author" => "Alexandre Dumas",
+     *         "price" => 10.00,
+     *         "qty" => 7,
      *     ];
      *     $key = $client->add($record);
      *
@@ -286,16 +289,25 @@ class Client
      *
      *     $records = [
      *         [
-     *             "title" => "Sajari.com",
-     *             "url" => "https://www.sajari.com",
+     *             "title" => "The Three Musketeers",
+     *             "slug" => "the-three-musketeers",
+     *             "author" => "Alexandre Dumas",
+     *             "price" => 10.00,
+     *             "qty" => 7,
      *         ],
      *         [
-     *             "title" => "Sajari.com Blog",
-     *             "url" => "https://www.sajari.com/blog",
+     *             "title" => "The Remains of the Day",
+     *             "slug" => "the-remains-of-the-day",
+     *             "author" => "Kazuo Ishiguro",
+     *             "price" => 8.00,
+     *             "qty" => 10,
      *         ],
      *         [
-     *             "title" => "Sajari.com Website Search",
-     *             "url" => "https://www.sajari.com/website-search",
+     *             "title" => "1984",
+     *             "slug" => "1984",
+     *             "author" => "George Orwell",
+     *             "price" => 15.00,
+     *             "qty" => 0,
      *         ]
      *     ];
      *
@@ -358,7 +370,7 @@ class Client
      *
      * Example:
      *
-     *     $client->delete($client->key("url", "https://www.sajari.com"));
+     *     $client->delete($client->key("slug", "1984"));
      *
      * @param Key $key Key of the record to be deleted.
      * @return void
@@ -378,10 +390,10 @@ class Client
      *
      * Example:
      *
-     *     $keys = $client->keys("url", [
-     *         "https://www.sajari.com",
-     *         "https://www.sajari.com/blog",
-     *         "https://www.sajari.com/website-search",
+     *     $keys = $client->keys("slug", [
+     *         "the-three-musketeers",
+     *         "the-remains-of-the-day",
+     *         "1984",
      *     ]);
      *
      *     $resps = $client->deleteMulti($keys);
@@ -421,11 +433,11 @@ class Client
      * Example:
      *
      *     $client->edit(
-     *         $client->key("url", "https://www.sajari.com"),
-     *         [ "title" => "Sajari.com Homepage" ]
+     *         $client->key("slug", "the-remains-of-the-day"),
+     *         [ "qty" => 10 ]
      *     );
      *
-     * @param Key $key The key of the record to be edited.
+     * @param Key $key The key of the record to be editd.
      * @param array $setFields An associative array of field-value
      * pairs to set on the record.
      * @return void
@@ -445,16 +457,16 @@ class Client
      *
      * Example:
      *
-     *     $keys = $client->keys("url", [
-     *         "https://www.sajari.com",
-     *         "https://www.sajari.com/blog",
-     *         "https://www.sajari.com/website-search",
+     *     $keys = $client->keys("slug", [
+     *         "the-three-musketeers",
+     *         "the-remains-of-the-day",
+     *         "1984",
      *     ]);
      *
      *     $setFields = [
-     *         ["title" => "Homepage | Sajari.com"],
-     *         ["title" => "Blog | Sajari.com"],
-     *         ["title" => "Website Search | Sajari.com"],
+     *         ["title" => "The Three Musketeers (Original French)"],
+     *         ["qty" => 10],
+     *         ["title" => "George Orwell's 1984"],
      *     ];
      *
      *     $resps = $client->editMulti($keys, $setFields);
