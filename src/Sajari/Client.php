@@ -413,34 +413,34 @@ class Client
     }
 
     /**
-     * Mutate the record corresponding to key.
+     * Edit the record corresponding to key.
      *
-     * This method is equivalent to mutateMulti([$key],[$setField]) except
+     * This method is equivalent to editMulti([$key],[$setField]) except
      * any errors will be thrown as exceptions.
      *
      * Example:
      *
-     *     $client->mutate(
+     *     $client->edit(
      *         $client->key("url", "https://www.sajari.com"),
      *         [ "title" => "Sajari.com Homepage" ]
      *     );
      *
-     * @param Key $key The key of the record to be mutated.
+     * @param Key $key The key of the record to be edited.
      * @param array $setFields An associative array of field-value
      * pairs to set on the record.
      * @return void
      */
-    public function mutate(Key $key, array $setFields)
+    public function edit(Key $key, array $setFields)
     {
-        $status = $this->mutateMulti([$key], [$setFields]);
+        $status = $this->editMulti([$key], [$setFields]);
         $status[0]->throwIfError();
     }
 
     /**
-     * Mutate multiple records.
+     * Edit multiple records.
      *
      * This method will only throw an exception if there was an error
-     * making the call.  To determine the success of individual mutate
+     * making the call.  To determine the success of individual edit
      * operations check `isError()` on the returned Status instances.
      *
      * Example:
@@ -457,7 +457,7 @@ class Client
      *         ["title" => "Website Search | Sajari.com"],
      *     ];
      *
-     *     $resps = $client->mutateMulti($keys, $setFields);
+     *     $resps = $client->editMulti($keys, $setFields);
      *
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
@@ -471,10 +471,10 @@ class Client
      * @param array Array of associative arrays containing field-value
      * pairs to set on the records.
      * @return Status[] Array of Status objects describing each record
-     * mutate operation.
+     * edit operation.
      * @throws \Exception
      */
-    public function mutateMulti(array $keys, array $setFields)
+    public function editMulti(array $keys, array $setFields)
     {
         $protoMutateRequest = new Engine\Store\Record\MutateRequest();
         foreach ($keys as $i => $key) {

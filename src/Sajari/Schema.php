@@ -68,12 +68,12 @@ class Schema
     }
 
     /**
-     * Mutate a schema field.
+     * Edit a schema field.
      *
      * @param string $name The name of the field.
      * @param FieldMutation The mutations to apply to the field.
      */
-    public function mutateField($name, FieldMutations $mutations) {
+    public function editField($name, FieldMutations $mutations) {
         $protoRequest = new \Sajari\Engine\Schema\MutateFieldRequest();
         $protoRequest->setName($name);
         $protoMutations = $mutations->getMutations();
