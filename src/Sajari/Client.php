@@ -35,11 +35,9 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $client = new Client("your-project", "your-collection", [
-     *     new WithKeyCredentials("key-id", "key-secret")
-     * ]);
-     * ```
+     *     $client = new Client("your-project", "your-collection", [
+     *         new WithKeyCredentials("key-id", "key-secret")
+     *     ]);
      *
      * @param string $project The project.
      * @param string $collection The collection.
@@ -144,9 +142,7 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $key = $client->key("url", "https://www.sajari.com");
-     * ```
+     *     $key = $client->key("url", "https://www.sajari.com");
      *
      * @param string $field The field.
      * @param string $value The value of the identifier.
@@ -161,13 +157,11 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $keys = $client->keys("url", [
-     *     "https://www.sajari.com",
-     *     "https://www.sajari.com/blog",
-     *     "https://www.sajari.com/website-search",
-     * ]);
-     * ```
+     *     $keys = $client->keys("url", [
+     *         "https://www.sajari.com",
+     *         "https://www.sajari.com/blog",
+     *         "https://www.sajari.com/website-search",
+     *     ]);
      *
      * @param string $field The field.
      * @param array $values Values to create into keys.
@@ -189,10 +183,8 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $record = $client->get($client->key("url", "https://www.sajari.com"));
-     * print_r($record);
-     * ```
+     *     $record = $client->get($client->key("url", "https://www.sajari.com"));
+     *     print_r($record);
      *
      * @param Key $key The key corresponding to the record to fetch.
      * @return array Field-value pairs of the record.
@@ -214,23 +206,21 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $keys = $client->keys("url", [
-     *     "https://www.sajari.com",
-     *     "https://www.sajari.com/blog",
-     *     "https://www.sajari.com/website-search",
-     * ]);
-     *
-     * $resps = $client->getMulti($keys);
-     *
-     * foreach($resps as $resp) {
-     *     if ($resp->isError()) {
-     *        echo "error fetching record: " . $resp->getStatus() . "\n";
-     *        continue;
+     *     $keys = $client->keys("url", [
+     *         "https://www.sajari.com",
+     *         "https://www.sajari.com/blog",
+     *         "https://www.sajari.com/website-search",
+     *     ]);
+     *     
+     *     $resps = $client->getMulti($keys);
+     *     
+     *     foreach($resps as $resp) {
+     *         if ($resp->isError()) {
+     *            echo "error fetching record: " . $resp->getStatus() . "\n";
+     *            continue;
+     *         }
+     *         print_r($resp->getRecord());
      *     }
-     *     print_r($resp->getRecord());
-     * }
-     * ```
      *
      * @param Key[] $keys
      * @return GetResponse[]
@@ -265,13 +255,11 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $record = [
-     *     "title" => "Sajari.com",
-     *     "url" => "https://www.sajari.com",
-     * ];
-     * $key = $client->add($record);
-     * ```
+     *     $record = [
+     *         "title" => "Sajari.com",
+     *         "url" => "https://www.sajari.com",
+     *     ];
+     *     $key = $client->add($record);
      *
      * @param array $record Associative array of field-values defining
      * the record.
@@ -296,32 +284,30 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $records = [
-     *     [
-     *         "title" => "Sajari.com",
-     *         "url" => "https://www.sajari.com",
-     *     ],
-     *     [
-     *         "title" => "Sajari.com Blog",
-     *         "url" => "https://www.sajari.com/blog",
-     *     ],
-     *     [
-     *         "title" => "Sajari.com Website Search",
-     *         "url" => "https://www.sajari.com/website-search",
-     *     ]
-     * ];
-     *
-     * $resps = $client->addMulti($records);
-     *
-     * foreach($resps as $resp) {
-     *     if ($resp->isError()) {
-     *        echo "error adding record: " . $resp->getStatus() . "\n";
-     *        continue;
+     *     $records = [
+     *         [
+     *             "title" => "Sajari.com",
+     *             "url" => "https://www.sajari.com",
+     *         ],
+     *         [
+     *             "title" => "Sajari.com Blog",
+     *             "url" => "https://www.sajari.com/blog",
+     *         ],
+     *         [
+     *             "title" => "Sajari.com Website Search",
+     *             "url" => "https://www.sajari.com/website-search",
+     *         ]
+     *     ];
+     *     
+     *     $resps = $client->addMulti($records);
+     *     
+     *     foreach($resps as $resp) {
+     *         if ($resp->isError()) {
+     *            echo "error adding record: " . $resp->getStatus() . "\n";
+     *            continue;
+     *         }
+     *         echo $resp->getKey();
      *     }
-     *     echo $resp->getKey();
-     * }
-     * ```
      *
      * @param array Array of associative arrays of field-values defining
      * the records.
@@ -372,9 +358,7 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $client->delete($client->key("url", "https://www.sajari.com"));
-     * ```
+     *     $client->delete($client->key("url", "https://www.sajari.com"));
      *
      * @param Key $key Key of the record to be deleted.
      * @return null
@@ -394,22 +378,20 @@ class Client
      *
      * Example:
      *
-     * ```
-     * $keys = $client->keys("url", [
-     *     "https://www.sajari.com",
-     *     "https://www.sajari.com/blog",
-     *     "https://www.sajari.com/website-search",
-     * ]);
-     *
-     * $resps = $client->deleteMulti($keys);
-     *
-     * foreach($resps as $resp) {
-     *     if ($resp->isError()) {
-     *        echo "error deleting record: " . $resp . "\n";
-     *        continue;
+     *     $keys = $client->keys("url", [
+     *         "https://www.sajari.com",
+     *         "https://www.sajari.com/blog",
+     *         "https://www.sajari.com/website-search",
+     *     ]);
+     *     
+     *     $resps = $client->deleteMulti($keys);
+     *     
+     *     foreach($resps as $resp) {
+     *         if ($resp->isError()) {
+     *            echo "error deleting record: " . $resp . "\n";
+     *            continue;
+     *         }
      *     }
-     * }
-     * ```
      *
      * @param Key[] $keys Array of Keys of the records to be deleted.
      * @return Status[] Array of Status objects describing each record

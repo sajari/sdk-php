@@ -22,11 +22,9 @@ class WithKeyCredentials implements Opt
      *
      * Example:
      *
-     * ```
-     * $client = new Client("your-project", "your-collection", [
-     *     new WithKeyCredentials("key-id", "key-secret")
-     * ]);
-     * ```
+     *     $client = new Client("your-project", "your-collection", [
+     *         new WithKeyCredentials("key-id", "key-secret")
+     *     ]);
      *
      * @param string $keyId Key ID for these credentials.
      * @param string $keySecret Key secret for these credentials.
