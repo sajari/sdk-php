@@ -44,6 +44,10 @@ class Pipeline
     /**
      * Search performs a search using a pipeline.
      *
+     * Example:
+     *
+     *     $results = $client->pipeline("faq")->search([ "question" => "how do I train an autocomplete model" ]);
+     *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
      * @param Query\Tracking $tracking Optional Tracking object to use for the search.
@@ -75,6 +79,21 @@ class Pipeline
     /**
      * Add a record to a collection using a pipeline.
      *
+     * This method is equivalent to addMulti([$record]) except any
+     * errors will be thrown as exceptions.
+     *
+     * Example:
+     *
+     *     $record = [
+     *         "question" => "How do I create a new collection",
+     *         "url" => "https://www.sajari.com/faq/how-to-create-a-new-collection",
+     *     ];
+     *
+     *     $key = $client->pipeline("faq")->add(
+     *         [ "autocomplete.train" => "question" ],
+     *         $record
+     *     );
+     *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
      * @return Key $key
@@ -87,6 +106,40 @@ class Pipeline
 
     /**
      * Add multiple records to a collection using a pipeline.
+     *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual add
+     * operations check `isError()` on the returned AddResponse instances.
+     *
+     * Example:
+     *
+     *     $records = [
+     *         [
+     *             "question" => "How do I create a new collection",
+     *             "url" => "https://www.sajari.com/faq/how-to-create-a-new-collection",
+     *         ],
+     *         [
+     *             "question" => "How do I train a bayes model",
+     *             "url" => "https://www.sajari.com/faq/how-to-train-a-bayes-model",
+     *         ],
+     *         [
+     *             "question" => "How do I train an autocomplete model",
+     *             "url" => "https://www.sajari.com/faq/how-to-train-an-autocomplete-model",
+     *         ]
+     *     ];
+     *
+     *     $resps = $client->pipeline("faq")->addMulti(
+     *         [ "autocomplete.train" => "question" ],
+     *         $records
+     *     );
+     *
+     *     foreach($resps as $resp) {
+     *         if ($resp->isError()) {
+     *            echo "error adding record: " . $resp->getStatus() . "\n";
+     *            continue;
+     *         }
+     *         echo $resp->getKey();
+     *     }
      *
      * @param array $values Associative array of key-value pairs for
      * configuring the pipeline.
