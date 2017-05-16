@@ -11,4 +11,6 @@ $iterator = Finder::create()
     ->in('src/Sajari')
 ;
 
-return new Sami($iterator);
+return new Sami($iterator, [
+    'title' => 'Sajari PHP SDK'
+]);
