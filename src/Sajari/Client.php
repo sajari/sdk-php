@@ -211,9 +211,9 @@ class Client
      *         "https://www.sajari.com/blog",
      *         "https://www.sajari.com/website-search",
      *     ]);
-     *     
+     *
      *     $resps = $client->getMulti($keys);
-     *     
+     *
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
      *            echo "error fetching record: " . $resp->getStatus() . "\n";
@@ -298,9 +298,9 @@ class Client
      *             "url" => "https://www.sajari.com/website-search",
      *         ]
      *     ];
-     *     
+     *
      *     $resps = $client->addMulti($records);
-     *     
+     *
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
      *            echo "error adding record: " . $resp->getStatus() . "\n";
@@ -361,7 +361,7 @@ class Client
      *     $client->delete($client->key("url", "https://www.sajari.com"));
      *
      * @param Key $key Key of the record to be deleted.
-     * @return null
+     * @return void
      */
     public function delete(Key $key)
     {
@@ -383,9 +383,9 @@ class Client
      *         "https://www.sajari.com/blog",
      *         "https://www.sajari.com/website-search",
      *     ]);
-     *     
+     *
      *     $resps = $client->deleteMulti($keys);
-     *     
+     *
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
      *            echo "error deleting record: " . $resp . "\n";
@@ -416,12 +416,19 @@ class Client
      * Mutate the record corresponding to key.
      *
      * This method is equivalent to mutateMulti([$key],[$setField]) except
-     * that any errors will be thrown as exceptions.
+     * any errors will be thrown as exceptions.
+     *
+     * Example:
+     *
+     *     $client->mutate(
+     *         $client->key("url", "https://www.sajari.com"),
+     *         [ "title" => "Sajari.com Homepage" ]
+     *     );
      *
      * @param Key $key The key of the record to be mutated.
      * @param array $setFields An associative array of field-value
      * pairs to set on the record.
-     * @return null
+     * @return void
      */
     public function mutate(Key $key, array $setFields)
     {
@@ -435,6 +442,29 @@ class Client
      * This method will only throw an exception if there was an error
      * making the call.  To determine the success of individual mutate
      * operations check `isError()` on the returned Status instances.
+     *
+     * Example:
+     *
+     *     $keys = $client->keys("url", [
+     *         "https://www.sajari.com",
+     *         "https://www.sajari.com/blog",
+     *         "https://www.sajari.com/website-search",
+     *     ]);
+     *
+     *     $setFields = [
+     *         ["title" => "Homepage | Sajari.com"],
+     *         ["title" => "Blog | Sajari.com"],
+     *         ["title" => "Website Search | Sajari.com"],
+     *     ];
+     *
+     *     $resps = $client->mutateMulti($keys, $setFields);
+     *
+     *     foreach($resps as $resp) {
+     *         if ($resp->isError()) {
+     *            echo "error mutating record: " . $resp . "\n";
+     *            continue;
+     *         }
+     *     }
      *
      * @param Key[] $keys Array of keys corresponding to the
      * records to set values on.
