@@ -273,8 +273,8 @@ class Client
      * $key = $client->add($record);
      * ```
      *
-     * @param array $record Associative array of field-value pairs which
-     * defines the record.
+     * @param array $record Associative array of field-values defining
+     * the record.
      * @param Transform[] $transforms Optional list of transforms to run
      * when adding the record.
      * @return Key A key which uniquely defines the record.
@@ -323,8 +323,10 @@ class Client
      * }
      * ```
      *
-     * @param array Array of associative arrays representing the field-value pairs of Records to be added.
-     * @param Transform[] $transforms Optional list of transforms to run when adding each record.
+     * @param array Array of associative arrays of field-values defining
+     * the records.
+     * @param Transform[] $transforms Optional list of transforms to run when
+     * adding each record.
      * @return AddResponse[]
      * @throws Error\Exception
      */
@@ -410,7 +412,8 @@ class Client
      * ```
      *
      * @param Key[] $keys Array of Keys of the records to be deleted.
-     * @return Status[] Array of Status objects describing each record deletion operation. They correspond to the Key of the same index in the array of Keys passed to deleteMulti.
+     * @return Status[] Array of Status objects describing each record
+     * deletion operation.
      * @throws Error\Exception
      */
     public function deleteMulti(array $keys)
@@ -451,11 +454,12 @@ class Client
      * making the call.  To determine the success of individual mutate
      * operations check isError() on the returned Status instances.
      *
-     * @param Key[] $keys List of keys corresponding to the
+     * @param Key[] $keys Array of keys corresponding to the
      * records to set values on.
      * @param array Array of associative arrays containing field-value
      * pairs to set on the records.
-     * @return Status[]
+     * @return Status[] Array of Status objects describing each record
+     * mutate operation.
      * @throws \Exception
      */
     public function mutateMulti(array $keys, array $setFields)
