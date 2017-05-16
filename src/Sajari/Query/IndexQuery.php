@@ -55,34 +55,23 @@ class IndexQuery implements \Sajari\Internal\Proto
 
         // Body
         if (isset($this->body)) {
-            $bodies = [];
             foreach ($this->body as $b) {
-                $bodies[] = $b->proto();
+                $fq->getBody()[] = $b->proto();
             }
-            $repeatedBodies = \Sajari\Internal\Utils::MakeRepeated(
-                $bodies,
-                \Google\Protobuf\Internal\GPBType::MESSAGE,
-                \Sajari\Engine\Query\V1\Body::class
-            );
-            $fq->setBody($repeatedBodies);
         }
 
         // InstanceBoosts
         if (isset($this->instanceBoosts)) {
-            $ibs = [];
             foreach ($this->instanceBoosts as $b) {
-                $ibs[] = $b->proto();
+                $fq->getInstanceBoosts()[] = $b->proto();
             }
-            $fq->setInstanceBoosts(\Sajari\Internal\Utils::MakeRepeated($ibs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class));
         }
 
         // FieldBoosts
         if (isset($this->fieldBoosts)) {
-            $fbs = [];
             foreach ($this->fieldBoosts as $b) {
-                $fbs[] = $b->proto();
+                $fq->getFieldBoosts()[] = $b->proto();
             }
-            $fq->setFieldBoosts(\Sajari\Internal\Utils::MakeRepeated($fbs, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class));
         }
 
         return $fq;

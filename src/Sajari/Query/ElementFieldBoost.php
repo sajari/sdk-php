@@ -50,11 +50,9 @@ class ElementFieldBoost implements FieldBoost, \Sajari\Internal\Proto
         $emb = new \Sajari\Engine\Query\V1\FieldBoost_Element();
         $emb->setField($this->field);
 
-        $elts = [];
         foreach ($this->elements as $element) {
-            $elts[] = $element;
+            $emb->getElts()[] = $element;
         }
-        $emb->setElts(\Sajari\Internal\Utils::MakeRepeated($elts, \Google\Protobuf\Internal\GPBType::STRING));
 
         $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setElement($emb);

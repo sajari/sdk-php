@@ -50,7 +50,7 @@ class CombinatorFilter implements Filter, \Sajari\Internal\Proto
      */
     public static function All($filters)
     {
-      return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::ALL, $filters);
+        return new CombinatorFilter(\Sajari\Engine\Query\V1\Filter_Combinator_Operator::ALL, $filters);
     }
 
     /**
@@ -88,12 +88,9 @@ class CombinatorFilter implements Filter, \Sajari\Internal\Proto
         $fc = new \Sajari\Engine\Query\V1\Filter_Combinator();
         $fc->setOperator($this->operator);
 
-        $filters = [];
         foreach ($this->filters as $filter) {
-            $filters[] = $filter->proto();
-
+            $fc->getFilters()[] = $filter->proto();
         }
-        $fc->setFilters(\Sajari\Internal\Utils::MakeRepeated($filters, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Filter::class));
 
         $f = new \Sajari\Engine\Query\V1\Filter();
         $f->setCombinator($fc);

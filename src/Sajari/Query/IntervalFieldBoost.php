@@ -60,12 +60,9 @@ class IntervalFieldBoost implements FieldBoost, \Sajari\Internal\Proto
     {
         $imb = new \Sajari\Engine\Query\V1\FieldBoost_Interval();
         $imb->setField($this->field);
-        $points = [];
         foreach ($this->points as $point) {
-            $points[] = $point->proto();
-
+            $imb->getPoints()[] = $point->proto();
         }
-        $imb->setPoints(\Sajari\Internal\Utils::MakeRepeated($points, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class));
 
         $mb = new \Sajari\Engine\Query\V1\FieldBoost();
         $mb->setInterval($imb);
