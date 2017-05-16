@@ -114,8 +114,8 @@ class Pipeline
         $response = [];
         foreach($resp->getStatus() as $i => $protoStatus) {
             $response[] = new AddResponse(
-                Internal\Key::fromProto($protoKeys[$i]),
-                Internal\Status::fromProto($protoStatus)
+                Internal\Status::fromProto($protoStatus),
+                Internal\Key::fromProto($protoKeys[$i])
             );
         }
         return $response;

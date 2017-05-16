@@ -20,9 +20,9 @@ class GetResponse
      * @param array $record
      * @param Status $status
      */
-    public function __construct(array $record, Status $status) {
-        $this->record = $record;
+    public function __construct(Status $status, array $record = null) {
         $this->status = $status;
+        $this->record = $record;
     }
 
     /**
@@ -48,7 +48,7 @@ class GetResponse
      * Returns the record for this response, only valid
      * if isError() returns false.
      *
-     * @return Key
+     * @return array
      */
     public function getRecord() {
         return $this->record;

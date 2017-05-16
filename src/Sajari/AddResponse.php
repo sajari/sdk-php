@@ -17,12 +17,12 @@ class AddResponse
     /**
      * AddResponse constructor.
      *
-     * @param Key $key
      * @param Status $status
+     * @param Key $key
      */
-    public function __construct(Key $key, Status $status) {
-        $this->key = $key;
+    public function __construct(Status $status, Key $key = null) {
         $this->status = $status;
+        $this->key = $key;
     }
 
     /**

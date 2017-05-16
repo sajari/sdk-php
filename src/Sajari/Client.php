@@ -240,8 +240,8 @@ class Client
         $response = [];
         foreach($resp->getStatus() as $i => $protoStatus) {
             $response[] = new AddResponse(
-                Internal\Record::fromProto($protoRecords[$i]),
-                Internal\Status::fromProto($protoStatus)
+                Internal\Status::fromProto($protoStatus),
+                Internal\Record::fromProto($protoRecords[$i])
             );
         }
         return $response;
@@ -343,8 +343,8 @@ class Client
         $response = [];
         foreach($resp->getStatus() as $i => $protoStatus) {
             $response[] = new AddResponse(
-                Internal\Key::fromProto($protoKeys[$i]),
-                Internal\Status::fromProto($protoStatus)
+                Internal\Status::fromProto($protoStatus),
+                Internal\Key::fromProto($protoKeys[$i])
             );
         }
         return $response;
