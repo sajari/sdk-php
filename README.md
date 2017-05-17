@@ -118,7 +118,7 @@ foreach($resps as $resp) {
        echo "error adding record: " . $resp->getStatus() . "\n";
        continue;
     }
-    echo $resp->getKey();
+    echo $resp->getKey() . "\n";
 }
 ```
 
@@ -127,7 +127,7 @@ foreach($resps as $resp) {
 A record can be retrieved from a collection using a `Key`.
 
 ```php
-$client->get($client->key("id", 123));
+$client->get($client->key(""slug", "the-three-musketeers"));
 ```
 
 An exception will be thrown if an error occurred.
@@ -152,7 +152,7 @@ foreach($resps as $resp) {
     }
     print_r($resp->getRecord());
 }
-`
+```
 
 ### Deleting a record
 
@@ -166,6 +166,7 @@ An exception will be thrown if an error occurred.
 
 #### Deleting multiple records
 
+```php
 $keys = $client->keys("slug", [
     "the-three-musketeers",
     "the-remains-of-the-day",
@@ -177,9 +178,9 @@ $resps = $client->deleteMulti($keys);
 foreach($resps as $resp) {
     if ($resp->isError()) {
        echo "error deleting record: " . $resp . "\n";
-       continue;
     }
 }
+```
 
 ### Editing a record
 
@@ -211,11 +212,10 @@ $resps = $client->editMulti($keys, $setFields);
 
 foreach($resps as $resp) {
     if ($resp->isError()) {
-       echo "error mutating record: " . $resp . "\n";
-       continue;
+       echo "error editing record: " . $resp . "\n";
     }
 }
-````
+```
 
 ### Retrieving a collection schema
 
