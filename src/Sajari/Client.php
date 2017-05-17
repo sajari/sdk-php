@@ -318,7 +318,7 @@ class Client
      *            echo "error adding record: " . $resp->getStatus() . "\n";
      *            continue;
      *         }
-     *         echo $resp->getKey();
+     *         echo $resp->getKey() . "\n";
      *     }
      *
      * @param array Array of associative arrays of field-values defining
@@ -401,7 +401,6 @@ class Client
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
      *            echo "error deleting record: " . $resp . "\n";
-     *            continue;
      *         }
      *     }
      *
@@ -473,8 +472,7 @@ class Client
      *
      *     foreach($resps as $resp) {
      *         if ($resp->isError()) {
-     *            echo "error mutating record: " . $resp . "\n";
-     *            continue;
+     *            echo "error editing record: " . $resp . "\n";
      *         }
      *     }
      *
