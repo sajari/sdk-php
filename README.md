@@ -45,14 +45,14 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 ```json
 {
   "require": {
-    "sajari/sajari-sdk-php": "v2.0.0"
+    "sajari/sajari-sdk-php": "v2.0.1"
   }
 }
 ```
 
 ## Getting Started
 
-Here are a few simple code snippets that will help get you up and running.  See the [full documentation](https://sajari.github.io/sajari-sdk-php/) for a complete overview.
+Here are a few simple code snippets that will help get you up and running.  See the [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) for a more complete overview.
 
 ### Creating a Client
 
@@ -246,7 +246,7 @@ $client->Search(new Request("1984"))
 
 # Documentation
 
-The [full documentation](https://sajari.github.io/sajari-sdk-php/) is available online.
+The [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) is available online.
 
 It can also be built locally using [Sami](https://github.com/FriendsOfPHP/Sami/tree/v3.3.0):
 
