@@ -239,7 +239,7 @@ class Client
         $protoRecords = $resp->getRecords();
         $response = [];
         foreach($resp->getStatus() as $i => $protoStatus) {
-            $response[] = new AddResponse(
+            $response[] = new GetResponse(
                 Internal\Status::fromProto($protoStatus),
                 Internal\Record::fromProto($protoRecords[$i])
             );
