@@ -35,7 +35,7 @@ class Client
      *
      * Example:
      *
-     *     $client = new Client("your-project", "your-collection", [
+     *     $client = new Client("mybookstore", "mybooks", [
      *         new WithKeyCredentials("key-id", "key-secret")
      *     ]);
      *
@@ -516,6 +516,14 @@ class Client
 
     /**
      * Create a handler for a pipeline.
+     *
+     * Pipelines can be used for adding records or performing searches.
+     *
+     * Example:
+     *
+     *     $results = $client->pipeline("books")->search([
+     *         "q" => "musketeers"
+     *     ]);
      *
      * @param string $name Name of the pipeline to create a handler for.
      * @return Pipeline

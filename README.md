@@ -53,11 +53,6 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 
 ## Getting Started
 
-See [examples](./examples) for code you can copy and paste to get started.
-
-Also see the [pipeline example](./examples/pipeline) for how to use pipelines with your collection.
-
-
 ### Creating a Client
 
 To start we need to create a client to make calls to the API:
@@ -73,60 +68,160 @@ $client = new Client('your-project', 'your-collection', [
 A record can be added to a collection using the `add` method:
 
 ```php
-$key = $client->add([
-    "id" => 123
-    "name" => "alex",
-    "url" => "site.com/12345"
-]);
+$record = [
+    "title" => "The Three Musketeers",
+    "slug" => "the-three-musketeers",
+    "author" => "Alexandre Dumas",
+    "price" => 10.00,
+    "qty" => 7,
+];
+$key = $client->add($record);
 ```
 
 An exception will be thrown if an error occurred.
 
 If the add is successful, a `$key` (instance of the class `Key`) is returned which uniquely defines the newly inserted record.  This can be used in calls to `get`, `delete` and `mutate` to operate on that record in the collection.  Keys can be defined on any unique field.  Each collection has the unique field `_id` which is set by the system when records are added.  Unique fields can also be created using the API.
 
+#### Adding multiple records
+
+Multiple records can be added in one call.  It's easy to retrieve the keys from each of the add operations (and check that they succeeded).
+
+```php
+$records = [
+    [
+        "title" => "The Three Musketeers",
+        "slug" => "the-three-musketeers",
+        "author" => "Alexandre Dumas",
+        "price" => 10.00,
+        "qty" => 7,
+    ],
+    [
+        "title" => "The Remains of the Day",
+        "slug" => "the-remains-of-the-day",
+        "author" => "Kazuo Ishiguro",
+        "price" => 8.00,
+        "qty" => 10,
+    ],
+    [
+        "title" => "1984",
+        "slug" => "1984",
+        "author" => "George Orwell",
+        "price" => 15.00,
+        "qty" => 0,
+    ]
+];
+
+$resps = $client->addMulti($records);
+
+foreach($resps as $resp) {
+    if ($resp->isError()) {
+       echo "error adding record: " . $resp->getStatus() . "\n";
+       continue;
+    }
+    echo $resp->getKey();
+}
+```
+
 ### Getting a record
 
 A record can be retrieved from a collection using a `Key`.
 
 ```php
-$client->get($client->key("_id", 123));
+$client->get($client->key("id", 123));
 ```
 
 An exception will be thrown if an error occurred.
 
-Full example: [`./examples/get.php`](./examples/get.php)
+#### Getting multiple records
+
+Multiple records can also be fetched in one call using keys.
+
+```php
+$keys = $client->keys("slug", [
+    "the-three-musketeers",
+    "the-remains-of-the-day",
+    "1984",
+]);
+
+$resps = $client->getMulti($keys);
+
+foreach($resps as $resp) {
+    if ($resp->isError()) {
+       echo "error fetching record: " . $resp->getStatus() . "\n";
+       continue;
+    }
+    print_r($resp->getRecord());
+}
+`
 
 ### Deleting a record
 
 A record can be deleted from a collection using a `Key`.
 
 ```php
-$client->delete($client->key("_id", 123));
+$client->delete($client->key("slug", "1984"));
 ```
 
 An exception will be thrown if an error occurred.
 
-Full example: [`./examples/delete.php`](./examples/delete.php)
+#### Deleting multiple records
 
-### Mutating a record
+$keys = $client->keys("slug", [
+    "the-three-musketeers",
+    "the-remains-of-the-day",
+    "1984",
+]);
 
-A record can be mutated using a `Key` and an associative array of field-value pairs to overwrite existing field values.
+$resps = $client->deleteMulti($keys);
+
+foreach($resps as $resp) {
+    if ($resp->isError()) {
+       echo "error deleting record: " . $resp . "\n";
+       continue;
+    }
+}
+
+### Editing a record
+
+A record can be edited using a `Key` and an associative array of field-value pairs to overwrite existing field values.
 
 ```php
-$client->mutate($client->key("url", "site.com/12345"), [
-    "name" => "bob"
-]);
+$client->edit(
+    $client->key("slug", "the-remains-of-the-day"),
+    [ "qty" => 10 ]
+);
 ```
 
-Full example: [`./examples/mutate.php`](./examples/mutate.php)
+#### Editing multiple records
+
+```php
+$keys = $client->keys("slug", [
+    "the-three-musketeers",
+    "the-remains-of-the-day",
+    "1984",
+]);
+
+$setFields = [
+    ["title" => "The Three Musketeers (Original French)"],
+    ["qty" => 10],
+    ["title" => "George Orwell's 1984"],
+];
+
+$resps = $client->editMulti($keys, $setFields);
+
+foreach($resps as $resp) {
+    if ($resp->isError()) {
+       echo "error mutating record: " . $resp . "\n";
+       continue;
+    }
+}
+````
 
 ### Retrieving a collection schema
 
 ```php
 $client->schema()->getFields()
 ```
-
-Full example: [`./examples/fields.php`](./examples/fields.php)
 
 ### Querying
 
@@ -135,23 +230,18 @@ Full example: [`./examples/fields.php`](./examples/fields.php)
 Pipelines are the recommended way to query your collection. They wrap up lots of our more complex functionality into a simple interface.  We offer a few standard pipelines for specific purposes, eg `website` for querying website collections. If you created your collection using the "custom" option in the console, use the `raw` pipeline.
 
 ```php
-$results = $client->pipeline("raw")->search([
-  "q" => "Game of Thrones" // query text
+$results = $client->pipeline("books")->search([
+    "q" => "musketeers"
 ]);
 ```
-
-Full example: [`./examples/pipeline/search.php`](./examples/pipeline/search.php)
 
 #### Raw search API
 
 It's also possible to run queries using the raw query API.
 
 ```php
-$client->Search(new Request("alex"))
+$client->Search(new Request("1984"))
 ```
-
-Full example: [`./examples/search.php`](./examples/search.php)
-
 
 # License
 
