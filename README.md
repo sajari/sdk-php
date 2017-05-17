@@ -41,13 +41,11 @@ Requires PHP 5.5+, 7.0+.
 ### Using with Composer
 
 Add `sajari/sajari-sdk-php` to your `composer.json`:
-```
+```json
 {
   "require": {
-    "sajari/sajari-sdk-php": "v1.0.1"
+    "sajari/sajari-sdk-php": "v2.0.0"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true
 }
 ```
 
