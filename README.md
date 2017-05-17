@@ -45,7 +45,7 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 {
   "require": {
     "sajari/sajari-sdk-php": "v2.0.0"
-  },
+  }
 }
 ```
 
