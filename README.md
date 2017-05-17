@@ -24,6 +24,7 @@ We recommend using the [Generated search interface](https://github.com/sajari/sa
   * [Querying](#querying)
     * [Pipelines](#pipelines)
     * [Raw search API](#raw-search-api)
+* [Documentation](#documentation)
 * [License](#license)
 
 
@@ -50,6 +51,8 @@ Add `sajari/sajari-sdk-php` to your `composer.json`:
 ```
 
 ## Getting Started
+
+Here are a few simple code snippets that will help get you up and running.  See the [full documentation](https://sajari.github.io/sajari-sdk-php/) for a complete overview.
 
 ### Creating a Client
 
@@ -240,6 +243,17 @@ It's also possible to run queries using the raw query API.
 ```php
 $client->Search(new Request("1984"))
 ```
+
+# Documentation
+
+The [full documentation](https://sajari.github.io/sajari-sdk-php/) is available online.
+
+It can also be built locally using [Sami](https://github.com/FriendsOfPHP/Sami/tree/v3.3.0):
+
+1. Move to the `sajari-sdk-php` root directory and run `curl -O http://get.sensiolabs.org/sami-v3.3.0.phar`
+2. Run `php sami-v3.3.0.phar update sami.cfg.php`
+
+This will generate the documentation and put it in `build/`.
 
 # License
 
