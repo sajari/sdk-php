@@ -48,8 +48,8 @@ class GetResponse extends \Google\Protobuf\Internal\Message
      */
     public function setRecords(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
-        $this->records = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
+        $this->records = $arr;
     }
 
     /**
@@ -73,8 +73,8 @@ class GetResponse extends \Google\Protobuf\Internal\Message
      */
     public function setStatus(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
-        $this->status = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
+        $this->status = $arr;
     }
 
 }

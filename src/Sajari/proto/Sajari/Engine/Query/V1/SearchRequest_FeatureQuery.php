@@ -52,8 +52,8 @@ class SearchRequest_FeatureQuery extends \Google\Protobuf\Internal\Message
      */
     public function setFieldBoosts(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class);
-        $this->field_boosts = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class);
+        $this->field_boosts = $arr;
     }
 
 }

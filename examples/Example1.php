@@ -6,63 +6,60 @@ require  __DIR__ . '/vendor/autoload.php';
 
 include_once "ExampleUtils.php";
 
-use \Sajari\Schema\Field;
-use \Sajari\Record\Record;
+use \Sajari\Field;
 use \Sajari\Query\Request;
 
-$client = ExampleUtils::CreateClient();
+$client = new \Sajari\Client(getenv("SJ_PROJECT"), getenv("SJ_COLLECTION"), [
+    new \Sajari\WithKeyCredentials(getenv("SJ_KEY_ID"), getenv("SJ_KEY_SECRET"))
+]);
 
 $fields = [
-    (new Field("title", Field::$STRING))
-        ->setRequired(true)
-        ->setIndexed(true),
-    (new Field("slug", Field::$STRING))
-        ->setRequired(true),
-    (new Field("draft", Field::$BOOLEAN)),
-    (new Field("body", Field::$STRING))
-        ->setRequired(true)
-        ->setIndexed(true),
-    (new Field("tags", Field::$STRING))
-        ->setRepeated(true),
-    (new Field("datecreated", Field::$TIMESTAMP))
-        ->setRequired(true),
-    (new Field("views", Field::$INTEGER))
+    Field::string("title")->setIndexed(true),
+    Field::string("slug"),
+    Field::boolean("draft"),
+    Field::string("body")->setIndexed(true),
+    Field::string("tags")->setRepeated(true),
+    Field::timestamp("datecreated"),
+    Field::integer("views")
 ];
 
 // Set up schema
-$addStatuses = $client->AddFields($fields);
-
-foreach ($addStatuses->getStatus() as $k => $s) {
-    if ($s->getCode() != 0) {
-        printf("error adding field %s: (%s) %s\n", $fields[$k]->getName(), $s->getCode(), $s->getMessage());
+$resp = $client->schema()->addFields($fields);
+foreach ($resp as $i => $status) {
+    if (!$status->isOK()) {
+        printf("error adding field %s: %s\n", $fields[$i]->getName(), $status);
     }
 }
 
-// Add record
-$client->AddMulti(
+// Add records
+list($keys, $statuses) = $client->addMulti([
     [
-        new Record([
-            "title" => "My holiday story",
-            "slug" => "my-holiday-story",
-            "draft" => "false",
-            "body" => "My holiday began with...",
-            "tags" => ["holiday", "story"],
-            "datecreated" => new DateTime(),
-            "views" => 100, // If only it were that easy..
-        ]),
-        new Record([
-            "title" => "The new neighbours",
-            "slug" => "the-new-neighbours",
-            "draft" => "true",
-            "body" => "Let me tell you about the new neighbours...",
-            "tags" => ["neighbours", "local"],
-            "datecreated" => new DateTime(),
-            "views" => 0,
-        ])
-    ], []
-);
+        "title" => "My holiday story",
+        "slug" => "my-holiday-story",
+        "draft" => "false",
+        "body" => "My holiday began with...",
+        "tags" => ["holiday", "story"],
+        "datecreated" => new DateTime(),
+        "views" => 100, // If only it were that easy..
+    ],
+    [
+        "title" => "The new neighbours",
+        "slug" => "the-new-neighbours",
+        "draft" => "true",
+        "body" => "Let me tell you about the new neighbours...",
+        "tags" => ["neighbours", "local"],
+        "datecreated" => new DateTime(),
+        "views" => 0,
+    ]
+]);
+foreach ($statuses as $i => $status) {
+    if (!$status->isOK()) {
+        printf("error adding record %d: %s", $i, $status);
+    }
+}
 
-// Search for the record
-ExampleUtils::PrintSearchResults(
-    $client->Search(new Request("Holiday"))
-);
+// Search
+$results = $client->search(new Request("Holiday"));
+
+// Print the results.
+ExampleUtils::PrintSearchResults($results);

@@ -28,18 +28,14 @@ class FeatureQuery implements \Sajari\Internal\Proto
      *
      * @return \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery
      */
-    public function Proto()
+    public function proto()
     {
         $fq = new \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery();
-
         if (isset($this->fieldBoosts)) {
-            $fb = [];
             foreach ($this->fieldBoosts as $b) {
-                $fb[] = $b->Proto();
+                $fq->getFieldBoosts()[] = $b->proto();
             }
-            $fq->setFieldBoosts(\Sajari\Internal\Utils::MakeRepeated($fb, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class));
         }
-
         return $fq;
     }
 }

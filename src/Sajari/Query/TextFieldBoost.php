@@ -46,7 +46,7 @@ class TextFieldBoost implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\FieldBoost
      */
-    public function Proto()
+    public function proto()
     {
         $tmb = new \Sajari\Engine\Query\V1\FieldBoost\Text();
         $tmb->setField($this->field);

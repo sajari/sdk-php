@@ -81,8 +81,8 @@ class KeyScores extends \Google\Protobuf\Internal\Message
      */
     public function setScores(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores_Score::class);
-        $this->scores = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores_Score::class);
+        $this->scores = $arr;
     }
 
 }

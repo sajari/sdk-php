@@ -60,8 +60,8 @@ class AddResponse extends \Google\Protobuf\Internal\Message
      */
     public function setKeys(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
-        $this->keys = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
+        $this->keys = $arr;
     }
 
     /**
@@ -85,8 +85,8 @@ class AddResponse extends \Google\Protobuf\Internal\Message
      */
     public function setStatus(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
-        $this->status = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
+        $this->status = $arr;
     }
 
 }

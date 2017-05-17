@@ -90,8 +90,8 @@ class FieldBoost_Interval extends \Google\Protobuf\Internal\Message
      */
     public function setPoints(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class);
-        $this->points = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class);
+        $this->points = $arr;
     }
 
 }

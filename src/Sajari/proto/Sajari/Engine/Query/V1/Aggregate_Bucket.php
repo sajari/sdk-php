@@ -53,8 +53,8 @@ class Aggregate_Bucket extends \Google\Protobuf\Internal\Message
      */
     public function setBuckets(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket::class);
-        $this->buckets = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket::class);
+        $this->buckets = $arr;
     }
 
 }

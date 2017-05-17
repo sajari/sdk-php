@@ -78,7 +78,7 @@ class InstanceBoost extends \Google\Protobuf\Internal\Message
 
     public function getInstanceBoost()
     {
-        return $this->instance_boost;
+        return $this->whichOneof("instance_boost");
     }
 
 }

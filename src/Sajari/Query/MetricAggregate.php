@@ -99,7 +99,7 @@ class MetricAggregate implements Aggregate, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry
      */
-    public function Proto()
+    public function proto()
     {
         $ae = new \Sajari\Engine\Query\V1\SearchRequest\AggregatesEntry();
         $ae->setKey($this->name);

@@ -52,7 +52,8 @@ class Record extends \Google\Protobuf\Internal\Message
      */
     public function setValues(&$var)
     {
-        $this->values = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Value::class);
+        $this->values = $arr;
     }
 
 }

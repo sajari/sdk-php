@@ -9,7 +9,7 @@ namespace Sajari\Engine\Schema {
     /**
      * @param string $hostname hostname
      * @param array $opts channel options
-     * @param Grpc\Channel $channel (optional) re-use channel object
+     * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
       parent::__construct($hostname, $opts, $channel);
@@ -17,11 +17,11 @@ namespace Sajari\Engine\Schema {
 
     /**
      * GetFields returns the fields in the schema.
-     * @param \Sajari\Rpc\GPBEmpty $argument input argument
+     * @param \Sajari\Rpc\Empty $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function GetFields(\Sajari\Rpc\GPBEmpty $argument,
+    public function GetFields(\Sajari\Rpc\PBEmpty $argument,
       $metadata = [], $options = []) {
       return $this->_simpleRequest('/sajari.engine.schema.Schema/GetFields',
       $argument,

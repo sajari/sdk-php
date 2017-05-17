@@ -63,7 +63,7 @@ class Tracking implements \Sajari\Internal\Proto
     /**
      * @return \Sajari\Api\Query\V1\SearchRequest_Tracking
      */
-    public function Proto()
+    public function proto()
   {
     $t = new \Sajari\Api\Query\V1\SearchRequest_Tracking();
 

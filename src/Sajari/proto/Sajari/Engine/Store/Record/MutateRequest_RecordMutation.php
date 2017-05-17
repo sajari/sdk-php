@@ -81,8 +81,8 @@ class MutateRequest_RecordMutation extends \Google\Protobuf\Internal\Message
      */
     public function setFieldMutations(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\MutateRequest_RecordMutation_FieldMutation::class);
-        $this->field_mutations = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\MutateRequest_RecordMutation_FieldMutation::class);
+        $this->field_mutations = $arr;
     }
 
 }

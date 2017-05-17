@@ -85,7 +85,8 @@ class EvaluateRequest extends \Google\Protobuf\Internal\Message
      */
     public function setRecord(&$var)
     {
-        $this->record = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Value::class);
+        $this->record = $arr;
     }
 
 }

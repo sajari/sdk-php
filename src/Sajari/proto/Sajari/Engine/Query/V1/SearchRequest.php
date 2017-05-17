@@ -262,8 +262,8 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
      */
     public function setFields(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->fields = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->fields = $arr;
     }
 
     /**
@@ -291,8 +291,8 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
      */
     public function setSort(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class);
-        $this->sort = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class);
+        $this->sort = $arr;
     }
 
     /**
@@ -316,7 +316,8 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
      */
     public function setAggregates(&$var)
     {
-        $this->aggregates = $var;
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Aggregate::class);
+        $this->aggregates = $arr;
     }
 
     /**
@@ -340,8 +341,8 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
      */
     public function setTransforms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class);
-        $this->transforms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class);
+        $this->transforms = $arr;
     }
 
 }

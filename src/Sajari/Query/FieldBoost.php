@@ -3,5 +3,5 @@
 namespace Sajari\Query;
 
 interface FieldBoost {
-    public function Proto();
+    public function proto();
 }

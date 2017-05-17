@@ -77,7 +77,7 @@ class AggregateResponse extends \Google\Protobuf\Internal\Message
 
     public function getAggregateResponse()
     {
-        return $this->aggregate_response;
+        return $this->whichOneof("aggregate_response");
     }
 
 }

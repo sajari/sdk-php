@@ -122,7 +122,7 @@ class GeoFilter implements Filter, \Sajari\Internal\Proto
     /**
      * @return \Sajari\Engine\Query\V1\Filter
      */
-    public function Proto()
+    public function proto()
     {
         $gmb = new \Sajari\Engine\Query\V1\Filter_Geo();
         $gmb->setFieldLat($this->fieldLat);

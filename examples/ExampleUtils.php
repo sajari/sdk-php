@@ -6,22 +6,6 @@
 class ExampleUtils
 {
     /**
-     * @return \Sajari\Client\Client
-     */
-    public static function CreateClient()
-    {
-        // Get config from environment
-        $project = getenv("SJ_PROJECT");
-        $collection = getenv("SJ_COLLECTION");
-        $key_id = getenv("SJ_KEY_ID");
-        $key_secret = getenv("SJ_KEY_SECRET");
-
-        return \Sajari\Client\Client::NewClient($project, $collection,
-            [new \Sajari\Client\WithKeyCredentials($key_id, $key_secret)]
-        );
-    }
-
-    /**
      * @param \Sajari\Query\Response $response
      */
     public static function PrintSearchResults(\Sajari\Query\Response $response)

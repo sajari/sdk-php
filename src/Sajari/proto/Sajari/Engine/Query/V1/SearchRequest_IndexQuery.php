@@ -80,8 +80,8 @@ class SearchRequest_IndexQuery extends \Google\Protobuf\Internal\Message
      */
     public function setBody(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body::class);
-        $this->body = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body::class);
+        $this->body = $arr;
     }
 
     /**
@@ -105,8 +105,8 @@ class SearchRequest_IndexQuery extends \Google\Protobuf\Internal\Message
      */
     public function setTerms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Term::class);
-        $this->terms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Term::class);
+        $this->terms = $arr;
     }
 
     /**
@@ -134,8 +134,8 @@ class SearchRequest_IndexQuery extends \Google\Protobuf\Internal\Message
      */
     public function setInstanceBoosts(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class);
-        $this->instance_boosts = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\InstanceBoost::class);
+        $this->instance_boosts = $arr;
     }
 
     /**
@@ -163,8 +163,8 @@ class SearchRequest_IndexQuery extends \Google\Protobuf\Internal\Message
      */
     public function setFieldBoosts(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class);
-        $this->field_boosts = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost::class);
+        $this->field_boosts = $arr;
     }
 
 }

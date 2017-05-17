@@ -64,8 +64,8 @@ class AnalyseResponse extends \Google\Protobuf\Internal\Message
      */
     public function setTerms(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AnalyseResponse_Terms::class);
-        $this->terms = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AnalyseResponse_Terms::class);
+        $this->terms = $arr;
     }
 
     /**
@@ -89,8 +89,8 @@ class AnalyseResponse extends \Google\Protobuf\Internal\Message
      */
     public function setStatus(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
-        $this->status = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
+        $this->status = $arr;
     }
 
 }

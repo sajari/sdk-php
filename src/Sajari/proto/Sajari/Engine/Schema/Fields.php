@@ -40,8 +40,8 @@ class Fields extends \Google\Protobuf\Internal\Message
      */
     public function setFields(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\Field::class);
-        $this->fields = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\Field::class);
+        $this->fields = $arr;
     }
 
 }

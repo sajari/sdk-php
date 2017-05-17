@@ -88,8 +88,8 @@ class AnalyseRequest extends \Google\Protobuf\Internal\Message
      */
     public function setKeys(&$var)
     {
-        GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
-        $this->keys = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
+        $this->keys = $arr;
     }
 
 }
