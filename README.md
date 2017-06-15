@@ -19,7 +19,7 @@ We recommend using the [Generated search interface](https://github.com/sajari/sa
   * [Adding a Record](#adding-a-record)
   * [Getting a Record](#getting-a-record)
   * [Deleting a Record](#deleting-a-record)
-  * [Mutating a Record](#mutating-a-record)
+  * [Editing a Record](#editing-a-record)
   * [Retrieving a Schema](#retrieving-a-collection-schema)
   * [Querying](#querying)
     * [Pipelines](#pipelines)
