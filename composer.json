@@ -17,7 +17,8 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "grpc/grpc": "v1.3.2"
+    "google/protobuf": "v3.4.0",
+    "grpc/grpc": "v1.6.0"
   },
   "autoload": {
     "psr-0": {
