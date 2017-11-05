@@ -128,7 +128,7 @@ foreach($resps as $resp) {
 A record can be retrieved from a collection using a `Key`.
 
 ```php
-$client->get($client->key(""slug", "the-three-musketeers"));
+$client->get($client->key("slug", "the-three-musketeers"));
 ```
 
 An exception will be thrown if an error occurred.
