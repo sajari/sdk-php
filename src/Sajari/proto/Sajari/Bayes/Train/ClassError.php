@@ -9,52 +9,57 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * ClassError returns the number of successful and unsuccessful classifications
  * for each class in the model. This is useful for determining common error
  * classes, which indicates overlapping probability of neighbouring classes
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.train.ClassError</code>
+ * Generated from protobuf message <code>sajari.bayes.train.ClassError</code>
  */
 class ClassError extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Expected is the known class we are expecting to see
-     * </pre>
      *
-     * <code>string expected = 1;</code>
+     * Generated from protobuf field <code>string expected = 1;</code>
      */
     private $expected = '';
     /**
-     * <pre>
      * Got is the class we actually predicted
-     * </pre>
      *
-     * <code>string got = 2;</code>
+     * Generated from protobuf field <code>string got = 2;</code>
      */
     private $got = '';
     /**
-     * <pre>
      * Count is the number of expected-got pairs observed
-     * </pre>
      *
-     * <code>uint32 count = 3;</code>
+     * Generated from protobuf field <code>uint32 count = 3;</code>
      */
     private $count = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $expected
+     *           Expected is the known class we are expecting to see
+     *     @type string $got
+     *           Got is the class we actually predicted
+     *     @type int $count
+     *           Count is the number of expected-got pairs observed
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Train\Train::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Expected is the known class we are expecting to see
-     * </pre>
      *
-     * <code>string expected = 1;</code>
+     * Generated from protobuf field <code>string expected = 1;</code>
+     * @return string
      */
     public function getExpected()
     {
@@ -62,24 +67,25 @@ class ClassError extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Expected is the known class we are expecting to see
-     * </pre>
      *
-     * <code>string expected = 1;</code>
+     * Generated from protobuf field <code>string expected = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setExpected($var)
     {
         GPBUtil::checkString($var, True);
         $this->expected = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Got is the class we actually predicted
-     * </pre>
      *
-     * <code>string got = 2;</code>
+     * Generated from protobuf field <code>string got = 2;</code>
+     * @return string
      */
     public function getGot()
     {
@@ -87,24 +93,25 @@ class ClassError extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Got is the class we actually predicted
-     * </pre>
      *
-     * <code>string got = 2;</code>
+     * Generated from protobuf field <code>string got = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setGot($var)
     {
         GPBUtil::checkString($var, True);
         $this->got = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Count is the number of expected-got pairs observed
-     * </pre>
      *
-     * <code>uint32 count = 3;</code>
+     * Generated from protobuf field <code>uint32 count = 3;</code>
+     * @return int
      */
     public function getCount()
     {
@@ -112,16 +119,18 @@ class ClassError extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Count is the number of expected-got pairs observed
-     * </pre>
      *
-     * <code>uint32 count = 3;</code>
+     * Generated from protobuf field <code>uint32 count = 3;</code>
+     * @param int $var
+     * @return $this
      */
     public function setCount($var)
     {
         GPBUtil::checkUint32($var);
         $this->count = $var;
+
+        return $this;
     }
 
 }

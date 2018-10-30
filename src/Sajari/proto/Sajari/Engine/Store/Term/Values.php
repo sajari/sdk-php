@@ -9,34 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Values contains a list of term values to lookup.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.term.Values</code>
+ * Generated from protobuf message <code>sajari.engine.store.term.Values</code>
  */
 class Values extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Value representation of a term.
-     * </pre>
      *
-     * <code>repeated string values = 1;</code>
+     * Generated from protobuf field <code>repeated string values = 1;</code>
      */
     private $values;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $values
+     *           Value representation of a term.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Term\Term::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Value representation of a term.
-     * </pre>
      *
-     * <code>repeated string values = 1;</code>
+     * Generated from protobuf field <code>repeated string values = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getValues()
     {
@@ -44,16 +49,18 @@ class Values extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Value representation of a term.
-     * </pre>
      *
-     * <code>repeated string values = 1;</code>
+     * Generated from protobuf field <code>repeated string values = 1;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setValues(&$var)
+    public function setValues($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->values = $arr;
+
+        return $this;
     }
 
 }

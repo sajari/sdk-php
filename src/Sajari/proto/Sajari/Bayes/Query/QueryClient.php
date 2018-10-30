@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Bayes\Query {
+namespace Sajari\Bayes\Query;
 
-  // Query defines methods used to interact with the bayes query service.
-  class QueryClient extends \Grpc\BaseStub {
+/**
+ * Query defines methods used to interact with the bayes query service.
+ */
+class QueryClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Bayes\Query {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -24,12 +26,10 @@ namespace Sajari\Bayes\Query {
      */
     public function Query(\Sajari\Bayes\Query\Request $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.query.Query/Query',
-      $argument,
-      ['\Sajari\Bayes\Query\Response', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.query.Query/Query',
+        $argument,
+        ['\Sajari\Bayes\Query\Response', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

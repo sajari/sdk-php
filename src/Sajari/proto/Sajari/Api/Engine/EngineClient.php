@@ -1,11 +1,13 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Api\Engine {
+namespace Sajari\Api\Engine;
 
-  // Engine defines internal methods for admin control of an engine, including
-  // creating/loading/unloading/listing (loaded) collections.
-  class EngineClient extends \Grpc\BaseStub {
+/**
+ * Engine defines internal methods for admin control of an engine, including
+ * creating/loading/unloading/listing (loaded) collections.
+ */
+class EngineClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -13,7 +15,7 @@ namespace Sajari\Api\Engine {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -24,10 +26,10 @@ namespace Sajari\Api\Engine {
      */
     public function CreateCollection(\Sajari\Api\Engine\Collection $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.api.engine.Engine/CreateCollection',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.api.engine.Engine/CreateCollection',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -39,12 +41,10 @@ namespace Sajari\Api\Engine {
      */
     public function DeleteCollection(\Sajari\Api\Engine\Collection $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.api.engine.Engine/DeleteCollection',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.api.engine.Engine/DeleteCollection',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

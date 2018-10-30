@@ -9,52 +9,68 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * TrainQueryRequest is a query used to train the autocomplete
  * model what is popular from a user perspective.
- * </pre>
  *
- * Protobuf type <code>sajari.autocomplete.TrainQueryRequest</code>
+ * Generated from protobuf message <code>sajari.autocomplete.TrainQueryRequest</code>
  */
 class TrainQueryRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
      */
     private $model = null;
     /**
-     * <pre>
      * The full query phrase.
-     * </pre>
      *
-     * <code>string phrase = 2;</code>
+     * Generated from protobuf field <code>string phrase = 2;</code>
      */
     private $phrase = '';
     /**
-     * <pre>
      * The query phrase broken into terms. Typically this would use spaces
      * as delimiters, but it is not restricted to spaces for language flexibility.
-     * </pre>
      *
-     * <code>repeated string terms = 3;</code>
+     * Generated from protobuf field <code>repeated string terms = 3;</code>
      */
     private $terms;
+    /**
+     * Number of times to repeat the training of the query.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 4;</code>
+     */
+    private $repeat = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Autocomplete\Model $model
+     *           Model to train.
+     *     @type string $phrase
+     *           The full query phrase.
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $terms
+     *           The query phrase broken into terms. Typically this would use spaces
+     *           as delimiters, but it is not restricted to spaces for language flexibility.
+     *     @type int $repeat
+     *           Number of times to repeat the training of the query.
+     *           Defaults to 1 if not set.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Autocomplete\Autocomplete::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
+     * @return \Sajari\Autocomplete\Model
      */
     public function getModel()
     {
@@ -62,24 +78,25 @@ class TrainQueryRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
+     * @param \Sajari\Autocomplete\Model $var
+     * @return $this
      */
-    public function setModel(&$var)
+    public function setModel($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Autocomplete\Model::class);
         $this->model = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * The full query phrase.
-     * </pre>
      *
-     * <code>string phrase = 2;</code>
+     * Generated from protobuf field <code>string phrase = 2;</code>
+     * @return string
      */
     public function getPhrase()
     {
@@ -87,25 +104,26 @@ class TrainQueryRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * The full query phrase.
-     * </pre>
      *
-     * <code>string phrase = 2;</code>
+     * Generated from protobuf field <code>string phrase = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setPhrase($var)
     {
         GPBUtil::checkString($var, True);
         $this->phrase = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * The query phrase broken into terms. Typically this would use spaces
      * as delimiters, but it is not restricted to spaces for language flexibility.
-     * </pre>
      *
-     * <code>repeated string terms = 3;</code>
+     * Generated from protobuf field <code>repeated string terms = 3;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTerms()
     {
@@ -113,17 +131,47 @@ class TrainQueryRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * The query phrase broken into terms. Typically this would use spaces
      * as delimiters, but it is not restricted to spaces for language flexibility.
-     * </pre>
      *
-     * <code>repeated string terms = 3;</code>
+     * Generated from protobuf field <code>repeated string terms = 3;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTerms(&$var)
+    public function setTerms($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->terms = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Number of times to repeat the training of the query.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 4;</code>
+     * @return int
+     */
+    public function getRepeat()
+    {
+        return $this->repeat;
+    }
+
+    /**
+     * Number of times to repeat the training of the query.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 4;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRepeat($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->repeat = $var;
+
+        return $this;
     }
 
 }

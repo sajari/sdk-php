@@ -4,93 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * FieldBoost is a boost is a feature boost on a field.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.SearchRequest.FeatureQuery.FieldBoost</code>
- */
-class SearchRequest_FeatureQuery_FieldBoost extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * FieldBoost to make a feature boost.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.FieldBoost field_boost = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\SearchRequest\FeatureQuery\FieldBoost instead.
+     * @deprecated
      */
-    private $field_boost = null;
-    /**
-     * <pre>
-     * Amount this boost will contribute to the overall score of the document.
-     * Must be between 0 and 1.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    private $value = 0.0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * FieldBoost to make a feature boost.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.FieldBoost field_boost = 1;</code>
-     */
-    public function getFieldBoost()
-    {
-        return $this->field_boost;
-    }
-
-    /**
-     * <pre>
-     * FieldBoost to make a feature boost.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.FieldBoost field_boost = 1;</code>
-     */
-    public function setFieldBoost(&$var)
-    {
-        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\FieldBoost::class);
-        $this->field_boost = $var;
-    }
-
-    /**
-     * <pre>
-     * Amount this boost will contribute to the overall score of the document.
-     * Must be between 0 and 1.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <pre>
-     * Amount this boost will contribute to the overall score of the document.
-     * Must be between 0 and 1.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function setValue($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->value = $var;
-    }
-
+    class SearchRequest_FeatureQuery_FieldBoost {}
 }
+class_exists(SearchRequest\FeatureQuery\FieldBoost::class);
+@trigger_error('Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\SearchRequest\FeatureQuery\FieldBoost instead', E_USER_DEPRECATED);
 

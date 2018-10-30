@@ -9,66 +9,71 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchResponse contains all data in response to a search request.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.SearchResponse</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.SearchResponse</code>
  */
 class SearchResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Number of reverse indexes read during the search request.
-     * </pre>
      *
-     * <code>int64 reads = 1;</code>
+     * Generated from protobuf field <code>int64 reads = 1;</code>
      */
     private $reads = 0;
     /**
-     * <pre>
      * Total number of results.
-     * </pre>
      *
-     * <code>int64 total_results = 2;</code>
+     * Generated from protobuf field <code>int64 total_results = 2;</code>
      */
     private $total_results = 0;
     /**
-     * <pre>
      * Time taken to perform query.
-     * </pre>
      *
-     * <code>string time = 3;</code>
+     * Generated from protobuf field <code>string time = 3;</code>
      */
     private $time = '';
     /**
-     * <pre>
      * Aggregates returned by query.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse&gt; aggregates = 4;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.AggregateResponse> aggregates = 4;</code>
      */
     private $aggregates;
     /**
-     * <pre>
      * Results returned by query.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
      */
     private $results;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int|string $reads
+     *           Number of reverse indexes read during the search request.
+     *     @type int|string $total_results
+     *           Total number of results.
+     *     @type string $time
+     *           Time taken to perform query.
+     *     @type array|\Google\Protobuf\Internal\MapField $aggregates
+     *           Aggregates returned by query.
+     *     @type \Sajari\Engine\Query\V1\Result[]|\Google\Protobuf\Internal\RepeatedField $results
+     *           Results returned by query.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Number of reverse indexes read during the search request.
-     * </pre>
      *
-     * <code>int64 reads = 1;</code>
+     * Generated from protobuf field <code>int64 reads = 1;</code>
+     * @return int|string
      */
     public function getReads()
     {
@@ -76,24 +81,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Number of reverse indexes read during the search request.
-     * </pre>
      *
-     * <code>int64 reads = 1;</code>
+     * Generated from protobuf field <code>int64 reads = 1;</code>
+     * @param int|string $var
+     * @return $this
      */
     public function setReads($var)
     {
         GPBUtil::checkInt64($var);
         $this->reads = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Total number of results.
-     * </pre>
      *
-     * <code>int64 total_results = 2;</code>
+     * Generated from protobuf field <code>int64 total_results = 2;</code>
+     * @return int|string
      */
     public function getTotalResults()
     {
@@ -101,24 +107,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Total number of results.
-     * </pre>
      *
-     * <code>int64 total_results = 2;</code>
+     * Generated from protobuf field <code>int64 total_results = 2;</code>
+     * @param int|string $var
+     * @return $this
      */
     public function setTotalResults($var)
     {
         GPBUtil::checkInt64($var);
         $this->total_results = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Time taken to perform query.
-     * </pre>
      *
-     * <code>string time = 3;</code>
+     * Generated from protobuf field <code>string time = 3;</code>
+     * @return string
      */
     public function getTime()
     {
@@ -126,24 +133,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Time taken to perform query.
-     * </pre>
      *
-     * <code>string time = 3;</code>
+     * Generated from protobuf field <code>string time = 3;</code>
+     * @param string $var
+     * @return $this
      */
     public function setTime($var)
     {
         GPBUtil::checkString($var, True);
         $this->time = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Aggregates returned by query.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse&gt; aggregates = 4;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.AggregateResponse> aggregates = 4;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getAggregates()
     {
@@ -151,24 +159,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Aggregates returned by query.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse&gt; aggregates = 4;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.AggregateResponse> aggregates = 4;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setAggregates(&$var)
+    public function setAggregates($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AggregateResponse::class);
         $this->aggregates = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Results returned by query.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getResults()
     {
@@ -176,16 +185,18 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Results returned by query.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Result results = 5;</code>
+     * @param \Sajari\Engine\Query\V1\Result[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setResults(&$var)
+    public function setResults($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Result::class);
         $this->results = $arr;
+
+        return $this;
     }
 
 }

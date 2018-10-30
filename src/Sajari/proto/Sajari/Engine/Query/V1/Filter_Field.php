@@ -4,123 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Field is a filter which is applied to a document field.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.Filter.Field</code>
- */
-class Filter_Field extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * The comparison operator to use.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter.Field.Operator operator = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Filter\Field instead.
+     * @deprecated
      */
-    private $operator = 0;
-    /**
-     * <pre>
-     * Field to take values from.
-     * </pre>
-     *
-     * <code>string field = 2;</code>
-     */
-    private $field = '';
-    /**
-     * <pre>
-     * Value to match against.
-     * </pre>
-     *
-     * <code>.sajari.engine.Value value = 3;</code>
-     */
-    private $value = null;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * The comparison operator to use.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter.Field.Operator operator = 1;</code>
-     */
-    public function getOperator()
-    {
-        return $this->operator;
-    }
-
-    /**
-     * <pre>
-     * The comparison operator to use.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter.Field.Operator operator = 1;</code>
-     */
-    public function setOperator($var)
-    {
-        GPBUtil::checkEnum($var, \Sajari\Engine\Query\V1\Filter_Field_Operator::class);
-        $this->operator = $var;
-    }
-
-    /**
-     * <pre>
-     * Field to take values from.
-     * </pre>
-     *
-     * <code>string field = 2;</code>
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * <pre>
-     * Field to take values from.
-     * </pre>
-     *
-     * <code>string field = 2;</code>
-     */
-    public function setField($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->field = $var;
-    }
-
-    /**
-     * <pre>
-     * Value to match against.
-     * </pre>
-     *
-     * <code>.sajari.engine.Value value = 3;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <pre>
-     * Value to match against.
-     * </pre>
-     *
-     * <code>.sajari.engine.Value value = 3;</code>
-     */
-    public function setValue(&$var)
-    {
-        GPBUtil::checkMessage($var, \Sajari\Engine\Value::class);
-        $this->value = $var;
-    }
-
+    class Filter_Field {}
 }
+class_exists(Filter\Field::class);
+@trigger_error('Sajari\Engine\Query\V1\Filter_Field is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Filter\Field instead', E_USER_DEPRECATED);
 

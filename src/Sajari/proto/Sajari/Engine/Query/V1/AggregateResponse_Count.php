@@ -4,45 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Count contains the counts for the set of values returned
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.AggregateResponse.Count</code>
- */
-class AggregateResponse_Count extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>map&lt;string, int32&gt; counts = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\AggregateResponse\Count instead.
+     * @deprecated
      */
-    private $counts;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>map&lt;string, int32&gt; counts = 1;</code>
-     */
-    public function getCounts()
-    {
-        return $this->counts;
-    }
-
-    /**
-     * <code>map&lt;string, int32&gt; counts = 1;</code>
-     */
-    public function setCounts(&$var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->counts = $arr;
-    }
-
+    class AggregateResponse_Count {}
 }
+class_exists(AggregateResponse\Count::class);
+@trigger_error('Sajari\Engine\Query\V1\AggregateResponse_Count is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\AggregateResponse\Count instead', E_USER_DEPRECATED);
 

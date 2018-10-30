@@ -9,34 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Model is an autocomplete model.
- * </pre>
  *
- * Protobuf type <code>sajari.autocomplete.Model</code>
+ * Generated from protobuf message <code>sajari.autocomplete.Model</code>
  */
 class Model extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Name of the model.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           Name of the model.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Autocomplete\Autocomplete::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Name of the model.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -44,16 +49,18 @@ class Model extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the model.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
 }

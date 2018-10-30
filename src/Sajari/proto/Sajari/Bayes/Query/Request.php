@@ -9,45 +9,52 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Request contains a model name and an array of string based data representing
  * the content to be classified by the naive bayes model
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.query.Request</code>
+ * Generated from protobuf message <code>sajari.bayes.query.Request</code>
  */
 class Request extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Model is the name of the model to be queried
-     * </pre>
      *
-     * <code>string model = 1;</code>
+     * Generated from protobuf field <code>string model = 1;</code>
      */
     private $model = '';
     /**
-     * <pre>
      * Data is a list of strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 2;</code>
+     * Generated from protobuf field <code>repeated string data = 2;</code>
      */
     private $data;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $model
+     *           Model is the name of the model to be queried
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $data
+     *           Data is a list of strings representing the input query to be
+     *           classified. Normally these would represent words from text. It is the
+     *           callers responsibility to stem and tokenise into an array of strings.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Query\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Model is the name of the model to be queried
-     * </pre>
      *
-     * <code>string model = 1;</code>
+     * Generated from protobuf field <code>string model = 1;</code>
+     * @return string
      */
     public function getModel()
     {
@@ -55,26 +62,27 @@ class Request extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Model is the name of the model to be queried
-     * </pre>
      *
-     * <code>string model = 1;</code>
+     * Generated from protobuf field <code>string model = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setModel($var)
     {
         GPBUtil::checkString($var, True);
         $this->model = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Data is a list of strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 2;</code>
+     * Generated from protobuf field <code>repeated string data = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getData()
     {
@@ -82,18 +90,20 @@ class Request extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Data is a list of strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 2;</code>
+     * Generated from protobuf field <code>repeated string data = 2;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setData(&$var)
+    public function setData($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->data = $arr;
+
+        return $this;
     }
 
 }

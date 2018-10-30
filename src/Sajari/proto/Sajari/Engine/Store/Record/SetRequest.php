@@ -9,22 +9,32 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Protobuf type <code>sajari.engine.store.record.SetRequest</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.SetRequest</code>
  */
 class SetRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
      */
     private $keys_scores;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Store\Record\KeyScores[]|\Google\Protobuf\Internal\RepeatedField $keys_scores
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getKeysScores()
     {
@@ -32,12 +42,16 @@ class SetRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores keys_scores = 1;</code>
+     * @param \Sajari\Engine\Store\Record\KeyScores[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setKeysScores(&$var)
+    public function setKeysScores($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores::class);
         $this->keys_scores = $arr;
+
+        return $this;
     }
 
 }

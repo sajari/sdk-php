@@ -4,94 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Score is an instance boost that boosts term instances based on their individual
- * scores based on individual interactions.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.InstanceBoost.Score</code>
- */
-class InstanceBoost_Score extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Threshold defines the value after which learning will be applied.  i.e. Only if a learning
-     * score is significant enough to be beyond the threshold will it start to take effect.
-     * </pre>
-     *
-     * <code>double threshold = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\InstanceBoost\Score instead.
+     * @deprecated
      */
-    private $threshold = 0.0;
-    /**
-     * <pre>
-     * MinCount is the minimum number of interactions required to enable scoring.
-     * </pre>
-     *
-     * <code>uint32 min_count = 2;</code>
-     */
-    private $min_count = 0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Threshold defines the value after which learning will be applied.  i.e. Only if a learning
-     * score is significant enough to be beyond the threshold will it start to take effect.
-     * </pre>
-     *
-     * <code>double threshold = 1;</code>
-     */
-    public function getThreshold()
-    {
-        return $this->threshold;
-    }
-
-    /**
-     * <pre>
-     * Threshold defines the value after which learning will be applied.  i.e. Only if a learning
-     * score is significant enough to be beyond the threshold will it start to take effect.
-     * </pre>
-     *
-     * <code>double threshold = 1;</code>
-     */
-    public function setThreshold($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->threshold = $var;
-    }
-
-    /**
-     * <pre>
-     * MinCount is the minimum number of interactions required to enable scoring.
-     * </pre>
-     *
-     * <code>uint32 min_count = 2;</code>
-     */
-    public function getMinCount()
-    {
-        return $this->min_count;
-    }
-
-    /**
-     * <pre>
-     * MinCount is the minimum number of interactions required to enable scoring.
-     * </pre>
-     *
-     * <code>uint32 min_count = 2;</code>
-     */
-    public function setMinCount($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->min_count = $var;
-    }
-
+    class InstanceBoost_Score {}
 }
+class_exists(InstanceBoost\Score::class);
+@trigger_error('Sajari\Engine\Query\V1\InstanceBoost_Score is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\InstanceBoost\Score instead', E_USER_DEPRECATED);
 

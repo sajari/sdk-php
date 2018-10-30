@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Autocomplete {
+namespace Sajari\Autocomplete;
 
-  // Train defines methods for training autocomplete models.
-  class TrainClient extends \Grpc\BaseStub {
+/**
+ * Train defines methods for training autocomplete models.
+ */
+class TrainClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Autocomplete {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -23,10 +25,10 @@ namespace Sajari\Autocomplete {
      */
     public function TrainCorpus(\Sajari\Autocomplete\TrainCorpusRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.autocomplete.Train/TrainCorpus',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.autocomplete.Train/TrainCorpus',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -37,12 +39,10 @@ namespace Sajari\Autocomplete {
      */
     public function TrainQuery(\Sajari\Autocomplete\TrainQueryRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.autocomplete.Train/TrainQuery',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.autocomplete.Train/TrainQuery',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

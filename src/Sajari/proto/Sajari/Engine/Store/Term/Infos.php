@@ -9,34 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Information for a list of terms.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.term.Infos</code>
+ * Generated from protobuf message <code>sajari.engine.store.term.Infos</code>
  */
 class Infos extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Information for a list of terms.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
      */
     private $infos;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Store\Term\Infos\Info[]|\Google\Protobuf\Internal\RepeatedField $infos
+     *           Information for a list of terms.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Term\Term::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Information for a list of terms.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getInfos()
     {
@@ -44,16 +49,18 @@ class Infos extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Information for a list of terms.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.term.Infos.Info infos = 1;</code>
+     * @param \Sajari\Engine\Store\Term\Infos\Info[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setInfos(&$var)
+    public function setInfos($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Term\Infos_Info::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Term\Infos\Info::class);
         $this->infos = $arr;
+
+        return $this;
     }
 
 }

@@ -9,51 +9,57 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchRequest is a request to perform a search using a pipeline.
- * </pre>
  *
- * Protobuf type <code>sajari.api.pipeline.v1.SearchRequest</code>
+ * Generated from protobuf message <code>sajari.api.pipeline.v1.SearchRequest</code>
  */
 class SearchRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
      */
     private $pipeline = null;
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the algorithm inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
      */
     private $values;
     /**
-     * <pre>
      * Tracking is the tracking configuration.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
      */
     private $tracking = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Api\Pipeline\V1\Pipeline $pipeline
+     *           Pipeline to run.
+     *     @type array|\Google\Protobuf\Internal\MapField $values
+     *           Values is a mapping of key -> value which should be substituted
+     *           into the algorithm inputs.
+     *     @type \Sajari\Api\Query\V1\SearchRequest\Tracking $tracking
+     *           Tracking is the tracking configuration.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * @return \Sajari\Api\Pipeline\V1\Pipeline
      */
     public function getPipeline()
     {
@@ -61,25 +67,26 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * @param \Sajari\Api\Pipeline\V1\Pipeline $var
+     * @return $this
      */
-    public function setPipeline(&$var)
+    public function setPipeline($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Pipeline\V1\Pipeline::class);
         $this->pipeline = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the algorithm inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getValues()
     {
@@ -87,25 +94,26 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the algorithm inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setValues(&$var)
+    public function setValues($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->values = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Tracking is the tracking configuration.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
+     * @return \Sajari\Api\Query\V1\SearchRequest\Tracking
      */
     public function getTracking()
     {
@@ -113,16 +121,18 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Tracking is the tracking configuration.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 3;</code>
+     * @param \Sajari\Api\Query\V1\SearchRequest\Tracking $var
+     * @return $this
      */
-    public function setTracking(&$var)
+    public function setTracking($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Query\V1\SearchRequest_Tracking::class);
         $this->tracking = $var;
+
+        return $this;
     }
 
 }

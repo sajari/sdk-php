@@ -9,34 +9,60 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Pipeline is an identifier used to specify a pipeline.
- * </pre>
  *
- * Protobuf type <code>sajari.api.pipeline.v1.Pipeline</code>
+ * Generated from protobuf message <code>sajari.api.pipeline.v1.Pipeline</code>
  */
 class Pipeline extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Name uniquely defines a pipeline.
-     * </pre>
+     * [a-z][a-z0-9-]*
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
+    /**
+     * Description is an explanation of the purpose/behaviour
+     * of the pipeline.
+     *
+     * Generated from protobuf field <code>string description = 2;</code>
+     */
+    private $description = '';
+    /**
+     * Version is the unique identifier.
+     *
+     * Generated from protobuf field <code>string version = 3;</code>
+     */
+    private $version = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           Name uniquely defines a pipeline.
+     *           [a-z][a-z0-9-]*
+     *     @type string $description
+     *           Description is an explanation of the purpose/behaviour
+     *           of the pipeline.
+     *     @type string $version
+     *           Version is the unique identifier.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Pipeline::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Name uniquely defines a pipeline.
-     * </pre>
+     * [a-z][a-z0-9-]*
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -44,16 +70,73 @@ class Pipeline extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name uniquely defines a pipeline.
-     * </pre>
+     * [a-z][a-z0-9-]*
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
+    }
+
+    /**
+     * Description is an explanation of the purpose/behaviour
+     * of the pipeline.
+     *
+     * Generated from protobuf field <code>string description = 2;</code>
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Description is an explanation of the purpose/behaviour
+     * of the pipeline.
+     *
+     * Generated from protobuf field <code>string description = 2;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDescription($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->description = $var;
+
+        return $this;
+    }
+
+    /**
+     * Version is the unique identifier.
+     *
+     * Generated from protobuf field <code>string version = 3;</code>
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Version is the unique identifier.
+     *
+     * Generated from protobuf field <code>string version = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->version = $var;
+
+        return $this;
     }
 
 }

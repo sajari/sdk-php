@@ -4,32 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-/**
- * <pre>
- * Region is an enumeration that defines regions for geo-boosting.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.query.v1.Filter.Geo.Region</code>
- */
-class Filter_Geo_Region
-{
+if (false) {
     /**
-     * <pre>
-     * Inside is used to configure a geo filter to be
-     * satisfied on all points within the radius.
-     * </pre>
-     *
-     * <code>INSIDE = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Filter\Geo\Region instead.
+     * @deprecated
      */
-    const INSIDE = 0;
-    /**
-     * <pre>
-     * Outside is used to configure a geo filter to be
-     * satisfied to all points outside the radius.
-     * </pre>
-     *
-     * <code>OUTSIDE = 1;</code>
-     */
-    const OUTSIDE = 1;
+    class Filter_Geo_Region {}
 }
+class_exists(Filter\Geo\Region::class);
+@trigger_error('Sajari\Engine\Query\V1\Filter_Geo_Region is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Filter\Geo\Region instead', E_USER_DEPRECATED);
 

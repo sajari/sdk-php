@@ -9,53 +9,60 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * UploadRequest encapsulates training data representing a document to add to the
  * specified training set and class name
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.trainingset.UploadRequest</code>
+ * Generated from protobuf message <code>sajari.bayes.trainingset.UploadRequest</code>
  */
 class UploadRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Name of the training set
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
-     * <pre>
      * Class name to add the data to
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
      */
     private $class = '';
     /**
-     * <pre>
      * Data represents the individual strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 3;</code>
+     * Generated from protobuf field <code>repeated string data = 3;</code>
      */
     private $data;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           Name of the training set
+     *     @type string $class
+     *           Class name to add the data to
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $data
+     *           Data represents the individual strings representing the input query to be
+     *           classified. Normally these would represent words from text. It is the
+     *           callers responsibility to stem and tokenise into an array of strings.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Trainingset\Trainingset::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Name of the training set
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -63,24 +70,25 @@ class UploadRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the training set
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Class name to add the data to
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
+     * @return string
      */
     public function getClass()
     {
@@ -88,26 +96,27 @@ class UploadRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Class name to add the data to
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setClass($var)
     {
         GPBUtil::checkString($var, True);
         $this->class = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Data represents the individual strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 3;</code>
+     * Generated from protobuf field <code>repeated string data = 3;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getData()
     {
@@ -115,18 +124,20 @@ class UploadRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Data represents the individual strings representing the input query to be
      * classified. Normally these would represent words from text. It is the
      * callers responsibility to stem and tokenise into an array of strings.
-     * </pre>
      *
-     * <code>repeated string data = 3;</code>
+     * Generated from protobuf field <code>repeated string data = 3;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setData(&$var)
+    public function setData($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->data = $arr;
+
+        return $this;
     }
 
 }

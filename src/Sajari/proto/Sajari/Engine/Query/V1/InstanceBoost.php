@@ -9,29 +9,38 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * InstanceBoost represents a boosting which is a applied to instances of terms
  * in the reverse index.  This type of boost effectively dynamically ranks
- * documents for a given term
- * </pre>
+ * records for a given term
  *
- * Protobuf type <code>sajari.engine.query.v1.InstanceBoost</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.InstanceBoost</code>
  */
 class InstanceBoost extends \Google\Protobuf\Internal\Message
 {
     protected $instance_boost;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\InstanceBoost\Field $field
+     *           Field-based instance boosting.
+     *     @type \Sajari\Engine\Query\V1\InstanceBoost\Score $score
+     *           Score-based instance boosting.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Field-based instance boosting.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.InstanceBoost.Field field = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.InstanceBoost.Field field = 1;</code>
+     * @return \Sajari\Engine\Query\V1\InstanceBoost\Field
      */
     public function getField()
     {
@@ -39,24 +48,25 @@ class InstanceBoost extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Field-based instance boosting.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.InstanceBoost.Field field = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.InstanceBoost.Field field = 1;</code>
+     * @param \Sajari\Engine\Query\V1\InstanceBoost\Field $var
+     * @return $this
      */
-    public function setField(&$var)
+    public function setField($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\InstanceBoost_Field::class);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Score-based instance boosting.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.InstanceBoost.Score score = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.InstanceBoost.Score score = 2;</code>
+     * @return \Sajari\Engine\Query\V1\InstanceBoost\Score
      */
     public function getScore()
     {
@@ -64,18 +74,23 @@ class InstanceBoost extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Score-based instance boosting.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.InstanceBoost.Score score = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.InstanceBoost.Score score = 2;</code>
+     * @param \Sajari\Engine\Query\V1\InstanceBoost\Score $var
+     * @return $this
      */
-    public function setScore(&$var)
+    public function setScore($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\InstanceBoost_Score::class);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getInstanceBoost()
     {
         return $this->whichOneof("instance_boost");

@@ -14,7 +14,7 @@ class Engine
         if (static::$is_initialized == true) {
           return;
         }
-        \GPBMetadata\Sajari\Rpc\GPBEmpty::initOnce();
+        \GPBMetadata\Sajari\Rpc\PBEmpty::initOnce();
         $pool->internalAddGeneratedFile(hex2bin(
             "0aee010a1e73616a6172692f6170692f656e67696e652f656e67696e652e" .
             "70726f746f121173616a6172692e6170692e656e67696e65221a0a0a436f" .

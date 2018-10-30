@@ -9,19 +9,25 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Empty is a message used when there is no value returned
  * from a call.
- * </pre>
  *
- * Protobuf type <code>sajari.rpc.Empty</code>
+ * Generated from protobuf message <code>sajari.rpc.Empty</code>
  */
 class PBEmpty extends \Google\Protobuf\Internal\Message
 {
 
-    public function __construct() {
-        \GPBMetadata\Sajari\Rpc\GPBEmpty::initOnce();
-        parent::__construct();
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     * }
+     */
+    public function __construct($data = NULL) {
+        \GPBMetadata\Sajari\Rpc\PBEmpty::initOnce();
+        parent::__construct($data);
     }
 
 }

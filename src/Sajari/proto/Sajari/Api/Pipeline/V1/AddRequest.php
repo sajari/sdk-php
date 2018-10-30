@@ -9,51 +9,57 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchRequest is a request to perform a search using a pipeline.
- * </pre>
  *
- * Protobuf type <code>sajari.api.pipeline.v1.AddRequest</code>
+ * Generated from protobuf message <code>sajari.api.pipeline.v1.AddRequest</code>
  */
 class AddRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
      */
     private $pipeline = null;
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the pipeline inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
      */
     private $values;
     /**
-     * <pre>
      * List of records to add.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 3;</code>
      */
     private $records;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Api\Pipeline\V1\Pipeline $pipeline
+     *           Pipeline to run.
+     *     @type array|\Google\Protobuf\Internal\MapField $values
+     *           Values is a mapping of key -> value which should be substituted
+     *           into the pipeline inputs.
+     *     @type \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $records
+     *           List of records to add.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * @return \Sajari\Api\Pipeline\V1\Pipeline
      */
     public function getPipeline()
     {
@@ -61,25 +67,26 @@ class AddRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Pipeline to run.
-     * </pre>
      *
-     * <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.pipeline.v1.Pipeline pipeline = 1;</code>
+     * @param \Sajari\Api\Pipeline\V1\Pipeline $var
+     * @return $this
      */
-    public function setPipeline(&$var)
+    public function setPipeline($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Pipeline\V1\Pipeline::class);
         $this->pipeline = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the pipeline inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getValues()
     {
@@ -87,25 +94,26 @@ class AddRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Values is a mapping of key -&gt; value which should be substituted
+     * Values is a mapping of key -> value which should be substituted
      * into the pipeline inputs.
-     * </pre>
      *
-     * <code>map&lt;string, string&gt; values = 2;</code>
+     * Generated from protobuf field <code>map<string, string> values = 2;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setValues(&$var)
+    public function setValues($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->values = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * List of records to add.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 3;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRecords()
     {
@@ -113,16 +121,18 @@ class AddRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * List of records to add.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 3;</code>
+     * @param \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setRecords(&$var)
+    public function setRecords($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
         $this->records = $arr;
+
+        return $this;
     }
 
 }

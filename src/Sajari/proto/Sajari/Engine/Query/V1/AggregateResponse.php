@@ -9,23 +9,34 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * AggregateResponse contains statistical information representing aggregation results
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.AggregateResponse</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.AggregateResponse</code>
  */
 class AggregateResponse extends \Google\Protobuf\Internal\Message
 {
     protected $aggregate_response;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\AggregateResponse\Metric $metric
+     *     @type \Sajari\Engine\Query\V1\AggregateResponse\Count $count
+     *     @type \Sajari\Engine\Query\V1\AggregateResponse\Buckets $buckets
+     *     @type \Sajari\Engine\Query\V1\AggregateResponse\Date $date
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Metric metric = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Metric metric = 1;</code>
+     * @return \Sajari\Engine\Query\V1\AggregateResponse\Metric
      */
     public function getMetric()
     {
@@ -33,16 +44,21 @@ class AggregateResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Metric metric = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Metric metric = 1;</code>
+     * @param \Sajari\Engine\Query\V1\AggregateResponse\Metric $var
+     * @return $this
      */
-    public function setMetric(&$var)
+    public function setMetric($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\AggregateResponse_Metric::class);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Count count = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Count count = 2;</code>
+     * @return \Sajari\Engine\Query\V1\AggregateResponse\Count
      */
     public function getCount()
     {
@@ -50,16 +66,21 @@ class AggregateResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Count count = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Count count = 2;</code>
+     * @param \Sajari\Engine\Query\V1\AggregateResponse\Count $var
+     * @return $this
      */
-    public function setCount(&$var)
+    public function setCount($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\AggregateResponse_Count::class);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Buckets buckets = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Buckets buckets = 3;</code>
+     * @return \Sajari\Engine\Query\V1\AggregateResponse\Buckets
      */
     public function getBuckets()
     {
@@ -67,14 +88,43 @@ class AggregateResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.AggregateResponse.Buckets buckets = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Buckets buckets = 3;</code>
+     * @param \Sajari\Engine\Query\V1\AggregateResponse\Buckets $var
+     * @return $this
      */
-    public function setBuckets(&$var)
+    public function setBuckets($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\AggregateResponse_Buckets::class);
         $this->writeOneof(3, $var);
+
+        return $this;
     }
 
+    /**
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Date date = 4;</code>
+     * @return \Sajari\Engine\Query\V1\AggregateResponse\Date
+     */
+    public function getDate()
+    {
+        return $this->readOneof(4);
+    }
+
+    /**
+     * Generated from protobuf field <code>.sajari.engine.query.v1.AggregateResponse.Date date = 4;</code>
+     * @param \Sajari\Engine\Query\V1\AggregateResponse\Date $var
+     * @return $this
+     */
+    public function setDate($var)
+    {
+        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\AggregateResponse_Date::class);
+        $this->writeOneof(4, $var);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getAggregateResponse()
     {
         return $this->whichOneof("aggregate_response");

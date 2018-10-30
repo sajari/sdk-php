@@ -9,42 +9,47 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * AddClassRequest creates a new class for the specified training set
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.trainingset.AddClassRequest</code>
+ * Generated from protobuf message <code>sajari.bayes.trainingset.AddClassRequest</code>
  */
 class AddClassRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * The name of the training set to add the class to
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
-     * <pre>
      * Name of the class to add
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
      */
     private $class = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           The name of the training set to add the class to
+     *     @type string $class
+     *           Name of the class to add
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Trainingset\Trainingset::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * The name of the training set to add the class to
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -52,24 +57,25 @@ class AddClassRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * The name of the training set to add the class to
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Name of the class to add
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
+     * @return string
      */
     public function getClass()
     {
@@ -77,16 +83,18 @@ class AddClassRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the class to add
-     * </pre>
      *
-     * <code>string class = 2;</code>
+     * Generated from protobuf field <code>string class = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setClass($var)
     {
         GPBUtil::checkString($var, True);
         $this->class = $var;
+
+        return $this;
     }
 
 }

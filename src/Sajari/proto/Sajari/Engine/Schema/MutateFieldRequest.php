@@ -9,43 +9,49 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * MutateFieldRequest is a message type passed to the MutateField method.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.schema.MutateFieldRequest</code>
+ * Generated from protobuf message <code>sajari.engine.schema.MutateFieldRequest</code>
  */
 class MutateFieldRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Name of the field to mutate.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
-     * <pre>
      * List of mutations to apply to the field.  Each is taken individually, if there
      * are any errors then the rest are ignored.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
      */
     private $mutations;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           Name of the field to mutate.
+     *     @type \Sajari\Engine\Schema\MutateFieldRequest\Mutation[]|\Google\Protobuf\Internal\RepeatedField $mutations
+     *           List of mutations to apply to the field.  Each is taken individually, if there
+     *           are any errors then the rest are ignored.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Schema\Schema::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Name of the field to mutate.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -53,25 +59,26 @@ class MutateFieldRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the field to mutate.
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * List of mutations to apply to the field.  Each is taken individually, if there
      * are any errors then the rest are ignored.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getMutations()
     {
@@ -79,17 +86,19 @@ class MutateFieldRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * List of mutations to apply to the field.  Each is taken individually, if there
      * are any errors then the rest are ignored.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.MutateFieldRequest.Mutation mutations = 2;</code>
+     * @param \Sajari\Engine\Schema\MutateFieldRequest\Mutation[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setMutations(&$var)
+    public function setMutations($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\MutateFieldRequest_Mutation::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\MutateFieldRequest\Mutation::class);
         $this->mutations = $arr;
+
+        return $this;
     }
 
 }

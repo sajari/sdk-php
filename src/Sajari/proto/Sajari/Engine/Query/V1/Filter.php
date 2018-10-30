@@ -9,24 +9,35 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * Filter describes a set of conditions to match values in document fields.
+ * Filter describes a set of conditions to match values in record fields.
  * Filters can be nested and combined using Combinators.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.Filter</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.Filter</code>
  */
 class Filter extends \Google\Protobuf\Internal\Message
 {
     protected $filter;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\Filter\Combinator $combinator
+     *     @type \Sajari\Engine\Query\V1\Filter\Field $field
+     *     @type \Sajari\Engine\Query\V1\Filter\Geo $geo
+     *     @type string $is_null
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Combinator combinator = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Combinator combinator = 1;</code>
+     * @return \Sajari\Engine\Query\V1\Filter\Combinator
      */
     public function getCombinator()
     {
@@ -34,16 +45,21 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Combinator combinator = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Combinator combinator = 1;</code>
+     * @param \Sajari\Engine\Query\V1\Filter\Combinator $var
+     * @return $this
      */
-    public function setCombinator(&$var)
+    public function setCombinator($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter_Combinator::class);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Field field = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Field field = 2;</code>
+     * @return \Sajari\Engine\Query\V1\Filter\Field
      */
     public function getField()
     {
@@ -51,16 +67,21 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Field field = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Field field = 2;</code>
+     * @param \Sajari\Engine\Query\V1\Filter\Field $var
+     * @return $this
      */
-    public function setField(&$var)
+    public function setField($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter_Field::class);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Geo geo = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Geo geo = 3;</code>
+     * @return \Sajari\Engine\Query\V1\Filter\Geo
      */
     public function getGeo()
     {
@@ -68,14 +89,43 @@ class Filter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Filter.Geo geo = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter.Geo geo = 3;</code>
+     * @param \Sajari\Engine\Query\V1\Filter\Geo $var
+     * @return $this
      */
-    public function setGeo(&$var)
+    public function setGeo($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter_Geo::class);
         $this->writeOneof(3, $var);
+
+        return $this;
     }
 
+    /**
+     * Generated from protobuf field <code>string is_null = 4;</code>
+     * @return string
+     */
+    public function getIsNull()
+    {
+        return $this->readOneof(4);
+    }
+
+    /**
+     * Generated from protobuf field <code>string is_null = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setIsNull($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->writeOneof(4, $var);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getFilter()
     {
         return $this->whichOneof("filter");

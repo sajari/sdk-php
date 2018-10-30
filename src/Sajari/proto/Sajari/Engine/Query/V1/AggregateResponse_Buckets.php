@@ -4,45 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Buckets is a full set of buckets computed in an aggregation.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.AggregateResponse.Buckets</code>
- */
-class AggregateResponse_Buckets extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse.Buckets.Bucket&gt; buckets = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\AggregateResponse\Buckets instead.
+     * @deprecated
      */
-    private $buckets;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse.Buckets.Bucket&gt; buckets = 1;</code>
-     */
-    public function getBuckets()
-    {
-        return $this->buckets;
-    }
-
-    /**
-     * <code>map&lt;string, .sajari.engine.query.v1.AggregateResponse.Buckets.Bucket&gt; buckets = 1;</code>
-     */
-    public function setBuckets(&$var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AggregateResponse_Buckets_Bucket::class);
-        $this->buckets = $arr;
-    }
-
+    class AggregateResponse_Buckets {}
 }
+class_exists(AggregateResponse\Buckets::class);
+@trigger_error('Sajari\Engine\Query\V1\AggregateResponse_Buckets is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\AggregateResponse\Buckets instead', E_USER_DEPRECATED);
 

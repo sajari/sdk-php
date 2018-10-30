@@ -9,34 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * InfoResponse returns information for a given training set
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.trainingset.InfoResponse</code>
+ * Generated from protobuf message <code>sajari.bayes.trainingset.InfoResponse</code>
  */
 class InfoResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * List of classes for the specified training set
-     * </pre>
      *
-     * <code>repeated string classes = 1;</code>
+     * Generated from protobuf field <code>repeated string classes = 1;</code>
      */
     private $classes;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $classes
+     *           List of classes for the specified training set
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Trainingset\Trainingset::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * List of classes for the specified training set
-     * </pre>
      *
-     * <code>repeated string classes = 1;</code>
+     * Generated from protobuf field <code>repeated string classes = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getClasses()
     {
@@ -44,16 +49,18 @@ class InfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * List of classes for the specified training set
-     * </pre>
      *
-     * <code>repeated string classes = 1;</code>
+     * Generated from protobuf field <code>repeated string classes = 1;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setClasses(&$var)
+    public function setClasses($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->classes = $arr;
+
+        return $this;
     }
 
 }

@@ -9,42 +9,47 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Status response
- * </pre>
  *
- * Protobuf type <code>sajari.rpc.Status</code>
+ * Generated from protobuf message <code>sajari.rpc.Status</code>
  */
 class Status extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Status code related to the message.
-     * </pre>
      *
-     * <code>int32 code = 1;</code>
+     * Generated from protobuf field <code>int32 code = 1;</code>
      */
     private $code = 0;
     /**
-     * <pre>
      * Message
-     * </pre>
      *
-     * <code>string message = 2;</code>
+     * Generated from protobuf field <code>string message = 2;</code>
      */
     private $message = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $code
+     *           Status code related to the message.
+     *     @type string $message
+     *           Message
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Rpc\Status::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Status code related to the message.
-     * </pre>
      *
-     * <code>int32 code = 1;</code>
+     * Generated from protobuf field <code>int32 code = 1;</code>
+     * @return int
      */
     public function getCode()
     {
@@ -52,24 +57,25 @@ class Status extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Status code related to the message.
-     * </pre>
      *
-     * <code>int32 code = 1;</code>
+     * Generated from protobuf field <code>int32 code = 1;</code>
+     * @param int $var
+     * @return $this
      */
     public function setCode($var)
     {
         GPBUtil::checkInt32($var);
         $this->code = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Message
-     * </pre>
      *
-     * <code>string message = 2;</code>
+     * Generated from protobuf field <code>string message = 2;</code>
+     * @return string
      */
     public function getMessage()
     {
@@ -77,16 +83,18 @@ class Status extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Message
-     * </pre>
      *
-     * <code>string message = 2;</code>
+     * Generated from protobuf field <code>string message = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setMessage($var)
     {
         GPBUtil::checkString($var, True);
         $this->message = $var;
+
+        return $this;
     }
 
 }

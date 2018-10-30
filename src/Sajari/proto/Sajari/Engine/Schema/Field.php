@@ -9,101 +9,141 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Field defines the properties of of a field in the schema.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.schema.Field</code>
+ * Generated from protobuf message <code>sajari.engine.schema.Field</code>
  */
 class Field extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * ID used internally
-     * </pre>
      *
-     * <code>uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      */
     private $id = 0;
     /**
-     * <pre>
      * Name of the field.
-     * </pre>
      *
-     * <code>string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      */
     private $name = '';
     /**
-     * <pre>
      * Description of the field.
-     * </pre>
      *
-     * <code>string description = 3;</code>
+     * Generated from protobuf field <code>string description = 3;</code>
      */
     private $description = '';
     /**
-     * <pre>
      * Type of the field.
-     * </pre>
      *
-     * <code>.sajari.engine.schema.Field.Type type = 4;</code>
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Type type = 4;</code>
      */
     private $type = 0;
     /**
-     * <pre>
      * Repeated sets that fields are repeated values (i.e. a list of values).
-     * </pre>
      *
-     * <code>bool repeated = 5;</code>
+     * Generated from protobuf field <code>bool repeated = 5;</code>
      */
     private $repeated = false;
     /**
-     * <pre>
-     * Required sets that the field must be specified when adding new documents.
-     * </pre>
+     * Repeated length sets the required length for the repeated field.
      *
-     * <code>bool required = 6;</code>
+     * Generated from protobuf field <code>int32 repeated_len = 11;</code>
+     */
+    private $repeated_len = 0;
+    /**
+     * Required sets that the field must be specified when adding new records.
+     * DEPRECATED: use mode instead.
+     *
+     * Generated from protobuf field <code>bool required = 6;</code>
      */
     private $required = false;
     /**
-     * <pre>
      * Store is set to false if original values should not be stored. Ideal for large text
      * fields that need to be indexed but will never be returned in results.
-     * </pre>
+     * DEPRECATED: this field is now ignored.
      *
-     * <code>bool store = 7;</code>
+     * Generated from protobuf field <code>bool store = 7;</code>
      */
     private $store = false;
     /**
-     * <pre>
      * Indexed is set to true if this field should be indexed into a reverse index.
      * Only string and string array fields can be indexed.
-     * </pre>
+     * DEPRECATED: this field is now ignored for incoming values.
      *
-     * <code>bool indexed = 8;</code>
+     * Generated from protobuf field <code>bool indexed = 8;</code>
      */
     private $indexed = false;
     /**
-     * <pre>
      * Unique is set to true if this field should contain unique values. Unique
-     * fields also support indexing to assist with fast document lookups
-     * </pre>
+     * fields also support indexing to assist with fast record lookups.
+     * DEPRECATED: use mode instead.
      *
-     * <code>bool unique = 9;</code>
+     * Generated from protobuf field <code>bool unique = 9;</code>
      */
     private $unique = false;
+    /**
+     * Mode of the field.
+     *
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Mode mode = 12;</code>
+     */
+    private $mode = 0;
+    /**
+     * Indexes is a list of indexes defined for the field.
+     *
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.FieldIndex indexes = 10;</code>
+     */
+    private $indexes;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $id
+     *           ID used internally
+     *     @type string $name
+     *           Name of the field.
+     *     @type string $description
+     *           Description of the field.
+     *     @type int $type
+     *           Type of the field.
+     *     @type bool $repeated
+     *           Repeated sets that fields are repeated values (i.e. a list of values).
+     *     @type int $repeated_len
+     *           Repeated length sets the required length for the repeated field.
+     *     @type bool $required
+     *           Required sets that the field must be specified when adding new records.
+     *           DEPRECATED: use mode instead.
+     *     @type bool $store
+     *           Store is set to false if original values should not be stored. Ideal for large text
+     *           fields that need to be indexed but will never be returned in results.
+     *           DEPRECATED: this field is now ignored.
+     *     @type bool $indexed
+     *           Indexed is set to true if this field should be indexed into a reverse index.
+     *           Only string and string array fields can be indexed.
+     *           DEPRECATED: this field is now ignored for incoming values.
+     *     @type bool $unique
+     *           Unique is set to true if this field should contain unique values. Unique
+     *           fields also support indexing to assist with fast record lookups.
+     *           DEPRECATED: use mode instead.
+     *     @type int $mode
+     *           Mode of the field.
+     *     @type \Sajari\Engine\Schema\FieldIndex[]|\Google\Protobuf\Internal\RepeatedField $indexes
+     *           Indexes is a list of indexes defined for the field.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Schema\Schema::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * ID used internally
-     * </pre>
      *
-     * <code>uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
+     * @return int
      */
     public function getId()
     {
@@ -111,24 +151,25 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * ID used internally
-     * </pre>
      *
-     * <code>uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
+     * @param int $var
+     * @return $this
      */
     public function setId($var)
     {
         GPBUtil::checkUint32($var);
         $this->id = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Name of the field.
-     * </pre>
      *
-     * <code>string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
+     * @return string
      */
     public function getName()
     {
@@ -136,24 +177,25 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the field.
-     * </pre>
      *
-     * <code>string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Description of the field.
-     * </pre>
      *
-     * <code>string description = 3;</code>
+     * Generated from protobuf field <code>string description = 3;</code>
+     * @return string
      */
     public function getDescription()
     {
@@ -161,24 +203,25 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Description of the field.
-     * </pre>
      *
-     * <code>string description = 3;</code>
+     * Generated from protobuf field <code>string description = 3;</code>
+     * @param string $var
+     * @return $this
      */
     public function setDescription($var)
     {
         GPBUtil::checkString($var, True);
         $this->description = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Type of the field.
-     * </pre>
      *
-     * <code>.sajari.engine.schema.Field.Type type = 4;</code>
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Type type = 4;</code>
+     * @return int
      */
     public function getType()
     {
@@ -186,24 +229,25 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Type of the field.
-     * </pre>
      *
-     * <code>.sajari.engine.schema.Field.Type type = 4;</code>
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Type type = 4;</code>
+     * @param int $var
+     * @return $this
      */
     public function setType($var)
     {
         GPBUtil::checkEnum($var, \Sajari\Engine\Schema\Field_Type::class);
         $this->type = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Repeated sets that fields are repeated values (i.e. a list of values).
-     * </pre>
      *
-     * <code>bool repeated = 5;</code>
+     * Generated from protobuf field <code>bool repeated = 5;</code>
+     * @return bool
      */
     public function getRepeated()
     {
@@ -211,24 +255,52 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Repeated sets that fields are repeated values (i.e. a list of values).
-     * </pre>
      *
-     * <code>bool repeated = 5;</code>
+     * Generated from protobuf field <code>bool repeated = 5;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setRepeated($var)
     {
         GPBUtil::checkBool($var);
         $this->repeated = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Required sets that the field must be specified when adding new documents.
-     * </pre>
+     * Repeated length sets the required length for the repeated field.
      *
-     * <code>bool required = 6;</code>
+     * Generated from protobuf field <code>int32 repeated_len = 11;</code>
+     * @return int
+     */
+    public function getRepeatedLen()
+    {
+        return $this->repeated_len;
+    }
+
+    /**
+     * Repeated length sets the required length for the repeated field.
+     *
+     * Generated from protobuf field <code>int32 repeated_len = 11;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRepeatedLen($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->repeated_len = $var;
+
+        return $this;
+    }
+
+    /**
+     * Required sets that the field must be specified when adding new records.
+     * DEPRECATED: use mode instead.
+     *
+     * Generated from protobuf field <code>bool required = 6;</code>
+     * @return bool
      */
     public function getRequired()
     {
@@ -236,25 +308,28 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Required sets that the field must be specified when adding new documents.
-     * </pre>
+     * Required sets that the field must be specified when adding new records.
+     * DEPRECATED: use mode instead.
      *
-     * <code>bool required = 6;</code>
+     * Generated from protobuf field <code>bool required = 6;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setRequired($var)
     {
         GPBUtil::checkBool($var);
         $this->required = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Store is set to false if original values should not be stored. Ideal for large text
      * fields that need to be indexed but will never be returned in results.
-     * </pre>
+     * DEPRECATED: this field is now ignored.
      *
-     * <code>bool store = 7;</code>
+     * Generated from protobuf field <code>bool store = 7;</code>
+     * @return bool
      */
     public function getStore()
     {
@@ -262,26 +337,29 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Store is set to false if original values should not be stored. Ideal for large text
      * fields that need to be indexed but will never be returned in results.
-     * </pre>
+     * DEPRECATED: this field is now ignored.
      *
-     * <code>bool store = 7;</code>
+     * Generated from protobuf field <code>bool store = 7;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setStore($var)
     {
         GPBUtil::checkBool($var);
         $this->store = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Indexed is set to true if this field should be indexed into a reverse index.
      * Only string and string array fields can be indexed.
-     * </pre>
+     * DEPRECATED: this field is now ignored for incoming values.
      *
-     * <code>bool indexed = 8;</code>
+     * Generated from protobuf field <code>bool indexed = 8;</code>
+     * @return bool
      */
     public function getIndexed()
     {
@@ -289,26 +367,29 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Indexed is set to true if this field should be indexed into a reverse index.
      * Only string and string array fields can be indexed.
-     * </pre>
+     * DEPRECATED: this field is now ignored for incoming values.
      *
-     * <code>bool indexed = 8;</code>
+     * Generated from protobuf field <code>bool indexed = 8;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setIndexed($var)
     {
         GPBUtil::checkBool($var);
         $this->indexed = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Unique is set to true if this field should contain unique values. Unique
-     * fields also support indexing to assist with fast document lookups
-     * </pre>
+     * fields also support indexing to assist with fast record lookups.
+     * DEPRECATED: use mode instead.
      *
-     * <code>bool unique = 9;</code>
+     * Generated from protobuf field <code>bool unique = 9;</code>
+     * @return bool
      */
     public function getUnique()
     {
@@ -316,17 +397,72 @@ class Field extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Unique is set to true if this field should contain unique values. Unique
-     * fields also support indexing to assist with fast document lookups
-     * </pre>
+     * fields also support indexing to assist with fast record lookups.
+     * DEPRECATED: use mode instead.
      *
-     * <code>bool unique = 9;</code>
+     * Generated from protobuf field <code>bool unique = 9;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setUnique($var)
     {
         GPBUtil::checkBool($var);
         $this->unique = $var;
+
+        return $this;
+    }
+
+    /**
+     * Mode of the field.
+     *
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Mode mode = 12;</code>
+     * @return int
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * Mode of the field.
+     *
+     * Generated from protobuf field <code>.sajari.engine.schema.Field.Mode mode = 12;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMode($var)
+    {
+        GPBUtil::checkEnum($var, \Sajari\Engine\Schema\Field_Mode::class);
+        $this->mode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Indexes is a list of indexes defined for the field.
+     *
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.FieldIndex indexes = 10;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getIndexes()
+    {
+        return $this->indexes;
+    }
+
+    /**
+     * Indexes is a list of indexes defined for the field.
+     *
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.FieldIndex indexes = 10;</code>
+     * @param \Sajari\Engine\Schema\FieldIndex[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setIndexes($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\FieldIndex::class);
+        $this->indexes = $arr;
+
+        return $this;
     }
 
 }

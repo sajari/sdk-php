@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Engine\Store\Term {
+namespace Sajari\Engine\Store\Term;
 
-  // Term defines methods for accesing terms.
-  class TermClient extends \Grpc\BaseStub {
+/**
+ * Term defines methods for accesing terms.
+ */
+class TermClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Engine\Store\Term {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -24,12 +26,10 @@ namespace Sajari\Engine\Store\Term {
      */
     public function Get(\Sajari\Engine\Store\Term\Values $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.store.term.Term/Get',
-      $argument,
-      ['\Sajari\Engine\Store\Term\Infos', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.store.term.Term/Get',
+        $argument,
+        ['\Sajari\Engine\Store\Term\Infos', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

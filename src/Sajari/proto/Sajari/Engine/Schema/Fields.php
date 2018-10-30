@@ -9,26 +9,34 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Fields is a list of Fields.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.schema.Fields</code>
+ * Generated from protobuf message <code>sajari.engine.schema.Fields</code>
  */
 class Fields extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>repeated .sajari.engine.schema.Field fields = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.Field fields = 1;</code>
      */
     private $fields;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Schema\Field[]|\Google\Protobuf\Internal\RepeatedField $fields
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Schema\Schema::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>repeated .sajari.engine.schema.Field fields = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.Field fields = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getFields()
     {
@@ -36,12 +44,16 @@ class Fields extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>repeated .sajari.engine.schema.Field fields = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.schema.Field fields = 1;</code>
+     * @param \Sajari\Engine\Schema\Field[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setFields(&$var)
+    public function setFields($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Schema\Field::class);
         $this->fields = $arr;
+
+        return $this;
     }
 
 }

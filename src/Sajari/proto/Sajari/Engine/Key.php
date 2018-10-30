@@ -9,43 +9,48 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * Key is a key-value pair that uniquely determines a document in a collection.
+ * Key is a key-value pair that uniquely determines a record in a collection.
  * Any unique field in a collection can be used to create a key.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.Key</code>
+ * Generated from protobuf message <code>sajari.engine.Key</code>
  */
 class Key extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Field is the meta field (must be a unique field).
-     * </pre>
      *
-     * <code>string field = 1;</code>
+     * Generated from protobuf field <code>string field = 1;</code>
      */
     private $field = '';
     /**
-     * <pre>
      * Value is the identifying value.
-     * </pre>
      *
-     * <code>.sajari.engine.Value value = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.Value value = 2;</code>
      */
     private $value = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $field
+     *           Field is the meta field (must be a unique field).
+     *     @type \Sajari\Engine\Value $value
+     *           Value is the identifying value.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Key::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Field is the meta field (must be a unique field).
-     * </pre>
      *
-     * <code>string field = 1;</code>
+     * Generated from protobuf field <code>string field = 1;</code>
+     * @return string
      */
     public function getField()
     {
@@ -53,24 +58,25 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Field is the meta field (must be a unique field).
-     * </pre>
      *
-     * <code>string field = 1;</code>
+     * Generated from protobuf field <code>string field = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setField($var)
     {
         GPBUtil::checkString($var, True);
         $this->field = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Value is the identifying value.
-     * </pre>
      *
-     * <code>.sajari.engine.Value value = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.Value value = 2;</code>
+     * @return \Sajari\Engine\Value
      */
     public function getValue()
     {
@@ -78,16 +84,18 @@ class Key extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Value is the identifying value.
-     * </pre>
      *
-     * <code>.sajari.engine.Value value = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.Value value = 2;</code>
+     * @param \Sajari\Engine\Value $var
+     * @return $this
      */
-    public function setValue(&$var)
+    public function setValue($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Value::class);
         $this->value = $var;
+
+        return $this;
     }
 
 }

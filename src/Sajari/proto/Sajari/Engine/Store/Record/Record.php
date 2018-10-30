@@ -9,34 +9,47 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Record is a single record made up of key-value pairs.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.Record</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.Record</code>
  */
 class Record extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * A map of key-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
      */
     private $values;
+    /**
+     * A map of field-value indexes.
+     *
+     * Generated from protobuf field <code>map<string, .sajari.engine.store.record.ValueIndexes> value_indexes = 2;</code>
+     */
+    private $value_indexes;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type array|\Google\Protobuf\Internal\MapField $values
+     *           A map of key-value pairs.
+     *     @type array|\Google\Protobuf\Internal\MapField $value_indexes
+     *           A map of field-value indexes.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * A map of key-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getValues()
     {
@@ -44,16 +57,44 @@ class Record extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * A map of key-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setValues(&$var)
+    public function setValues($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Value::class);
         $this->values = $arr;
+
+        return $this;
+    }
+
+    /**
+     * A map of field-value indexes.
+     *
+     * Generated from protobuf field <code>map<string, .sajari.engine.store.record.ValueIndexes> value_indexes = 2;</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getValueIndexes()
+    {
+        return $this->value_indexes;
+    }
+
+    /**
+     * A map of field-value indexes.
+     *
+     * Generated from protobuf field <code>map<string, .sajari.engine.store.record.ValueIndexes> value_indexes = 2;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setValueIndexes($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\ValueIndexes::class);
+        $this->value_indexes = $arr;
+
+        return $this;
     }
 
 }

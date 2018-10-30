@@ -9,35 +9,40 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * UploadResponse contains a unique hash for the uploaded data to prevent
  * duplicate documents distorting the training set probabilities
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.trainingset.UploadResponse</code>
+ * Generated from protobuf message <code>sajari.bayes.trainingset.UploadResponse</code>
  */
 class UploadResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * unique hash for the uploaded data
-     * </pre>
      *
-     * <code>string hash = 1;</code>
+     * Generated from protobuf field <code>string hash = 1;</code>
      */
     private $hash = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $hash
+     *           unique hash for the uploaded data
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Trainingset\Trainingset::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * unique hash for the uploaded data
-     * </pre>
      *
-     * <code>string hash = 1;</code>
+     * Generated from protobuf field <code>string hash = 1;</code>
+     * @return string
      */
     public function getHash()
     {
@@ -45,16 +50,18 @@ class UploadResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * unique hash for the uploaded data
-     * </pre>
      *
-     * <code>string hash = 1;</code>
+     * Generated from protobuf field <code>string hash = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setHash($var)
     {
         GPBUtil::checkString($var, True);
         $this->hash = $var;
+
+        return $this;
     }
 
 }

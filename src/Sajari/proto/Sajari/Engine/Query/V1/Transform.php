@@ -9,28 +9,36 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Transform is a transformation of the search request to be applied before
  * the search is run. Transforms are typically used to extract additional
  * features or to augment the input query itself.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.Transform</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.Transform</code>
  */
 class Transform extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
      */
     private $identifier = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $identifier
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
+     * @return string
      */
     public function getIdentifier()
     {
@@ -38,12 +46,16 @@ class Transform extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setIdentifier($var)
     {
         GPBUtil::checkString($var, True);
         $this->identifier = $var;
+
+        return $this;
     }
 
 }

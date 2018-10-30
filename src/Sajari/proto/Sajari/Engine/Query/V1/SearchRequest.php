@@ -9,115 +9,143 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * SearchRequest encompasses all the parameters necessary to query a search index.  Search requests
- * allow callers to select documents from a collection and return them in a score-based
- * ordering.
- * Documents in the search index can be queried/scored using a combination of:
+ * SearchRequest contains all the parameters to query a collection.
+ * Records in the collection can be queried/scored using a combination of:
  * 1. Field values (key-value pairs set by the user).  See Filter, FieldBoost, Sort.
- * 2. Terms (extracted from the body of the document, or from string-based indexed fields).
- *    See Body, Terms, InstanceBoost.
- * Quering a search index follows three main steps:
- * 1. Selecting potentially suitable documents to include in a result set.
- * 2. Ranking and sorting the documents based on configurable scoring and/or sorting rules.
- * 3. Computing aggregate statistical information from the result set.
- * </pre>
+ * 2. Terms (extracted from the body of the record, or from string-based indexed fields,
+ *    i.e. full-text style searching).  See Body, Terms, InstanceBoost.
+ * Quering a collection follows three main steps:
+ * 1. Select suitable records to include in a result set.
+ * 2. Rank and sort the records based on scoring and/or sorting rules.
+ * 3. Compute and aggregate statistical information from the result set.
  *
- * Protobuf type <code>sajari.engine.query.v1.SearchRequest</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.SearchRequest</code>
  */
 class SearchRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
-     * Filter is a rule checked against document field values.
-     * Only documents that match the filter will be included in the result.
-     * By default all documents are included.
-     * </pre>
+     * Filter is a rule checked against record field values.
+     * Only records that match the filter will be included in the result.
+     * By default all records are included.
      *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter filter = 1;</code>
      */
     private $filter = null;
     /**
-     * <pre>
      * IndexQuery is the matching configuration for index-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
      */
     private $index_query = null;
     /**
-     * <pre>
      * Feature query is the matching configuration for feature-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
      */
     private $feature_query = null;
     /**
-     * <pre>
-     * Offset is the offset to return results from.
-     * </pre>
+     * Minimum score threshold sets a lower-bound for the score required for a
+     * record to be included in the result set.
      *
-     * <code>int32 offset = 4;</code>
+     * Generated from protobuf field <code>double min_score_threshold = 10;</code>
+     */
+    private $min_score_threshold = 0.0;
+    /**
+     * Minimum index score threshold sets a lower-bound for the index score required for a
+     * record to be included in the result set.
+     *
+     * Generated from protobuf field <code>double min_index_score_threshold = 11;</code>
+     */
+    private $min_index_score_threshold = 0.0;
+    /**
+     * Offset is the offset to return results from.
+     *
+     * Generated from protobuf field <code>int32 offset = 4;</code>
      */
     private $offset = 0;
     /**
-     * <pre>
      * Limit is the number of results to return.
-     * </pre>
      *
-     * <code>int32 limit = 5;</code>
+     * Generated from protobuf field <code>int32 limit = 5;</code>
      */
     private $limit = 0;
     /**
-     * <pre>
-     * Fields to be returned for each result in the results.
+     * Fields to be returned for each record in the results.
      * By default all fields are returned.
-     * </pre>
      *
-     * <code>repeated string fields = 6;</code>
+     * Generated from protobuf field <code>repeated string fields = 6;</code>
      */
     private $fields;
     /**
-     * <pre>
      * Sort ordering applied to results.
      * Multiple sorts can be applied sequentially.
      * By default all results are ordered by score.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
      */
     private $sort;
     /**
-     * <pre>
      * A set of Aggregates to be run on the result set.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.Aggregate&gt; aggregates = 8;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.Aggregate> aggregates = 8;</code>
      */
     private $aggregates;
     /**
-     * <pre>
      * Transforms to be applied to the request before it is run.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
      */
     private $transforms;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\Filter $filter
+     *           Filter is a rule checked against record field values.
+     *           Only records that match the filter will be included in the result.
+     *           By default all records are included.
+     *     @type \Sajari\Engine\Query\V1\SearchRequest\IndexQuery $index_query
+     *           IndexQuery is the matching configuration for index-based matching.
+     *     @type \Sajari\Engine\Query\V1\SearchRequest\FeatureQuery $feature_query
+     *           Feature query is the matching configuration for feature-based matching.
+     *     @type float $min_score_threshold
+     *           Minimum score threshold sets a lower-bound for the score required for a
+     *           record to be included in the result set.
+     *     @type float $min_index_score_threshold
+     *           Minimum index score threshold sets a lower-bound for the index score required for a
+     *           record to be included in the result set.
+     *     @type int $offset
+     *           Offset is the offset to return results from.
+     *     @type int $limit
+     *           Limit is the number of results to return.
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $fields
+     *           Fields to be returned for each record in the results.
+     *           By default all fields are returned.
+     *     @type \Sajari\Engine\Query\V1\Sort[]|\Google\Protobuf\Internal\RepeatedField $sort
+     *           Sort ordering applied to results.
+     *           Multiple sorts can be applied sequentially.
+     *           By default all results are ordered by score.
+     *     @type array|\Google\Protobuf\Internal\MapField $aggregates
+     *           A set of Aggregates to be run on the result set.
+     *     @type \Sajari\Engine\Query\V1\Transform[]|\Google\Protobuf\Internal\RepeatedField $transforms
+     *           Transforms to be applied to the request before it is run.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
-     * Filter is a rule checked against document field values.
-     * Only documents that match the filter will be included in the result.
-     * By default all documents are included.
-     * </pre>
+     * Filter is a rule checked against record field values.
+     * Only records that match the filter will be included in the result.
+     * By default all records are included.
      *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * @return \Sajari\Engine\Query\V1\Filter
      */
     public function getFilter()
     {
@@ -125,26 +153,27 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Filter is a rule checked against document field values.
-     * Only documents that match the filter will be included in the result.
-     * By default all documents are included.
-     * </pre>
+     * Filter is a rule checked against record field values.
+     * Only records that match the filter will be included in the result.
+     * By default all records are included.
      *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * @param \Sajari\Engine\Query\V1\Filter $var
+     * @return $this
      */
-    public function setFilter(&$var)
+    public function setFilter($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter::class);
         $this->filter = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * IndexQuery is the matching configuration for index-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
+     * @return \Sajari\Engine\Query\V1\SearchRequest\IndexQuery
      */
     public function getIndexQuery()
     {
@@ -152,24 +181,25 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * IndexQuery is the matching configuration for index-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.IndexQuery index_query = 2;</code>
+     * @param \Sajari\Engine\Query\V1\SearchRequest\IndexQuery $var
+     * @return $this
      */
-    public function setIndexQuery(&$var)
+    public function setIndexQuery($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchRequest_IndexQuery::class);
         $this->index_query = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Feature query is the matching configuration for feature-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
+     * @return \Sajari\Engine\Query\V1\SearchRequest\FeatureQuery
      */
     public function getFeatureQuery()
     {
@@ -177,24 +207,81 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Feature query is the matching configuration for feature-based matching.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest.FeatureQuery feature_query = 3;</code>
+     * @param \Sajari\Engine\Query\V1\SearchRequest\FeatureQuery $var
+     * @return $this
      */
-    public function setFeatureQuery(&$var)
+    public function setFeatureQuery($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery::class);
         $this->feature_query = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Offset is the offset to return results from.
-     * </pre>
+     * Minimum score threshold sets a lower-bound for the score required for a
+     * record to be included in the result set.
      *
-     * <code>int32 offset = 4;</code>
+     * Generated from protobuf field <code>double min_score_threshold = 10;</code>
+     * @return float
+     */
+    public function getMinScoreThreshold()
+    {
+        return $this->min_score_threshold;
+    }
+
+    /**
+     * Minimum score threshold sets a lower-bound for the score required for a
+     * record to be included in the result set.
+     *
+     * Generated from protobuf field <code>double min_score_threshold = 10;</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setMinScoreThreshold($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->min_score_threshold = $var;
+
+        return $this;
+    }
+
+    /**
+     * Minimum index score threshold sets a lower-bound for the index score required for a
+     * record to be included in the result set.
+     *
+     * Generated from protobuf field <code>double min_index_score_threshold = 11;</code>
+     * @return float
+     */
+    public function getMinIndexScoreThreshold()
+    {
+        return $this->min_index_score_threshold;
+    }
+
+    /**
+     * Minimum index score threshold sets a lower-bound for the index score required for a
+     * record to be included in the result set.
+     *
+     * Generated from protobuf field <code>double min_index_score_threshold = 11;</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setMinIndexScoreThreshold($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->min_index_score_threshold = $var;
+
+        return $this;
+    }
+
+    /**
+     * Offset is the offset to return results from.
+     *
+     * Generated from protobuf field <code>int32 offset = 4;</code>
+     * @return int
      */
     public function getOffset()
     {
@@ -202,24 +289,25 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Offset is the offset to return results from.
-     * </pre>
      *
-     * <code>int32 offset = 4;</code>
+     * Generated from protobuf field <code>int32 offset = 4;</code>
+     * @param int $var
+     * @return $this
      */
     public function setOffset($var)
     {
         GPBUtil::checkInt32($var);
         $this->offset = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Limit is the number of results to return.
-     * </pre>
      *
-     * <code>int32 limit = 5;</code>
+     * Generated from protobuf field <code>int32 limit = 5;</code>
+     * @return int
      */
     public function getLimit()
     {
@@ -227,25 +315,26 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Limit is the number of results to return.
-     * </pre>
      *
-     * <code>int32 limit = 5;</code>
+     * Generated from protobuf field <code>int32 limit = 5;</code>
+     * @param int $var
+     * @return $this
      */
     public function setLimit($var)
     {
         GPBUtil::checkInt32($var);
         $this->limit = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Fields to be returned for each result in the results.
+     * Fields to be returned for each record in the results.
      * By default all fields are returned.
-     * </pre>
      *
-     * <code>repeated string fields = 6;</code>
+     * Generated from protobuf field <code>repeated string fields = 6;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getFields()
     {
@@ -253,27 +342,28 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Fields to be returned for each result in the results.
+     * Fields to be returned for each record in the results.
      * By default all fields are returned.
-     * </pre>
      *
-     * <code>repeated string fields = 6;</code>
+     * Generated from protobuf field <code>repeated string fields = 6;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setFields(&$var)
+    public function setFields($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->fields = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Sort ordering applied to results.
      * Multiple sorts can be applied sequentially.
      * By default all results are ordered by score.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getSort()
     {
@@ -281,26 +371,27 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Sort ordering applied to results.
      * Multiple sorts can be applied sequentially.
      * By default all results are ordered by score.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Sort sort = 7;</code>
+     * @param \Sajari\Engine\Query\V1\Sort[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setSort(&$var)
+    public function setSort($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Sort::class);
         $this->sort = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * A set of Aggregates to be run on the result set.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.Aggregate&gt; aggregates = 8;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.Aggregate> aggregates = 8;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getAggregates()
     {
@@ -308,24 +399,25 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * A set of Aggregates to be run on the result set.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.query.v1.Aggregate&gt; aggregates = 8;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.query.v1.Aggregate> aggregates = 8;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setAggregates(&$var)
+    public function setAggregates($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Aggregate::class);
         $this->aggregates = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Transforms to be applied to the request before it is run.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTransforms()
     {
@@ -333,16 +425,18 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Transforms to be applied to the request before it is run.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Transform transforms = 9;</code>
+     * @param \Sajari\Engine\Query\V1\Transform[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTransforms(&$var)
+    public function setTransforms($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Transform::class);
         $this->transforms = $arr;
+
+        return $this;
     }
 
 }

@@ -4,93 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Text represents a text-based boosting for string fields.
- * Compares text (using a bag of words model) and applies a boost based on the
- * number of intersecting words.
- * Boost effect: between 0 and 1.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.FieldBoost.Text</code>
- */
-class FieldBoost_Text extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Field containing string data.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\FieldBoost\Text instead.
+     * @deprecated
      */
-    private $field = '';
-    /**
-     * <pre>
-     * Text to compare against the field value.
-     * </pre>
-     *
-     * <code>string text = 3;</code>
-     */
-    private $text = '';
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Field containing string data.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * <pre>
-     * Field containing string data.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function setField($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->field = $var;
-    }
-
-    /**
-     * <pre>
-     * Text to compare against the field value.
-     * </pre>
-     *
-     * <code>string text = 3;</code>
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * <pre>
-     * Text to compare against the field value.
-     * </pre>
-     *
-     * <code>string text = 3;</code>
-     */
-    public function setText($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->text = $var;
-    }
-
+    class FieldBoost_Text {}
 }
+class_exists(FieldBoost\Text::class);
+@trigger_error('Sajari\Engine\Query\V1\FieldBoost_Text is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\FieldBoost\Text instead', E_USER_DEPRECATED);
 

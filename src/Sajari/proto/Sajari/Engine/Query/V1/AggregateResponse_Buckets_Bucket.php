@@ -4,90 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Bucket is the result of a bucket aggregate.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.AggregateResponse.Buckets.Bucket</code>
- */
-class AggregateResponse_Buckets_Bucket extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Name of bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\AggregateResponse\Buckets\Bucket instead.
+     * @deprecated
      */
-    private $name = '';
-    /**
-     * <pre>
-     * Number of documents in the bucket.
-     * </pre>
-     *
-     * <code>int32 count = 2;</code>
-     */
-    private $count = 0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Name of bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * <pre>
-     * Name of bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
-     */
-    public function setName($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->name = $var;
-    }
-
-    /**
-     * <pre>
-     * Number of documents in the bucket.
-     * </pre>
-     *
-     * <code>int32 count = 2;</code>
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * <pre>
-     * Number of documents in the bucket.
-     * </pre>
-     *
-     * <code>int32 count = 2;</code>
-     */
-    public function setCount($var)
-    {
-        GPBUtil::checkInt32($var);
-        $this->count = $var;
-    }
-
+    class AggregateResponse_Buckets_Bucket {}
 }
+class_exists(AggregateResponse\Buckets\Bucket::class);
+@trigger_error('Sajari\Engine\Query\V1\AggregateResponse_Buckets_Bucket is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\AggregateResponse\Buckets\Bucket instead', E_USER_DEPRECATED);
 

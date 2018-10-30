@@ -9,26 +9,34 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Keys is a list of keys.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.Keys</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.Keys</code>
  */
 class Keys extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
      */
     private $keys;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Key[]|\Google\Protobuf\Internal\RepeatedField $keys
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getKeys()
     {
@@ -36,12 +44,16 @@ class Keys extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
+     * @param \Sajari\Engine\Key[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setKeys(&$var)
+    public function setKeys($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
         $this->keys = $arr;
+
+        return $this;
     }
 
 }

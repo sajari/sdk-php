@@ -9,45 +9,51 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * AnalyseResponse contains the analysis of the document against the query
+ * AnalyseResponse contains the analysis of the record against the query
  * request.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.AnalyseResponse</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.AnalyseResponse</code>
  */
 class AnalyseResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
-     * Terms is the list of intersecting terms between the document and the
+     * Terms is the list of intersecting terms between the record and the
      * search query request.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
      */
     private $terms;
     /**
-     * <pre>
      * Status corresponding to each key in the request.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
      */
     private $status;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\AnalyseResponse\Terms[]|\Google\Protobuf\Internal\RepeatedField $terms
+     *           Terms is the list of intersecting terms between the record and the
+     *           search query request.
+     *     @type \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $status
+     *           Status corresponding to each key in the request.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
-     * Terms is the list of intersecting terms between the document and the
+     * Terms is the list of intersecting terms between the record and the
      * search query request.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTerms()
     {
@@ -55,25 +61,26 @@ class AnalyseResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Terms is the list of intersecting terms between the document and the
+     * Terms is the list of intersecting terms between the record and the
      * search query request.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.AnalyseResponse.Terms terms = 1;</code>
+     * @param \Sajari\Engine\Query\V1\AnalyseResponse\Terms[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTerms(&$var)
+    public function setTerms($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AnalyseResponse_Terms::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\AnalyseResponse\Terms::class);
         $this->terms = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Status corresponding to each key in the request.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getStatus()
     {
@@ -81,16 +88,18 @@ class AnalyseResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Status corresponding to each key in the request.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @param \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setStatus(&$var)
+    public function setStatus($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
         $this->status = $arr;
+
+        return $this;
     }
 
 }

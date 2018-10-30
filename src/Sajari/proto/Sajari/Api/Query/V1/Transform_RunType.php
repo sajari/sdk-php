@@ -4,34 +4,13 @@
 
 namespace Sajari\Api\Query\V1;
 
-/**
- * Protobuf enum <code>sajari.api.query.v1.Transform.RunType</code>
- */
-class Transform_RunType
-{
+if (false) {
     /**
-     * <pre>
-     * Run the transform before the query.
-     * </pre>
-     *
-     * <code>PRE_QUERY = 0;</code>
+     * This class is deprecated. Use Sajari\Api\Query\V1\Transform\RunType instead.
+     * @deprecated
      */
-    const PRE_QUERY = 0;
-    /**
-     * <pre>
-     * Run the transform on the request.
-     * </pre>
-     *
-     * <code>POST_NON_EMPTY = 1;</code>
-     */
-    const POST_NON_EMPTY = 1;
-    /**
-     * <pre>
-     * After an empty query this will apply the transform to the query and the re-run the query.
-     * </pre>
-     *
-     * <code>POST_EMPTY_PRE_RETRY = 2;</code>
-     */
-    const POST_EMPTY_PRE_RETRY = 2;
+    class Transform_RunType {}
 }
+class_exists(Transform\RunType::class);
+@trigger_error('Sajari\Api\Query\V1\Transform_RunType is deprecated and will be removed in the next major release. Use Sajari\Api\Query\V1\Transform\RunType instead', E_USER_DEPRECATED);
 

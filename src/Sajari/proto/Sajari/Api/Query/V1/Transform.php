@@ -9,38 +9,45 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Protobuf type <code>sajari.api.query.v1.Transform</code>
+ * Generated from protobuf message <code>sajari.api.query.v1.Transform</code>
  */
 class Transform extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * When to run the transform.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
      */
     private $run_type = 0;
     /**
-     * <pre>
      * Identifier for the transform.
-     * </pre>
      *
-     * <code>string identifier = 2;</code>
+     * Generated from protobuf field <code>string identifier = 2;</code>
      */
     private $identifier = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type int $run_type
+     *           When to run the transform.
+     *     @type string $identifier
+     *           Identifier for the transform.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * When to run the transform.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
+     * @return int
      */
     public function getRunType()
     {
@@ -48,24 +55,25 @@ class Transform extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * When to run the transform.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Transform.RunType run_type = 1;</code>
+     * @param int $var
+     * @return $this
      */
     public function setRunType($var)
     {
         GPBUtil::checkEnum($var, \Sajari\Api\Query\V1\Transform_RunType::class);
         $this->run_type = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Identifier for the transform.
-     * </pre>
      *
-     * <code>string identifier = 2;</code>
+     * Generated from protobuf field <code>string identifier = 2;</code>
+     * @return string
      */
     public function getIdentifier()
     {
@@ -73,16 +81,18 @@ class Transform extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Identifier for the transform.
-     * </pre>
      *
-     * <code>string identifier = 2;</code>
+     * Generated from protobuf field <code>string identifier = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setIdentifier($var)
     {
         GPBUtil::checkString($var, True);
         $this->identifier = $var;
+
+        return $this;
     }
 
 }

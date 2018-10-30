@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Bayes\Train {
+namespace Sajari\Bayes\Train;
 
-  // Train defines methods used to interact with the bayes training service
-  class TrainClient extends \Grpc\BaseStub {
+/**
+ * Train defines methods used to interact with the bayes training service
+ */
+class TrainClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Bayes\Train {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -27,12 +29,10 @@ namespace Sajari\Bayes\Train {
      */
     public function Train(\Sajari\Bayes\Train\Request $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.train.Train/Train',
-      $argument,
-      ['\Sajari\Bayes\Train\Response', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.train.Train/Train',
+        $argument,
+        ['\Sajari\Bayes\Train\Response', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

@@ -4,32 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-/**
- * <pre>
- * Order is an enumeration that defines orderings for sorting.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.query.v1.Sort.Order</code>
- */
-class Sort_Order
-{
+if (false) {
     /**
-     * <pre>
-     * Ascending: from least to greatest, for non-numeric
-     * fields this means alphabetical order.
-     * </pre>
-     *
-     * <code>ASC = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Sort\Order instead.
+     * @deprecated
      */
-    const ASC = 0;
-    /**
-     * <pre>
-     * Descending: from greatest to least, for non-numeric
-     * fields this means reverse-alphabetical order.
-     * </pre>
-     *
-     * <code>DESC = 1;</code>
-     */
-    const DESC = 1;
+    class Sort_Order {}
 }
+class_exists(Sort\Order::class);
+@trigger_error('Sajari\Engine\Query\V1\Sort_Order is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Sort\Order instead', E_USER_DEPRECATED);
 

@@ -9,38 +9,45 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Protobuf type <code>sajari.engine.store.record.KeyScores</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.KeyScores</code>
  */
 class KeyScores extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Record identifier key.
-     * </pre>
      *
-     * <code>.sajari.engine.Key key = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.Key key = 1;</code>
      */
     private $key = null;
     /**
-     * <pre>
      * Scores to update.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
      */
     private $scores;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Key $key
+     *           Record identifier key.
+     *     @type \Sajari\Engine\Store\Record\KeyScores\Score[]|\Google\Protobuf\Internal\RepeatedField $scores
+     *           Scores to update.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Record identifier key.
-     * </pre>
      *
-     * <code>.sajari.engine.Key key = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.Key key = 1;</code>
+     * @return \Sajari\Engine\Key
      */
     public function getKey()
     {
@@ -48,24 +55,25 @@ class KeyScores extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Record identifier key.
-     * </pre>
      *
-     * <code>.sajari.engine.Key key = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.Key key = 1;</code>
+     * @param \Sajari\Engine\Key $var
+     * @return $this
      */
-    public function setKey(&$var)
+    public function setKey($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Key::class);
         $this->key = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Scores to update.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getScores()
     {
@@ -73,16 +81,18 @@ class KeyScores extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Scores to update.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.KeyScores.Score scores = 2;</code>
+     * @param \Sajari\Engine\Store\Record\KeyScores\Score[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setScores(&$var)
+    public function setScores($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores_Score::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\KeyScores\Score::class);
         $this->scores = $arr;
+
+        return $this;
     }
 
 }

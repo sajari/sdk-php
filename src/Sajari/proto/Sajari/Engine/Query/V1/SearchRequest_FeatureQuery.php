@@ -4,57 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * FeatureQuery
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.SearchRequest.FeatureQuery</code>
- */
-class SearchRequest_FeatureQuery extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * A list of field boosts.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.SearchRequest.FeatureQuery.FieldBoost field_boosts = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\SearchRequest\FeatureQuery instead.
+     * @deprecated
      */
-    private $field_boosts;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * A list of field boosts.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.SearchRequest.FeatureQuery.FieldBoost field_boosts = 1;</code>
-     */
-    public function getFieldBoosts()
-    {
-        return $this->field_boosts;
-    }
-
-    /**
-     * <pre>
-     * A list of field boosts.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.SearchRequest.FeatureQuery.FieldBoost field_boosts = 1;</code>
-     */
-    public function setFieldBoosts(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\SearchRequest_FeatureQuery_FieldBoost::class);
-        $this->field_boosts = $arr;
-    }
-
+    class SearchRequest_FeatureQuery {}
 }
+class_exists(SearchRequest\FeatureQuery::class);
+@trigger_error('Sajari\Engine\Query\V1\SearchRequest_FeatureQuery is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\SearchRequest\FeatureQuery instead', E_USER_DEPRECATED);
 

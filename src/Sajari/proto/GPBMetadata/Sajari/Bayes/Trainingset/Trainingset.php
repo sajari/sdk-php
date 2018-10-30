@@ -14,7 +14,7 @@ class Trainingset
         if (static::$is_initialized == true) {
           return;
         }
-        \GPBMetadata\Sajari\Rpc\GPBEmpty::initOnce();
+        \GPBMetadata\Sajari\Rpc\PBEmpty::initOnce();
         $pool->internalAddGeneratedFile(hex2bin(
             "0a8b050a2a73616a6172692f62617965732f747261696e696e677365742f" .
             "747261696e696e677365742e70726f746f121873616a6172692e62617965" .

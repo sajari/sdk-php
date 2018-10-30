@@ -9,45 +9,50 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Request contains the name of the training set to use to train the model
  * and a model name to create from the set. This allows the same training
  * set to be continually modified without overwriting previously created
  * models
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.train.Request</code>
+ * Generated from protobuf message <code>sajari.bayes.train.Request</code>
  */
 class Request extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * name of the training set to use for training
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
     /**
-     * <pre>
      * model to save once the training is complete
-     * </pre>
      *
-     * <code>string model = 2;</code>
+     * Generated from protobuf field <code>string model = 2;</code>
      */
     private $model = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           name of the training set to use for training
+     *     @type string $model
+     *           model to save once the training is complete
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Train\Train::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * name of the training set to use for training
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -55,24 +60,25 @@ class Request extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * name of the training set to use for training
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * model to save once the training is complete
-     * </pre>
      *
-     * <code>string model = 2;</code>
+     * Generated from protobuf field <code>string model = 2;</code>
+     * @return string
      */
     public function getModel()
     {
@@ -80,16 +86,18 @@ class Request extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * model to save once the training is complete
-     * </pre>
      *
-     * <code>string model = 2;</code>
+     * Generated from protobuf field <code>string model = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setModel($var)
     {
         GPBUtil::checkString($var, True);
         $this->model = $var;
+
+        return $this;
     }
 
 }

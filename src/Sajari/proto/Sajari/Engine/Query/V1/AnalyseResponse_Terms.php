@@ -4,45 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Terms is a list of terms which overlap for a particular document.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.AnalyseResponse.Terms</code>
- */
-class AnalyseResponse_Terms extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>repeated string terms = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\AnalyseResponse\Terms instead.
+     * @deprecated
      */
-    private $terms;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>repeated string terms = 1;</code>
-     */
-    public function getTerms()
-    {
-        return $this->terms;
-    }
-
-    /**
-     * <code>repeated string terms = 1;</code>
-     */
-    public function setTerms(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->terms = $arr;
-    }
-
+    class AnalyseResponse_Terms {}
 }
+class_exists(AnalyseResponse\Terms::class);
+@trigger_error('Sajari\Engine\Query\V1\AnalyseResponse_Terms is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\AnalyseResponse\Terms instead', E_USER_DEPRECATED);
 

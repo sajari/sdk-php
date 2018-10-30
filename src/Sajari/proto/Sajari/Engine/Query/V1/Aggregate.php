@@ -9,23 +9,34 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Aggregate is a statistical query run on the result set of a search.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.Aggregate</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.Aggregate</code>
  */
 class Aggregate extends \Google\Protobuf\Internal\Message
 {
     protected $aggregate;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\Aggregate\Metric $metric
+     *     @type \Sajari\Engine\Query\V1\Aggregate\Count $count
+     *     @type \Sajari\Engine\Query\V1\Aggregate\Bucket $bucket
+     *     @type \Sajari\Engine\Query\V1\Aggregate\Date $date
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Metric metric = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Metric metric = 1;</code>
+     * @return \Sajari\Engine\Query\V1\Aggregate\Metric
      */
     public function getMetric()
     {
@@ -33,16 +44,21 @@ class Aggregate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Metric metric = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Metric metric = 1;</code>
+     * @param \Sajari\Engine\Query\V1\Aggregate\Metric $var
+     * @return $this
      */
-    public function setMetric(&$var)
+    public function setMetric($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Aggregate_Metric::class);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Count count = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Count count = 2;</code>
+     * @return \Sajari\Engine\Query\V1\Aggregate\Count
      */
     public function getCount()
     {
@@ -50,16 +66,21 @@ class Aggregate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Count count = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Count count = 2;</code>
+     * @param \Sajari\Engine\Query\V1\Aggregate\Count $var
+     * @return $this
      */
-    public function setCount(&$var)
+    public function setCount($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Aggregate_Count::class);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Bucket bucket = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Bucket bucket = 3;</code>
+     * @return \Sajari\Engine\Query\V1\Aggregate\Bucket
      */
     public function getBucket()
     {
@@ -67,14 +88,43 @@ class Aggregate extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.query.v1.Aggregate.Bucket bucket = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Bucket bucket = 3;</code>
+     * @param \Sajari\Engine\Query\V1\Aggregate\Bucket $var
+     * @return $this
      */
-    public function setBucket(&$var)
+    public function setBucket($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Aggregate_Bucket::class);
         $this->writeOneof(3, $var);
+
+        return $this;
     }
 
+    /**
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Date date = 4;</code>
+     * @return \Sajari\Engine\Query\V1\Aggregate\Date
+     */
+    public function getDate()
+    {
+        return $this->readOneof(4);
+    }
+
+    /**
+     * Generated from protobuf field <code>.sajari.engine.query.v1.Aggregate.Date date = 4;</code>
+     * @param \Sajari\Engine\Query\V1\Aggregate\Date $var
+     * @return $this
+     */
+    public function setDate($var)
+    {
+        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Aggregate_Date::class);
+        $this->writeOneof(4, $var);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getAggregate()
     {
         return $this->whichOneof("aggregate");

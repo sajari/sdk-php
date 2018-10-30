@@ -4,67 +4,13 @@
 
 namespace Sajari\Api\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * PosNeg is a pair of tokens which are used to mark a document as a good/bad
- * result for a SearchRequest.
- * </pre>
- *
- * Protobuf type <code>sajari.api.query.v1.Token.PosNeg</code>
- */
-class Token_PosNeg extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>string pos = 1;</code>
+     * This class is deprecated. Use Sajari\Api\Query\V1\Token\PosNeg instead.
+     * @deprecated
      */
-    private $pos = '';
-    /**
-     * <code>string neg = 2;</code>
-     */
-    private $neg = '';
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>string pos = 1;</code>
-     */
-    public function getPos()
-    {
-        return $this->pos;
-    }
-
-    /**
-     * <code>string pos = 1;</code>
-     */
-    public function setPos($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->pos = $var;
-    }
-
-    /**
-     * <code>string neg = 2;</code>
-     */
-    public function getNeg()
-    {
-        return $this->neg;
-    }
-
-    /**
-     * <code>string neg = 2;</code>
-     */
-    public function setNeg($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->neg = $var;
-    }
-
+    class Token_PosNeg {}
 }
+class_exists(Token\PosNeg::class);
+@trigger_error('Sajari\Api\Query\V1\Token_PosNeg is deprecated and will be removed in the next major release. Use Sajari\Api\Query\V1\Token\PosNeg instead', E_USER_DEPRECATED);
 

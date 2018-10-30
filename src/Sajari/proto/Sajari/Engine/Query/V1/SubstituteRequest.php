@@ -9,38 +9,45 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Protobuf type <code>sajari.engine.query.v1.SubstituteRequest</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.SubstituteRequest</code>
  */
 class SubstituteRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Request is used as a template
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
      */
     private $search_request = null;
     /**
-     * <pre>
-     * Document is the record to be substituted in the request.
-     * </pre>
+     * Record is the record to be substituted in the request.
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; record = 2;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> record = 2;</code>
      */
     private $record;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\SearchRequest $search_request
+     *           Request is used as a template
+     *     @type array|\Google\Protobuf\Internal\MapField $record
+     *           Record is the record to be substituted in the request.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Request is used as a template
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * @return \Sajari\Engine\Query\V1\SearchRequest
      */
     public function getSearchRequest()
     {
@@ -48,24 +55,25 @@ class SubstituteRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Request is used as a template
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * @param \Sajari\Engine\Query\V1\SearchRequest $var
+     * @return $this
      */
-    public function setSearchRequest(&$var)
+    public function setSearchRequest($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchRequest::class);
         $this->search_request = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Document is the record to be substituted in the request.
-     * </pre>
+     * Record is the record to be substituted in the request.
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; record = 2;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> record = 2;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getRecord()
     {
@@ -73,16 +81,18 @@ class SubstituteRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Document is the record to be substituted in the request.
-     * </pre>
+     * Record is the record to be substituted in the request.
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; record = 2;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> record = 2;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setRecord(&$var)
+    public function setRecord($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Value::class);
         $this->record = $arr;
+
+        return $this;
     }
 
 }

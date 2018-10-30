@@ -4,94 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Field is an instance boost which is applied to term instances which originate
- * from the given meta field.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.InstanceBoost.Field</code>
- */
-class InstanceBoost_Field extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Field where the term instance was defined.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\InstanceBoost\Field instead.
+     * @deprecated
      */
-    private $field = '';
-    /**
-     * <pre>
-     * Value to boost terms from this field. A value between 0 and 1 will decrease
-     * the score, a value greater than 1 will increase the score.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    private $value = 0.0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Field where the term instance was defined.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * <pre>
-     * Field where the term instance was defined.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function setField($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->field = $var;
-    }
-
-    /**
-     * <pre>
-     * Value to boost terms from this field. A value between 0 and 1 will decrease
-     * the score, a value greater than 1 will increase the score.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <pre>
-     * Value to boost terms from this field. A value between 0 and 1 will decrease
-     * the score, a value greater than 1 will increase the score.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function setValue($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->value = $var;
-    }
-
+    class InstanceBoost_Field {}
 }
+class_exists(InstanceBoost\Field::class);
+@trigger_error('Sajari\Engine\Query\V1\InstanceBoost_Field is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\InstanceBoost\Field instead', E_USER_DEPRECATED);
 

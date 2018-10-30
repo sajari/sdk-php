@@ -4,90 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Metric calculates numerical information from a field.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.Aggregate.Metric</code>
- */
-class Aggregate_Metric extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Name of the field to run numerical metrics.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Aggregate\Metric instead.
+     * @deprecated
      */
-    private $field = '';
-    /**
-     * <pre>
-     * The type of metric to apply.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Aggregate.Metric.Type type = 2;</code>
-     */
-    private $type = 0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Name of the field to run numerical metrics.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * <pre>
-     * Name of the field to run numerical metrics.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function setField($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->field = $var;
-    }
-
-    /**
-     * <pre>
-     * The type of metric to apply.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Aggregate.Metric.Type type = 2;</code>
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * <pre>
-     * The type of metric to apply.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Aggregate.Metric.Type type = 2;</code>
-     */
-    public function setType($var)
-    {
-        GPBUtil::checkEnum($var, \Sajari\Engine\Query\V1\Aggregate_Metric_Type::class);
-        $this->type = $var;
-    }
-
+    class Aggregate_Metric {}
 }
+class_exists(Aggregate\Metric::class);
+@trigger_error('Sajari\Engine\Query\V1\Aggregate_Metric is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Aggregate\Metric instead', E_USER_DEPRECATED);
 

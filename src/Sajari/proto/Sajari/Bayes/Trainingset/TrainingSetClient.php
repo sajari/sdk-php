@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Bayes\Trainingset {
+namespace Sajari\Bayes\Trainingset;
 
-  // TrainingSet defines methods used to interact with the bayes training set service
-  class TrainingSetClient extends \Grpc\BaseStub {
+/**
+ * TrainingSet defines methods used to interact with the bayes training set service
+ */
+class TrainingSetClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Bayes\Trainingset {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -23,10 +25,10 @@ namespace Sajari\Bayes\Trainingset {
      */
     public function Upload(\Sajari\Bayes\Trainingset\UploadRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Upload',
-      $argument,
-      ['\Sajari\Bayes\Trainingset\UploadResponse', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Upload',
+        $argument,
+        ['\Sajari\Bayes\Trainingset\UploadResponse', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -37,10 +39,10 @@ namespace Sajari\Bayes\Trainingset {
      */
     public function Create(\Sajari\Bayes\Trainingset\CreateRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Create',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Create',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -51,10 +53,10 @@ namespace Sajari\Bayes\Trainingset {
      */
     public function Info(\Sajari\Bayes\Trainingset\InfoRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Info',
-      $argument,
-      ['\Sajari\Bayes\Trainingset\InfoResponse', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/Info',
+        $argument,
+        ['\Sajari\Bayes\Trainingset\InfoResponse', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -65,12 +67,10 @@ namespace Sajari\Bayes\Trainingset {
      */
     public function AddClass(\Sajari\Bayes\Trainingset\AddClassRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/AddClass',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.bayes.trainingset.TrainingSet/AddClass',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

@@ -9,34 +9,42 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * GetResponse is returned from Get.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.GetResponse</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.GetResponse</code>
  */
 class GetResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
      */
     private $records;
     /**
-     * <pre>
      * Status for each get.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
      */
     private $status;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $records
+     *     @type \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $status
+     *           Status for each get.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRecords()
     {
@@ -44,20 +52,23 @@ class GetResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * @param \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setRecords(&$var)
+    public function setRecords($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
         $this->records = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Status for each get.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getStatus()
     {
@@ -65,16 +76,18 @@ class GetResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Status for each get.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @param \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setStatus(&$var)
+    public function setStatus($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
         $this->status = $arr;
+
+        return $this;
     }
 
 }

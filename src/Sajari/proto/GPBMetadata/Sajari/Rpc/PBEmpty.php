@@ -4,7 +4,7 @@
 
 namespace GPBMetadata\Sajari\Rpc;
 
-class GPBEmpty
+class PBEmpty
 {
     public static $is_initialized = false;
 

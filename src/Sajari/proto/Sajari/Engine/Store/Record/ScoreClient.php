@@ -1,11 +1,13 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Engine\Store\Record {
+namespace Sajari\Engine\Store\Record;
 
-  // Score is a service which defines methods for setting and incrementing
-  // term instance scores.
-  class ScoreClient extends \Grpc\BaseStub {
+/**
+ * Score is a service which defines methods for setting and incrementing
+ * term instance scores.
+ */
+class ScoreClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -13,7 +15,7 @@ namespace Sajari\Engine\Store\Record {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -24,10 +26,10 @@ namespace Sajari\Engine\Store\Record {
      */
     public function Set(\Sajari\Engine\Store\Record\SetRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Score/Set',
-      $argument,
-      ['\Sajari\Engine\Store\Record\SetResponse', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.store.record.Score/Set',
+        $argument,
+        ['\Sajari\Engine\Store\Record\SetResponse', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -38,12 +40,10 @@ namespace Sajari\Engine\Store\Record {
      */
     public function Increment(\Sajari\Engine\Store\Record\IncrementRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.store.record.Score/Increment',
-      $argument,
-      ['\Sajari\Engine\Store\Record\IncrementResponse', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.store.record.Score/Increment',
+        $argument,
+        ['\Sajari\Engine\Store\Record\IncrementResponse', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

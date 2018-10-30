@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Autocomplete {
+namespace Sajari\Autocomplete;
 
-  // Control defines methods for creating and deleting autocomplete models.
-  class AdminClient extends \Grpc\BaseStub {
+/**
+ * Control defines methods for creating and deleting autocomplete models.
+ */
+class AdminClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,7 +14,7 @@ namespace Sajari\Autocomplete {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
@@ -23,10 +25,10 @@ namespace Sajari\Autocomplete {
      */
     public function Create(\Sajari\Autocomplete\Model $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.autocomplete.Admin/Create',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.autocomplete.Admin/Create',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -37,12 +39,10 @@ namespace Sajari\Autocomplete {
      */
     public function Delete(\Sajari\Autocomplete\Model $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.autocomplete.Admin/Delete',
-      $argument,
-      ['\Sajari\Rpc\Empty', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.autocomplete.Admin/Delete',
+        $argument,
+        ['\Sajari\Rpc\PBEmpty', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

@@ -9,44 +9,65 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Body is a weighted free text query.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.query.v1.Body</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.Body</code>
  */
 class Body extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Text (free text).
-     * </pre>
+     * DEPRECATED: use indexes instead.
+     * For backwards compatibility this will be converted into terms using the default
+     * index spec (Note: it will override any indexes already in the Body).
      *
-     * <code>string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
      */
     private $text = '';
     /**
-     * <pre>
      * Weight (importance) to apply to this text.
-     * This value must be 0 &lt;= weight &lt;= 1 but must be set. A value of zero means
+     * This value must be 0 <= weight <= 1 but must be set. A value of zero means
      * the text has no value.
-     * </pre>
      *
-     * <code>double weight = 2;</code>
+     * Generated from protobuf field <code>double weight = 2;</code>
      */
     private $weight = 0.0;
+    /**
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Body.Index indexes = 3;</code>
+     */
+    private $indexes;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $text
+     *           Text (free text).
+     *           DEPRECATED: use indexes instead.
+     *           For backwards compatibility this will be converted into terms using the default
+     *           index spec (Note: it will override any indexes already in the Body).
+     *     @type float $weight
+     *           Weight (importance) to apply to this text.
+     *           This value must be 0 <= weight <= 1 but must be set. A value of zero means
+     *           the text has no value.
+     *     @type \Sajari\Engine\Query\V1\Body\Index[]|\Google\Protobuf\Internal\RepeatedField $indexes
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Text (free text).
-     * </pre>
+     * DEPRECATED: use indexes instead.
+     * For backwards compatibility this will be converted into terms using the default
+     * index spec (Note: it will override any indexes already in the Body).
      *
-     * <code>string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
+     * @return string
      */
     public function getText()
     {
@@ -54,26 +75,30 @@ class Body extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Text (free text).
-     * </pre>
+     * DEPRECATED: use indexes instead.
+     * For backwards compatibility this will be converted into terms using the default
+     * index spec (Note: it will override any indexes already in the Body).
      *
-     * <code>string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setText($var)
     {
         GPBUtil::checkString($var, True);
         $this->text = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Weight (importance) to apply to this text.
-     * This value must be 0 &lt;= weight &lt;= 1 but must be set. A value of zero means
+     * This value must be 0 <= weight <= 1 but must be set. A value of zero means
      * the text has no value.
-     * </pre>
      *
-     * <code>double weight = 2;</code>
+     * Generated from protobuf field <code>double weight = 2;</code>
+     * @return float
      */
     public function getWeight()
     {
@@ -81,18 +106,42 @@ class Body extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Weight (importance) to apply to this text.
-     * This value must be 0 &lt;= weight &lt;= 1 but must be set. A value of zero means
+     * This value must be 0 <= weight <= 1 but must be set. A value of zero means
      * the text has no value.
-     * </pre>
      *
-     * <code>double weight = 2;</code>
+     * Generated from protobuf field <code>double weight = 2;</code>
+     * @param float $var
+     * @return $this
      */
     public function setWeight($var)
     {
         GPBUtil::checkDouble($var);
         $this->weight = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Body.Index indexes = 3;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getIndexes()
+    {
+        return $this->indexes;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .sajari.engine.query.v1.Body.Index indexes = 3;</code>
+     * @param \Sajari\Engine\Query\V1\Body\Index[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setIndexes($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Body\Index::class);
+        $this->indexes = $arr;
+
+        return $this;
     }
 
 }

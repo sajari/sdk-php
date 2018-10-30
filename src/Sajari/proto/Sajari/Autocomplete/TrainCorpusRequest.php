@@ -9,44 +9,60 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * TrainCorpusRequest is used to train the corpus to assist in detecting
  * spelling mistakes.
- * </pre>
  *
- * Protobuf type <code>sajari.autocomplete.TrainCorpusRequest</code>
+ * Generated from protobuf message <code>sajari.autocomplete.TrainCorpusRequest</code>
  */
 class TrainCorpusRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
      */
     private $model = null;
     /**
-     * <pre>
      * The terms to train the corpus with. These should be correctly
      * spelt to avoid autocorrecting to misspellings.
-     * </pre>
      *
-     * <code>repeated string terms = 2;</code>
+     * Generated from protobuf field <code>repeated string terms = 2;</code>
      */
     private $terms;
+    /**
+     * Number of times to repeat the training of the terms.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 3;</code>
+     */
+    private $repeat = 0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Autocomplete\Model $model
+     *           Model to train.
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $terms
+     *           The terms to train the corpus with. These should be correctly
+     *           spelt to avoid autocorrecting to misspellings.
+     *     @type int $repeat
+     *           Number of times to repeat the training of the terms.
+     *           Defaults to 1 if not set.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Autocomplete\Autocomplete::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
+     * @return \Sajari\Autocomplete\Model
      */
     public function getModel()
     {
@@ -54,25 +70,26 @@ class TrainCorpusRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Model to train.
-     * </pre>
      *
-     * <code>.sajari.autocomplete.Model model = 1;</code>
+     * Generated from protobuf field <code>.sajari.autocomplete.Model model = 1;</code>
+     * @param \Sajari\Autocomplete\Model $var
+     * @return $this
      */
-    public function setModel(&$var)
+    public function setModel($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Autocomplete\Model::class);
         $this->model = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * The terms to train the corpus with. These should be correctly
      * spelt to avoid autocorrecting to misspellings.
-     * </pre>
      *
-     * <code>repeated string terms = 2;</code>
+     * Generated from protobuf field <code>repeated string terms = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTerms()
     {
@@ -80,17 +97,47 @@ class TrainCorpusRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * The terms to train the corpus with. These should be correctly
      * spelt to avoid autocorrecting to misspellings.
-     * </pre>
      *
-     * <code>repeated string terms = 2;</code>
+     * Generated from protobuf field <code>repeated string terms = 2;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTerms(&$var)
+    public function setTerms($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->terms = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Number of times to repeat the training of the terms.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 3;</code>
+     * @return int
+     */
+    public function getRepeat()
+    {
+        return $this->repeat;
+    }
+
+    /**
+     * Number of times to repeat the training of the terms.
+     * Defaults to 1 if not set.
+     *
+     * Generated from protobuf field <code>int32 repeat = 3;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRepeat($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->repeat = $var;
+
+        return $this;
     }
 
 }

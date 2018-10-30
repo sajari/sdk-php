@@ -4,86 +4,13 @@
 
 namespace Sajari\Engine\Store\Record;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * Protobuf type <code>sajari.engine.store.record.MutateRequest.RecordMutation</code>
- */
-class MutateRequest_RecordMutation extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Key which uniquely identifies record.
-     * </pre>
-     *
-     * <code>.sajari.engine.Key key = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Store\Record\MutateRequest\RecordMutation instead.
+     * @deprecated
      */
-    private $key = null;
-    /**
-     * <pre>
-     * List of fields to mutate.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.store.record.MutateRequest.RecordMutation.FieldMutation field_mutations = 2;</code>
-     */
-    private $field_mutations;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Key which uniquely identifies record.
-     * </pre>
-     *
-     * <code>.sajari.engine.Key key = 1;</code>
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * <pre>
-     * Key which uniquely identifies record.
-     * </pre>
-     *
-     * <code>.sajari.engine.Key key = 1;</code>
-     */
-    public function setKey(&$var)
-    {
-        GPBUtil::checkMessage($var, \Sajari\Engine\Key::class);
-        $this->key = $var;
-    }
-
-    /**
-     * <pre>
-     * List of fields to mutate.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.store.record.MutateRequest.RecordMutation.FieldMutation field_mutations = 2;</code>
-     */
-    public function getFieldMutations()
-    {
-        return $this->field_mutations;
-    }
-
-    /**
-     * <pre>
-     * List of fields to mutate.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.store.record.MutateRequest.RecordMutation.FieldMutation field_mutations = 2;</code>
-     */
-    public function setFieldMutations(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\MutateRequest_RecordMutation_FieldMutation::class);
-        $this->field_mutations = $arr;
-    }
-
+    class MutateRequest_RecordMutation {}
 }
+class_exists(MutateRequest\RecordMutation::class);
+@trigger_error('Sajari\Engine\Store\Record\MutateRequest_RecordMutation is deprecated and will be removed in the next major release. Use Sajari\Engine\Store\Record\MutateRequest\RecordMutation instead', E_USER_DEPRECATED);
 

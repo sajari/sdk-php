@@ -4,34 +4,13 @@
 
 namespace Sajari\Engine\Schema;
 
-/**
- * <pre>
- * Type represents the underlying data type of the field. Default is a string.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.schema.Field.Type</code>
- */
-class Field_Type
-{
+if (false) {
     /**
-     * <code>STRING = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Schema\Field\Type instead.
+     * @deprecated
      */
-    const STRING = 0;
-    /**
-     * <code>INTEGER = 1;</code>
-     */
-    const INTEGER = 1;
-    /**
-     * <code>FLOAT = 2;</code>
-     */
-    const FLOAT = 2;
-    /**
-     * <code>BOOLEAN = 3;</code>
-     */
-    const BOOLEAN = 3;
-    /**
-     * <code>TIMESTAMP = 4;</code>
-     */
-    const TIMESTAMP = 4;
+    class Field_Type {}
 }
+class_exists(Field\Type::class);
+@trigger_error('Sajari\Engine\Schema\Field_Type is deprecated and will be removed in the next major release. Use Sajari\Engine\Schema\Field\Type instead', E_USER_DEPRECATED);
 

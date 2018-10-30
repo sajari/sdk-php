@@ -4,102 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Filter is a boost applied to documents which satisfy the filter.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.FieldBoost.Filter</code>
- */
-class FieldBoost_Filter extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Filter which must be satisfied by document.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\FieldBoost\Filter instead.
+     * @deprecated
      */
-    private $filter = null;
-    /**
-     * <pre>
-     * Boost value to apply to matching documents. Must be &gt;= 0.
-     * Value == 0     Matching documents get 0 for this boost, everything else gets 1.
-     * Value == 1     Matching documents get 1 for this boost, everything else gets 0.
-     * 0 &lt; Value &lt; 1  Matching documents get Value for this boost (and are penalised).
-     * Value &gt; 1      Matching documents get 1 for this boost, everything else gets 1 / Value.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    private $value = 0.0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Filter which must be satisfied by document.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
-     */
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-
-    /**
-     * <pre>
-     * Filter which must be satisfied by document.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 1;</code>
-     */
-    public function setFilter(&$var)
-    {
-        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter::class);
-        $this->filter = $var;
-    }
-
-    /**
-     * <pre>
-     * Boost value to apply to matching documents. Must be &gt;= 0.
-     * Value == 0     Matching documents get 0 for this boost, everything else gets 1.
-     * Value == 1     Matching documents get 1 for this boost, everything else gets 0.
-     * 0 &lt; Value &lt; 1  Matching documents get Value for this boost (and are penalised).
-     * Value &gt; 1      Matching documents get 1 for this boost, everything else gets 1 / Value.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <pre>
-     * Boost value to apply to matching documents. Must be &gt;= 0.
-     * Value == 0     Matching documents get 0 for this boost, everything else gets 1.
-     * Value == 1     Matching documents get 1 for this boost, everything else gets 0.
-     * 0 &lt; Value &lt; 1  Matching documents get Value for this boost (and are penalised).
-     * Value &gt; 1      Matching documents get 1 for this boost, everything else gets 1 / Value.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function setValue($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->value = $var;
-    }
-
+    class FieldBoost_Filter {}
 }
+class_exists(FieldBoost\Filter::class);
+@trigger_error('Sajari\Engine\Query\V1\FieldBoost_Filter is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\FieldBoost\Filter instead', E_USER_DEPRECATED);
 

@@ -4,45 +4,13 @@
 
 namespace Sajari\Engine;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Repeated values
- * </pre>
- *
- * Protobuf type <code>sajari.engine.Value.Repeated</code>
- */
-class Value_Repeated extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>repeated string values = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Value\Repeated instead.
+     * @deprecated
      */
-    private $values;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Value::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>repeated string values = 1;</code>
-     */
-    public function getValues()
-    {
-        return $this->values;
-    }
-
-    /**
-     * <code>repeated string values = 1;</code>
-     */
-    public function setValues(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->values = $arr;
-    }
-
+    class Value_Repeated {}
 }
+class_exists(Value\Repeated::class);
+@trigger_error('Sajari\Engine\Value_Repeated is deprecated and will be removed in the next major release. Use Sajari\Engine\Value\Repeated instead', E_USER_DEPRECATED);
 

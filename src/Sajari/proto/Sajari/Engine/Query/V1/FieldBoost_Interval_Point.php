@@ -4,91 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Point is a pair (point, value) which defines the boost value
- * at a particiular point.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.FieldBoost.Interval.Point</code>
- */
-class FieldBoost_Interval_Point extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * The point to mark the beginning/end of an interval.
-     * </pre>
-     *
-     * <code>double point = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\FieldBoost\Interval\Point instead.
+     * @deprecated
      */
-    private $point = 0.0;
-    /**
-     * <pre>
-     * The amount to boost by at this Point.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    private $value = 0.0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * The point to mark the beginning/end of an interval.
-     * </pre>
-     *
-     * <code>double point = 1;</code>
-     */
-    public function getPoint()
-    {
-        return $this->point;
-    }
-
-    /**
-     * <pre>
-     * The point to mark the beginning/end of an interval.
-     * </pre>
-     *
-     * <code>double point = 1;</code>
-     */
-    public function setPoint($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->point = $var;
-    }
-
-    /**
-     * <pre>
-     * The amount to boost by at this Point.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <pre>
-     * The amount to boost by at this Point.
-     * </pre>
-     *
-     * <code>double value = 2;</code>
-     */
-    public function setValue($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->value = $var;
-    }
-
+    class FieldBoost_Interval_Point {}
 }
+class_exists(FieldBoost\Interval\Point::class);
+@trigger_error('Sajari\Engine\Query\V1\FieldBoost_Interval_Point is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\FieldBoost\Interval\Point instead', E_USER_DEPRECATED);
 

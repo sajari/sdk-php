@@ -9,51 +9,57 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * Result is a document as represented in a search result.
- * </pre>
+ * Result is a record as represented in a search result.
  *
- * Protobuf type <code>sajari.engine.query.v1.Result</code>
+ * Generated from protobuf message <code>sajari.engine.query.v1.Result</code>
  */
 class Result extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Meta data in field-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
      */
     private $values;
     /**
-     * <pre>
-     * Score (normalised) attributed to this document.
+     * Score (normalised) attributed to this record.
      * Combines the index score and feature score.
-     * </pre>
      *
-     * <code>double score = 2;</code>
+     * Generated from protobuf field <code>double score = 2;</code>
      */
     private $score = 0.0;
     /**
-     * <pre>
      * Index score.
-     * </pre>
      *
-     * <code>double index_score = 3;</code>
+     * Generated from protobuf field <code>double index_score = 3;</code>
      */
     private $index_score = 0.0;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type array|\Google\Protobuf\Internal\MapField $values
+     *           Meta data in field-value pairs.
+     *     @type float $score
+     *           Score (normalised) attributed to this record.
+     *           Combines the index score and feature score.
+     *     @type float $index_score
+     *           Index score.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Meta data in field-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
+     * @return \Google\Protobuf\Internal\MapField
      */
     public function getValues()
     {
@@ -61,25 +67,26 @@ class Result extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Meta data in field-value pairs.
-     * </pre>
      *
-     * <code>map&lt;string, .sajari.engine.Value&gt; values = 1;</code>
+     * Generated from protobuf field <code>map<string, .sajari.engine.Value> values = 1;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
      */
-    public function setValues(&$var)
+    public function setValues($var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Value::class);
         $this->values = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Score (normalised) attributed to this document.
+     * Score (normalised) attributed to this record.
      * Combines the index score and feature score.
-     * </pre>
      *
-     * <code>double score = 2;</code>
+     * Generated from protobuf field <code>double score = 2;</code>
+     * @return float
      */
     public function getScore()
     {
@@ -87,25 +94,26 @@ class Result extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Score (normalised) attributed to this document.
+     * Score (normalised) attributed to this record.
      * Combines the index score and feature score.
-     * </pre>
      *
-     * <code>double score = 2;</code>
+     * Generated from protobuf field <code>double score = 2;</code>
+     * @param float $var
+     * @return $this
      */
     public function setScore($var)
     {
         GPBUtil::checkDouble($var);
         $this->score = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Index score.
-     * </pre>
      *
-     * <code>double index_score = 3;</code>
+     * Generated from protobuf field <code>double index_score = 3;</code>
+     * @return float
      */
     public function getIndexScore()
     {
@@ -113,16 +121,18 @@ class Result extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Index score.
-     * </pre>
      *
-     * <code>double index_score = 3;</code>
+     * Generated from protobuf field <code>double index_score = 3;</code>
+     * @param float $var
+     * @return $this
      */
     public function setIndexScore($var)
     {
         GPBUtil::checkDouble($var);
         $this->index_score = $var;
+
+        return $this;
     }
 
 }

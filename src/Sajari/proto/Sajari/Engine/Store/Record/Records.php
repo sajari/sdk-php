@@ -9,43 +9,49 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Records is a message which represents a list of records.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.Records</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.Records</code>
  */
 class Records extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * The list of records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
      */
     private $records;
     /**
-     * <pre>
      * Transforms is a list of transformations to be applied to the records
      * before they are added.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
      */
     private $transforms;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $records
+     *           The list of records.
+     *     @type \Sajari\Engine\Store\Record\Transform[]|\Google\Protobuf\Internal\RepeatedField $transforms
+     *           Transforms is a list of transformations to be applied to the records
+     *           before they are added.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * The list of records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRecords()
     {
@@ -53,25 +59,26 @@ class Records extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * The list of records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Record records = 1;</code>
+     * @param \Sajari\Engine\Store\Record\Record[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setRecords(&$var)
+    public function setRecords($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Record::class);
         $this->records = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Transforms is a list of transformations to be applied to the records
      * before they are added.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTransforms()
     {
@@ -79,17 +86,19 @@ class Records extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Transforms is a list of transformations to be applied to the records
      * before they are added.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.store.record.Transform transforms = 2;</code>
+     * @param \Sajari\Engine\Store\Record\Transform[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTransforms(&$var)
+    public function setTransforms($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Store\Record\Transform::class);
         $this->transforms = $arr;
+
+        return $this;
     }
 
 }

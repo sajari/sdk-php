@@ -9,51 +9,56 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchResponse is a wrapped response from the engine with interaction tokens
  * and other information which was used to construct the query from the SearchRequest.
- * </pre>
  *
- * Protobuf type <code>sajari.api.query.v1.SearchResponse</code>
+ * Generated from protobuf message <code>sajari.api.query.v1.SearchResponse</code>
  */
 class SearchResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * SearchResponse from the engine request.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
      */
     private $search_response = null;
     /**
-     * <pre>
      * SearchRequest used in the query (if this has been changed).
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
      */
     private $search_request = null;
     /**
-     * <pre>
-     * Tokens which correspond to the result documents.
-     * </pre>
+     * Tokens which correspond to the result records.
      *
-     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
      */
     private $tokens;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\SearchResponse $search_response
+     *           SearchResponse from the engine request.
+     *     @type \Sajari\Engine\Query\V1\SearchRequest $search_request
+     *           SearchRequest used in the query (if this has been changed).
+     *     @type \Sajari\Api\Query\V1\Token[]|\Google\Protobuf\Internal\RepeatedField $tokens
+     *           Tokens which correspond to the result records.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * SearchResponse from the engine request.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
+     * @return \Sajari\Engine\Query\V1\SearchResponse
      */
     public function getSearchResponse()
     {
@@ -61,24 +66,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * SearchResponse from the engine request.
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchResponse search_response = 1;</code>
+     * @param \Sajari\Engine\Query\V1\SearchResponse $var
+     * @return $this
      */
-    public function setSearchResponse(&$var)
+    public function setSearchResponse($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchResponse::class);
         $this->search_response = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * SearchRequest used in the query (if this has been changed).
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
+     * @return \Sajari\Engine\Query\V1\SearchRequest
      */
     public function getSearchRequest()
     {
@@ -86,24 +92,25 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * SearchRequest used in the query (if this has been changed).
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 2;</code>
+     * @param \Sajari\Engine\Query\V1\SearchRequest $var
+     * @return $this
      */
-    public function setSearchRequest(&$var)
+    public function setSearchRequest($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchRequest::class);
         $this->search_request = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
-     * Tokens which correspond to the result documents.
-     * </pre>
+     * Tokens which correspond to the result records.
      *
-     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTokens()
     {
@@ -111,16 +118,18 @@ class SearchResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
-     * Tokens which correspond to the result documents.
-     * </pre>
+     * Tokens which correspond to the result records.
      *
-     * <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Token tokens = 3;</code>
+     * @param \Sajari\Api\Query\V1\Token[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTokens(&$var)
+    public function setTokens($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Token::class);
         $this->tokens = $arr;
+
+        return $this;
     }
 
 }

@@ -9,26 +9,34 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchResponse is a response to an Add call.
- * </pre>
  *
- * Protobuf type <code>sajari.api.pipeline.v1.AddResponse</code>
+ * Generated from protobuf message <code>sajari.api.pipeline.v1.AddResponse</code>
  */
 class AddResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>.sajari.engine.store.record.AddResponse response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.store.record.AddResponse response = 1;</code>
      */
     private $response = null;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Store\Record\AddResponse $response
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Pipeline\V1\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>.sajari.engine.store.record.AddResponse response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.store.record.AddResponse response = 1;</code>
+     * @return \Sajari\Engine\Store\Record\AddResponse
      */
     public function getResponse()
     {
@@ -36,12 +44,16 @@ class AddResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.engine.store.record.AddResponse response = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.store.record.AddResponse response = 1;</code>
+     * @param \Sajari\Engine\Store\Record\AddResponse $var
+     * @return $this
      */
-    public function setResponse(&$var)
+    public function setResponse($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Store\Record\AddResponse::class);
         $this->response = $var;
+
+        return $this;
     }
 
 }

@@ -9,34 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * InfoRequest gets information for a training set
- * </pre>
  *
- * Protobuf type <code>sajari.bayes.trainingset.InfoRequest</code>
+ * Generated from protobuf message <code>sajari.bayes.trainingset.InfoRequest</code>
  */
 class InfoRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Name of the training set to get information
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
      */
     private $name = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $name
+     *           Name of the training set to get information
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Bayes\Trainingset\Trainingset::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Name of the training set to get information
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @return string
      */
     public function getName()
     {
@@ -44,16 +49,18 @@ class InfoRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Name of the training set to get information
-     * </pre>
      *
-     * <code>string name = 1;</code>
+     * Generated from protobuf field <code>string name = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setName($var)
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
+
+        return $this;
     }
 
 }

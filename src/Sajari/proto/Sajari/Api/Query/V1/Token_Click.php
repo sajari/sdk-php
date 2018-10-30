@@ -4,47 +4,13 @@
 
 namespace Sajari\Api\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Click is a token that corresponds to selecting a document from a result set.
- * It is taken as an indication that this document is a good match for the
- * corresponding SearchRequest.
- * </pre>
- *
- * Protobuf type <code>sajari.api.query.v1.Token.Click</code>
- */
-class Token_Click extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>string token = 1;</code>
+     * This class is deprecated. Use Sajari\Api\Query\V1\Token\Click instead.
+     * @deprecated
      */
-    private $token = '';
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>string token = 1;</code>
-     */
-    public function getToken()
-    {
-        return $this->token;
-    }
-
-    /**
-     * <code>string token = 1;</code>
-     */
-    public function setToken($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->token = $var;
-    }
-
+    class Token_Click {}
 }
+class_exists(Token\Click::class);
+@trigger_error('Sajari\Api\Query\V1\Token_Click is deprecated and will be removed in the next major release. Use Sajari\Api\Query\V1\Token\Click instead', E_USER_DEPRECATED);
 

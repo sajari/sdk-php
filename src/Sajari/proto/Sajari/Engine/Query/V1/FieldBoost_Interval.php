@@ -4,95 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Interval is a distance-based boosting for numeric fields.
- * It is comprised of a series of points to represent
- * any linear distribution across a numerical range.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.FieldBoost.Interval</code>
- */
-class FieldBoost_Interval extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Numerical field to apply the boost.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\FieldBoost\Interval instead.
+     * @deprecated
      */
-    private $field = '';
-    /**
-     * <pre>
-     * Points which define intervals boundaries (must be at least 2).
-     * Values between internal points are determined linearly.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.FieldBoost.Interval.Point points = 2;</code>
-     */
-    private $points;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Numerical field to apply the boost.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * <pre>
-     * Numerical field to apply the boost.
-     * </pre>
-     *
-     * <code>string field = 1;</code>
-     */
-    public function setField($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->field = $var;
-    }
-
-    /**
-     * <pre>
-     * Points which define intervals boundaries (must be at least 2).
-     * Values between internal points are determined linearly.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.FieldBoost.Interval.Point points = 2;</code>
-     */
-    public function getPoints()
-    {
-        return $this->points;
-    }
-
-    /**
-     * <pre>
-     * Points which define intervals boundaries (must be at least 2).
-     * Values between internal points are determined linearly.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.FieldBoost.Interval.Point points = 2;</code>
-     */
-    public function setPoints(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\FieldBoost_Interval_Point::class);
-        $this->points = $arr;
-    }
-
+    class FieldBoost_Interval {}
 }
+class_exists(FieldBoost\Interval::class);
+@trigger_error('Sajari\Engine\Query\V1\FieldBoost_Interval is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\FieldBoost\Interval instead', E_USER_DEPRECATED);
 

@@ -4,80 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-/**
- * <pre>
- * Operator is an enumeration of operators.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.query.v1.Filter.Field.Operator</code>
- */
-class Filter_Field_Operator
-{
+if (false) {
     /**
-     * <pre>
-     * Equal value.
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>EQUAL_TO = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Filter\Field\Operator instead.
+     * @deprecated
      */
-    const EQUAL_TO = 0;
-    /**
-     * <pre>
-     * Not equal value.
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>NOT_EQUAL_TO = 1;</code>
-     */
-    const NOT_EQUAL_TO = 1;
-    /**
-     * <code>GREATER_THAN = 2;</code>
-     */
-    const GREATER_THAN = 2;
-    /**
-     * <code>GREATER_THAN_OR_EQUAL_TO = 3;</code>
-     */
-    const GREATER_THAN_OR_EQUAL_TO = 3;
-    /**
-     * <code>LESS_THAN = 4;</code>
-     */
-    const LESS_THAN = 4;
-    /**
-     * <code>LESS_THAN_OR_EQUAL_TO = 5;</code>
-     */
-    const LESS_THAN_OR_EQUAL_TO = 5;
-    /**
-     * <pre>
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>CONTAINS = 6;</code>
-     */
-    const CONTAINS = 6;
-    /**
-     * <pre>
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>DOES_NOT_CONTAIN = 7;</code>
-     */
-    const DOES_NOT_CONTAIN = 7;
-    /**
-     * <pre>
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>HAS_SUFFIX = 8;</code>
-     */
-    const HAS_SUFFIX = 8;
-    /**
-     * <pre>
-     * For STRING fields this is case insensitive.
-     * </pre>
-     *
-     * <code>HAS_PREFIX = 9;</code>
-     */
-    const HAS_PREFIX = 9;
+    class Filter_Field_Operator {}
 }
+class_exists(Filter\Field\Operator::class);
+@trigger_error('Sajari\Engine\Query\V1\Filter_Field_Operator is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Filter\Field\Operator instead', E_USER_DEPRECATED);
 

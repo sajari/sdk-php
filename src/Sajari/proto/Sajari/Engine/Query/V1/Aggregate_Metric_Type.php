@@ -4,46 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-/**
- * <pre>
- * Enumeration of metric types.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.query.v1.Aggregate.Metric.Type</code>
- */
-class Aggregate_Metric_Type
-{
+if (false) {
     /**
-     * <pre>
-     * Average field value.
-     * </pre>
-     *
-     * <code>AVG = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Aggregate\Metric\Type instead.
+     * @deprecated
      */
-    const AVG = 0;
-    /**
-     * <pre>
-     * Minimum field value.
-     * </pre>
-     *
-     * <code>MIN = 1;</code>
-     */
-    const MIN = 1;
-    /**
-     * <pre>
-     * Maximum field value.
-     * </pre>
-     *
-     * <code>MAX = 2;</code>
-     */
-    const MAX = 2;
-    /**
-     * <pre>
-     * Sum of all field values.
-     * </pre>
-     *
-     * <code>SUM = 3;</code>
-     */
-    const SUM = 3;
+    class Aggregate_Metric_Type {}
 }
+class_exists(Aggregate\Metric\Type::class);
+@trigger_error('Sajari\Engine\Query\V1\Aggregate_Metric_Type is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Aggregate\Metric\Type instead', E_USER_DEPRECATED);
 

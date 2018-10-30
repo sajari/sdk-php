@@ -4,58 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Bucket groups documents using filters, Documents which satisfy the filter
- * will be included in the bucket.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.Aggregate.Bucket</code>
- */
-class Aggregate_Bucket extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * List of buckets.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.Aggregate.Bucket.Bucket buckets = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Aggregate\Bucket instead.
+     * @deprecated
      */
-    private $buckets;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * List of buckets.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.Aggregate.Bucket.Bucket buckets = 1;</code>
-     */
-    public function getBuckets()
-    {
-        return $this->buckets;
-    }
-
-    /**
-     * <pre>
-     * List of buckets.
-     * </pre>
-     *
-     * <code>repeated .sajari.engine.query.v1.Aggregate.Bucket.Bucket buckets = 1;</code>
-     */
-    public function setBuckets(&$var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket::class);
-        $this->buckets = $arr;
-    }
-
+    class Aggregate_Bucket {}
 }
+class_exists(Aggregate\Bucket::class);
+@trigger_error('Sajari\Engine\Query\V1\Aggregate_Bucket is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Aggregate\Bucket instead', E_USER_DEPRECATED);
 

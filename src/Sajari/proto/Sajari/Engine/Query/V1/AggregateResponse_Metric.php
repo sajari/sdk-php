@@ -4,45 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Metric represents the metric type requested, represented by an Enumeration Type.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.AggregateResponse.Metric</code>
- */
-class AggregateResponse_Metric extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <code>double value = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\AggregateResponse\Metric instead.
+     * @deprecated
      */
-    private $value = 0.0;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <code>double value = 1;</code>
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * <code>double value = 1;</code>
-     */
-    public function setValue($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->value = $var;
-    }
-
+    class AggregateResponse_Metric {}
 }
+class_exists(AggregateResponse\Metric::class);
+@trigger_error('Sajari\Engine\Query\V1\AggregateResponse_Metric is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\AggregateResponse\Metric instead', E_USER_DEPRECATED);
 

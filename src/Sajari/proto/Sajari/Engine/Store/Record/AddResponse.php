@@ -9,42 +9,47 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * AddResponse is returned from Add.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.AddResponse</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.AddResponse</code>
  */
 class AddResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Keys for the inserted records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
      */
     private $keys;
     /**
-     * <pre>
      * Status for each insert.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
      */
     private $status;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Key[]|\Google\Protobuf\Internal\RepeatedField $keys
+     *           Keys for the inserted records.
+     *     @type \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $status
+     *           Status for each insert.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Keys for the inserted records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getKeys()
     {
@@ -52,24 +57,25 @@ class AddResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Keys for the inserted records.
-     * </pre>
      *
-     * <code>repeated .sajari.engine.Key keys = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.engine.Key keys = 1;</code>
+     * @param \Sajari\Engine\Key[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setKeys(&$var)
+    public function setKeys($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Engine\Key::class);
         $this->keys = $arr;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Status for each insert.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getStatus()
     {
@@ -77,16 +83,18 @@ class AddResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Status for each insert.
-     * </pre>
      *
-     * <code>repeated .sajari.rpc.Status status = 2;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 2;</code>
+     * @param \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setStatus(&$var)
+    public function setStatus($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
         $this->status = $arr;
+
+        return $this;
     }
 
 }

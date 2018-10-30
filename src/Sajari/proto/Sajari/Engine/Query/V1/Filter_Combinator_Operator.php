@@ -4,46 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-/**
- * <pre>
- * Operator is an enumeration of combination operators.
- * </pre>
- *
- * Protobuf enum <code>sajari.engine.query.v1.Filter.Combinator.Operator</code>
- */
-class Filter_Combinator_Operator
-{
+if (false) {
     /**
-     * <pre>
-     * All of the filters must be satisfied.
-     * </pre>
-     *
-     * <code>ALL = 0;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Filter\Combinator\Operator instead.
+     * @deprecated
      */
-    const ALL = 0;
-    /**
-     * <pre>
-     * Any of the filters must be satisfied.
-     * </pre>
-     *
-     * <code>ANY = 1;</code>
-     */
-    const ANY = 1;
-    /**
-     * <pre>
-     * One of the filters (and only one) must be satisfied.
-     * </pre>
-     *
-     * <code>ONE = 2;</code>
-     */
-    const ONE = 2;
-    /**
-     * <pre>
-     * None of the filters must be satisfied.
-     * </pre>
-     *
-     * <code>NONE = 3;</code>
-     */
-    const NONE = 3;
+    class Filter_Combinator_Operator {}
 }
+class_exists(Filter\Combinator\Operator::class);
+@trigger_error('Sajari\Engine\Query\V1\Filter_Combinator_Operator is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Filter\Combinator\Operator instead', E_USER_DEPRECATED);
 

@@ -4,90 +4,13 @@
 
 namespace Sajari\Engine\Query\V1;
 
-use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
-use Google\Protobuf\Internal\GPBUtil;
-
-/**
- * <pre>
- * Bucket represents documents which satisfy a Filter.
- * </pre>
- *
- * Protobuf type <code>sajari.engine.query.v1.Aggregate.Bucket.Bucket</code>
- */
-class Aggregate_Bucket_Bucket extends \Google\Protobuf\Internal\Message
-{
+if (false) {
     /**
-     * <pre>
-     * Name of the bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
+     * This class is deprecated. Use Sajari\Engine\Query\V1\Aggregate\Bucket\Bucket instead.
+     * @deprecated
      */
-    private $name = '';
-    /**
-     * <pre>
-     * Filter satisfied by documents in the bucket.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 2;</code>
-     */
-    private $filter = null;
-
-    public function __construct() {
-        \GPBMetadata\Sajari\Engine\Query\V1\Query::initOnce();
-        parent::__construct();
-    }
-
-    /**
-     * <pre>
-     * Name of the bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * <pre>
-     * Name of the bucket.
-     * </pre>
-     *
-     * <code>string name = 1;</code>
-     */
-    public function setName($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->name = $var;
-    }
-
-    /**
-     * <pre>
-     * Filter satisfied by documents in the bucket.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 2;</code>
-     */
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-
-    /**
-     * <pre>
-     * Filter satisfied by documents in the bucket.
-     * </pre>
-     *
-     * <code>.sajari.engine.query.v1.Filter filter = 2;</code>
-     */
-    public function setFilter(&$var)
-    {
-        GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\Filter::class);
-        $this->filter = $var;
-    }
-
+    class Aggregate_Bucket_Bucket {}
 }
+class_exists(Aggregate\Bucket\Bucket::class);
+@trigger_error('Sajari\Engine\Query\V1\Aggregate_Bucket_Bucket is deprecated and will be removed in the next major release. Use Sajari\Engine\Query\V1\Aggregate\Bucket\Bucket instead', E_USER_DEPRECATED);
 

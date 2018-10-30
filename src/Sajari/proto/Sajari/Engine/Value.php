@@ -9,27 +9,38 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * Value is a repesentation data of columnular data for a document.
- * </pre>
+ * Value is a repesentation data of columnular data for a record.
  *
- * Protobuf type <code>sajari.engine.Value</code>
+ * Generated from protobuf message <code>sajari.engine.Value</code>
  */
 class Value extends \Google\Protobuf\Internal\Message
 {
     protected $value;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type bool $null
+     *           Null value
+     *     @type string $single
+     *           Single value
+     *     @type \Sajari\Engine\Value\Repeated $repeated
+     *           Repeated values.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Value::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Null value
-     * </pre>
      *
-     * <code>bool null = 1;</code>
+     * Generated from protobuf field <code>bool null = 1;</code>
+     * @return bool
      */
     public function getNull()
     {
@@ -37,24 +48,25 @@ class Value extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Null value
-     * </pre>
      *
-     * <code>bool null = 1;</code>
+     * Generated from protobuf field <code>bool null = 1;</code>
+     * @param bool $var
+     * @return $this
      */
     public function setNull($var)
     {
         GPBUtil::checkBool($var);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Single value
-     * </pre>
      *
-     * <code>string single = 2;</code>
+     * Generated from protobuf field <code>string single = 2;</code>
+     * @return string
      */
     public function getSingle()
     {
@@ -62,24 +74,25 @@ class Value extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Single value
-     * </pre>
      *
-     * <code>string single = 2;</code>
+     * Generated from protobuf field <code>string single = 2;</code>
+     * @param string $var
+     * @return $this
      */
     public function setSingle($var)
     {
         GPBUtil::checkString($var, True);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Repeated values.
-     * </pre>
      *
-     * <code>.sajari.engine.Value.Repeated repeated = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.Value.Repeated repeated = 3;</code>
+     * @return \Sajari\Engine\Value\Repeated
      */
     public function getRepeated()
     {
@@ -87,18 +100,23 @@ class Value extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Repeated values.
-     * </pre>
      *
-     * <code>.sajari.engine.Value.Repeated repeated = 3;</code>
+     * Generated from protobuf field <code>.sajari.engine.Value.Repeated repeated = 3;</code>
+     * @param \Sajari\Engine\Value\Repeated $var
+     * @return $this
      */
-    public function setRepeated(&$var)
+    public function setRepeated($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Value_Repeated::class);
         $this->writeOneof(3, $var);
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getValue()
     {
         return $this->whichOneof("value");

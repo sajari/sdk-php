@@ -1,10 +1,12 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Sajari\Engine\Schema {
+namespace Sajari\Engine\Schema;
 
-  // Service Schema defines methods for managing collection schemas.
-  class SchemaClient extends \Grpc\BaseStub {
+/**
+ * Service Schema defines methods for managing collection schemas.
+ */
+class SchemaClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -12,21 +14,21 @@ namespace Sajari\Engine\Schema {
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
     public function __construct($hostname, $opts, $channel = null) {
-      parent::__construct($hostname, $opts, $channel);
+        parent::__construct($hostname, $opts, $channel);
     }
 
     /**
      * GetFields returns the fields in the schema.
-     * @param \Sajari\Rpc\Empty $argument input argument
+     * @param \Sajari\Rpc\PBEmpty $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
     public function GetFields(\Sajari\Rpc\PBEmpty $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/GetFields',
-      $argument,
-      ['\Sajari\Engine\Schema\Fields', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.schema.Schema/GetFields',
+        $argument,
+        ['\Sajari\Engine\Schema\Fields', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -37,10 +39,10 @@ namespace Sajari\Engine\Schema {
      */
     public function AddFields(\Sajari\Engine\Schema\Fields $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/AddFields',
-      $argument,
-      ['\Sajari\Engine\Schema\Response', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.schema.Schema/AddFields',
+        $argument,
+        ['\Sajari\Engine\Schema\Response', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -51,12 +53,10 @@ namespace Sajari\Engine\Schema {
      */
     public function MutateField(\Sajari\Engine\Schema\MutateFieldRequest $argument,
       $metadata = [], $options = []) {
-      return $this->_simpleRequest('/sajari.engine.schema.Schema/MutateField',
-      $argument,
-      ['\Sajari\Engine\Schema\Response', 'decode'],
-      $metadata, $options);
+        return $this->_simpleRequest('/sajari.engine.schema.Schema/MutateField',
+        $argument,
+        ['\Sajari\Engine\Schema\Response', 'decode'],
+        $metadata, $options);
     }
-
-  }
 
 }

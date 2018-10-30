@@ -9,22 +9,32 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Protobuf type <code>sajari.engine.store.record.SetResponse</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.SetResponse</code>
  */
 class SetResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <code>repeated .sajari.rpc.Status status = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 1;</code>
      */
     private $status;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $status
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>repeated .sajari.rpc.Status status = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getStatus()
     {
@@ -32,12 +42,16 @@ class SetResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>repeated .sajari.rpc.Status status = 1;</code>
+     * Generated from protobuf field <code>repeated .sajari.rpc.Status status = 1;</code>
+     * @param \Sajari\Rpc\Status[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setStatus(&$var)
+    public function setStatus($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Rpc\Status::class);
         $this->status = $arr;
+
+        return $this;
     }
 
 }

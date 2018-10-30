@@ -9,35 +9,40 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * Transform is a representation of a transform process which is applied to a record
  * before it is added.
- * </pre>
  *
- * Protobuf type <code>sajari.engine.store.record.Transform</code>
+ * Generated from protobuf message <code>sajari.engine.store.record.Transform</code>
  */
 class Transform extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Identifier unique identifies a transform
-     * </pre>
      *
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
      */
     private $identifier = '';
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string $identifier
+     *           Identifier unique identifies a transform
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Engine\Store\Record\Record::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Identifier unique identifies a transform
-     * </pre>
      *
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
+     * @return string
      */
     public function getIdentifier()
     {
@@ -45,16 +50,18 @@ class Transform extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Identifier unique identifies a transform
-     * </pre>
      *
-     * <code>string identifier = 1;</code>
+     * Generated from protobuf field <code>string identifier = 1;</code>
+     * @param string $var
+     * @return $this
      */
     public function setIdentifier($var)
     {
         GPBUtil::checkString($var, True);
         $this->identifier = $var;
+
+        return $this;
     }
 
 }

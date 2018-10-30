@@ -9,24 +9,33 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
- * Tokens are used to mark result documents as well/poorly ranked for a query.
+ * Tokens are used to mark result records as well/poorly ranked for a query.
  * TODO(dhowden): fix this comment!
- * </pre>
  *
- * Protobuf type <code>sajari.api.query.v1.Token</code>
+ * Generated from protobuf message <code>sajari.api.query.v1.Token</code>
  */
 class Token extends \Google\Protobuf\Internal\Message
 {
     protected $token;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Api\Query\V1\Token\Click $click
+     *     @type \Sajari\Api\Query\V1\Token\PosNeg $pos_neg
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <code>.sajari.api.query.v1.Token.Click click = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Token.Click click = 1;</code>
+     * @return \Sajari\Api\Query\V1\Token\Click
      */
     public function getClick()
     {
@@ -34,16 +43,21 @@ class Token extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.api.query.v1.Token.Click click = 1;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Token.Click click = 1;</code>
+     * @param \Sajari\Api\Query\V1\Token\Click $var
+     * @return $this
      */
-    public function setClick(&$var)
+    public function setClick($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Query\V1\Token_Click::class);
         $this->writeOneof(1, $var);
+
+        return $this;
     }
 
     /**
-     * <code>.sajari.api.query.v1.Token.PosNeg pos_neg = 2;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Token.PosNeg pos_neg = 2;</code>
+     * @return \Sajari\Api\Query\V1\Token\PosNeg
      */
     public function getPosNeg()
     {
@@ -51,14 +65,21 @@ class Token extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <code>.sajari.api.query.v1.Token.PosNeg pos_neg = 2;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.Token.PosNeg pos_neg = 2;</code>
+     * @param \Sajari\Api\Query\V1\Token\PosNeg $var
+     * @return $this
      */
-    public function setPosNeg(&$var)
+    public function setPosNeg($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Query\V1\Token_PosNeg::class);
         $this->writeOneof(2, $var);
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getToken()
     {
         return $this->whichOneof("token");

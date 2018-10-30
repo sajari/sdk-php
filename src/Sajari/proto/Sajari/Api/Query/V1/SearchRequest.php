@@ -9,50 +9,55 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * SearchRequest
- * </pre>
  *
- * Protobuf type <code>sajari.api.query.v1.SearchRequest</code>
+ * Generated from protobuf message <code>sajari.api.query.v1.SearchRequest</code>
  */
 class SearchRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Underlying search request to be passed to the engine
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
      */
     private $search_request = null;
     /**
-     * <pre>
      * Tracking configuration for the query.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
      */
     private $tracking = null;
     /**
-     * <pre>
      * Transforms to be applied to the query (can be before, after or even on failure).
-     * </pre>
      *
-     * <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
      */
     private $transforms;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type \Sajari\Engine\Query\V1\SearchRequest $search_request
+     *           Underlying search request to be passed to the engine
+     *     @type \Sajari\Api\Query\V1\SearchRequest\Tracking $tracking
+     *           Tracking configuration for the query.
+     *     @type \Sajari\Api\Query\V1\Transform[]|\Google\Protobuf\Internal\RepeatedField $transforms
+     *           Transforms to be applied to the query (can be before, after or even on failure).
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Api\Query\V1\Query::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Underlying search request to be passed to the engine
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * @return \Sajari\Engine\Query\V1\SearchRequest
      */
     public function getSearchRequest()
     {
@@ -60,24 +65,25 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Underlying search request to be passed to the engine
-     * </pre>
      *
-     * <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * Generated from protobuf field <code>.sajari.engine.query.v1.SearchRequest search_request = 1;</code>
+     * @param \Sajari\Engine\Query\V1\SearchRequest $var
+     * @return $this
      */
-    public function setSearchRequest(&$var)
+    public function setSearchRequest($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Engine\Query\V1\SearchRequest::class);
         $this->search_request = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Tracking configuration for the query.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
+     * @return \Sajari\Api\Query\V1\SearchRequest\Tracking
      */
     public function getTracking()
     {
@@ -85,24 +91,25 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Tracking configuration for the query.
-     * </pre>
      *
-     * <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
+     * Generated from protobuf field <code>.sajari.api.query.v1.SearchRequest.Tracking tracking = 4;</code>
+     * @param \Sajari\Api\Query\V1\SearchRequest\Tracking $var
+     * @return $this
      */
-    public function setTracking(&$var)
+    public function setTracking($var)
     {
         GPBUtil::checkMessage($var, \Sajari\Api\Query\V1\SearchRequest_Tracking::class);
         $this->tracking = $var;
+
+        return $this;
     }
 
     /**
-     * <pre>
      * Transforms to be applied to the query (can be before, after or even on failure).
-     * </pre>
      *
-     * <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTransforms()
     {
@@ -110,16 +117,18 @@ class SearchRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Transforms to be applied to the query (can be before, after or even on failure).
-     * </pre>
      *
-     * <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
+     * Generated from protobuf field <code>repeated .sajari.api.query.v1.Transform transforms = 5;</code>
+     * @param \Sajari\Api\Query\V1\Transform[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setTransforms(&$var)
+    public function setTransforms($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sajari\Api\Query\V1\Transform::class);
         $this->transforms = $arr;
+
+        return $this;
     }
 
 }

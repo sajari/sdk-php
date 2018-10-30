@@ -9,35 +9,40 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * <pre>
  * AutoCompleteResponse is an ordered list of autocompleted phrases in response
  * to an AutoCompleteRequest.
- * </pre>
  *
- * Protobuf type <code>sajari.autocomplete.AutoCompleteResponse</code>
+ * Generated from protobuf message <code>sajari.autocomplete.AutoCompleteResponse</code>
  */
 class AutoCompleteResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * <pre>
      * Potential autocompletes in order of most likely to least likely.
-     * </pre>
      *
-     * <code>repeated string phrases = 1;</code>
+     * Generated from protobuf field <code>repeated string phrases = 1;</code>
      */
     private $phrases;
 
-    public function __construct() {
+    /**
+     * Constructor.
+     *
+     * @param array $data {
+     *     Optional. Data for populating the Message object.
+     *
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $phrases
+     *           Potential autocompletes in order of most likely to least likely.
+     * }
+     */
+    public function __construct($data = NULL) {
         \GPBMetadata\Sajari\Autocomplete\Autocomplete::initOnce();
-        parent::__construct();
+        parent::__construct($data);
     }
 
     /**
-     * <pre>
      * Potential autocompletes in order of most likely to least likely.
-     * </pre>
      *
-     * <code>repeated string phrases = 1;</code>
+     * Generated from protobuf field <code>repeated string phrases = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getPhrases()
     {
@@ -45,16 +50,18 @@ class AutoCompleteResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * <pre>
      * Potential autocompletes in order of most likely to least likely.
-     * </pre>
      *
-     * <code>repeated string phrases = 1;</code>
+     * Generated from protobuf field <code>repeated string phrases = 1;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
      */
-    public function setPhrases(&$var)
+    public function setPhrases($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->phrases = $arr;
+
+        return $this;
     }
 
 }
