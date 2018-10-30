@@ -193,4 +193,115 @@ class Pipeline
         }
         return $response;
     }
+
+    /**
+     * Replace multiple records in a collection using a pipeline.
+     *
+     * This method will only throw an exception if there was an error
+     * making the call.  To determine the success of individual add
+     * operations check `isError()` on the returned ReplaceResponse instances.
+     *
+     * Example:
+     *
+     *     $key_records = [
+     *         [$client->key("slug", "the-three-musketeers"), [
+     *             "title" => "The Three Musketeers",
+     *             "slug" => "the-three-musketeers",
+     *             "author" => "Alexandre Dumas",
+     *             "price" => 10.00,
+     *             "qty" => 7,
+     *         ]],
+     *         [$client->key("slug", "the-remains-of-the-day"), [
+     *             "title" => "The Remains of the Day",
+     *             "slug" => "the-remains-of-the-day",
+     *             "author" => "Kazuo Ishiguro",
+     *             "price" => 8.00,
+     *             "qty" => 10,
+     *         ]],
+     *         [$client->key("slug", "1984"), [
+     *             "title" => "1984",
+     *             "slug" => "1984",
+     *             "author" => "George Orwell",
+     *             "price" => 15.00,
+     *             "qty" => 0,
+     *         ]]
+     *     ];
+     *
+     *     $response = $client->pipeline("books")->replaceMulti(
+     *         [
+     *             "autocomplete.train.prefix" => "title,author",
+     *             "autocomplete.train.spelling" => "title,author"
+     *         ],
+     *         $key_records
+     *     );
+     *
+     * @param array $values Associative array of key-value pairs for
+     * configuring the pipeline.
+     * @return ReplaceResponse[]
+     */
+    public function replaceMulti(array $values, array $key_records) {
+        $replaceRequest = new Api\Pipeline\V1\ReplaceRequest();
+        $pipelineProto = $this->pipelineProto();
+        $replaceRequest->setPipeline($pipelineProto);
+        $replaceRequest->setValues($values);
+
+        foreach ($key_records as $i => $key_record) {
+            list($key, $record) = $key_record;
+            $replaceRequest->getKeyRecords()[] = Internal\KeyRecord::toProto($key, $record);
+        }
+
+        $metadata = $this->callMeta;
+        print_r($metadata);
+        list($resp, $status) = $this->grpcRecordClient->Replace(
+            $replaceRequest,
+            $metadata
+        )->wait();
+
+        Internal\Status::fromRpcCallStatus($status)->throwIfError();
+
+        $resp = $resp->getResponse();
+        $protoKeys = $resp->getKeys();
+        $response = [];
+        foreach($resp->getStatus() as $i => $protoStatus) {
+            $response[] = new ReplaceResponse(
+                Internal\Status::fromProto($protoStatus),
+                Internal\Key::fromProto($protoKeys[$i])
+            );
+        }
+        return $response;
+    }
+
+    /**
+     * Replace a record to a collection using a pipeline.
+     *
+     * This method is equivalent to replaceMulti($values, [$key_record]) except any
+     * errors will be thrown as exceptions.
+     *
+     * Example:
+     *
+     *     $key_record = [$client->key("slug", "the-three-musketeers"), [
+     *         "title" => "The Three Musketeers",
+     *         "slug" => "the-three-musketeers",
+     *         "author" => "Alexandre Dumas",
+     *         "price" => 10.00,
+     *         "qty" => 7,
+     *     ];
+     *
+     *     $key = $client->pipeline("books")->add(
+     *         [
+     *             "autocomplete.train.prefix" => "title,author",
+     *             "autocomplete.train.spelling" => "title,author"
+     *         ],
+     *         $key_record
+     *     );
+     *
+     * @param array $values Associative array of key-value pairs for
+     * configuring the pipeline.
+     * @return Key $key
+     */
+    public function replace(array $values, array $key_record) {
+        $resp = $this->replaceMulti($values, [$key_record]);
+        $resp[0]->getStatus()->throwIfError();
+        return $resp[0]->getKey();
+    }
 }
