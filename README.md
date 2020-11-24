@@ -1,260 +1,201 @@
-# Sajari PHP SDK
+# Sajari SDK for PHP
 
-[![Packagist](https://img.shields.io/packagist/v/sajari/sajari-sdk-php.svg?style=flat-square)](https://packagist.org/packages/sajari/sajari-sdk-php) [![license](http://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE.md)
+[![Build status](https://travis-ci.org/sajari/sdk-php.svg?branch=master)](https://travis-ci.org/sajari/sdk-php)
 
-The Sajari PHP SDK enables use of the Sajari platform from PHP.
+The official [Sajari](https://www.sajari.com) PHP client library.
 
-We recommend using the [Generated search interface](https://github.com/sajari/sajari-sdk-react/tree/master/examples/basic-site-integration), [Javascript](https://github.com/sajari/sajari-sdk-js) or [React](https://github.com/sajari/sajari-sdk-react) SDKs if you're serving up search results in a web browser:
+Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
 
-- Avoids backend integration.
-- Minimises latency by sending queries directly to our servers instead of routing via your infrastructure.
-- Provides automatic real-time learning using user interactions and other metrics.
+## Table of contents
 
-## Table of Contents
+- [Installation & usage](#installation--usage)
+  - [Requirements](#requirements)
+  - [Composer](#composer)
+  - [Manual installation](#manual-installation)
+- [Getting started](#getting-started)
+- [API endpoints](#api-endpoints)
+- [Models](#models)
+- [Authorization](#authorization)
+  - [BasicAuth](#basicauth)
+- [Tests](#tests)
+- [Author](#author)
+- [About this package](#about-this-package)
 
-* [Setup](#setup)
-  * [Using with Composer](#using-with-composer)
-* [Getting Started](#getting-started)
-  * [Creating a Client](#creating-a-client)
-  * [Adding a Record](#adding-a-record)
-  * [Getting a Record](#getting-a-record)
-  * [Deleting a Record](#deleting-a-record)
-  * [Editing a Record](#editing-a-record)
-  * [Retrieving a Schema](#retrieving-a-collection-schema)
-  * [Querying](#querying)
-    * [Pipelines](#pipelines)
-    * [Raw search API](#raw-search-api)
-* [Documentation](#documentation)
-* [License](#license)
+## Installation & usage
 
+### Requirements
 
-## Setup
+PHP 7.2 and later.
 
-Requires PHP 5.5+, 7.0+.
+### Composer
 
-1. Get [Composer](https://getcomposer.org/download/).
-2. Get the [gRPC](https://pecl.php.net/package/gRPC) extension by running `sudo pecl install grpc`.
-3. Add `extension=grpc.so` to your `php.ini` file.
-4. Run `php composer.phar install`.
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
-*Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).*
-
-### Using with Composer
-
-Add `sajari/sajari-sdk-php` to your `composer.json`:
 ```json
 {
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/sajari/sdk-php.git"
+    }
+  ],
   "require": {
-    "sajari/sajari-sdk-php": "v2.0.1"
+    "sajari/sdk-php": "*@dev"
   }
 }
 ```
 
-## Getting Started
+Then run `composer install`
 
-Here are a few simple code snippets that will help get you up and running.  See the [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) for a more complete overview.
+### Manual installation
 
-### Creating a Client
-
-To start we need to create a client to make calls to the API:
+Download the files and include `autoload.php`:
 
 ```php
-$client = new Client('your-project', 'your-collection', [
-    new WithKeyCredentials('your-key-id', 'your-key-secret')
-]);
+<?php
+require_once "/path/to/OpenAPIClient-php/vendor/autoload.php";
 ```
 
-### Adding a record
+## Getting started
 
-A record can be added to a collection using the `add` method:
-
-```php
-$record = [
-    "title" => "The Three Musketeers",
-    "slug" => "the-three-musketeers",
-    "author" => "Alexandre Dumas",
-    "price" => 10.00,
-    "qty" => 7,
-];
-$key = $client->add($record);
-```
-
-An exception will be thrown if an error occurred.
-
-If the add is successful, a `$key` (instance of the class `Key`) is returned which uniquely defines the newly inserted record.  This can be used in calls to `get`, `delete` and `mutate` to operate on that record in the collection.  Keys can be defined on any unique field.  Each collection has the unique field `_id` which is set by the system when records are added.  Unique fields can also be created using the API.
-
-#### Adding multiple records
-
-Multiple records can be added in one call.  It's easy to retrieve the keys from each of the add operations (and check that they succeeded).
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
-$records = [
-    [
-        "title" => "The Three Musketeers",
-        "slug" => "the-three-musketeers",
-        "author" => "Alexandre Dumas",
-        "price" => 10.00,
-        "qty" => 7,
-    ],
-    [
-        "title" => "The Remains of the Day",
-        "slug" => "the-remains-of-the-day",
-        "author" => "Kazuo Ishiguro",
-        "price" => 8.00,
-        "qty" => 10,
-    ],
-    [
-        "title" => "1984",
-        "slug" => "1984",
-        "author" => "George Orwell",
-        "price" => 15.00,
-        "qty" => 0,
-    ]
-];
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
 
-$resps = $client->addMulti($records);
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
 
-foreach($resps as $resp) {
-    if ($resp->isError()) {
-       echo "error adding record: " . $resp->getStatus() . "\n";
-       continue;
-    }
-    echo $resp->getKey() . "\n";
-}
-```
-
-### Getting a record
-
-A record can be retrieved from a collection using a `Key`.
-
-```php
-$client->get($client->key("slug", "the-three-musketeers"));
-```
-
-An exception will be thrown if an error occurred.
-
-#### Getting multiple records
-
-Multiple records can also be fetched in one call using keys.
-
-```php
-$keys = $client->keys("slug", [
-    "the-three-musketeers",
-    "the-remains-of-the-day",
-    "1984",
-]);
-
-$resps = $client->getMulti($keys);
-
-foreach($resps as $resp) {
-    if ($resp->isError()) {
-       echo "error fetching record: " . $resp->getStatus() . "\n";
-       continue;
-    }
-    print_r($resp->getRecord());
-}
-```
-
-### Deleting a record
-
-A record can be deleted from a collection using a `Key`.
-
-```php
-$client->delete($client->key("slug", "1984"));
-```
-
-An exception will be thrown if an error occurred.
-
-#### Deleting multiple records
-
-```php
-$keys = $client->keys("slug", [
-    "the-three-musketeers",
-    "the-remains-of-the-day",
-    "1984",
-]);
-
-$resps = $client->deleteMulti($keys);
-
-foreach($resps as $resp) {
-    if ($resp->isError()) {
-       echo "error deleting record: " . $resp . "\n";
-    }
-}
-```
-
-### Editing a record
-
-A record can be edited using a `Key` and an associative array of field-value pairs to overwrite existing field values.
-
-```php
-$client->edit(
-    $client->key("slug", "the-remains-of-the-day"),
-    [ "qty" => 10 ]
+$apiInstance = new Sajari\Api\CollectionsApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
 );
-```
+$collection_id = "collection_id_example"; // string | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
+$collection = new \Sajari\Model\Collection(); // \Sajari\Model\Collection | Details of the collection to create.
 
-#### Editing multiple records
-
-```php
-$keys = $client->keys("slug", [
-    "the-three-musketeers",
-    "the-remains-of-the-day",
-    "1984",
-]);
-
-$setFields = [
-    ["title" => "The Three Musketeers (Original French)"],
-    ["qty" => 10],
-    ["title" => "George Orwell's 1984"],
-];
-
-$resps = $client->editMulti($keys, $setFields);
-
-foreach($resps as $resp) {
-    if ($resp->isError()) {
-       echo "error editing record: " . $resp . "\n";
-    }
+try {
+  $result = $apiInstance->createCollection($collection_id, $collection);
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling CollectionsApi->createCollection: ",
+    $e->getMessage(),
+    PHP_EOL;
 }
 ```
 
-### Retrieving a collection schema
+## API endpoints
 
-```php
-$client->schema()->getFields()
+All URIs are relative to *https://api-gateway.sajari.com*
+
+| Class          | Method                                                                       | HTTP request                                                                       | Description                  |
+| -------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------- |
+| CollectionsApi | [**createCollection**](docs/Api/CollectionsApi.md#createcollection)          | **POST** /v4/collections                                                           | Create collection            |
+| CollectionsApi | [**deleteCollection**](docs/Api/CollectionsApi.md#deletecollection)          | **DELETE** /v4/collections/{collection_id}                                         | Delete collection            |
+| CollectionsApi | [**getCollection**](docs/Api/CollectionsApi.md#getcollection)                | **GET** /v4/collections/{collection_id}                                            | Get collection               |
+| CollectionsApi | [**listCollections**](docs/Api/CollectionsApi.md#listcollections)            | **GET** /v4/collections                                                            | List collections             |
+| CollectionsApi | [**queryCollection**](docs/Api/CollectionsApi.md#querycollection)            | **POST** /v4/collections/{collection_id}:queryCollection                           | Query collection             |
+| CollectionsApi | [**updateCollection**](docs/Api/CollectionsApi.md#updatecollection)          | **PATCH** /v4/collections/{collection_id}                                          | Update collection            |
+| PipelinesApi   | [**createPipeline**](docs/Api/PipelinesApi.md#createpipeline)                | **POST** /v4/collections/{collection_id}/pipelines                                 | Create pipeline              |
+| PipelinesApi   | [**generatePipelines**](docs/Api/PipelinesApi.md#generatepipelines)          | **POST** /v4/collections/{collection_id}:generatePipelines                         | Generate pipelines           |
+| PipelinesApi   | [**getDefaultPipeline**](docs/Api/PipelinesApi.md#getdefaultpipeline)        | **GET** /v4/collections/{collection_id}:getDefaultPipeline                         | Get default pipeline         |
+| PipelinesApi   | [**getDefaultVersion**](docs/Api/PipelinesApi.md#getdefaultversion)          | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion  | Get default pipeline version |
+| PipelinesApi   | [**getPipeline**](docs/Api/PipelinesApi.md#getpipeline)                      | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}/{version}          | Get pipeline                 |
+| PipelinesApi   | [**listPipelines**](docs/Api/PipelinesApi.md#listpipelines)                  | **GET** /v4/collections/{collection_id}/pipelines                                  | List pipelines               |
+| PipelinesApi   | [**setDefaultPipeline**](docs/Api/PipelinesApi.md#setdefaultpipeline)        | **POST** /v4/collections/{collection_id}:setDefaultPipeline                        | Set default pipeline         |
+| PipelinesApi   | [**setDefaultVersion**](docs/Api/PipelinesApi.md#setdefaultversion)          | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version |
+| RecordsApi     | [**batchUpsertRecords**](docs/Api/RecordsApi.md#batchupsertrecords)          | **POST** /v4/collections/{collection_id}/records:batchUpsert                       | Batch upsert records         |
+| RecordsApi     | [**deleteRecord**](docs/Api/RecordsApi.md#deleterecord)                      | **POST** /v4/collections/{collection_id}/records:delete                            | Delete record                |
+| RecordsApi     | [**getRecord**](docs/Api/RecordsApi.md#getrecord)                            | **POST** /v4/collections/{collection_id}/records:get                               | Get record                   |
+| RecordsApi     | [**upsertRecord**](docs/Api/RecordsApi.md#upsertrecord)                      | **POST** /v4/collections/{collection_id}/records:upsert                            | Upsert record                |
+| SchemaApi      | [**batchCreateSchemaFields**](docs/Api/SchemaApi.md#batchcreateschemafields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate                  | Batch create schema fields   |
+| SchemaApi      | [**createSchemaField**](docs/Api/SchemaApi.md#createschemafield)             | **POST** /v4/collections/{collection_id}/schemaFields                              | Create schema field          |
+| SchemaApi      | [**listSchemaFields**](docs/Api/SchemaApi.md#listschemafields)               | **GET** /v4/collections/{collection_id}/schemaFields                               | List schema fields           |
+
+## Models
+
+- [BatchCreateSchemaFieldsRequest](docs/Model/BatchCreateSchemaFieldsRequest.md)
+- [BatchCreateSchemaFieldsResponse](docs/Model/BatchCreateSchemaFieldsResponse.md)
+- [BatchCreateSchemaFieldsResponseError](docs/Model/BatchCreateSchemaFieldsResponseError.md)
+- [BatchUpsertRecordsRequest](docs/Model/BatchUpsertRecordsRequest.md)
+- [BatchUpsertRecordsRequestPipeline](docs/Model/BatchUpsertRecordsRequestPipeline.md)
+- [BatchUpsertRecordsResponse](docs/Model/BatchUpsertRecordsResponse.md)
+- [BatchUpsertRecordsResponseError](docs/Model/BatchUpsertRecordsResponseError.md)
+- [BatchUpsertRecordsResponseKey](docs/Model/BatchUpsertRecordsResponseKey.md)
+- [BatchUpsertRecordsResponseVariables](docs/Model/BatchUpsertRecordsResponseVariables.md)
+- [Collection](docs/Model/Collection.md)
+- [DeleteRecordRequest](docs/Model/DeleteRecordRequest.md)
+- [Error](docs/Model/Error.md)
+- [GeneratePipelinesRequest](docs/Model/GeneratePipelinesRequest.md)
+- [GeneratePipelinesResponse](docs/Model/GeneratePipelinesResponse.md)
+- [GetDefaultPipelineResponse](docs/Model/GetDefaultPipelineResponse.md)
+- [GetDefaultVersionRequestView](docs/Model/GetDefaultVersionRequestView.md)
+- [GetPipelineRequestView](docs/Model/GetPipelineRequestView.md)
+- [GetRecordRequest](docs/Model/GetRecordRequest.md)
+- [ListCollectionsResponse](docs/Model/ListCollectionsResponse.md)
+- [ListPipelinesRequestView](docs/Model/ListPipelinesRequestView.md)
+- [ListPipelinesResponse](docs/Model/ListPipelinesResponse.md)
+- [ListSchemaFieldsResponse](docs/Model/ListSchemaFieldsResponse.md)
+- [Pipeline](docs/Model/Pipeline.md)
+- [PipelineStep](docs/Model/PipelineStep.md)
+- [PipelineStepParamBinding](docs/Model/PipelineStepParamBinding.md)
+- [PipelineType](docs/Model/PipelineType.md)
+- [ProtobufAny](docs/Model/ProtobufAny.md)
+- [ProtobufNullValue](docs/Model/ProtobufNullValue.md)
+- [QueryAggregateResult](docs/Model/QueryAggregateResult.md)
+- [QueryAggregateResultAnalysis](docs/Model/QueryAggregateResultAnalysis.md)
+- [QueryAggregateResultBuckets](docs/Model/QueryAggregateResultBuckets.md)
+- [QueryAggregateResultBucketsBucket](docs/Model/QueryAggregateResultBucketsBucket.md)
+- [QueryAggregateResultCount](docs/Model/QueryAggregateResultCount.md)
+- [QueryAggregateResultDate](docs/Model/QueryAggregateResultDate.md)
+- [QueryAggregateResultMetric](docs/Model/QueryAggregateResultMetric.md)
+- [QueryCollectionRequest](docs/Model/QueryCollectionRequest.md)
+- [QueryCollectionRequestPipeline](docs/Model/QueryCollectionRequestPipeline.md)
+- [QueryCollectionRequestTracking](docs/Model/QueryCollectionRequestTracking.md)
+- [QueryCollectionRequestTrackingType](docs/Model/QueryCollectionRequestTrackingType.md)
+- [QueryCollectionResponse](docs/Model/QueryCollectionResponse.md)
+- [QueryCollectionResponsePipeline](docs/Model/QueryCollectionResponsePipeline.md)
+- [QueryResult](docs/Model/QueryResult.md)
+- [QueryResultToken](docs/Model/QueryResultToken.md)
+- [QueryResultTokenClick](docs/Model/QueryResultTokenClick.md)
+- [QueryResultTokenPosNeg](docs/Model/QueryResultTokenPosNeg.md)
+- [RecordKey](docs/Model/RecordKey.md)
+- [SchemaField](docs/Model/SchemaField.md)
+- [SchemaFieldMode](docs/Model/SchemaFieldMode.md)
+- [SchemaFieldType](docs/Model/SchemaFieldType.md)
+- [SetDefaultPipelineRequest](docs/Model/SetDefaultPipelineRequest.md)
+- [SetDefaultVersionRequest](docs/Model/SetDefaultVersionRequest.md)
+- [Status](docs/Model/Status.md)
+- [UpsertRecordRequest](docs/Model/UpsertRecordRequest.md)
+- [UpsertRecordRequestPipeline](docs/Model/UpsertRecordRequestPipeline.md)
+- [UpsertRecordResponse](docs/Model/UpsertRecordResponse.md)
+
+## Authorization
+
+### BasicAuth
+
+- **Type**: HTTP basic authentication
+
+## Tests
+
+To run the tests, use:
+
+```bash
+composer install
+vendor/bin/phpunit
 ```
 
-### Querying
+## Author
 
-#### Pipelines
+support@sajari.com
 
-Pipelines are the recommended way to query your collection. They wrap up lots of our more complex functionality into a simple interface.  We offer a few standard pipelines for specific purposes, eg `website` for querying website collections. If you created your collection using the "custom" option in the console, use the `raw` pipeline.
+## About this package
 
-```php
-$results = $client->pipeline("books")->search([
-    "q" => "musketeers"
-]);
-```
+This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-#### Raw search API
-
-It's also possible to run queries using the raw query API.
-
-```php
-$client->Search(new Request("1984"))
-```
-
-# Documentation
-
-The [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) is available online.
-
-It can also be built locally using [Sami](https://github.com/FriendsOfPHP/Sami/tree/v3.3.0):
-
-1. Move to the `sajari-sdk-php` root directory and run `curl -O http://get.sensiolabs.org/sami-v3.3.0.phar`
-2. Run `php sami-v3.3.0.phar update sami.cfg.php`
-
-This will generate the documentation and put it in `build/`.
-
-# License
-
-We use the [MIT License](./LICENSE.md).
+- API version: `v4`
+- Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

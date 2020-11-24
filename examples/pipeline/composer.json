@@ -1,7 +1,0 @@
-{
-  "require": {
-    "sajari/sajari-sdk-php": "new-generated-proto-dev"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
-}

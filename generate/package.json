@@ -1,0 +1,9 @@
+{
+  "name": "@sajari/sdk-node-generate",
+  "private": true,
+  "devDependencies": {
+    "@prettier/plugin-php": "0.16.0",
+    "@prettier/plugin-xml": "0.12.0",
+    "prettier": "2.1.2"
+  }
+}
