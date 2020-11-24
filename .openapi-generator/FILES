@@ -1,6 +1,5 @@
 .gitignore
 .php_cs
-.travis.yml
 README.md
 composer.json
 docs/Api/CollectionsApi.md
