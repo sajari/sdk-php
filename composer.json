@@ -1,29 +1,42 @@
 {
-  "name": "sajari/sajari-sdk-php",
-  "homepage": "https://www.sajari.com",
-  "description": "Sajari SDK for PHP",
+  "name": "sajari/sdk-php",
+  "description": "Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.",
   "keywords": [
-    "sajari",
+    "openapitools",
+    "openapi-generator",
+    "openapi",
+    "php",
     "sdk",
-    "search"
+    "rest",
+    "api"
   ],
-  "type": "library",
-  "license": "MIT",
+  "homepage": "https://openapi-generator.tech",
+  "license": "unlicense",
   "authors": [
     {
-      "name": "Sajari",
-      "homepage": "https://www.sajari.com"
+      "name": "OpenAPI-Generator contributors",
+      "homepage": "https://openapi-generator.tech"
     }
   ],
   "require": {
-    "php": ">=5.5.0",
-    "google/protobuf": "v3.4.0",
-    "grpc/grpc": "v1.6.0"
+    "php": ">=7.2",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0 || ^9.0",
+    "friendsofphp/php-cs-fixer": "^2.12"
   },
   "autoload": {
-    "psr-0": {
-      "Sajari\\": "src/"
+    "psr-4": {
+      "Sajari\\": "lib/"
     }
   },
-  "prefer-stable": true
+  "autoload-dev": {
+    "psr-4": {
+      "Sajari\\Test\\": "test/"
+    }
+  }
 }
