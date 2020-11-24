@@ -1,6 +1,6 @@
 # Sajari SDK for PHP
 
-[![Build status](https://travis-ci.org/sajari/sdk-php.svg?branch=master)](https://travis-ci.org/sajari/sdk-php)
+[![Build status](https://github.com/sajari/sdk-php/workflows/Build/badge.svg?branch=master)](https://github.com/sajari/sdk-php/actions)
 
 The official [Sajari](https://www.sajari.com) PHP client library.
 
