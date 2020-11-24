@@ -2,20 +2,19 @@
   "name": "sajari/sdk-php",
   "description": "Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.",
   "keywords": [
-    "openapitools",
-    "openapi-generator",
-    "openapi",
+    "sajari",
+    "search",
+    "api",
     "php",
     "sdk",
-    "rest",
-    "api"
+    "rest"
   ],
-  "homepage": "https://openapi-generator.tech",
-  "license": "unlicense",
+  "homepage": "https://www.sajari.com",
+  "license": "MIT",
   "authors": [
     {
-      "name": "OpenAPI-Generator contributors",
-      "homepage": "https://openapi-generator.tech"
+      "name": "Sajari and contributors",
+      "homepage": "https://github.com/sajari/sdk-php/contributors"
     }
   ],
   "require": {
@@ -38,5 +37,8 @@
     "psr-4": {
       "Sajari\\Test\\": "test/"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
