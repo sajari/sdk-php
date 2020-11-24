@@ -7,4 +7,4 @@ php:
   - 7.3
   - 7.4
 before_install: "composer install"
-script: "vendor/bin/phpunit"
+script: "composer run-script test"
