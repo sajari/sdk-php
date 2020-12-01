@@ -16,7 +16,7 @@ class Client
     private $collection = '';
 
     /** @var string $endpoint */
-    private $endpoint = 'api.sajari.com:50051';
+    private $endpoint = 'api.sajari.com:443';
     /** @var string $credentials */
     private $credentials = "";
     private $channelCredentials = NULL;
