@@ -12,21 +12,20 @@ We recommend using the [Generated search interface](https://github.com/sajari/sa
 
 ## Table of Contents
 
-* [Setup](#setup)
-  * [Using with Composer](#using-with-composer)
-* [Getting Started](#getting-started)
-  * [Creating a Client](#creating-a-client)
-  * [Adding a Record](#adding-a-record)
-  * [Getting a Record](#getting-a-record)
-  * [Deleting a Record](#deleting-a-record)
-  * [Editing a Record](#editing-a-record)
-  * [Retrieving a Schema](#retrieving-a-collection-schema)
-  * [Querying](#querying)
-    * [Pipelines](#pipelines)
-    * [Raw search API](#raw-search-api)
-* [Documentation](#documentation)
-* [License](#license)
-
+- [Setup](#setup)
+  - [Using with Composer](#using-with-composer)
+- [Getting Started](#getting-started)
+  - [Creating a Client](#creating-a-client)
+  - [Adding a Record](#adding-a-record)
+  - [Getting a Record](#getting-a-record)
+  - [Deleting a Record](#deleting-a-record)
+  - [Editing a Record](#editing-a-record)
+  - [Retrieving a Schema](#retrieving-a-collection-schema)
+  - [Querying](#querying)
+    - [Pipelines](#pipelines)
+    - [Raw search API](#raw-search-api)
+- [Documentation](#documentation)
+- [License](#license)
 
 ## Setup
 
@@ -37,22 +36,23 @@ Requires PHP 5.5+, 7.0+.
 3. Add `extension=grpc.so` to your `php.ini` file.
 4. Run `php composer.phar install`.
 
-*Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php).*
+_Note A more complete guide to installing the gRPC extension can be found in the [gRPC PHP README](https://github.com/grpc/grpc/tree/master/src/php)._
 
 ### Using with Composer
 
 Add `sajari/sajari-sdk-php` to your `composer.json`:
+
 ```json
 {
   "require": {
-    "sajari/sajari-sdk-php": "v2.0.1"
+    "sajari/sajari-sdk-php": "v2.1.0"
   }
 }
 ```
 
 ## Getting Started
 
-Here are a few simple code snippets that will help get you up and running.  See the [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) for a more complete overview.
+Here are a few simple code snippets that will help get you up and running. See the [full documentation](https://sajari.github.io/sajari-sdk-php/Sajari/Client.html) for a more complete overview.
 
 ### Creating a Client
 
@@ -81,11 +81,11 @@ $key = $client->add($record);
 
 An exception will be thrown if an error occurred.
 
-If the add is successful, a `$key` (instance of the class `Key`) is returned which uniquely defines the newly inserted record.  This can be used in calls to `get`, `delete` and `mutate` to operate on that record in the collection.  Keys can be defined on any unique field.  Each collection has the unique field `_id` which is set by the system when records are added.  Unique fields can also be created using the API.
+If the add is successful, a `$key` (instance of the class `Key`) is returned which uniquely defines the newly inserted record. This can be used in calls to `get`, `delete` and `mutate` to operate on that record in the collection. Keys can be defined on any unique field. Each collection has the unique field `_id` which is set by the system when records are added. Unique fields can also be created using the API.
 
 #### Adding multiple records
 
-Multiple records can be added in one call.  It's easy to retrieve the keys from each of the add operations (and check that they succeeded).
+Multiple records can be added in one call. It's easy to retrieve the keys from each of the add operations (and check that they succeeded).
 
 ```php
 $records = [
@@ -228,7 +228,7 @@ $client->schema()->getFields()
 
 #### Pipelines
 
-Pipelines are the recommended way to query your collection. They wrap up lots of our more complex functionality into a simple interface.  We offer a few standard pipelines for specific purposes, eg `website` for querying website collections. If you created your collection using the "custom" option in the console, use the `raw` pipeline.
+Pipelines are the recommended way to query your collection. They wrap up lots of our more complex functionality into a simple interface. We offer a few standard pipelines for specific purposes, eg `website` for querying website collections. If you created your collection using the "custom" option in the console, use the `raw` pipeline.
 
 ```php
 $results = $client->pipeline("books")->search([
