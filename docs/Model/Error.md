@@ -4,7 +4,6 @@
 
 | Name        | Type                                              | Description | Notes      |
 | ----------- | ------------------------------------------------- | ----------- | ---------- |
-| **error**   | **string**                                        |             | [optional] |
 | **code**    | **int**                                           |             | [optional] |
 | **message** | **string**                                        |             | [optional] |
 | **details** | [**\Sajari\Model\ProtobufAny[]**](ProtobufAny.md) |             | [optional] |

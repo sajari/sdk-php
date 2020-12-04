@@ -80,15 +80,6 @@ class ErrorTest extends TestCase
     }
 
     /**
-     * Test attribute "error"
-     */
-    public function testPropertyError()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
      * Test attribute "code"
      */
     public function testPropertyCode()
