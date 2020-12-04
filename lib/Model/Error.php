@@ -60,7 +60,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        "error" => "string",
         "code" => "int",
         "message" => "string",
         "details" => "\Sajari\Model\ProtobufAny[]",
@@ -74,7 +73,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "error" => null,
         "code" => "int32",
         "message" => null,
         "details" => null,
@@ -107,7 +105,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        "error" => "error",
         "code" => "code",
         "message" => "message",
         "details" => "details",
@@ -119,7 +116,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        "error" => "setError",
         "code" => "setCode",
         "message" => "setMessage",
         "details" => "setDetails",
@@ -131,7 +127,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        "error" => "getError",
         "code" => "getCode",
         "message" => "getMessage",
         "details" => "getDetails",
@@ -193,7 +188,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container["error"] = $data["error"] ?? null;
         $this->container["code"] = $data["code"] ?? null;
         $this->container["message"] = $data["message"] ?? null;
         $this->container["details"] = $data["details"] ?? null;
@@ -220,30 +214,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return string|null
-     */
-    public function getError()
-    {
-        return $this->container["error"];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param string|null $error error
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        $this->container["error"] = $error;
-
-        return $this;
     }
 
     /**
