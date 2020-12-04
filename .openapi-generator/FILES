@@ -1,5 +1,4 @@
 .gitignore
-.php_cs
 README.md
 composer.json
 docs/Api/CollectionsApi.md
@@ -125,7 +124,6 @@ lib/Model/UpsertRecordRequest.php
 lib/Model/UpsertRecordRequestPipeline.php
 lib/Model/UpsertRecordResponse.php
 lib/ObjectSerializer.php
-phpunit.xml.dist
 test/Api/CollectionsApiTest.php
 test/Api/PipelinesApiTest.php
 test/Api/RecordsApiTest.php

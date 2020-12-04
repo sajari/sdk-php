@@ -1,2 +1,4 @@
+.php_cs
 .travis.yml
 git_push.sh
+phpunit.xml.dist

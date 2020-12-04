@@ -21,7 +21,8 @@ cp .openapi-generator-ignore $GEN_PATH/
 
 rm -rf $GEN_PATH/docs
 rm -rf $GEN_PATH/lib
-rm -rf $GEN_PATH/test
+rm -rf $GEN_PATH/test/Api
+rm -rf $GEN_PATH/test/Model
 
 OPENAPI_PATH=`mktemp /tmp/openapi.json.XXX`
 trap "rm -f $OPENAPI_PATH" EXIT

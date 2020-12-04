@@ -11,13 +11,8 @@ return PhpCsFixer\Config::create()
         "strict_param" => true,
         "no_trailing_whitespace" => false,
         "no_trailing_whitespace_in_comment" => false,
-        "braces" => false,
+        "braces" => true,
         "single_blank_line_at_eof" => false,
         "blank_line_after_namespace" => false,
     ])
-    ->setFinder(
-        PhpCsFixer\Finder::create()
-            ->exclude("test")
-            ->exclude("tests")
-            ->in(__DIR__)
-    );
+    ->setFinder(PhpCsFixer\Finder::create()->in(__DIR__));
