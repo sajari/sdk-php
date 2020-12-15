@@ -16,6 +16,8 @@ if [ -z "$TEMPLATES_PATH" ]; then
     die "TEMPLATES_PATH must be set, e.g. /path/to/sajari/sdk-php/generate/templates"
 fi
 
+VERSION=3.0.1
+
 docker-entrypoint.sh generate \
     -i /openapi.json \
     -g php \
@@ -23,4 +25,5 @@ docker-entrypoint.sh generate \
     --git-repo-id sdk-php \
     -t $TEMPLATES_PATH \
     --additional-properties invokerPackage=Sajari \
+    --additional-properties artifactVersion=$VERSION \
     -o $GEN_PATH

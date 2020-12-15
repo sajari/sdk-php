@@ -70,6 +70,13 @@ class PipelinesApi
     protected $hostIndex;
 
     /**
+     * The value to use for the Sajari-Client-User-Agent header
+     *
+     * @var string
+     */
+    protected $clientUserAgent;
+
+    /**
      * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
@@ -85,6 +92,17 @@ class PipelinesApi
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->hostIndex = $hostIndex;
+
+        $composer = json_decode(
+            file_get_contents(dirname(__FILE__) . "/../../composer.json"),
+            true
+        );
+
+        $clientUserAgent = "sajari-sdk-php";
+        if ($composer["version"]) {
+            $clientUserAgent = $clientUserAgent . "/" . $composer["version"];
+        }
+        $this->clientUserAgent = $clientUserAgent;
     }
 
     /**
@@ -515,6 +533,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -954,6 +976,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -1373,6 +1399,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -1861,6 +1891,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -2376,6 +2410,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -2853,6 +2891,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -3284,6 +3326,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
@@ -3772,6 +3818,10 @@ class PipelinesApi
         }
 
         $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
         if ($this->config->getUserAgent()) {
             $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
         }
