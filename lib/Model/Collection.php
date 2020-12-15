@@ -64,6 +64,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         "account_id" => "string",
         "create_time" => "\DateTime",
         "display_name" => "string",
+        "authorized_query_domains" => "string[]",
     ];
 
     /**
@@ -78,6 +79,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         "account_id" => null,
         "create_time" => "date-time",
         "display_name" => null,
+        "authorized_query_domains" => null,
     ];
 
     /**
@@ -111,6 +113,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         "account_id" => "account_id",
         "create_time" => "create_time",
         "display_name" => "display_name",
+        "authorized_query_domains" => "authorized_query_domains",
     ];
 
     /**
@@ -123,6 +126,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         "account_id" => "setAccountId",
         "create_time" => "setCreateTime",
         "display_name" => "setDisplayName",
+        "authorized_query_domains" => "setAuthorizedQueryDomains",
     ];
 
     /**
@@ -135,6 +139,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         "account_id" => "getAccountId",
         "create_time" => "getCreateTime",
         "display_name" => "getDisplayName",
+        "authorized_query_domains" => "getAuthorizedQueryDomains",
     ];
 
     /**
@@ -197,6 +202,8 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container["account_id"] = $data["account_id"] ?? null;
         $this->container["create_time"] = $data["create_time"] ?? null;
         $this->container["display_name"] = $data["display_name"] ?? null;
+        $this->container["authorized_query_domains"] =
+            $data["authorized_query_domains"] ?? null;
     }
 
     /**
@@ -317,6 +324,32 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDisplayName($display_name)
     {
         $this->container["display_name"] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets authorized_query_domains
+     *
+     * @return string[]|null
+     */
+    public function getAuthorizedQueryDomains()
+    {
+        return $this->container["authorized_query_domains"];
+    }
+
+    /**
+     * Sets authorized_query_domains
+     *
+     * @param string[]|null $authorized_query_domains The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api-reference#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+     *
+     * @return self
+     */
+    public function setAuthorizedQueryDomains($authorized_query_domains)
+    {
+        $this->container[
+            "authorized_query_domains"
+        ] = $authorized_query_domains;
 
         return $this;
     }
