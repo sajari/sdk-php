@@ -405,7 +405,7 @@ class Configuration
         $report .= "    OS: " . php_uname() . PHP_EOL;
         $report .= "    PHP Version: " . PHP_VERSION . PHP_EOL;
         $report .= "    The version of the OpenAPI document: v4" . PHP_EOL;
-        $report .= "    SDK Package Version: 3.0.1" . PHP_EOL;
+        $report .= "    SDK Package Version: 3.0.2" . PHP_EOL;
         $report .=
             "    Temp Folder Path: " .
             self::getDefaultConfiguration()->getTempFolderPath() .

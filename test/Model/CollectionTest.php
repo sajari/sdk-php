@@ -114,4 +114,13 @@ class CollectionTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
+
+    /**
+     * Test attribute "authorized_query_domains"
+     */
+    public function testPropertyAuthorizedQueryDomains()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
 }
