@@ -371,24 +371,36 @@ class ObjectSerializer
             }
         }
 
+        // NOTE(jingram): The original generated code passes invalid types to
+        // settype. See [1] for the valid types. This block has been introduced
+        // so that settype is not called for these types. I don't know if there
+        // needs to be some deserialization for these types, but for now this
+        // fixes the settype warning.
+        //
+        // [1] https://www.php.net/manual/en/function.settype.php#refsect1-function.settype-parameters
+        if (
+            in_array(
+                $class,
+                ["DateTime", "byte", "mixed", "number", "void"],
+                true
+            )
+        ) {
+            return $data;
+        }
+
         /** @psalm-suppress ParadoxicalCondition */
         if (
             in_array(
                 $class,
                 [
-                    "DateTime",
                     "bool",
                     "boolean",
-                    "byte",
                     "double",
                     "float",
                     "int",
                     "integer",
-                    "mixed",
-                    "number",
                     "object",
                     "string",
-                    "void",
                 ],
                 true
             )
