@@ -143,7 +143,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Pipeline|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function createPipeline($collection_id, $pipeline)
     {
@@ -164,7 +164,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Pipeline|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPipelineWithHttpInfo($collection_id, $pipeline)
     {
@@ -219,50 +219,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -310,7 +326,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -318,7 +334,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,7 +342,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -334,7 +350,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -564,7 +580,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\GeneratePipelinesResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\GeneratePipelinesResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function generatePipelines(
         $collection_id,
@@ -587,7 +603,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\GeneratePipelinesResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\GeneratePipelinesResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePipelinesWithHttpInfo(
         $collection_id,
@@ -650,50 +666,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -741,7 +773,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -749,7 +781,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -757,7 +789,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -765,7 +797,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1007,7 +1039,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\GetDefaultPipelineResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\GetDefaultPipelineResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function getDefaultPipeline($collection_id, $type)
     {
@@ -1028,7 +1060,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\GetDefaultPipelineResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\GetDefaultPipelineResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDefaultPipelineWithHttpInfo($collection_id, $type)
     {
@@ -1086,50 +1118,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1177,7 +1225,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1185,7 +1233,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1193,7 +1241,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1201,7 +1249,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1428,11 +1476,11 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Pipeline|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function getDefaultVersion(
         $collection_id,
@@ -1457,11 +1505,11 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Pipeline|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDefaultVersionWithHttpInfo(
         $collection_id,
@@ -1525,31 +1573,7 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 403:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 404:
-                    if ("\Sajari\Model\Status" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
@@ -1558,21 +1582,57 @@ class PipelinesApi
                     return [
                         ObjectSerializer::deserialize(
                             $content,
-                            "\Sajari\Model\Status",
+                            "\Sajari\Model\Error",
                             []
                         ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
-                case 500:
-                    if ("mixed" === "\SplFileObject") {
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1620,7 +1680,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1628,7 +1688,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1636,7 +1696,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "\Sajari\Model\Status",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1644,7 +1704,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1670,7 +1730,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1699,7 +1759,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1762,7 +1822,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1921,11 +1981,11 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Pipeline|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function getPipeline(
         $collection_id,
@@ -1953,11 +2013,11 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Pipeline|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPipelineWithHttpInfo(
         $collection_id,
@@ -2023,50 +2083,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -2114,7 +2190,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2122,7 +2198,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2130,7 +2206,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2138,7 +2214,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2165,7 +2241,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2197,7 +2273,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2263,7 +2339,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2438,12 +2514,12 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api-reference#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\ListPipelinesResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\ListPipelinesResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function listPipelines(
         $collection_id,
@@ -2467,12 +2543,12 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api-reference#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\ListPipelinesResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\ListPipelinesResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listPipelinesWithHttpInfo(
         $collection_id,
@@ -2539,50 +2615,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -2630,7 +2722,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2638,7 +2730,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2646,7 +2738,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2654,7 +2746,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2679,8 +2771,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api-reference#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2708,8 +2800,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api-reference#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2771,8 +2863,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api-reference#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api-reference#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api-reference#operation/ListPipelines) and [GetPipeline](/docs/api-reference#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2922,7 +3014,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function setDefaultPipeline(
         $collection_id,
@@ -2945,7 +3037,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function setDefaultPipelineWithHttpInfo(
         $collection_id,
@@ -3001,50 +3093,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -3092,7 +3200,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3100,7 +3208,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3108,7 +3216,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3116,7 +3224,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3359,7 +3467,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function setDefaultVersion(
         $collection_id,
@@ -3388,7 +3496,7 @@ class PipelinesApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function setDefaultVersionWithHttpInfo(
         $collection_id,
@@ -3448,50 +3556,66 @@ class PipelinesApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -3539,7 +3663,7 @@ class PipelinesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3547,7 +3671,7 @@ class PipelinesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3555,7 +3679,7 @@ class PipelinesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3563,7 +3687,7 @@ class PipelinesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

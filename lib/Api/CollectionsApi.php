@@ -143,7 +143,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Collection|\Sajari\Model\Status|mixed|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function createCollection($collection_id, $collection)
     {
@@ -164,7 +164,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Collection|\Sajari\Model\Status|mixed|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCollectionWithHttpInfo($collection_id, $collection)
     {
@@ -219,7 +219,7 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 400:
-                    if ("\Sajari\Model\Status" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
@@ -228,50 +228,14 @@ class CollectionsApi
                     return [
                         ObjectSerializer::deserialize(
                             $content,
-                            "\Sajari\Model\Status",
+                            "\Sajari\Model\Error",
                             []
                         ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 403:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 404:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 409:
-                    if ("\Sajari\Model\Status" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
@@ -280,21 +244,73 @@ class CollectionsApi
                     return [
                         ObjectSerializer::deserialize(
                             $content,
-                            "\Sajari\Model\Status",
+                            "\Sajari\Model\Error",
                             []
                         ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
-                case 500:
-                    if ("mixed" === "\SplFileObject") {
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 409:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -342,7 +358,7 @@ class CollectionsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "\Sajari\Model\Status",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -350,7 +366,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -358,7 +374,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -366,7 +382,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -374,7 +390,7 @@ class CollectionsApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "\Sajari\Model\Status",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -382,7 +398,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -614,7 +630,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return mixed|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error
+     * @return mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function deleteCollection($collection_id)
     {
@@ -631,7 +647,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of mixed|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCollectionWithHttpInfo($collection_id)
     {
@@ -682,31 +698,7 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 403:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 404:
-                    if ("\Sajari\Model\Status" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
@@ -715,21 +707,57 @@ class CollectionsApi
                     return [
                         ObjectSerializer::deserialize(
                             $content,
-                            "\Sajari\Model\Status",
+                            "\Sajari\Model\Error",
                             []
                         ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
-                case 500:
-                    if ("mixed" === "\SplFileObject") {
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -777,7 +805,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -785,7 +813,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -793,7 +821,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "\Sajari\Model\Status",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -801,7 +829,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1008,7 +1036,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Collection|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function getCollection($collection_id)
     {
@@ -1025,7 +1053,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Collection|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCollectionWithHttpInfo($collection_id)
     {
@@ -1080,50 +1108,66 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1171,7 +1215,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1179,7 +1223,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1187,7 +1231,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1195,7 +1239,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1399,11 +1443,11 @@ class CollectionsApi
      * List collections
      *
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\ListCollectionsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\ListCollectionsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function listCollections($page_size = null, $page_token = null)
     {
@@ -1420,11 +1464,11 @@ class CollectionsApi
      * List collections
      *
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\ListCollectionsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\ListCollectionsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCollectionsWithHttpInfo(
         $page_size = null,
@@ -1484,50 +1528,66 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1575,7 +1635,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1583,7 +1643,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1591,7 +1651,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1599,7 +1659,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1623,7 +1683,7 @@ class CollectionsApi
      * List collections
      *
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1644,7 +1704,7 @@ class CollectionsApi
      * List collections
      *
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1698,7 +1758,7 @@ class CollectionsApi
      * Create request for operation 'listCollections'
      *
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-     * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1817,7 +1877,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\QueryCollectionResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\QueryCollectionResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function queryCollection($collection_id, $query_collection_request)
     {
@@ -1838,7 +1898,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\QueryCollectionResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\QueryCollectionResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function queryCollectionWithHttpInfo(
         $collection_id,
@@ -1901,50 +1961,66 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1992,7 +2068,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2000,7 +2076,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2008,7 +2084,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2016,7 +2092,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2258,7 +2334,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\Collection|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function updateCollection(
         $collection_id,
@@ -2284,7 +2360,7 @@ class CollectionsApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\Collection|mixed|mixed|\Sajari\Model\Status|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCollectionWithHttpInfo(
         $collection_id,
@@ -2346,31 +2422,7 @@ class CollectionsApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 403:
-                    if ("mixed" === "\SplFileObject") {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
-                        $response->getStatusCode(),
-                        $response->getHeaders(),
-                    ];
-                case 404:
-                    if ("\Sajari\Model\Status" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
@@ -2379,21 +2431,57 @@ class CollectionsApi
                     return [
                         ObjectSerializer::deserialize(
                             $content,
-                            "\Sajari\Model\Status",
+                            "\Sajari\Model\Error",
                             []
                         ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
-                case 500:
-                    if ("mixed" === "\SplFileObject") {
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -2441,7 +2529,7 @@ class CollectionsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2449,7 +2537,7 @@ class CollectionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2457,7 +2545,7 @@ class CollectionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "\Sajari\Model\Status",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2465,7 +2553,7 @@ class CollectionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

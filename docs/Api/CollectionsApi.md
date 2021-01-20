@@ -227,7 +227,7 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   $config
 );
 $page_size = 56; // int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
-$page_token = "page_token_example"; // string | A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token.
+$page_token = "page_token_example"; // string | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token.
 
 try {
   $result = $apiInstance->listCollections($page_size, $page_token);
@@ -241,10 +241,10 @@ try {
 
 ### Parameters
 
-| Name           | Type       | Description                                                                                                                                                                                                                                                                                                                      | Notes      |
-| -------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                                                   | [optional] |
-| **page_token** | **string** | A page token, received from a previous [ListCollections](/docs/api-reference#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/docs/api-reference#operation/ListCollections) must match the call that provided the page token. | [optional] |
+| Name           | Type       | Description                                                                                                                                                                                                                                                                                        | Notes      |
+| -------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                     | [optional] |
+| **page_token** | **string** | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
 
 ### Return type
 
@@ -271,7 +271,7 @@ queryCollection($collection_id, $query_collection_request): \Sajari\Model\QueryC
 
 Query collection
 
-Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://www.sajari.com/docs/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
 
 ### Example
 

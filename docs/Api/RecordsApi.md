@@ -17,7 +17,7 @@ batchUpsertRecords($collection_id, $batch_upsert_records_request): \Sajari\Model
 
 Batch upsert records
 
-The batch version of the [UpsertRecord](/docs/api-reference#operation/UpsertRecord) call.
+The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
 
 ### Example
 

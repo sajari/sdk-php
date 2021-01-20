@@ -341,7 +341,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authorized_query_domains
      *
-     * @param string[]|null $authorized_query_domains The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api-reference#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+     * @param string[]|null $authorized_query_domains The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
      *
      * @return self
      */
