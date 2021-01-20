@@ -143,7 +143,7 @@ class SchemaApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\BatchCreateSchemaFieldsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\BatchCreateSchemaFieldsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function batchCreateSchemaFields(
         $collection_id,
@@ -166,7 +166,7 @@ class SchemaApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\BatchCreateSchemaFieldsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\BatchCreateSchemaFieldsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function batchCreateSchemaFieldsWithHttpInfo(
         $collection_id,
@@ -229,50 +229,66 @@ class SchemaApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -320,7 +336,7 @@ class SchemaApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -328,7 +344,7 @@ class SchemaApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +352,7 @@ class SchemaApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -344,7 +360,7 @@ class SchemaApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -586,7 +602,7 @@ class SchemaApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\SchemaField|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\SchemaField|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function createSchemaField($collection_id, $schema_field)
     {
@@ -607,7 +623,7 @@ class SchemaApi
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\SchemaField|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\SchemaField|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSchemaFieldWithHttpInfo($collection_id, $schema_field)
     {
@@ -665,50 +681,66 @@ class SchemaApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -756,7 +788,7 @@ class SchemaApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -764,7 +796,7 @@ class SchemaApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -772,7 +804,7 @@ class SchemaApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -780,7 +812,7 @@ class SchemaApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1011,11 +1043,11 @@ class SchemaApi
      *
      * @param  string $collection_id The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sajari\Model\ListSchemaFieldsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error
+     * @return \Sajari\Model\ListSchemaFieldsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
     public function listSchemaFields(
         $collection_id,
@@ -1037,11 +1069,11 @@ class SchemaApi
      *
      * @param  string $collection_id The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sajari\Model\ListSchemaFieldsResponse|mixed|mixed|mixed|mixed|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sajari\Model\ListSchemaFieldsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listSchemaFieldsWithHttpInfo(
         $collection_id,
@@ -1106,50 +1138,66 @@ class SchemaApi
                         $response->getHeaders(),
                     ];
                 case 401:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 403:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 404:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
                 case 500:
-                    if ("mixed" === "\SplFileObject") {
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, "mixed", []),
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
                         $response->getStatusCode(),
                         $response->getHeaders(),
                     ];
@@ -1197,7 +1245,7 @@ class SchemaApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1205,7 +1253,7 @@ class SchemaApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1213,7 +1261,7 @@ class SchemaApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1221,7 +1269,7 @@ class SchemaApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        "mixed",
+                        "\Sajari\Model\Error",
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1246,7 +1294,7 @@ class SchemaApi
      *
      * @param  string $collection_id The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1272,7 +1320,7 @@ class SchemaApi
      *
      * @param  string $collection_id The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1332,7 +1380,7 @@ class SchemaApi
      *
      * @param  string $collection_id The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api-reference#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
