@@ -27,6 +27,7 @@ docs/Model/ListCollectionsResponse.md
 docs/Model/ListPipelinesRequestView.md
 docs/Model/ListPipelinesResponse.md
 docs/Model/ListSchemaFieldsResponse.md
+docs/Model/PercentileDataPoint.md
 docs/Model/Pipeline.md
 docs/Model/PipelineStep.md
 docs/Model/PipelineStepParamBinding.md
@@ -40,6 +41,7 @@ docs/Model/QueryAggregateResultBucketsBucket.md
 docs/Model/QueryAggregateResultCount.md
 docs/Model/QueryAggregateResultDate.md
 docs/Model/QueryAggregateResultMetric.md
+docs/Model/QueryAggregateResultPercentile.md
 docs/Model/QueryCollectionRequest.md
 docs/Model/QueryCollectionRequestPipeline.md
 docs/Model/QueryCollectionRequestTracking.md
@@ -90,6 +92,7 @@ lib/Model/ListPipelinesRequestView.php
 lib/Model/ListPipelinesResponse.php
 lib/Model/ListSchemaFieldsResponse.php
 lib/Model/ModelInterface.php
+lib/Model/PercentileDataPoint.php
 lib/Model/Pipeline.php
 lib/Model/PipelineStep.php
 lib/Model/PipelineStepParamBinding.php
@@ -103,6 +106,7 @@ lib/Model/QueryAggregateResultBucketsBucket.php
 lib/Model/QueryAggregateResultCount.php
 lib/Model/QueryAggregateResultDate.php
 lib/Model/QueryAggregateResultMetric.php
+lib/Model/QueryAggregateResultPercentile.php
 lib/Model/QueryCollectionRequest.php
 lib/Model/QueryCollectionRequestPipeline.php
 lib/Model/QueryCollectionRequestTracking.php
@@ -150,6 +154,7 @@ test/Model/ListCollectionsResponseTest.php
 test/Model/ListPipelinesRequestViewTest.php
 test/Model/ListPipelinesResponseTest.php
 test/Model/ListSchemaFieldsResponseTest.php
+test/Model/PercentileDataPointTest.php
 test/Model/PipelineStepParamBindingTest.php
 test/Model/PipelineStepTest.php
 test/Model/PipelineTest.php
@@ -162,6 +167,7 @@ test/Model/QueryAggregateResultBucketsTest.php
 test/Model/QueryAggregateResultCountTest.php
 test/Model/QueryAggregateResultDateTest.php
 test/Model/QueryAggregateResultMetricTest.php
+test/Model/QueryAggregateResultPercentileTest.php
 test/Model/QueryAggregateResultTest.php
 test/Model/QueryCollectionRequestPipelineTest.php
 test/Model/QueryCollectionRequestTest.php

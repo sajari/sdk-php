@@ -1,6 +1,6 @@
 <?php
 /**
- * QueryAggregateResultTest
+ * QueryAggregateResultPercentileTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * QueryAggregateResultTest Class Doc Comment
+ * QueryAggregateResultPercentileTest Class Doc Comment
  *
  * @category    Class
- * @description A query aggregate result contains results of aggregations.
+ * @description Percentile contains the data points returned in a percentile aggregate step.
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class QueryAggregateResultTest extends TestCase
+class QueryAggregateResultPercentileTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,63 +71,27 @@ class QueryAggregateResultTest extends TestCase
     }
 
     /**
-     * Test "QueryAggregateResult"
+     * Test "QueryAggregateResultPercentile"
      */
-    public function testQueryAggregateResult()
+    public function testQueryAggregateResultPercentile()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "metric"
+     * Test attribute "percentiles"
      */
-    public function testPropertyMetric()
+    public function testPropertyPercentiles()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "cdf"
      */
-    public function testPropertyCount()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "buckets"
-     */
-    public function testPropertyBuckets()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "date"
-     */
-    public function testPropertyDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "analysis"
-     */
-    public function testPropertyAnalysis()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "percentile"
-     */
-    public function testPropertyPercentile()
+    public function testPropertyCdf()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

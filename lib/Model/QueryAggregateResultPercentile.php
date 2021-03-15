@@ -1,6 +1,6 @@
 <?php
 /**
- * QueryAggregateResult
+ * QueryAggregateResultPercentile
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * QueryAggregateResult Class Doc Comment
+ * QueryAggregateResultPercentile Class Doc Comment
  *
  * @category Class
- * @description A query aggregate result contains results of aggregations.
+ * @description Percentile contains the data points returned in a percentile aggregate step.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class QueryAggregateResult implements
+class QueryAggregateResultPercentile implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -56,7 +56,7 @@ class QueryAggregateResult implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "QueryAggregateResult";
+    protected static $openAPIModelName = "QueryAggregateResultPercentile";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -64,12 +64,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "metric" => "\Sajari\Model\QueryAggregateResultMetric",
-        "count" => "\Sajari\Model\QueryAggregateResultCount",
-        "buckets" => "\Sajari\Model\QueryAggregateResultBuckets",
-        "date" => "\Sajari\Model\QueryAggregateResultDate",
-        "analysis" => "\Sajari\Model\QueryAggregateResultAnalysis",
-        "percentile" => "\Sajari\Model\QueryAggregateResultPercentile",
+        "percentiles" => "\Sajari\Model\PercentileDataPoint[]",
+        "cdf" => "\Sajari\Model\PercentileDataPoint[]",
     ];
 
     /**
@@ -80,12 +76,8 @@ class QueryAggregateResult implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "metric" => null,
-        "count" => null,
-        "buckets" => null,
-        "date" => null,
-        "analysis" => null,
-        "percentile" => null,
+        "percentiles" => null,
+        "cdf" => null,
     ];
 
     /**
@@ -115,12 +107,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "metric" => "metric",
-        "count" => "count",
-        "buckets" => "buckets",
-        "date" => "date",
-        "analysis" => "analysis",
-        "percentile" => "percentile",
+        "percentiles" => "percentiles",
+        "cdf" => "cdf",
     ];
 
     /**
@@ -129,12 +117,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $setters = [
-        "metric" => "setMetric",
-        "count" => "setCount",
-        "buckets" => "setBuckets",
-        "date" => "setDate",
-        "analysis" => "setAnalysis",
-        "percentile" => "setPercentile",
+        "percentiles" => "setPercentiles",
+        "cdf" => "setCdf",
     ];
 
     /**
@@ -143,12 +127,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $getters = [
-        "metric" => "getMetric",
-        "count" => "getCount",
-        "buckets" => "getBuckets",
-        "date" => "getDate",
-        "analysis" => "getAnalysis",
-        "percentile" => "getPercentile",
+        "percentiles" => "getPercentiles",
+        "cdf" => "getCdf",
     ];
 
     /**
@@ -207,12 +187,8 @@ class QueryAggregateResult implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["metric"] = $data["metric"] ?? null;
-        $this->container["count"] = $data["count"] ?? null;
-        $this->container["buckets"] = $data["buckets"] ?? null;
-        $this->container["date"] = $data["date"] ?? null;
-        $this->container["analysis"] = $data["analysis"] ?? null;
-        $this->container["percentile"] = $data["percentile"] ?? null;
+        $this->container["percentiles"] = $data["percentiles"] ?? null;
+        $this->container["cdf"] = $data["cdf"] ?? null;
     }
 
     /**
@@ -239,145 +215,49 @@ class QueryAggregateResult implements
     }
 
     /**
-     * Gets metric
+     * Gets percentiles
      *
-     * @return \Sajari\Model\QueryAggregateResultMetric|null
+     * @return \Sajari\Model\PercentileDataPoint[]|null
      */
-    public function getMetric()
+    public function getPercentiles()
     {
-        return $this->container["metric"];
+        return $this->container["percentiles"];
     }
 
     /**
-     * Sets metric
+     * Sets percentiles
      *
-     * @param \Sajari\Model\QueryAggregateResultMetric|null $metric metric
+     * @param \Sajari\Model\PercentileDataPoint[]|null $percentiles The percentile data points.
      *
      * @return self
      */
-    public function setMetric($metric)
+    public function setPercentiles($percentiles)
     {
-        $this->container["metric"] = $metric;
+        $this->container["percentiles"] = $percentiles;
 
         return $this;
     }
 
     /**
-     * Gets count
+     * Gets cdf
      *
-     * @return \Sajari\Model\QueryAggregateResultCount|null
+     * @return \Sajari\Model\PercentileDataPoint[]|null
      */
-    public function getCount()
+    public function getCdf()
     {
-        return $this->container["count"];
+        return $this->container["cdf"];
     }
 
     /**
-     * Sets count
+     * Sets cdf
      *
-     * @param \Sajari\Model\QueryAggregateResultCount|null $count count
+     * @param \Sajari\Model\PercentileDataPoint[]|null $cdf The cumulative distribution function (CDF) data points.
      *
      * @return self
      */
-    public function setCount($count)
+    public function setCdf($cdf)
     {
-        $this->container["count"] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets buckets
-     *
-     * @return \Sajari\Model\QueryAggregateResultBuckets|null
-     */
-    public function getBuckets()
-    {
-        return $this->container["buckets"];
-    }
-
-    /**
-     * Sets buckets
-     *
-     * @param \Sajari\Model\QueryAggregateResultBuckets|null $buckets buckets
-     *
-     * @return self
-     */
-    public function setBuckets($buckets)
-    {
-        $this->container["buckets"] = $buckets;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \Sajari\Model\QueryAggregateResultDate|null
-     */
-    public function getDate()
-    {
-        return $this->container["date"];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \Sajari\Model\QueryAggregateResultDate|null $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        $this->container["date"] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets analysis
-     *
-     * @return \Sajari\Model\QueryAggregateResultAnalysis|null
-     */
-    public function getAnalysis()
-    {
-        return $this->container["analysis"];
-    }
-
-    /**
-     * Sets analysis
-     *
-     * @param \Sajari\Model\QueryAggregateResultAnalysis|null $analysis analysis
-     *
-     * @return self
-     */
-    public function setAnalysis($analysis)
-    {
-        $this->container["analysis"] = $analysis;
-
-        return $this;
-    }
-
-    /**
-     * Gets percentile
-     *
-     * @return \Sajari\Model\QueryAggregateResultPercentile|null
-     */
-    public function getPercentile()
-    {
-        return $this->container["percentile"];
-    }
-
-    /**
-     * Sets percentile
-     *
-     * @param \Sajari\Model\QueryAggregateResultPercentile|null $percentile percentile
-     *
-     * @return self
-     */
-    public function setPercentile($percentile)
-    {
-        $this->container["percentile"] = $percentile;
+        $this->container["cdf"] = $cdf;
 
         return $this;
     }
