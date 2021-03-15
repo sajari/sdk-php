@@ -35,18 +35,18 @@ docker run --rm -it \
     -v $OPENAPI_PATH:/openapi.json \
     -v "$GEN_PATH":/gen \
     -v $(pwd)/templates:/templates \
-    -v $(pwd)/generate.bash:/generate.bash \
+    -v $(pwd)/generate.sh:/generate.sh \
     -e GEN_PATH=/gen \
     -e TEMPLATES_PATH=/templates \
     $img \
-    ./generate.bash
+    ./generate.sh
 
 img=$(openssl rand -base64 12 | tr -dc a-z0-9)
 docker build -f Dockerfile.post-generate -t $img .
 docker run --rm -it \
     -v "$GEN_PATH":/app/gen \
     -v $(pwd)/.prettierignore:/app/.prettierignore \
-    -v $(pwd)/post-generate.bash:/app/post-generate.bash \
+    -v $(pwd)/post-generate.sh:/app/post-generate.sh \
     -e GEN_PATH=/app/gen \
     $img \
-    ./post-generate.bash
+    ./post-generate.sh
