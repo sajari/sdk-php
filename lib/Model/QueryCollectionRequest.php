@@ -36,7 +36,7 @@ use Sajari\ObjectSerializer;
  * QueryCollectionRequest Class Doc Comment
  *
  * @category Class
- * @description QueryCollectionRequest is a request to perform a search using a pipeline.
+ * @description A request to perform a search using a pipeline.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -1,6 +1,6 @@
 <?php
 /**
- * QueryAggregateResult
+ * PercentileDataPoint
  *
  * PHP version 7.2
  *
@@ -33,10 +33,9 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * QueryAggregateResult Class Doc Comment
+ * PercentileDataPoint Class Doc Comment
  *
  * @category Class
- * @description A query aggregate result contains results of aggregations.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +43,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class QueryAggregateResult implements
+class PercentileDataPoint implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -56,7 +55,7 @@ class QueryAggregateResult implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "QueryAggregateResult";
+    protected static $openAPIModelName = "PercentileDataPoint";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -64,12 +63,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "metric" => "\Sajari\Model\QueryAggregateResultMetric",
-        "count" => "\Sajari\Model\QueryAggregateResultCount",
-        "buckets" => "\Sajari\Model\QueryAggregateResultBuckets",
-        "date" => "\Sajari\Model\QueryAggregateResultDate",
-        "analysis" => "\Sajari\Model\QueryAggregateResultAnalysis",
-        "percentile" => "\Sajari\Model\QueryAggregateResultPercentile",
+        "point" => "double",
+        "value" => "double",
     ];
 
     /**
@@ -80,12 +75,8 @@ class QueryAggregateResult implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "metric" => null,
-        "count" => null,
-        "buckets" => null,
-        "date" => null,
-        "analysis" => null,
-        "percentile" => null,
+        "point" => "double",
+        "value" => "double",
     ];
 
     /**
@@ -115,12 +106,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "metric" => "metric",
-        "count" => "count",
-        "buckets" => "buckets",
-        "date" => "date",
-        "analysis" => "analysis",
-        "percentile" => "percentile",
+        "point" => "point",
+        "value" => "value",
     ];
 
     /**
@@ -129,12 +116,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $setters = [
-        "metric" => "setMetric",
-        "count" => "setCount",
-        "buckets" => "setBuckets",
-        "date" => "setDate",
-        "analysis" => "setAnalysis",
-        "percentile" => "setPercentile",
+        "point" => "setPoint",
+        "value" => "setValue",
     ];
 
     /**
@@ -143,12 +126,8 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $getters = [
-        "metric" => "getMetric",
-        "count" => "getCount",
-        "buckets" => "getBuckets",
-        "date" => "getDate",
-        "analysis" => "getAnalysis",
-        "percentile" => "getPercentile",
+        "point" => "getPoint",
+        "value" => "getValue",
     ];
 
     /**
@@ -207,12 +186,8 @@ class QueryAggregateResult implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["metric"] = $data["metric"] ?? null;
-        $this->container["count"] = $data["count"] ?? null;
-        $this->container["buckets"] = $data["buckets"] ?? null;
-        $this->container["date"] = $data["date"] ?? null;
-        $this->container["analysis"] = $data["analysis"] ?? null;
-        $this->container["percentile"] = $data["percentile"] ?? null;
+        $this->container["point"] = $data["point"] ?? null;
+        $this->container["value"] = $data["value"] ?? null;
     }
 
     /**
@@ -239,145 +214,49 @@ class QueryAggregateResult implements
     }
 
     /**
-     * Gets metric
+     * Gets point
      *
-     * @return \Sajari\Model\QueryAggregateResultMetric|null
+     * @return double|null
      */
-    public function getMetric()
+    public function getPoint()
     {
-        return $this->container["metric"];
+        return $this->container["point"];
     }
 
     /**
-     * Sets metric
+     * Sets point
      *
-     * @param \Sajari\Model\QueryAggregateResultMetric|null $metric metric
+     * @param double|null $point The input point.
      *
      * @return self
      */
-    public function setMetric($metric)
+    public function setPoint($point)
     {
-        $this->container["metric"] = $metric;
+        $this->container["point"] = $point;
 
         return $this;
     }
 
     /**
-     * Gets count
+     * Gets value
      *
-     * @return \Sajari\Model\QueryAggregateResultCount|null
+     * @return double|null
      */
-    public function getCount()
+    public function getValue()
     {
-        return $this->container["count"];
+        return $this->container["value"];
     }
 
     /**
-     * Sets count
+     * Sets value
      *
-     * @param \Sajari\Model\QueryAggregateResultCount|null $count count
+     * @param double|null $value The corresponding value for the given point.
      *
      * @return self
      */
-    public function setCount($count)
+    public function setValue($value)
     {
-        $this->container["count"] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets buckets
-     *
-     * @return \Sajari\Model\QueryAggregateResultBuckets|null
-     */
-    public function getBuckets()
-    {
-        return $this->container["buckets"];
-    }
-
-    /**
-     * Sets buckets
-     *
-     * @param \Sajari\Model\QueryAggregateResultBuckets|null $buckets buckets
-     *
-     * @return self
-     */
-    public function setBuckets($buckets)
-    {
-        $this->container["buckets"] = $buckets;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \Sajari\Model\QueryAggregateResultDate|null
-     */
-    public function getDate()
-    {
-        return $this->container["date"];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \Sajari\Model\QueryAggregateResultDate|null $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        $this->container["date"] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets analysis
-     *
-     * @return \Sajari\Model\QueryAggregateResultAnalysis|null
-     */
-    public function getAnalysis()
-    {
-        return $this->container["analysis"];
-    }
-
-    /**
-     * Sets analysis
-     *
-     * @param \Sajari\Model\QueryAggregateResultAnalysis|null $analysis analysis
-     *
-     * @return self
-     */
-    public function setAnalysis($analysis)
-    {
-        $this->container["analysis"] = $analysis;
-
-        return $this;
-    }
-
-    /**
-     * Gets percentile
-     *
-     * @return \Sajari\Model\QueryAggregateResultPercentile|null
-     */
-    public function getPercentile()
-    {
-        return $this->container["percentile"];
-    }
-
-    /**
-     * Sets percentile
-     *
-     * @param \Sajari\Model\QueryAggregateResultPercentile|null $percentile percentile
-     *
-     * @return self
-     */
-    public function setPercentile($percentile)
-    {
-        $this->container["percentile"] = $percentile;
+        $this->container["value"] = $value;
 
         return $this;
     }
