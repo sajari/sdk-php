@@ -83,7 +83,7 @@ deleteCollection($collection_id): mixed
 
 Delete collection
 
-Delete a collection and all of its associated data. > Note: this operation cannot be reversed.
+Delete a collection and all of its associated data. > Note: This operation cannot be reversed.
 
 ### Example
 

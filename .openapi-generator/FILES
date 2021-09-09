@@ -2,6 +2,7 @@
 README.md
 composer.json
 docs/Api/CollectionsApi.md
+docs/Api/EventsApi.md
 docs/Api/PipelinesApi.md
 docs/Api/RecordsApi.md
 docs/Api/SchemaApi.md
@@ -56,6 +57,7 @@ docs/Model/RecordKey.md
 docs/Model/SchemaField.md
 docs/Model/SchemaFieldMode.md
 docs/Model/SchemaFieldType.md
+docs/Model/SendEventRequest.md
 docs/Model/SetDefaultPipelineRequest.md
 docs/Model/SetDefaultVersionRequest.md
 docs/Model/Status.md
@@ -63,6 +65,7 @@ docs/Model/UpsertRecordRequest.md
 docs/Model/UpsertRecordRequestPipeline.md
 docs/Model/UpsertRecordResponse.md
 lib/Api/CollectionsApi.php
+lib/Api/EventsApi.php
 lib/Api/PipelinesApi.php
 lib/Api/RecordsApi.php
 lib/Api/SchemaApi.php
@@ -121,6 +124,7 @@ lib/Model/RecordKey.php
 lib/Model/SchemaField.php
 lib/Model/SchemaFieldMode.php
 lib/Model/SchemaFieldType.php
+lib/Model/SendEventRequest.php
 lib/Model/SetDefaultPipelineRequest.php
 lib/Model/SetDefaultVersionRequest.php
 lib/Model/Status.php
@@ -129,6 +133,7 @@ lib/Model/UpsertRecordRequestPipeline.php
 lib/Model/UpsertRecordResponse.php
 lib/ObjectSerializer.php
 test/Api/CollectionsApiTest.php
+test/Api/EventsApiTest.php
 test/Api/PipelinesApiTest.php
 test/Api/RecordsApiTest.php
 test/Api/SchemaApiTest.php
@@ -183,6 +188,7 @@ test/Model/RecordKeyTest.php
 test/Model/SchemaFieldModeTest.php
 test/Model/SchemaFieldTest.php
 test/Model/SchemaFieldTypeTest.php
+test/Model/SendEventRequestTest.php
 test/Model/SetDefaultPipelineRequestTest.php
 test/Model/SetDefaultVersionRequestTest.php
 test/Model/StatusTest.php

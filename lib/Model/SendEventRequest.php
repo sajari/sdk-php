@@ -1,6 +1,6 @@
 <?php
 /**
- * QueryCollectionRequest
+ * SendEventRequest
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * QueryCollectionRequest Class Doc Comment
+ * SendEventRequest Class Doc Comment
  *
  * @category Class
- * @description A request to perform a search using a pipeline.
+ * @description A request to send an event to the ranking system after a user interacts with a search result.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,10 +44,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class QueryCollectionRequest implements
-    ModelInterface,
-    ArrayAccess,
-    \JsonSerializable
+class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,7 +53,7 @@ class QueryCollectionRequest implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "QueryCollectionRequest";
+    protected static $openAPIModelName = "SendEventRequest";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -64,9 +61,10 @@ class QueryCollectionRequest implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "pipeline" => "\Sajari\Model\QueryCollectionRequestPipeline",
-        "variables" => "object",
-        "tracking" => "\Sajari\Model\QueryCollectionRequestTracking",
+        "name" => "string",
+        "token" => "string",
+        "weight" => "int",
+        "metadata" => "map[string,object]",
     ];
 
     /**
@@ -77,9 +75,10 @@ class QueryCollectionRequest implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "pipeline" => null,
-        "variables" => null,
-        "tracking" => null,
+        "name" => null,
+        "token" => null,
+        "weight" => "int32",
+        "metadata" => null,
     ];
 
     /**
@@ -109,9 +108,10 @@ class QueryCollectionRequest implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "pipeline" => "pipeline",
-        "variables" => "variables",
-        "tracking" => "tracking",
+        "name" => "name",
+        "token" => "token",
+        "weight" => "weight",
+        "metadata" => "metadata",
     ];
 
     /**
@@ -120,9 +120,10 @@ class QueryCollectionRequest implements
      * @var string[]
      */
     protected static $setters = [
-        "pipeline" => "setPipeline",
-        "variables" => "setVariables",
-        "tracking" => "setTracking",
+        "name" => "setName",
+        "token" => "setToken",
+        "weight" => "setWeight",
+        "metadata" => "setMetadata",
     ];
 
     /**
@@ -131,9 +132,10 @@ class QueryCollectionRequest implements
      * @var string[]
      */
     protected static $getters = [
-        "pipeline" => "getPipeline",
-        "variables" => "getVariables",
-        "tracking" => "getTracking",
+        "name" => "getName",
+        "token" => "getToken",
+        "weight" => "getWeight",
+        "metadata" => "getMetadata",
     ];
 
     /**
@@ -192,9 +194,10 @@ class QueryCollectionRequest implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["pipeline"] = $data["pipeline"] ?? null;
-        $this->container["variables"] = $data["variables"] ?? null;
-        $this->container["tracking"] = $data["tracking"] ?? null;
+        $this->container["name"] = $data["name"] ?? null;
+        $this->container["token"] = $data["token"] ?? null;
+        $this->container["weight"] = $data["weight"] ?? null;
+        $this->container["metadata"] = $data["metadata"] ?? null;
     }
 
     /**
@@ -206,8 +209,11 @@ class QueryCollectionRequest implements
     {
         $invalidProperties = [];
 
-        if ($this->container["variables"] === null) {
-            $invalidProperties[] = "'variables' can't be null";
+        if ($this->container["name"] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container["token"] === null) {
+            $invalidProperties[] = "'token' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +230,97 @@ class QueryCollectionRequest implements
     }
 
     /**
-     * Gets pipeline
+     * Gets name
      *
-     * @return \Sajari\Model\QueryCollectionRequestPipeline|null
+     * @return string
      */
-    public function getPipeline()
+    public function getName()
     {
-        return $this->container["pipeline"];
+        return $this->container["name"];
     }
 
     /**
-     * Sets pipeline
+     * Sets name
      *
-     * @param \Sajari\Model\QueryCollectionRequestPipeline|null $pipeline pipeline
+     * @param string $name The name of event, e.g. `click`, `purchase`.
      *
      * @return self
      */
-    public function setPipeline($pipeline)
+    public function setName($name)
     {
-        $this->container["pipeline"] = $pipeline;
+        $this->container["name"] = $name;
 
         return $this;
     }
 
     /**
-     * Gets variables
+     * Gets token
      *
-     * @return object
+     * @return string
      */
-    public function getVariables()
+    public function getToken()
     {
-        return $this->container["variables"];
+        return $this->container["token"];
     }
 
     /**
-     * Sets variables
+     * Sets token
      *
-     * @param object $variables The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```  To paginate through results, set the variables `page` and `resultsPerPage`, for example:  ```json { \"q\": \"search terms\", \"page\": 5, \"resultsPerPage\": 20 } ```  To sort results, set the variable `sort` to the name of one of your collection's schema fields, for example:  ```json { \"q\": \"search terms\", \"sort\": \"name\" } ```  To sort in reverse, prefix the schema field with a minus sign `-`, for example:  ```json { \"q\": \"search terms\", \"sort\": \"-name\" } ```
+     * @param string $token The token corresponding to the search result that was interacted with, e.g. `eyJ...`.
      *
      * @return self
      */
-    public function setVariables($variables)
+    public function setToken($token)
     {
-        $this->container["variables"] = $variables;
+        $this->container["token"] = $token;
 
         return $this;
     }
 
     /**
-     * Gets tracking
+     * Gets weight
      *
-     * @return \Sajari\Model\QueryCollectionRequestTracking|null
+     * @return int|null
      */
-    public function getTracking()
+    public function getWeight()
     {
-        return $this->container["tracking"];
+        return $this->container["weight"];
     }
 
     /**
-     * Sets tracking
+     * Sets weight
      *
-     * @param \Sajari\Model\QueryCollectionRequestTracking|null $tracking tracking
+     * @param int|null $weight The weight assigned to the event.  Generally a sensible weight is 1. If you want to weight an event in a certain way you can use a value other than 1. For example, if you want to capture profit in an event, you could set the weight to a value that represents the profit.
      *
      * @return self
      */
-    public function setTracking($tracking)
+    public function setWeight($weight)
     {
-        $this->container["tracking"] = $tracking;
+        $this->container["weight"] = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return map[string,object]|null
+     */
+    public function getMetadata()
+    {
+        return $this->container["metadata"];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param map[string,object]|null $metadata An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container["metadata"] = $metadata;
 
         return $this;
     }

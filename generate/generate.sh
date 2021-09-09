@@ -16,7 +16,7 @@ if [ -z "$TEMPLATES_PATH" ]; then
     die "TEMPLATES_PATH must be set, e.g. /path/to/sajari/sdk-php/generate/templates"
 fi
 
-VERSION=3.0.4
+VERSION=4.1.0
 
 docker-entrypoint.sh generate \
     -i /openapi.json \
