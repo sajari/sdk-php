@@ -1,6 +1,6 @@
 <?php
 /**
- * CollectionTest
+ * UpdateRecordRequestTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CollectionTest Class Doc Comment
+ * UpdateRecordRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Collection
+ * @description UpdateRecordRequest
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CollectionTest extends TestCase
+class UpdateRecordRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,54 +71,36 @@ class CollectionTest extends TestCase
     }
 
     /**
-     * Test "Collection"
+     * Test "UpdateRecordRequest"
      */
-    public function testCollection()
+    public function testUpdateRecordRequest()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "key"
      */
-    public function testPropertyAccountId()
+    public function testPropertyKey()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "authorized_query_domains"
+     * Test attribute "record"
      */
-    public function testPropertyAuthorizedQueryDomains()
+    public function testPropertyRecord()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "create_time"
+     * Test attribute "update_mask"
      */
-    public function testPropertyCreateTime()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "display_name"
-     */
-    public function testPropertyDisplayName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
+    public function testPropertyUpdateMask()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

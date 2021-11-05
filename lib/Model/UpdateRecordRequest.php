@@ -1,6 +1,6 @@
 <?php
 /**
- * UpsertRecordResponse
+ * UpdateRecordRequest
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * UpsertRecordResponse Class Doc Comment
+ * UpdateRecordRequest Class Doc Comment
  *
  * @category Class
  * @package  Sajari
@@ -43,7 +43,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpsertRecordResponse implements
+class UpdateRecordRequest implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -55,7 +55,7 @@ class UpsertRecordResponse implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "UpsertRecordResponse";
+    protected static $openAPIModelName = "UpdateRecordRequest";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -64,7 +64,8 @@ class UpsertRecordResponse implements
      */
     protected static $openAPITypes = [
         "key" => "\Sajari\Model\RecordKey",
-        "variables" => "array<string,object>",
+        "record" => "array<string,object>",
+        "update_mask" => "string",
     ];
 
     /**
@@ -76,7 +77,8 @@ class UpsertRecordResponse implements
      */
     protected static $openAPIFormats = [
         "key" => null,
-        "variables" => null,
+        "record" => null,
+        "update_mask" => null,
     ];
 
     /**
@@ -107,7 +109,8 @@ class UpsertRecordResponse implements
      */
     protected static $attributeMap = [
         "key" => "key",
-        "variables" => "variables",
+        "record" => "record",
+        "update_mask" => "update_mask",
     ];
 
     /**
@@ -117,7 +120,8 @@ class UpsertRecordResponse implements
      */
     protected static $setters = [
         "key" => "setKey",
-        "variables" => "setVariables",
+        "record" => "setRecord",
+        "update_mask" => "setUpdateMask",
     ];
 
     /**
@@ -127,7 +131,8 @@ class UpsertRecordResponse implements
      */
     protected static $getters = [
         "key" => "getKey",
-        "variables" => "getVariables",
+        "record" => "getRecord",
+        "update_mask" => "getUpdateMask",
     ];
 
     /**
@@ -187,7 +192,8 @@ class UpsertRecordResponse implements
     public function __construct(array $data = null)
     {
         $this->container["key"] = $data["key"] ?? null;
-        $this->container["variables"] = $data["variables"] ?? null;
+        $this->container["record"] = $data["record"] ?? null;
+        $this->container["update_mask"] = $data["update_mask"] ?? null;
     }
 
     /**
@@ -199,6 +205,15 @@ class UpsertRecordResponse implements
     {
         $invalidProperties = [];
 
+        if ($this->container["key"] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container["record"] === null) {
+            $invalidProperties[] = "'record' can't be null";
+        }
+        if ($this->container["update_mask"] === null) {
+            $invalidProperties[] = "'update_mask' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -216,7 +231,7 @@ class UpsertRecordResponse implements
     /**
      * Gets key
      *
-     * @return \Sajari\Model\RecordKey|null
+     * @return \Sajari\Model\RecordKey
      */
     public function getKey()
     {
@@ -226,7 +241,7 @@ class UpsertRecordResponse implements
     /**
      * Sets key
      *
-     * @param \Sajari\Model\RecordKey|null $key key
+     * @param \Sajari\Model\RecordKey $key key
      *
      * @return self
      */
@@ -238,25 +253,49 @@ class UpsertRecordResponse implements
     }
 
     /**
-     * Gets variables
+     * Gets record
      *
-     * @return array<string,object>|null
+     * @return array<string,object>
      */
-    public function getVariables()
+    public function getRecord()
     {
-        return $this->container["variables"];
+        return $this->container["record"];
     }
 
     /**
-     * Sets variables
+     * Sets record
      *
-     * @param array<string,object>|null $variables The modified variables returned by the pipeline after it has finished processing.
+     * @param array<string,object> $record The record to update.
      *
      * @return self
      */
-    public function setVariables($variables)
+    public function setRecord($record)
     {
-        $this->container["variables"] = $variables;
+        $this->container["record"] = $record;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_mask
+     *
+     * @return string
+     */
+    public function getUpdateMask()
+    {
+        return $this->container["update_mask"];
+    }
+
+    /**
+     * Sets update_mask
+     *
+     * @param string $update_mask The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  For each field that you want to update, provide a corresponding value in the record object containing the new value.
+     *
+     * @return self
+     */
+    public function setUpdateMask($update_mask)
+    {
+        $this->container["update_mask"] = $update_mask;
 
         return $this;
     }

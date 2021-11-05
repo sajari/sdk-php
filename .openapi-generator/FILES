@@ -61,6 +61,7 @@ docs/Model/SendEventRequest.md
 docs/Model/SetDefaultPipelineRequest.md
 docs/Model/SetDefaultVersionRequest.md
 docs/Model/Status.md
+docs/Model/UpdateRecordRequest.md
 docs/Model/UpsertRecordRequest.md
 docs/Model/UpsertRecordRequestPipeline.md
 docs/Model/UpsertRecordResponse.md
@@ -128,6 +129,7 @@ lib/Model/SendEventRequest.php
 lib/Model/SetDefaultPipelineRequest.php
 lib/Model/SetDefaultVersionRequest.php
 lib/Model/Status.php
+lib/Model/UpdateRecordRequest.php
 lib/Model/UpsertRecordRequest.php
 lib/Model/UpsertRecordRequestPipeline.php
 lib/Model/UpsertRecordResponse.php
@@ -192,6 +194,7 @@ test/Model/SendEventRequestTest.php
 test/Model/SetDefaultPipelineRequestTest.php
 test/Model/SetDefaultVersionRequestTest.php
 test/Model/StatusTest.php
+test/Model/UpdateRecordRequestTest.php
 test/Model/UpsertRecordRequestPipelineTest.php
 test/Model/UpsertRecordRequestTest.php
 test/Model/UpsertRecordResponseTest.php

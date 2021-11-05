@@ -66,8 +66,8 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 // Configure HTTP basic authorization: BasicAuth
 $config = Sajari\Configuration::getDefaultConfiguration()
-  ->setUsername("KEY_ID")
-  ->setPassword("KEY_SECRET");
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
 
 $apiInstance = new Sajari\Api\CollectionsApi(
   // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -98,9 +98,11 @@ All URIs are relative to *https://api-gateway.sajari.com*
 | CollectionsApi | [**deleteCollection**](docs/Api/CollectionsApi.md#deletecollection)          | **DELETE** /v4/collections/{collection_id}                                         | Delete collection            |
 | CollectionsApi | [**getCollection**](docs/Api/CollectionsApi.md#getcollection)                | **GET** /v4/collections/{collection_id}                                            | Get collection               |
 | CollectionsApi | [**listCollections**](docs/Api/CollectionsApi.md#listcollections)            | **GET** /v4/collections                                                            | List collections             |
-| CollectionsApi | [**queryCollection**](docs/Api/CollectionsApi.md#querycollection)            | **POST** /v4/collections/{collection_id}:queryCollection                           | Query collection             |
+| CollectionsApi | [**queryCollection**](docs/Api/CollectionsApi.md#querycollection)            | **POST** /v4/collections/{collection_id}:query                                     | Query collection             |
+| CollectionsApi | [**queryCollection2**](docs/Api/CollectionsApi.md#querycollection2)          | **POST** /v4/collections/{collection_id}:queryCollection                           | Query collection             |
 | CollectionsApi | [**updateCollection**](docs/Api/CollectionsApi.md#updatecollection)          | **PATCH** /v4/collections/{collection_id}                                          | Update collection            |
-| EventsApi      | [**sendEvent**](docs/Api/EventsApi.md#sendevent)                             | **POST** /v4/events:sendEvent                                                      | Send event                   |
+| EventsApi      | [**sendEvent**](docs/Api/EventsApi.md#sendevent)                             | **POST** /v4/events:send                                                           | Send event                   |
+| EventsApi      | [**sendEvent2**](docs/Api/EventsApi.md#sendevent2)                           | **POST** /v4/events:sendEvent                                                      | Send event                   |
 | PipelinesApi   | [**createPipeline**](docs/Api/PipelinesApi.md#createpipeline)                | **POST** /v4/collections/{collection_id}/pipelines                                 | Create pipeline              |
 | PipelinesApi   | [**generatePipelines**](docs/Api/PipelinesApi.md#generatepipelines)          | **POST** /v4/collections/{collection_id}:generatePipelines                         | Generate pipelines           |
 | PipelinesApi   | [**getDefaultPipeline**](docs/Api/PipelinesApi.md#getdefaultpipeline)        | **GET** /v4/collections/{collection_id}:getDefaultPipeline                         | Get default pipeline         |
@@ -112,6 +114,7 @@ All URIs are relative to *https://api-gateway.sajari.com*
 | RecordsApi     | [**batchUpsertRecords**](docs/Api/RecordsApi.md#batchupsertrecords)          | **POST** /v4/collections/{collection_id}/records:batchUpsert                       | Batch upsert records         |
 | RecordsApi     | [**deleteRecord**](docs/Api/RecordsApi.md#deleterecord)                      | **POST** /v4/collections/{collection_id}/records:delete                            | Delete record                |
 | RecordsApi     | [**getRecord**](docs/Api/RecordsApi.md#getrecord)                            | **POST** /v4/collections/{collection_id}/records:get                               | Get record                   |
+| RecordsApi     | [**updateRecord**](docs/Api/RecordsApi.md#updaterecord)                      | **POST** /v4/collections/{collection_id}/records:update                            | Update record                |
 | RecordsApi     | [**upsertRecord**](docs/Api/RecordsApi.md#upsertrecord)                      | **POST** /v4/collections/{collection_id}/records:upsert                            | Upsert record                |
 | SchemaApi      | [**batchCreateSchemaFields**](docs/Api/SchemaApi.md#batchcreateschemafields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate                  | Batch create schema fields   |
 | SchemaApi      | [**createSchemaField**](docs/Api/SchemaApi.md#createschemafield)             | **POST** /v4/collections/{collection_id}/schemaFields                              | Create schema field          |
@@ -174,6 +177,7 @@ All URIs are relative to *https://api-gateway.sajari.com*
 - [SetDefaultPipelineRequest](docs/Model/SetDefaultPipelineRequest.md)
 - [SetDefaultVersionRequest](docs/Model/SetDefaultVersionRequest.md)
 - [Status](docs/Model/Status.md)
+- [UpdateRecordRequest](docs/Model/UpdateRecordRequest.md)
 - [UpsertRecordRequest](docs/Model/UpsertRecordRequest.md)
 - [UpsertRecordRequestPipeline](docs/Model/UpsertRecordRequestPipeline.md)
 - [UpsertRecordResponse](docs/Model/UpsertRecordResponse.md)
@@ -202,5 +206,5 @@ support@sajari.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v4`
-  - Package version: `4.1.0`
+  - Package version: `4.2.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
