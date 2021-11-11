@@ -80,18 +80,18 @@ class ListPipelinesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "pipelines"
+     * Test attribute "next_page_token"
      */
-    public function testPropertyPipelines()
+    public function testPropertyNextPageToken()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "next_page_token"
+     * Test attribute "pipelines"
      */
-    public function testPropertyNextPageToken()
+    public function testPropertyPipelines()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

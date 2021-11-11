@@ -80,18 +80,18 @@ class QueryResultTokenPosNegTest extends TestCase
     }
 
     /**
-     * Test attribute "pos"
+     * Test attribute "neg"
      */
-    public function testPropertyPos()
+    public function testPropertyNeg()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "neg"
+     * Test attribute "pos"
      */
-    public function testPropertyNeg()
+    public function testPropertyPos()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

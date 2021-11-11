@@ -80,9 +80,9 @@ class GeneratePipelinesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "record_pipeline"
+     * Test attribute "autocomplete_pipeline"
      */
-    public function testPropertyRecordPipeline()
+    public function testPropertyAutocompletePipeline()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -98,9 +98,9 @@ class GeneratePipelinesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "autocomplete_pipeline"
+     * Test attribute "record_pipeline"
      */
-    public function testPropertyAutocompletePipeline()
+    public function testPropertyRecordPipeline()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

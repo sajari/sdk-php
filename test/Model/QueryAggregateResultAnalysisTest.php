@@ -80,9 +80,9 @@ class QueryAggregateResultAnalysisTest extends TestCase
     }
 
     /**
-     * Test attribute "coverage"
+     * Test attribute "avg_length"
      */
-    public function testPropertyCoverage()
+    public function testPropertyAvgLength()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -98,9 +98,9 @@ class QueryAggregateResultAnalysisTest extends TestCase
     }
 
     /**
-     * Test attribute "min_length"
+     * Test attribute "coverage"
      */
-    public function testPropertyMinLength()
+    public function testPropertyCoverage()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -116,9 +116,9 @@ class QueryAggregateResultAnalysisTest extends TestCase
     }
 
     /**
-     * Test attribute "avg_length"
+     * Test attribute "min_length"
      */
-    public function testPropertyAvgLength()
+    public function testPropertyMinLength()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

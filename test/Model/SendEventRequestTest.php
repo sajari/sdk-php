@@ -80,6 +80,15 @@ class SendEventRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()
@@ -101,15 +110,6 @@ class SendEventRequestTest extends TestCase
      * Test attribute "weight"
      */
     public function testPropertyWeight()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

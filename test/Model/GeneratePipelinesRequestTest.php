@@ -80,18 +80,18 @@ class GeneratePipelinesRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "searchable_fields"
+     * Test attribute "query_training_fields"
      */
-    public function testPropertySearchableFields()
+    public function testPropertyQueryTrainingFields()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "query_training_fields"
+     * Test attribute "searchable_fields"
      */
-    public function testPropertyQueryTrainingFields()
+    public function testPropertySearchableFields()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

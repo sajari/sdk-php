@@ -64,11 +64,11 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "metric" => "\Sajari\Model\QueryAggregateResultMetric",
-        "count" => "\Sajari\Model\QueryAggregateResultCount",
-        "buckets" => "\Sajari\Model\QueryAggregateResultBuckets",
-        "date" => "\Sajari\Model\QueryAggregateResultDate",
         "analysis" => "\Sajari\Model\QueryAggregateResultAnalysis",
+        "buckets" => "\Sajari\Model\QueryAggregateResultBuckets",
+        "count" => "\Sajari\Model\QueryAggregateResultCount",
+        "date" => "\Sajari\Model\QueryAggregateResultDate",
+        "metric" => "\Sajari\Model\QueryAggregateResultMetric",
         "percentile" => "\Sajari\Model\QueryAggregateResultPercentile",
     ];
 
@@ -80,11 +80,11 @@ class QueryAggregateResult implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "metric" => null,
-        "count" => null,
-        "buckets" => null,
-        "date" => null,
         "analysis" => null,
+        "buckets" => null,
+        "count" => null,
+        "date" => null,
+        "metric" => null,
         "percentile" => null,
     ];
 
@@ -115,11 +115,11 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "metric" => "metric",
-        "count" => "count",
-        "buckets" => "buckets",
-        "date" => "date",
         "analysis" => "analysis",
+        "buckets" => "buckets",
+        "count" => "count",
+        "date" => "date",
+        "metric" => "metric",
         "percentile" => "percentile",
     ];
 
@@ -129,11 +129,11 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $setters = [
-        "metric" => "setMetric",
-        "count" => "setCount",
-        "buckets" => "setBuckets",
-        "date" => "setDate",
         "analysis" => "setAnalysis",
+        "buckets" => "setBuckets",
+        "count" => "setCount",
+        "date" => "setDate",
+        "metric" => "setMetric",
         "percentile" => "setPercentile",
     ];
 
@@ -143,11 +143,11 @@ class QueryAggregateResult implements
      * @var string[]
      */
     protected static $getters = [
-        "metric" => "getMetric",
-        "count" => "getCount",
-        "buckets" => "getBuckets",
-        "date" => "getDate",
         "analysis" => "getAnalysis",
+        "buckets" => "getBuckets",
+        "count" => "getCount",
+        "date" => "getDate",
+        "metric" => "getMetric",
         "percentile" => "getPercentile",
     ];
 
@@ -207,11 +207,11 @@ class QueryAggregateResult implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["metric"] = $data["metric"] ?? null;
-        $this->container["count"] = $data["count"] ?? null;
-        $this->container["buckets"] = $data["buckets"] ?? null;
-        $this->container["date"] = $data["date"] ?? null;
         $this->container["analysis"] = $data["analysis"] ?? null;
+        $this->container["buckets"] = $data["buckets"] ?? null;
+        $this->container["count"] = $data["count"] ?? null;
+        $this->container["date"] = $data["date"] ?? null;
+        $this->container["metric"] = $data["metric"] ?? null;
         $this->container["percentile"] = $data["percentile"] ?? null;
     }
 
@@ -239,49 +239,25 @@ class QueryAggregateResult implements
     }
 
     /**
-     * Gets metric
+     * Gets analysis
      *
-     * @return \Sajari\Model\QueryAggregateResultMetric|null
+     * @return \Sajari\Model\QueryAggregateResultAnalysis|null
      */
-    public function getMetric()
+    public function getAnalysis()
     {
-        return $this->container["metric"];
+        return $this->container["analysis"];
     }
 
     /**
-     * Sets metric
+     * Sets analysis
      *
-     * @param \Sajari\Model\QueryAggregateResultMetric|null $metric metric
+     * @param \Sajari\Model\QueryAggregateResultAnalysis|null $analysis analysis
      *
      * @return self
      */
-    public function setMetric($metric)
+    public function setAnalysis($analysis)
     {
-        $this->container["metric"] = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Gets count
-     *
-     * @return \Sajari\Model\QueryAggregateResultCount|null
-     */
-    public function getCount()
-    {
-        return $this->container["count"];
-    }
-
-    /**
-     * Sets count
-     *
-     * @param \Sajari\Model\QueryAggregateResultCount|null $count count
-     *
-     * @return self
-     */
-    public function setCount($count)
-    {
-        $this->container["count"] = $count;
+        $this->container["analysis"] = $analysis;
 
         return $this;
     }
@@ -311,6 +287,30 @@ class QueryAggregateResult implements
     }
 
     /**
+     * Gets count
+     *
+     * @return \Sajari\Model\QueryAggregateResultCount|null
+     */
+    public function getCount()
+    {
+        return $this->container["count"];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param \Sajari\Model\QueryAggregateResultCount|null $count count
+     *
+     * @return self
+     */
+    public function setCount($count)
+    {
+        $this->container["count"] = $count;
+
+        return $this;
+    }
+
+    /**
      * Gets date
      *
      * @return \Sajari\Model\QueryAggregateResultDate|null
@@ -335,25 +335,25 @@ class QueryAggregateResult implements
     }
 
     /**
-     * Gets analysis
+     * Gets metric
      *
-     * @return \Sajari\Model\QueryAggregateResultAnalysis|null
+     * @return \Sajari\Model\QueryAggregateResultMetric|null
      */
-    public function getAnalysis()
+    public function getMetric()
     {
-        return $this->container["analysis"];
+        return $this->container["metric"];
     }
 
     /**
-     * Sets analysis
+     * Sets metric
      *
-     * @param \Sajari\Model\QueryAggregateResultAnalysis|null $analysis analysis
+     * @param \Sajari\Model\QueryAggregateResultMetric|null $metric metric
      *
      * @return self
      */
-    public function setAnalysis($analysis)
+    public function setMetric($metric)
     {
-        $this->container["analysis"] = $analysis;
+        $this->container["metric"] = $metric;
 
         return $this;
     }

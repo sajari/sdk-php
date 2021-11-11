@@ -33,6 +33,7 @@ docs/Model/Pipeline.md
 docs/Model/PipelineStep.md
 docs/Model/PipelineStepParamBinding.md
 docs/Model/PipelineType.md
+docs/Model/PromotionFilterCondition.md
 docs/Model/ProtobufAny.md
 docs/Model/ProtobufNullValue.md
 docs/Model/QueryAggregateResult.md
@@ -61,6 +62,7 @@ docs/Model/SendEventRequest.md
 docs/Model/SetDefaultPipelineRequest.md
 docs/Model/SetDefaultVersionRequest.md
 docs/Model/Status.md
+docs/Model/UpdateRecordRequest.md
 docs/Model/UpsertRecordRequest.md
 docs/Model/UpsertRecordRequestPipeline.md
 docs/Model/UpsertRecordResponse.md
@@ -100,6 +102,7 @@ lib/Model/Pipeline.php
 lib/Model/PipelineStep.php
 lib/Model/PipelineStepParamBinding.php
 lib/Model/PipelineType.php
+lib/Model/PromotionFilterCondition.php
 lib/Model/ProtobufAny.php
 lib/Model/ProtobufNullValue.php
 lib/Model/QueryAggregateResult.php
@@ -128,6 +131,7 @@ lib/Model/SendEventRequest.php
 lib/Model/SetDefaultPipelineRequest.php
 lib/Model/SetDefaultVersionRequest.php
 lib/Model/Status.php
+lib/Model/UpdateRecordRequest.php
 lib/Model/UpsertRecordRequest.php
 lib/Model/UpsertRecordRequestPipeline.php
 lib/Model/UpsertRecordResponse.php
@@ -164,6 +168,7 @@ test/Model/PipelineStepParamBindingTest.php
 test/Model/PipelineStepTest.php
 test/Model/PipelineTest.php
 test/Model/PipelineTypeTest.php
+test/Model/PromotionFilterConditionTest.php
 test/Model/ProtobufAnyTest.php
 test/Model/ProtobufNullValueTest.php
 test/Model/QueryAggregateResultAnalysisTest.php
@@ -192,6 +197,7 @@ test/Model/SendEventRequestTest.php
 test/Model/SetDefaultPipelineRequestTest.php
 test/Model/SetDefaultVersionRequestTest.php
 test/Model/StatusTest.php
+test/Model/UpdateRecordRequestTest.php
 test/Model/UpsertRecordRequestPipelineTest.php
 test/Model/UpsertRecordRequestTest.php
 test/Model/UpsertRecordResponseTest.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * PipelineStepParamBinding
+ * PromotionFilterCondition
  *
  * PHP version 7.2
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * PipelineStepParamBinding Class Doc Comment
+ * PromotionFilterCondition Class Doc Comment
  *
  * @category Class
+ * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PipelineStepParamBinding implements
+class PromotionFilterCondition implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -55,7 +56,7 @@ class PipelineStepParamBinding implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "PipelineStepParamBinding";
+    protected static $openAPIModelName = "PromotionFilterCondition";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -63,10 +64,7 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "bind" => "string",
-        "constant" => "string",
-        "default_value" => "string",
-        "description" => "string",
+        "filter" => "string[]",
     ];
 
     /**
@@ -77,10 +75,7 @@ class PipelineStepParamBinding implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "bind" => null,
-        "constant" => null,
-        "default_value" => null,
-        "description" => null,
+        "filter" => null,
     ];
 
     /**
@@ -110,10 +105,7 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "bind" => "bind",
-        "constant" => "constant",
-        "default_value" => "default_value",
-        "description" => "description",
+        "filter" => "filter",
     ];
 
     /**
@@ -122,10 +114,7 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $setters = [
-        "bind" => "setBind",
-        "constant" => "setConstant",
-        "default_value" => "setDefaultValue",
-        "description" => "setDescription",
+        "filter" => "setFilter",
     ];
 
     /**
@@ -134,10 +123,7 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $getters = [
-        "bind" => "getBind",
-        "constant" => "getConstant",
-        "default_value" => "getDefaultValue",
-        "description" => "getDescription",
+        "filter" => "getFilter",
     ];
 
     /**
@@ -196,10 +182,7 @@ class PipelineStepParamBinding implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["bind"] = $data["bind"] ?? null;
-        $this->container["constant"] = $data["constant"] ?? null;
-        $this->container["default_value"] = $data["default_value"] ?? null;
-        $this->container["description"] = $data["description"] ?? null;
+        $this->container["filter"] = $data["filter"] ?? null;
     }
 
     /**
@@ -226,97 +209,25 @@ class PipelineStepParamBinding implements
     }
 
     /**
-     * Gets bind
+     * Gets filter
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getBind()
+    public function getFilter()
     {
-        return $this->container["bind"];
+        return $this->container["filter"];
     }
 
     /**
-     * Sets bind
+     * Sets filter
      *
-     * @param string|null $bind Bind the step parameter to a pipeline variable.
+     * @param string[]|null $filter A filter of the form `field = 'value'`.
      *
      * @return self
      */
-    public function setBind($bind)
+    public function setFilter($filter)
     {
-        $this->container["bind"] = $bind;
-
-        return $this;
-    }
-
-    /**
-     * Gets constant
-     *
-     * @return string|null
-     */
-    public function getConstant()
-    {
-        return $this->container["constant"];
-    }
-
-    /**
-     * Sets constant
-     *
-     * @param string|null $constant Bind the step parameter to a constant value.
-     *
-     * @return self
-     */
-    public function setConstant($constant)
-    {
-        $this->container["constant"] = $constant;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_value
-     *
-     * @return string|null
-     */
-    public function getDefaultValue()
-    {
-        return $this->container["default_value"];
-    }
-
-    /**
-     * Sets default_value
-     *
-     * @param string|null $default_value Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.
-     *
-     * @return self
-     */
-    public function setDefaultValue($default_value)
-    {
-        $this->container["default_value"] = $default_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container["description"];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Set the description of the step parameter.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container["description"] = $description;
+        $this->container["filter"] = $filter;
 
         return $this;
     }

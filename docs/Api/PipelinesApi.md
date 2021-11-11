@@ -365,7 +365,7 @@ listPipelines($collection_id, $page_size, $page_token, $view): \Sajari\Model\Lis
 
 List pipelines
 
-Retrieve a list of pipelines.
+Retrieve a list of pipelines in a collection.
 
 ### Example
 

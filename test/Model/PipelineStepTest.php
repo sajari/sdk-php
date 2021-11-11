@@ -80,36 +80,9 @@ class PipelineStepTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "annotations"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "title"
-     */
-    public function testPropertyTitle()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "params"
-     */
-    public function testPropertyParams()
+    public function testPropertyAnnotations()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -125,9 +98,36 @@ class PipelineStepTest extends TestCase
     }
 
     /**
-     * Test attribute "annotations"
+     * Test attribute "description"
      */
-    public function testPropertyAnnotations()
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "params"
+     */
+    public function testPropertyParams()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

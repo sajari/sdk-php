@@ -80,9 +80,18 @@ class SchemaFieldTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "array"
      */
-    public function testPropertyName()
+    public function testPropertyArray()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "array_length"
+     */
+    public function testPropertyArrayLength()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -98,15 +107,6 @@ class SchemaFieldTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
      * Test attribute "mode"
      */
     public function testPropertyMode()
@@ -116,18 +116,18 @@ class SchemaFieldTest extends TestCase
     }
 
     /**
-     * Test attribute "array"
+     * Test attribute "name"
      */
-    public function testPropertyArray()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "array_length"
+     * Test attribute "type"
      */
-    public function testPropertyArrayLength()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

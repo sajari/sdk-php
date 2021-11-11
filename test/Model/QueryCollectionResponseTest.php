@@ -80,6 +80,24 @@ class QueryCollectionResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "aggregate_filters"
+     */
+    public function testPropertyAggregateFilters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "aggregates"
+     */
+    public function testPropertyAggregates()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "pipeline"
      */
     public function testPropertyPipeline()
@@ -89,9 +107,9 @@ class QueryCollectionResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "variables"
+     * Test attribute "processing_duration"
      */
-    public function testPropertyVariables()
+    public function testPropertyProcessingDuration()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -116,27 +134,9 @@ class QueryCollectionResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "processing_duration"
+     * Test attribute "variables"
      */
-    public function testPropertyProcessingDuration()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "aggregates"
-     */
-    public function testPropertyAggregates()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "aggregate_filters"
-     */
-    public function testPropertyAggregateFilters()
+    public function testPropertyVariables()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

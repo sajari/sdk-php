@@ -80,18 +80,18 @@ class SetDefaultPipelineRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "pipeline"
      */
-    public function testPropertyType()
+    public function testPropertyPipeline()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "pipeline"
+     * Test attribute "type"
      */
-    public function testPropertyPipeline()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

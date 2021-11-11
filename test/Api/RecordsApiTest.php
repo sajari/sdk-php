@@ -108,6 +108,18 @@ class RecordsApiTest extends TestCase
     }
 
     /**
+     * Test case for updateRecord
+     *
+     * Update record.
+     *
+     */
+    public function testUpdateRecord()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test case for upsertRecord
      *
      * Upsert record.

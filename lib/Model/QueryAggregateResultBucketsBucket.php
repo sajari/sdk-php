@@ -64,8 +64,8 @@ class QueryAggregateResultBucketsBucket implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "name" => "string",
         "count" => "int",
+        "name" => "string",
     ];
 
     /**
@@ -76,8 +76,8 @@ class QueryAggregateResultBucketsBucket implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "name" => null,
         "count" => "int32",
+        "name" => null,
     ];
 
     /**
@@ -107,8 +107,8 @@ class QueryAggregateResultBucketsBucket implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "name" => "name",
         "count" => "count",
+        "name" => "name",
     ];
 
     /**
@@ -117,8 +117,8 @@ class QueryAggregateResultBucketsBucket implements
      * @var string[]
      */
     protected static $setters = [
-        "name" => "setName",
         "count" => "setCount",
+        "name" => "setName",
     ];
 
     /**
@@ -127,8 +127,8 @@ class QueryAggregateResultBucketsBucket implements
      * @var string[]
      */
     protected static $getters = [
-        "name" => "getName",
         "count" => "getCount",
+        "name" => "getName",
     ];
 
     /**
@@ -187,8 +187,8 @@ class QueryAggregateResultBucketsBucket implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["name"] = $data["name"] ?? null;
         $this->container["count"] = $data["count"] ?? null;
+        $this->container["name"] = $data["name"] ?? null;
     }
 
     /**
@@ -215,30 +215,6 @@ class QueryAggregateResultBucketsBucket implements
     }
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container["name"];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of bucket.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container["name"] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets count
      *
      * @return int|null
@@ -258,6 +234,30 @@ class QueryAggregateResultBucketsBucket implements
     public function setCount($count)
     {
         $this->container["count"] = $count;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container["name"];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of bucket.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container["name"] = $name;
 
         return $this;
     }

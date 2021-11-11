@@ -82,4 +82,16 @@ class EventsApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
+
+    /**
+     * Test case for sendEvent2
+     *
+     * Send event.
+     *
+     */
+    public function testSendEvent2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
 }

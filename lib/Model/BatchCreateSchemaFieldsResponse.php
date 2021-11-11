@@ -63,8 +63,8 @@ class BatchCreateSchemaFieldsResponse implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "fields" => "\Sajari\Model\SchemaField[]",
         "errors" => "\Sajari\Model\BatchCreateSchemaFieldsResponseError[]",
+        "fields" => "\Sajari\Model\SchemaField[]",
     ];
 
     /**
@@ -75,8 +75,8 @@ class BatchCreateSchemaFieldsResponse implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "fields" => null,
         "errors" => null,
+        "fields" => null,
     ];
 
     /**
@@ -106,8 +106,8 @@ class BatchCreateSchemaFieldsResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "fields" => "fields",
         "errors" => "errors",
+        "fields" => "fields",
     ];
 
     /**
@@ -116,8 +116,8 @@ class BatchCreateSchemaFieldsResponse implements
      * @var string[]
      */
     protected static $setters = [
-        "fields" => "setFields",
         "errors" => "setErrors",
+        "fields" => "setFields",
     ];
 
     /**
@@ -126,8 +126,8 @@ class BatchCreateSchemaFieldsResponse implements
      * @var string[]
      */
     protected static $getters = [
-        "fields" => "getFields",
         "errors" => "getErrors",
+        "fields" => "getFields",
     ];
 
     /**
@@ -186,8 +186,8 @@ class BatchCreateSchemaFieldsResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["fields"] = $data["fields"] ?? null;
         $this->container["errors"] = $data["errors"] ?? null;
+        $this->container["fields"] = $data["fields"] ?? null;
     }
 
     /**
@@ -214,30 +214,6 @@ class BatchCreateSchemaFieldsResponse implements
     }
 
     /**
-     * Gets fields
-     *
-     * @return \Sajari\Model\SchemaField[]|null
-     */
-    public function getFields()
-    {
-        return $this->container["fields"];
-    }
-
-    /**
-     * Sets fields
-     *
-     * @param \Sajari\Model\SchemaField[]|null $fields Schema fields created.
-     *
-     * @return self
-     */
-    public function setFields($fields)
-    {
-        $this->container["fields"] = $fields;
-
-        return $this;
-    }
-
-    /**
      * Gets errors
      *
      * @return \Sajari\Model\BatchCreateSchemaFieldsResponseError[]|null
@@ -257,6 +233,30 @@ class BatchCreateSchemaFieldsResponse implements
     public function setErrors($errors)
     {
         $this->container["errors"] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets fields
+     *
+     * @return \Sajari\Model\SchemaField[]|null
+     */
+    public function getFields()
+    {
+        return $this->container["fields"];
+    }
+
+    /**
+     * Sets fields
+     *
+     * @param \Sajari\Model\SchemaField[]|null $fields Schema fields created.
+     *
+     * @return self
+     */
+    public function setFields($fields)
+    {
+        $this->container["fields"] = $fields;
 
         return $this;
     }

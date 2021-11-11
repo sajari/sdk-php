@@ -80,6 +80,15 @@ class PipelineTest extends TestCase
     }
 
     /**
+     * Test attribute "collection_default"
+     */
+    public function testPropertyCollectionDefault()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "create_time"
      */
     public function testPropertyCreateTime()
@@ -89,27 +98,9 @@ class PipelineTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "default_version"
      */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "version"
-     */
-    public function testPropertyVersion()
+    public function testPropertyDefaultVersion()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -125,9 +116,9 @@ class PipelineTest extends TestCase
     }
 
     /**
-     * Test attribute "pre_steps"
+     * Test attribute "name"
      */
-    public function testPropertyPreSteps()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -143,18 +134,27 @@ class PipelineTest extends TestCase
     }
 
     /**
-     * Test attribute "collection_default"
+     * Test attribute "pre_steps"
      */
-    public function testPropertyCollectionDefault()
+    public function testPropertyPreSteps()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "default_version"
+     * Test attribute "type"
      */
-    public function testPropertyDefaultVersion()
+    public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

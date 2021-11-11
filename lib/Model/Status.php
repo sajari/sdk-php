@@ -62,8 +62,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         "code" => "int",
-        "message" => "string",
         "details" => "\Sajari\Model\ProtobufAny[]",
+        "message" => "string",
     ];
 
     /**
@@ -75,8 +75,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         "code" => "int32",
-        "message" => null,
         "details" => null,
+        "message" => null,
     ];
 
     /**
@@ -107,8 +107,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         "code" => "code",
-        "message" => "message",
         "details" => "details",
+        "message" => "message",
     ];
 
     /**
@@ -118,8 +118,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         "code" => "setCode",
-        "message" => "setMessage",
         "details" => "setDetails",
+        "message" => "setMessage",
     ];
 
     /**
@@ -129,8 +129,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         "code" => "getCode",
-        "message" => "getMessage",
         "details" => "getDetails",
+        "message" => "getMessage",
     ];
 
     /**
@@ -190,8 +190,8 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container["code"] = $data["code"] ?? null;
-        $this->container["message"] = $data["message"] ?? null;
         $this->container["details"] = $data["details"] ?? null;
+        $this->container["message"] = $data["message"] ?? null;
     }
 
     /**
@@ -242,30 +242,6 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container["message"];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        $this->container["message"] = $message;
-
-        return $this;
-    }
-
-    /**
      * Gets details
      *
      * @return \Sajari\Model\ProtobufAny[]|null
@@ -285,6 +261,30 @@ class Status implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDetails($details)
     {
         $this->container["details"] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container["message"];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        $this->container["message"] = $message;
 
         return $this;
     }

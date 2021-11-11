@@ -80,18 +80,18 @@ class CollectionTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "account_id"
      */
-    public function testPropertyId()
+    public function testPropertyAccountId()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "account_id"
+     * Test attribute "authorized_query_domains"
      */
-    public function testPropertyAccountId()
+    public function testPropertyAuthorizedQueryDomains()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -116,9 +116,9 @@ class CollectionTest extends TestCase
     }
 
     /**
-     * Test attribute "authorized_query_domains"
+     * Test attribute "id"
      */
-    public function testPropertyAuthorizedQueryDomains()
+    public function testPropertyId()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

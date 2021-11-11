@@ -89,9 +89,9 @@ class PipelineStepParamBindingTest extends TestCase
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "constant"
      */
-    public function testPropertyDescription()
+    public function testPropertyConstant()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -107,9 +107,9 @@ class PipelineStepParamBindingTest extends TestCase
     }
 
     /**
-     * Test attribute "constant"
+     * Test attribute "description"
      */
-    public function testPropertyConstant()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

@@ -89,18 +89,18 @@ class StatusTest extends TestCase
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "details"
      */
-    public function testPropertyMessage()
+    public function testPropertyDetails()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "details"
+     * Test attribute "message"
      */
-    public function testPropertyDetails()
+    public function testPropertyMessage()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

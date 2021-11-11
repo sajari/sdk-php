@@ -63,9 +63,9 @@ class GeneratePipelinesResponse implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "record_pipeline" => "\Sajari\Model\Pipeline",
-        "query_pipeline" => "\Sajari\Model\Pipeline",
         "autocomplete_pipeline" => "\Sajari\Model\Pipeline",
+        "query_pipeline" => "\Sajari\Model\Pipeline",
+        "record_pipeline" => "\Sajari\Model\Pipeline",
     ];
 
     /**
@@ -76,9 +76,9 @@ class GeneratePipelinesResponse implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "record_pipeline" => null,
-        "query_pipeline" => null,
         "autocomplete_pipeline" => null,
+        "query_pipeline" => null,
+        "record_pipeline" => null,
     ];
 
     /**
@@ -108,9 +108,9 @@ class GeneratePipelinesResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "record_pipeline" => "record_pipeline",
-        "query_pipeline" => "query_pipeline",
         "autocomplete_pipeline" => "autocomplete_pipeline",
+        "query_pipeline" => "query_pipeline",
+        "record_pipeline" => "record_pipeline",
     ];
 
     /**
@@ -119,9 +119,9 @@ class GeneratePipelinesResponse implements
      * @var string[]
      */
     protected static $setters = [
-        "record_pipeline" => "setRecordPipeline",
-        "query_pipeline" => "setQueryPipeline",
         "autocomplete_pipeline" => "setAutocompletePipeline",
+        "query_pipeline" => "setQueryPipeline",
+        "record_pipeline" => "setRecordPipeline",
     ];
 
     /**
@@ -130,9 +130,9 @@ class GeneratePipelinesResponse implements
      * @var string[]
      */
     protected static $getters = [
-        "record_pipeline" => "getRecordPipeline",
-        "query_pipeline" => "getQueryPipeline",
         "autocomplete_pipeline" => "getAutocompletePipeline",
+        "query_pipeline" => "getQueryPipeline",
+        "record_pipeline" => "getRecordPipeline",
     ];
 
     /**
@@ -191,10 +191,10 @@ class GeneratePipelinesResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["record_pipeline"] = $data["record_pipeline"] ?? null;
-        $this->container["query_pipeline"] = $data["query_pipeline"] ?? null;
         $this->container["autocomplete_pipeline"] =
             $data["autocomplete_pipeline"] ?? null;
+        $this->container["query_pipeline"] = $data["query_pipeline"] ?? null;
+        $this->container["record_pipeline"] = $data["record_pipeline"] ?? null;
     }
 
     /**
@@ -221,25 +221,25 @@ class GeneratePipelinesResponse implements
     }
 
     /**
-     * Gets record_pipeline
+     * Gets autocomplete_pipeline
      *
      * @return \Sajari\Model\Pipeline|null
      */
-    public function getRecordPipeline()
+    public function getAutocompletePipeline()
     {
-        return $this->container["record_pipeline"];
+        return $this->container["autocomplete_pipeline"];
     }
 
     /**
-     * Sets record_pipeline
+     * Sets autocomplete_pipeline
      *
-     * @param \Sajari\Model\Pipeline|null $record_pipeline record_pipeline
+     * @param \Sajari\Model\Pipeline|null $autocomplete_pipeline autocomplete_pipeline
      *
      * @return self
      */
-    public function setRecordPipeline($record_pipeline)
+    public function setAutocompletePipeline($autocomplete_pipeline)
     {
-        $this->container["record_pipeline"] = $record_pipeline;
+        $this->container["autocomplete_pipeline"] = $autocomplete_pipeline;
 
         return $this;
     }
@@ -269,25 +269,25 @@ class GeneratePipelinesResponse implements
     }
 
     /**
-     * Gets autocomplete_pipeline
+     * Gets record_pipeline
      *
      * @return \Sajari\Model\Pipeline|null
      */
-    public function getAutocompletePipeline()
+    public function getRecordPipeline()
     {
-        return $this->container["autocomplete_pipeline"];
+        return $this->container["record_pipeline"];
     }
 
     /**
-     * Sets autocomplete_pipeline
+     * Sets record_pipeline
      *
-     * @param \Sajari\Model\Pipeline|null $autocomplete_pipeline autocomplete_pipeline
+     * @param \Sajari\Model\Pipeline|null $record_pipeline record_pipeline
      *
      * @return self
      */
-    public function setAutocompletePipeline($autocomplete_pipeline)
+    public function setRecordPipeline($record_pipeline)
     {
-        $this->container["autocomplete_pipeline"] = $autocomplete_pipeline;
+        $this->container["record_pipeline"] = $record_pipeline;
 
         return $this;
     }

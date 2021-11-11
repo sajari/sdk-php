@@ -64,8 +64,8 @@ class QueryAggregateResultPercentile implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "percentiles" => "\Sajari\Model\PercentileDataPoint[]",
         "cdf" => "\Sajari\Model\PercentileDataPoint[]",
+        "percentiles" => "\Sajari\Model\PercentileDataPoint[]",
     ];
 
     /**
@@ -76,8 +76,8 @@ class QueryAggregateResultPercentile implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "percentiles" => null,
         "cdf" => null,
+        "percentiles" => null,
     ];
 
     /**
@@ -107,8 +107,8 @@ class QueryAggregateResultPercentile implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "percentiles" => "percentiles",
         "cdf" => "cdf",
+        "percentiles" => "percentiles",
     ];
 
     /**
@@ -117,8 +117,8 @@ class QueryAggregateResultPercentile implements
      * @var string[]
      */
     protected static $setters = [
-        "percentiles" => "setPercentiles",
         "cdf" => "setCdf",
+        "percentiles" => "setPercentiles",
     ];
 
     /**
@@ -127,8 +127,8 @@ class QueryAggregateResultPercentile implements
      * @var string[]
      */
     protected static $getters = [
-        "percentiles" => "getPercentiles",
         "cdf" => "getCdf",
+        "percentiles" => "getPercentiles",
     ];
 
     /**
@@ -187,8 +187,8 @@ class QueryAggregateResultPercentile implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["percentiles"] = $data["percentiles"] ?? null;
         $this->container["cdf"] = $data["cdf"] ?? null;
+        $this->container["percentiles"] = $data["percentiles"] ?? null;
     }
 
     /**
@@ -215,30 +215,6 @@ class QueryAggregateResultPercentile implements
     }
 
     /**
-     * Gets percentiles
-     *
-     * @return \Sajari\Model\PercentileDataPoint[]|null
-     */
-    public function getPercentiles()
-    {
-        return $this->container["percentiles"];
-    }
-
-    /**
-     * Sets percentiles
-     *
-     * @param \Sajari\Model\PercentileDataPoint[]|null $percentiles The percentile data points.
-     *
-     * @return self
-     */
-    public function setPercentiles($percentiles)
-    {
-        $this->container["percentiles"] = $percentiles;
-
-        return $this;
-    }
-
-    /**
      * Gets cdf
      *
      * @return \Sajari\Model\PercentileDataPoint[]|null
@@ -258,6 +234,30 @@ class QueryAggregateResultPercentile implements
     public function setCdf($cdf)
     {
         $this->container["cdf"] = $cdf;
+
+        return $this;
+    }
+
+    /**
+     * Gets percentiles
+     *
+     * @return \Sajari\Model\PercentileDataPoint[]|null
+     */
+    public function getPercentiles()
+    {
+        return $this->container["percentiles"];
+    }
+
+    /**
+     * Sets percentiles
+     *
+     * @param \Sajari\Model\PercentileDataPoint[]|null $percentiles The percentile data points.
+     *
+     * @return self
+     */
+    public function setPercentiles($percentiles)
+    {
+        $this->container["percentiles"] = $percentiles;
 
         return $this;
     }

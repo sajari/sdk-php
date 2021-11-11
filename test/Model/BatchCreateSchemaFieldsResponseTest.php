@@ -80,18 +80,18 @@ class BatchCreateSchemaFieldsResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "fields"
+     * Test attribute "errors"
      */
-    public function testPropertyFields()
+    public function testPropertyErrors()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "errors"
+     * Test attribute "fields"
      */
-    public function testPropertyErrors()
+    public function testPropertyFields()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

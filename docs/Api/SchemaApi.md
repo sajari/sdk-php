@@ -83,7 +83,7 @@ createSchemaField($collection_id, $schema_field): \Sajari\Model\SchemaField
 
 Create schema field
 
-Create a new field in your collection's schema.
+Create a new field in a collection's schema.
 
 ### Example
 
@@ -147,7 +147,7 @@ listSchemaFields($collection_id, $page_size, $page_token): \Sajari\Model\ListSch
 
 List schema fields
 
-Retrieve a list of schema fields in the collection.
+Retrieve a list of schema fields in a collection.
 
 ### Example
 

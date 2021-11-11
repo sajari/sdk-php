@@ -60,9 +60,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        "index_score" => "double",
         "record" => "object",
         "score" => "double",
-        "index_score" => "double",
         "token" => "\Sajari\Model\QueryResultToken",
     ];
 
@@ -74,9 +74,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        "index_score" => "double",
         "record" => null,
         "score" => "double",
-        "index_score" => "double",
         "token" => null,
     ];
 
@@ -107,9 +107,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        "index_score" => "index_score",
         "record" => "record",
         "score" => "score",
-        "index_score" => "index_score",
         "token" => "token",
     ];
 
@@ -119,9 +119,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        "index_score" => "setIndexScore",
         "record" => "setRecord",
         "score" => "setScore",
-        "index_score" => "setIndexScore",
         "token" => "setToken",
     ];
 
@@ -131,9 +131,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        "index_score" => "getIndexScore",
         "record" => "getRecord",
         "score" => "getScore",
-        "index_score" => "getIndexScore",
         "token" => "getToken",
     ];
 
@@ -193,9 +193,9 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container["index_score"] = $data["index_score"] ?? null;
         $this->container["record"] = $data["record"] ?? null;
         $this->container["score"] = $data["score"] ?? null;
-        $this->container["index_score"] = $data["index_score"] ?? null;
         $this->container["token"] = $data["token"] ?? null;
     }
 
@@ -220,6 +220,30 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets index_score
+     *
+     * @return double|null
+     */
+    public function getIndexScore()
+    {
+        return $this->container["index_score"];
+    }
+
+    /**
+     * Sets index_score
+     *
+     * @param double|null $index_score Index score.
+     *
+     * @return self
+     */
+    public function setIndexScore($index_score)
+    {
+        $this->container["index_score"] = $index_score;
+
+        return $this;
     }
 
     /**
@@ -266,30 +290,6 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setScore($score)
     {
         $this->container["score"] = $score;
-
-        return $this;
-    }
-
-    /**
-     * Gets index_score
-     *
-     * @return double|null
-     */
-    public function getIndexScore()
-    {
-        return $this->container["index_score"];
-    }
-
-    /**
-     * Sets index_score
-     *
-     * @param double|null $index_score Index score.
-     *
-     * @return self
-     */
-    public function setIndexScore($index_score)
-    {
-        $this->container["index_score"] = $index_score;
 
         return $this;
     }

@@ -80,18 +80,9 @@ class QueryAggregateResultTest extends TestCase
     }
 
     /**
-     * Test attribute "metric"
+     * Test attribute "analysis"
      */
-    public function testPropertyMetric()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "count"
-     */
-    public function testPropertyCount()
+    public function testPropertyAnalysis()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -107,6 +98,15 @@ class QueryAggregateResultTest extends TestCase
     }
 
     /**
+     * Test attribute "count"
+     */
+    public function testPropertyCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "date"
      */
     public function testPropertyDate()
@@ -116,9 +116,9 @@ class QueryAggregateResultTest extends TestCase
     }
 
     /**
-     * Test attribute "analysis"
+     * Test attribute "metric"
      */
-    public function testPropertyAnalysis()
+    public function testPropertyMetric()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

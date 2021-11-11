@@ -80,6 +80,15 @@ class QueryResultTest extends TestCase
     }
 
     /**
+     * Test attribute "index_score"
+     */
+    public function testPropertyIndexScore()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "record"
      */
     public function testPropertyRecord()
@@ -92,15 +101,6 @@ class QueryResultTest extends TestCase
      * Test attribute "score"
      */
     public function testPropertyScore()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "index_score"
-     */
-    public function testPropertyIndexScore()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

@@ -64,7 +64,7 @@ class UpsertRecordResponse implements
      */
     protected static $openAPITypes = [
         "key" => "\Sajari\Model\RecordKey",
-        "variables" => "object",
+        "variables" => "map[string,object]",
     ];
 
     /**
@@ -240,7 +240,7 @@ class UpsertRecordResponse implements
     /**
      * Gets variables
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
     public function getVariables()
     {
@@ -250,7 +250,7 @@ class UpsertRecordResponse implements
     /**
      * Sets variables
      *
-     * @param object|null $variables The modified variables returned by the pipeline after it has finished processing.
+     * @param map[string,object]|null $variables The modified variables returned by the pipeline after it has finished processing.
      *
      * @return self
      */

@@ -65,7 +65,7 @@ class BatchUpsertRecordsRequest implements
     protected static $openAPITypes = [
         "pipeline" => "\Sajari\Model\BatchUpsertRecordsRequestPipeline",
         "records" => "object[]",
-        "variables" => "object",
+        "variables" => "map[string,object]",
     ];
 
     /**
@@ -259,7 +259,7 @@ class BatchUpsertRecordsRequest implements
     /**
      * Sets records
      *
-     * @param object[] $records A list of records to upsert.
+     * @param object[] $records A list of records to upsert.  A maximum of 200 records can be upsert in a batch.
      *
      * @return self
      */
@@ -273,7 +273,7 @@ class BatchUpsertRecordsRequest implements
     /**
      * Gets variables
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
     public function getVariables()
     {
@@ -283,7 +283,7 @@ class BatchUpsertRecordsRequest implements
     /**
      * Sets variables
      *
-     * @param object|null $variables The initial values for the variables the pipeline operates on and transforms throughout its steps.
+     * @param map[string,object]|null $variables The initial values for the variables the pipeline operates on and transforms throughout its steps.
      *
      * @return self
      */

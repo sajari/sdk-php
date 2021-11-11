@@ -80,9 +80,18 @@ class QueryCollectionRequestTrackingTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "data"
      */
-    public function testPropertyType()
+    public function testPropertyData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test attribute "field"
+     */
+    public function testPropertyField()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
@@ -107,18 +116,9 @@ class QueryCollectionRequestTrackingTest extends TestCase
     }
 
     /**
-     * Test attribute "field"
+     * Test attribute "type"
      */
-    public function testPropertyField()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

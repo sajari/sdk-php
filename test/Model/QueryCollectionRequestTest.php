@@ -89,18 +89,18 @@ class QueryCollectionRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "variables"
+     * Test attribute "tracking"
      */
-    public function testPropertyVariables()
+    public function testPropertyTracking()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "tracking"
+     * Test attribute "variables"
      */
-    public function testPropertyTracking()
+    public function testPropertyVariables()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

@@ -63,11 +63,11 @@ class QueryCollectionRequestTracking implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "type" => "\Sajari\Model\QueryCollectionRequestTrackingType",
+        "data" => "map[string,string]",
+        "field" => "string",
         "query_id" => "string",
         "sequence" => "int",
-        "field" => "string",
-        "data" => "map[string,string]",
+        "type" => "\Sajari\Model\QueryCollectionRequestTrackingType",
     ];
 
     /**
@@ -78,11 +78,11 @@ class QueryCollectionRequestTracking implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "type" => null,
+        "data" => null,
+        "field" => null,
         "query_id" => null,
         "sequence" => "int32",
-        "field" => null,
-        "data" => null,
+        "type" => null,
     ];
 
     /**
@@ -112,11 +112,11 @@ class QueryCollectionRequestTracking implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "type" => "type",
+        "data" => "data",
+        "field" => "field",
         "query_id" => "query_id",
         "sequence" => "sequence",
-        "field" => "field",
-        "data" => "data",
+        "type" => "type",
     ];
 
     /**
@@ -125,11 +125,11 @@ class QueryCollectionRequestTracking implements
      * @var string[]
      */
     protected static $setters = [
-        "type" => "setType",
+        "data" => "setData",
+        "field" => "setField",
         "query_id" => "setQueryId",
         "sequence" => "setSequence",
-        "field" => "setField",
-        "data" => "setData",
+        "type" => "setType",
     ];
 
     /**
@@ -138,11 +138,11 @@ class QueryCollectionRequestTracking implements
      * @var string[]
      */
     protected static $getters = [
-        "type" => "getType",
+        "data" => "getData",
+        "field" => "getField",
         "query_id" => "getQueryId",
         "sequence" => "getSequence",
-        "field" => "getField",
-        "data" => "getData",
+        "type" => "getType",
     ];
 
     /**
@@ -201,11 +201,11 @@ class QueryCollectionRequestTracking implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["type"] = $data["type"] ?? null;
+        $this->container["data"] = $data["data"] ?? null;
+        $this->container["field"] = $data["field"] ?? null;
         $this->container["query_id"] = $data["query_id"] ?? null;
         $this->container["sequence"] = $data["sequence"] ?? null;
-        $this->container["field"] = $data["field"] ?? null;
-        $this->container["data"] = $data["data"] ?? null;
+        $this->container["type"] = $data["type"] ?? null;
     }
 
     /**
@@ -232,25 +232,49 @@ class QueryCollectionRequestTracking implements
     }
 
     /**
-     * Gets type
+     * Gets data
      *
-     * @return \Sajari\Model\QueryCollectionRequestTrackingType|null
+     * @return map[string,string]|null
      */
-    public function getType()
+    public function getData()
     {
-        return $this->container["type"];
+        return $this->container["data"];
     }
 
     /**
-     * Sets type
+     * Sets data
      *
-     * @param \Sajari\Model\QueryCollectionRequestTrackingType|null $type type
+     * @param map[string,string]|null $data Custom values to be included in tracking data.
      *
      * @return self
      */
-    public function setType($type)
+    public function setData($data)
     {
-        $this->container["type"] = $type;
+        $this->container["data"] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets field
+     *
+     * @return string|null
+     */
+    public function getField()
+    {
+        return $this->container["field"];
+    }
+
+    /**
+     * Sets field
+     *
+     * @param string|null $field Tracking field used to identify records in the collection.  Must be unique schema field.
+     *
+     * @return self
+     */
+    public function setField($field)
+    {
+        $this->container["field"] = $field;
 
         return $this;
     }
@@ -304,49 +328,25 @@ class QueryCollectionRequestTracking implements
     }
 
     /**
-     * Gets field
+     * Gets type
      *
-     * @return string|null
+     * @return \Sajari\Model\QueryCollectionRequestTrackingType|null
      */
-    public function getField()
+    public function getType()
     {
-        return $this->container["field"];
+        return $this->container["type"];
     }
 
     /**
-     * Sets field
+     * Sets type
      *
-     * @param string|null $field Tracking field used to identify records in the collection.  Must be unique schema field.
+     * @param \Sajari\Model\QueryCollectionRequestTrackingType|null $type type
      *
      * @return self
      */
-    public function setField($field)
+    public function setType($type)
     {
-        $this->container["field"] = $field;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return map[string,string]|null
-     */
-    public function getData()
-    {
-        return $this->container["data"];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param map[string,string]|null $data Custom values to be included in tracking data.
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        $this->container["data"] = $data;
+        $this->container["type"] = $type;
 
         return $this;
     }

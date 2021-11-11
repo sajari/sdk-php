@@ -1,6 +1,6 @@
 <?php
 /**
- * PipelineStepParamBinding
+ * UpdateRecordRequest
  *
  * PHP version 7.2
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * PipelineStepParamBinding Class Doc Comment
+ * UpdateRecordRequest Class Doc Comment
  *
  * @category Class
  * @package  Sajari
@@ -43,7 +43,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PipelineStepParamBinding implements
+class UpdateRecordRequest implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -55,7 +55,7 @@ class PipelineStepParamBinding implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "PipelineStepParamBinding";
+    protected static $openAPIModelName = "UpdateRecordRequest";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -63,10 +63,9 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "bind" => "string",
-        "constant" => "string",
-        "default_value" => "string",
-        "description" => "string",
+        "key" => "\Sajari\Model\RecordKey",
+        "record" => "map[string,object]",
+        "update_mask" => "string",
     ];
 
     /**
@@ -77,10 +76,9 @@ class PipelineStepParamBinding implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "bind" => null,
-        "constant" => null,
-        "default_value" => null,
-        "description" => null,
+        "key" => null,
+        "record" => null,
+        "update_mask" => null,
     ];
 
     /**
@@ -110,10 +108,9 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "bind" => "bind",
-        "constant" => "constant",
-        "default_value" => "default_value",
-        "description" => "description",
+        "key" => "key",
+        "record" => "record",
+        "update_mask" => "update_mask",
     ];
 
     /**
@@ -122,10 +119,9 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $setters = [
-        "bind" => "setBind",
-        "constant" => "setConstant",
-        "default_value" => "setDefaultValue",
-        "description" => "setDescription",
+        "key" => "setKey",
+        "record" => "setRecord",
+        "update_mask" => "setUpdateMask",
     ];
 
     /**
@@ -134,10 +130,9 @@ class PipelineStepParamBinding implements
      * @var string[]
      */
     protected static $getters = [
-        "bind" => "getBind",
-        "constant" => "getConstant",
-        "default_value" => "getDefaultValue",
-        "description" => "getDescription",
+        "key" => "getKey",
+        "record" => "getRecord",
+        "update_mask" => "getUpdateMask",
     ];
 
     /**
@@ -196,10 +191,9 @@ class PipelineStepParamBinding implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["bind"] = $data["bind"] ?? null;
-        $this->container["constant"] = $data["constant"] ?? null;
-        $this->container["default_value"] = $data["default_value"] ?? null;
-        $this->container["description"] = $data["description"] ?? null;
+        $this->container["key"] = $data["key"] ?? null;
+        $this->container["record"] = $data["record"] ?? null;
+        $this->container["update_mask"] = $data["update_mask"] ?? null;
     }
 
     /**
@@ -211,6 +205,15 @@ class PipelineStepParamBinding implements
     {
         $invalidProperties = [];
 
+        if ($this->container["key"] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container["record"] === null) {
+            $invalidProperties[] = "'record' can't be null";
+        }
+        if ($this->container["update_mask"] === null) {
+            $invalidProperties[] = "'update_mask' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -226,97 +229,73 @@ class PipelineStepParamBinding implements
     }
 
     /**
-     * Gets bind
+     * Gets key
      *
-     * @return string|null
+     * @return \Sajari\Model\RecordKey
      */
-    public function getBind()
+    public function getKey()
     {
-        return $this->container["bind"];
+        return $this->container["key"];
     }
 
     /**
-     * Sets bind
+     * Sets key
      *
-     * @param string|null $bind Bind the step parameter to a pipeline variable.
+     * @param \Sajari\Model\RecordKey $key key
      *
      * @return self
      */
-    public function setBind($bind)
+    public function setKey($key)
     {
-        $this->container["bind"] = $bind;
+        $this->container["key"] = $key;
 
         return $this;
     }
 
     /**
-     * Gets constant
+     * Gets record
      *
-     * @return string|null
+     * @return map[string,object]
      */
-    public function getConstant()
+    public function getRecord()
     {
-        return $this->container["constant"];
+        return $this->container["record"];
     }
 
     /**
-     * Sets constant
+     * Sets record
      *
-     * @param string|null $constant Bind the step parameter to a constant value.
+     * @param map[string,object] $record The record to update.
      *
      * @return self
      */
-    public function setConstant($constant)
+    public function setRecord($record)
     {
-        $this->container["constant"] = $constant;
+        $this->container["record"] = $record;
 
         return $this;
     }
 
     /**
-     * Gets default_value
+     * Gets update_mask
      *
-     * @return string|null
+     * @return string
      */
-    public function getDefaultValue()
+    public function getUpdateMask()
     {
-        return $this->container["default_value"];
+        return $this->container["update_mask"];
     }
 
     /**
-     * Sets default_value
+     * Sets update_mask
      *
-     * @param string|null $default_value Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.
+     * @param string $update_mask The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  For each field that you want to update, provide a corresponding value in the record object containing the new value.
      *
      * @return self
      */
-    public function setDefaultValue($default_value)
+    public function setUpdateMask($update_mask)
     {
-        $this->container["default_value"] = $default_value;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container["description"];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Set the description of the step parameter.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container["description"] = $description;
+        $this->container["update_mask"] = $update_mask;
 
         return $this;
     }

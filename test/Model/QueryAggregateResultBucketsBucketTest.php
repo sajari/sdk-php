@@ -80,18 +80,18 @@ class QueryAggregateResultBucketsBucketTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "count"
      */
-    public function testPropertyName()
+    public function testPropertyCount()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "name"
      */
-    public function testPropertyCount()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

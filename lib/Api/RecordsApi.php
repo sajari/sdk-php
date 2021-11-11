@@ -1473,6 +1473,451 @@ class RecordsApi
     }
 
     /**
+     * Operation updateRecord
+     *
+     * Update record
+     *
+     * @param  string $collection_id The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  \Sajari\Model\UpdateRecordRequest $update_record_request update_record_request (required)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
+     */
+    public function updateRecord($collection_id, $update_record_request)
+    {
+        list($response) = $this->updateRecordWithHttpInfo(
+            $collection_id,
+            $update_record_request
+        );
+        return $response;
+    }
+
+    /**
+     * Operation updateRecordWithHttpInfo
+     *
+     * Update record
+     *
+     * @param  string $collection_id The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  \Sajari\Model\UpdateRecordRequest $update_record_request (required)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateRecordWithHttpInfo(
+        $collection_id,
+        $update_record_request
+    ) {
+        $request = $this->updateRecordRequest(
+            $collection_id,
+            $update_record_request
+        );
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()
+                        ? (string) $e->getResponse()->getBody()
+                        : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        "[%d] Error connecting to the API (%s)",
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch ($statusCode) {
+                case 200:
+                    if ("object" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, "object", []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 401:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                default:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = "object";
+            $responseBody = $response->getBody();
+            if ($returnType === "\SplFileObject") {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "object",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateRecordAsync
+     *
+     * Update record
+     *
+     * @param  string $collection_id The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  \Sajari\Model\UpdateRecordRequest $update_record_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRecordAsync($collection_id, $update_record_request)
+    {
+        return $this->updateRecordAsyncWithHttpInfo(
+            $collection_id,
+            $update_record_request
+        )->then(function ($response) {
+            return $response[0];
+        });
+    }
+
+    /**
+     * Operation updateRecordAsyncWithHttpInfo
+     *
+     * Update record
+     *
+     * @param  string $collection_id The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  \Sajari\Model\UpdateRecordRequest $update_record_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRecordAsyncWithHttpInfo(
+        $collection_id,
+        $update_record_request
+    ) {
+        $returnType = "object";
+        $request = $this->updateRecordRequest(
+            $collection_id,
+            $update_record_request
+        );
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            $returnType,
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            "[%d] Error connecting to the API (%s)",
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateRecord'
+     *
+     * @param  string $collection_id The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  \Sajari\Model\UpdateRecordRequest $update_record_request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateRecordRequest($collection_id, $update_record_request)
+    {
+        // verify the required parameter 'collection_id' is set
+        if (
+            $collection_id === null ||
+            (is_array($collection_id) && count($collection_id) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $collection_id when calling updateRecord'
+            );
+        }
+        // verify the required parameter 'update_record_request' is set
+        if (
+            $update_record_request === null ||
+            (is_array($update_record_request) &&
+                count($update_record_request) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_record_request when calling updateRecord'
+            );
+        }
+
+        $resourcePath = "/v4/collections/{collection_id}/records:update";
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+
+        // path params
+        if ($collection_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "collection_id" . "}",
+                ObjectSerializer::toPathValue($collection_id),
+                $resourcePath
+            );
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart([
+                "application/json",
+            ]);
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ["application/json"],
+                ["application/json"]
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_record_request)) {
+            if ($headers["Content-Type"] === "application/json") {
+                $httpBody = \GuzzleHttp\json_encode(
+                    ObjectSerializer::sanitizeForSerialization(
+                        $update_record_request
+                    )
+                );
+            } else {
+                $httpBody = $update_record_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue)
+                        ? $formParamValue
+                        : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            "name" => $formParamName,
+                            "contents" => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif ($headers["Content-Type"] === "application/json") {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (
+            !empty($this->config->getUsername()) ||
+            !empty($this->config->getPassword())
+        ) {
+            $headers["Authorization"] =
+                "Basic " .
+                base64_encode(
+                    $this->config->getUsername() .
+                        ":" .
+                        $this->config->getPassword()
+                );
+        }
+
+        $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge($defaultHeaders, $headerParams, $headers);
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            "POST",
+            $this->config->getHost() .
+                $resourcePath .
+                ($query ? "?{$query}" : ""),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation upsertRecord
      *
      * Upsert record

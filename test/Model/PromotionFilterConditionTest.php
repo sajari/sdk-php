@@ -1,6 +1,6 @@
 <?php
 /**
- * ListSchemaFieldsResponseTest
+ * PromotionFilterConditionTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ListSchemaFieldsResponseTest Class Doc Comment
+ * PromotionFilterConditionTest Class Doc Comment
  *
  * @category    Class
- * @description ListSchemaFieldsResponse
+ * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ListSchemaFieldsResponseTest extends TestCase
+class PromotionFilterConditionTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,36 +71,18 @@ class ListSchemaFieldsResponseTest extends TestCase
     }
 
     /**
-     * Test "ListSchemaFieldsResponse"
+     * Test "PromotionFilterCondition"
      */
-    public function testListSchemaFieldsResponse()
+    public function testPromotionFilterCondition()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "next_page_token"
+     * Test attribute "filter"
      */
-    public function testPropertyNextPageToken()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "schema_fields"
-     */
-    public function testPropertySchemaFields()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "total_size"
-     */
-    public function testPropertyTotalSize()
+    public function testPropertyFilter()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

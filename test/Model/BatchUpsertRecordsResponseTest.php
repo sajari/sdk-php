@@ -80,6 +80,15 @@ class BatchUpsertRecordsResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "errors"
+     */
+    public function testPropertyErrors()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test attribute "keys"
      */
     public function testPropertyKeys()
@@ -92,15 +101,6 @@ class BatchUpsertRecordsResponseTest extends TestCase
      * Test attribute "variables"
      */
     public function testPropertyVariables()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "errors"
-     */
-    public function testPropertyErrors()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

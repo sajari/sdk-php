@@ -64,7 +64,7 @@ class BatchUpsertRecordsResponseVariables implements
      */
     protected static $openAPITypes = [
         "index" => "int",
-        "variables" => "object",
+        "variables" => "map[string,object]",
     ];
 
     /**
@@ -240,7 +240,7 @@ class BatchUpsertRecordsResponseVariables implements
     /**
      * Gets variables
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
     public function getVariables()
     {
@@ -250,7 +250,7 @@ class BatchUpsertRecordsResponseVariables implements
     /**
      * Sets variables
      *
-     * @param object|null $variables The variables.
+     * @param map[string,object]|null $variables The variables.
      *
      * @return self
      */

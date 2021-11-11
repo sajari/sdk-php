@@ -61,10 +61,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        "metadata" => "map[string,object]",
         "name" => "string",
         "token" => "string",
         "weight" => "int",
-        "metadata" => "map[string,object]",
     ];
 
     /**
@@ -75,10 +75,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        "metadata" => null,
         "name" => null,
         "token" => null,
         "weight" => "int32",
-        "metadata" => null,
     ];
 
     /**
@@ -108,10 +108,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        "metadata" => "metadata",
         "name" => "name",
         "token" => "token",
         "weight" => "weight",
-        "metadata" => "metadata",
     ];
 
     /**
@@ -120,10 +120,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        "metadata" => "setMetadata",
         "name" => "setName",
         "token" => "setToken",
         "weight" => "setWeight",
-        "metadata" => "setMetadata",
     ];
 
     /**
@@ -132,10 +132,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        "metadata" => "getMetadata",
         "name" => "getName",
         "token" => "getToken",
         "weight" => "getWeight",
-        "metadata" => "getMetadata",
     ];
 
     /**
@@ -194,10 +194,10 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container["metadata"] = $data["metadata"] ?? null;
         $this->container["name"] = $data["name"] ?? null;
         $this->container["token"] = $data["token"] ?? null;
         $this->container["weight"] = $data["weight"] ?? null;
-        $this->container["metadata"] = $data["metadata"] ?? null;
     }
 
     /**
@@ -227,6 +227,30 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return map[string,object]|null
+     */
+    public function getMetadata()
+    {
+        return $this->container["metadata"];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param map[string,object]|null $metadata An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container["metadata"] = $metadata;
+
+        return $this;
     }
 
     /**
@@ -297,30 +321,6 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWeight($weight)
     {
         $this->container["weight"] = $weight;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,object]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container["metadata"];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,object]|null $metadata An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container["metadata"] = $metadata;
 
         return $this;
     }

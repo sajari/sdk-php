@@ -80,18 +80,18 @@ class QueryAggregateResultPercentileTest extends TestCase
     }
 
     /**
-     * Test attribute "percentiles"
+     * Test attribute "cdf"
      */
-    public function testPropertyPercentiles()
+    public function testPropertyCdf()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "cdf"
+     * Test attribute "percentiles"
      */
-    public function testPropertyCdf()
+    public function testPropertyPercentiles()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

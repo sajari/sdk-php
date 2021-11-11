@@ -61,12 +61,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        "id" => "string",
-        "title" => "string",
-        "description" => "string",
-        "params" => "map[string,\Sajari\Model\PipelineStepParamBinding]",
-        "condition" => "string",
         "annotations" => "string[]",
+        "condition" => "string",
+        "description" => "string",
+        "id" => "string",
+        "params" => "map[string,\Sajari\Model\PipelineStepParamBinding]",
+        "title" => "string",
     ];
 
     /**
@@ -77,12 +77,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "id" => null,
-        "title" => null,
-        "description" => null,
-        "params" => null,
-        "condition" => null,
         "annotations" => null,
+        "condition" => null,
+        "description" => null,
+        "id" => null,
+        "params" => null,
+        "title" => null,
     ];
 
     /**
@@ -112,12 +112,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        "id" => "id",
-        "title" => "title",
-        "description" => "description",
-        "params" => "params",
-        "condition" => "condition",
         "annotations" => "annotations",
+        "condition" => "condition",
+        "description" => "description",
+        "id" => "id",
+        "params" => "params",
+        "title" => "title",
     ];
 
     /**
@@ -126,12 +126,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        "id" => "setId",
-        "title" => "setTitle",
-        "description" => "setDescription",
-        "params" => "setParams",
-        "condition" => "setCondition",
         "annotations" => "setAnnotations",
+        "condition" => "setCondition",
+        "description" => "setDescription",
+        "id" => "setId",
+        "params" => "setParams",
+        "title" => "setTitle",
     ];
 
     /**
@@ -140,12 +140,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        "id" => "getId",
-        "title" => "getTitle",
-        "description" => "getDescription",
-        "params" => "getParams",
-        "condition" => "getCondition",
         "annotations" => "getAnnotations",
+        "condition" => "getCondition",
+        "description" => "getDescription",
+        "id" => "getId",
+        "params" => "getParams",
+        "title" => "getTitle",
     ];
 
     /**
@@ -204,12 +204,12 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container["id"] = $data["id"] ?? null;
-        $this->container["title"] = $data["title"] ?? null;
-        $this->container["description"] = $data["description"] ?? null;
-        $this->container["params"] = $data["params"] ?? null;
-        $this->container["condition"] = $data["condition"] ?? null;
         $this->container["annotations"] = $data["annotations"] ?? null;
+        $this->container["condition"] = $data["condition"] ?? null;
+        $this->container["description"] = $data["description"] ?? null;
+        $this->container["id"] = $data["id"] ?? null;
+        $this->container["params"] = $data["params"] ?? null;
+        $this->container["title"] = $data["title"] ?? null;
     }
 
     /**
@@ -239,97 +239,25 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets annotations
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getId()
+    public function getAnnotations()
     {
-        return $this->container["id"];
+        return $this->container["annotations"];
     }
 
     /**
-     * Sets id
+     * Sets annotations
      *
-     * @param string $id ID of the step template.
+     * @param string[]|null $annotations Annotations added to the request when the step is run.
      *
      * @return self
      */
-    public function setId($id)
+    public function setAnnotations($annotations)
     {
-        $this->container["id"] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container["title"];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title Title for the step. Overrides the default title.
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->container["title"] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container["description"];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Description for the step. Overrides the default description.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container["description"] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets params
-     *
-     * @return map[string,\Sajari\Model\PipelineStepParamBinding]|null
-     */
-    public function getParams()
-    {
-        return $this->container["params"];
-    }
-
-    /**
-     * Sets params
-     *
-     * @param map[string,\Sajari\Model\PipelineStepParamBinding]|null $params Bindings for the step parameters.
-     *
-     * @return self
-     */
-    public function setParams($params)
-    {
-        $this->container["params"] = $params;
+        $this->container["annotations"] = $annotations;
 
         return $this;
     }
@@ -359,25 +287,97 @@ class PipelineStep implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets annotations
+     * Gets description
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getAnnotations()
+    public function getDescription()
     {
-        return $this->container["annotations"];
+        return $this->container["description"];
     }
 
     /**
-     * Sets annotations
+     * Sets description
      *
-     * @param string[]|null $annotations Annotations added to the request when the step is run.
+     * @param string|null $description Description for the step. Overrides the default description.
      *
      * @return self
      */
-    public function setAnnotations($annotations)
+    public function setDescription($description)
     {
-        $this->container["annotations"] = $annotations;
+        $this->container["description"] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container["id"];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id ID of the step template.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container["id"] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets params
+     *
+     * @return map[string,\Sajari\Model\PipelineStepParamBinding]|null
+     */
+    public function getParams()
+    {
+        return $this->container["params"];
+    }
+
+    /**
+     * Sets params
+     *
+     * @param map[string,\Sajari\Model\PipelineStepParamBinding]|null $params Bindings for the step parameters.
+     *
+     * @return self
+     */
+    public function setParams($params)
+    {
+        $this->container["params"] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container["title"];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title Title for the step. Overrides the default title.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->container["title"] = $title;
 
         return $this;
     }

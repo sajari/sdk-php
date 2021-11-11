@@ -63,13 +63,13 @@ class QueryCollectionResponse implements
      * @var string[]
      */
     protected static $openAPITypes = [
+        "aggregate_filters" => "map[string,\Sajari\Model\QueryAggregateResult]",
+        "aggregates" => "map[string,\Sajari\Model\QueryAggregateResult]",
         "pipeline" => "\Sajari\Model\QueryCollectionResponsePipeline",
-        "variables" => "object",
+        "processing_duration" => "string",
         "results" => "\Sajari\Model\QueryResult[]",
         "total_size" => "string",
-        "processing_duration" => "string",
-        "aggregates" => "map[string,\Sajari\Model\QueryAggregateResult]",
-        "aggregate_filters" => "map[string,\Sajari\Model\QueryAggregateResult]",
+        "variables" => "map[string,object]",
     ];
 
     /**
@@ -80,13 +80,13 @@ class QueryCollectionResponse implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        "aggregate_filters" => null,
+        "aggregates" => null,
         "pipeline" => null,
-        "variables" => null,
+        "processing_duration" => null,
         "results" => null,
         "total_size" => "int64",
-        "processing_duration" => null,
-        "aggregates" => null,
-        "aggregate_filters" => null,
+        "variables" => null,
     ];
 
     /**
@@ -116,13 +116,13 @@ class QueryCollectionResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
+        "aggregate_filters" => "aggregate_filters",
+        "aggregates" => "aggregates",
         "pipeline" => "pipeline",
-        "variables" => "variables",
+        "processing_duration" => "processing_duration",
         "results" => "results",
         "total_size" => "total_size",
-        "processing_duration" => "processing_duration",
-        "aggregates" => "aggregates",
-        "aggregate_filters" => "aggregate_filters",
+        "variables" => "variables",
     ];
 
     /**
@@ -131,13 +131,13 @@ class QueryCollectionResponse implements
      * @var string[]
      */
     protected static $setters = [
+        "aggregate_filters" => "setAggregateFilters",
+        "aggregates" => "setAggregates",
         "pipeline" => "setPipeline",
-        "variables" => "setVariables",
+        "processing_duration" => "setProcessingDuration",
         "results" => "setResults",
         "total_size" => "setTotalSize",
-        "processing_duration" => "setProcessingDuration",
-        "aggregates" => "setAggregates",
-        "aggregate_filters" => "setAggregateFilters",
+        "variables" => "setVariables",
     ];
 
     /**
@@ -146,13 +146,13 @@ class QueryCollectionResponse implements
      * @var string[]
      */
     protected static $getters = [
+        "aggregate_filters" => "getAggregateFilters",
+        "aggregates" => "getAggregates",
         "pipeline" => "getPipeline",
-        "variables" => "getVariables",
+        "processing_duration" => "getProcessingDuration",
         "results" => "getResults",
         "total_size" => "getTotalSize",
-        "processing_duration" => "getProcessingDuration",
-        "aggregates" => "getAggregates",
-        "aggregate_filters" => "getAggregateFilters",
+        "variables" => "getVariables",
     ];
 
     /**
@@ -211,15 +211,15 @@ class QueryCollectionResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["pipeline"] = $data["pipeline"] ?? null;
-        $this->container["variables"] = $data["variables"] ?? null;
-        $this->container["results"] = $data["results"] ?? null;
-        $this->container["total_size"] = $data["total_size"] ?? null;
-        $this->container["processing_duration"] =
-            $data["processing_duration"] ?? null;
-        $this->container["aggregates"] = $data["aggregates"] ?? null;
         $this->container["aggregate_filters"] =
             $data["aggregate_filters"] ?? null;
+        $this->container["aggregates"] = $data["aggregates"] ?? null;
+        $this->container["pipeline"] = $data["pipeline"] ?? null;
+        $this->container["processing_duration"] =
+            $data["processing_duration"] ?? null;
+        $this->container["results"] = $data["results"] ?? null;
+        $this->container["total_size"] = $data["total_size"] ?? null;
+        $this->container["variables"] = $data["variables"] ?? null;
     }
 
     /**
@@ -243,6 +243,54 @@ class QueryCollectionResponse implements
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets aggregate_filters
+     *
+     * @return map[string,\Sajari\Model\QueryAggregateResult]|null
+     */
+    public function getAggregateFilters()
+    {
+        return $this->container["aggregate_filters"];
+    }
+
+    /**
+     * Sets aggregate_filters
+     *
+     * @param map[string,\Sajari\Model\QueryAggregateResult]|null $aggregate_filters The aggregates run with filters.
+     *
+     * @return self
+     */
+    public function setAggregateFilters($aggregate_filters)
+    {
+        $this->container["aggregate_filters"] = $aggregate_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets aggregates
+     *
+     * @return map[string,\Sajari\Model\QueryAggregateResult]|null
+     */
+    public function getAggregates()
+    {
+        return $this->container["aggregates"];
+    }
+
+    /**
+     * Sets aggregates
+     *
+     * @param map[string,\Sajari\Model\QueryAggregateResult]|null $aggregates The aggregates returned by the query.
+     *
+     * @return self
+     */
+    public function setAggregates($aggregates)
+    {
+        $this->container["aggregates"] = $aggregates;
+
+        return $this;
     }
 
     /**
@@ -270,25 +318,25 @@ class QueryCollectionResponse implements
     }
 
     /**
-     * Gets variables
+     * Gets processing_duration
      *
-     * @return object|null
+     * @return string|null
      */
-    public function getVariables()
+    public function getProcessingDuration()
     {
-        return $this->container["variables"];
+        return $this->container["processing_duration"];
     }
 
     /**
-     * Sets variables
+     * Sets processing_duration
      *
-     * @param object|null $variables The modified variables returned by the pipeline after it has finished processing.
+     * @param string|null $processing_duration The total time taken to perform the query.
      *
      * @return self
      */
-    public function setVariables($variables)
+    public function setProcessingDuration($processing_duration)
     {
-        $this->container["variables"] = $variables;
+        $this->container["processing_duration"] = $processing_duration;
 
         return $this;
     }
@@ -342,73 +390,25 @@ class QueryCollectionResponse implements
     }
 
     /**
-     * Gets processing_duration
+     * Gets variables
      *
-     * @return string|null
+     * @return map[string,object]|null
      */
-    public function getProcessingDuration()
+    public function getVariables()
     {
-        return $this->container["processing_duration"];
+        return $this->container["variables"];
     }
 
     /**
-     * Sets processing_duration
+     * Sets variables
      *
-     * @param string|null $processing_duration The total time taken to perform the query.
+     * @param map[string,object]|null $variables The modified variables returned by the pipeline after it has finished processing.
      *
      * @return self
      */
-    public function setProcessingDuration($processing_duration)
+    public function setVariables($variables)
     {
-        $this->container["processing_duration"] = $processing_duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets aggregates
-     *
-     * @return map[string,\Sajari\Model\QueryAggregateResult]|null
-     */
-    public function getAggregates()
-    {
-        return $this->container["aggregates"];
-    }
-
-    /**
-     * Sets aggregates
-     *
-     * @param map[string,\Sajari\Model\QueryAggregateResult]|null $aggregates The aggregates returned by the query.
-     *
-     * @return self
-     */
-    public function setAggregates($aggregates)
-    {
-        $this->container["aggregates"] = $aggregates;
-
-        return $this;
-    }
-
-    /**
-     * Gets aggregate_filters
-     *
-     * @return map[string,\Sajari\Model\QueryAggregateResult]|null
-     */
-    public function getAggregateFilters()
-    {
-        return $this->container["aggregate_filters"];
-    }
-
-    /**
-     * Sets aggregate_filters
-     *
-     * @param map[string,\Sajari\Model\QueryAggregateResult]|null $aggregate_filters The aggregates run with filters.
-     *
-     * @return self
-     */
-    public function setAggregateFilters($aggregate_filters)
-    {
-        $this->container["aggregate_filters"] = $aggregate_filters;
+        $this->container["variables"] = $variables;
 
         return $this;
     }

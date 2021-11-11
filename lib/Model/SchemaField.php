@@ -61,12 +61,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        "name" => "string",
-        "description" => "string",
-        "type" => "\Sajari\Model\SchemaFieldType",
-        "mode" => "\Sajari\Model\SchemaFieldMode",
         "array" => "bool",
         "array_length" => "int",
+        "description" => "string",
+        "mode" => "\Sajari\Model\SchemaFieldMode",
+        "name" => "string",
+        "type" => "\Sajari\Model\SchemaFieldType",
     ];
 
     /**
@@ -77,12 +77,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "name" => null,
-        "description" => null,
-        "type" => null,
-        "mode" => null,
-        "array" => "boolean",
+        "array" => null,
         "array_length" => "int32",
+        "description" => null,
+        "mode" => null,
+        "name" => null,
+        "type" => null,
     ];
 
     /**
@@ -112,12 +112,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        "name" => "name",
-        "description" => "description",
-        "type" => "type",
-        "mode" => "mode",
         "array" => "array",
         "array_length" => "array_length",
+        "description" => "description",
+        "mode" => "mode",
+        "name" => "name",
+        "type" => "type",
     ];
 
     /**
@@ -126,12 +126,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        "name" => "setName",
-        "description" => "setDescription",
-        "type" => "setType",
-        "mode" => "setMode",
         "array" => "setArray",
         "array_length" => "setArrayLength",
+        "description" => "setDescription",
+        "mode" => "setMode",
+        "name" => "setName",
+        "type" => "setType",
     ];
 
     /**
@@ -140,12 +140,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        "name" => "getName",
-        "description" => "getDescription",
-        "type" => "getType",
-        "mode" => "getMode",
         "array" => "getArray",
         "array_length" => "getArrayLength",
+        "description" => "getDescription",
+        "mode" => "getMode",
+        "name" => "getName",
+        "type" => "getType",
     ];
 
     /**
@@ -204,12 +204,12 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container["name"] = $data["name"] ?? null;
-        $this->container["description"] = $data["description"] ?? null;
-        $this->container["type"] = $data["type"] ?? null;
-        $this->container["mode"] = $data["mode"] ?? null;
         $this->container["array"] = $data["array"] ?? null;
         $this->container["array_length"] = $data["array_length"] ?? null;
+        $this->container["description"] = $data["description"] ?? null;
+        $this->container["mode"] = $data["mode"] ?? null;
+        $this->container["name"] = $data["name"] ?? null;
+        $this->container["type"] = $data["type"] ?? null;
     }
 
     /**
@@ -221,14 +221,14 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container["mode"] === null) {
+            $invalidProperties[] = "'mode' can't be null";
+        }
         if ($this->container["name"] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container["type"] === null) {
             $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container["mode"] === null) {
-            $invalidProperties[] = "'mode' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,102 +242,6 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container["name"];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name of the field.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container["name"] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container["description"];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of the field.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container["description"] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \Sajari\Model\SchemaFieldType
-     */
-    public function getType()
-    {
-        return $this->container["type"];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \Sajari\Model\SchemaFieldType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container["type"] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return \Sajari\Model\SchemaFieldMode
-     */
-    public function getMode()
-    {
-        return $this->container["mode"];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param \Sajari\Model\SchemaFieldMode $mode mode
-     *
-     * @return self
-     */
-    public function setMode($mode)
-    {
-        $this->container["mode"] = $mode;
-
-        return $this;
     }
 
     /**
@@ -384,6 +288,102 @@ class SchemaField implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setArrayLength($array_length)
     {
         $this->container["array_length"] = $array_length;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container["description"];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The description of the field.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container["description"] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return \Sajari\Model\SchemaFieldMode
+     */
+    public function getMode()
+    {
+        return $this->container["mode"];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param \Sajari\Model\SchemaFieldMode $mode mode
+     *
+     * @return self
+     */
+    public function setMode($mode)
+    {
+        $this->container["mode"] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container["name"];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name of the field.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container["name"] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return \Sajari\Model\SchemaFieldType
+     */
+    public function getType()
+    {
+        return $this->container["type"];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param \Sajari\Model\SchemaFieldType $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container["type"] = $type;
 
         return $this;
     }

@@ -63,11 +63,11 @@ class QueryAggregateResultAnalysis implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "coverage" => "int",
-        "cardinality" => "int",
-        "min_length" => "int",
-        "max_length" => "int",
         "avg_length" => "float",
+        "cardinality" => "int",
+        "coverage" => "int",
+        "max_length" => "int",
+        "min_length" => "int",
     ];
 
     /**
@@ -78,11 +78,11 @@ class QueryAggregateResultAnalysis implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "coverage" => "int32",
-        "cardinality" => "int32",
-        "min_length" => "int32",
-        "max_length" => "int32",
         "avg_length" => "float",
+        "cardinality" => "int32",
+        "coverage" => "int32",
+        "max_length" => "int32",
+        "min_length" => "int32",
     ];
 
     /**
@@ -112,11 +112,11 @@ class QueryAggregateResultAnalysis implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "coverage" => "coverage",
-        "cardinality" => "cardinality",
-        "min_length" => "min_length",
-        "max_length" => "max_length",
         "avg_length" => "avg_length",
+        "cardinality" => "cardinality",
+        "coverage" => "coverage",
+        "max_length" => "max_length",
+        "min_length" => "min_length",
     ];
 
     /**
@@ -125,11 +125,11 @@ class QueryAggregateResultAnalysis implements
      * @var string[]
      */
     protected static $setters = [
-        "coverage" => "setCoverage",
-        "cardinality" => "setCardinality",
-        "min_length" => "setMinLength",
-        "max_length" => "setMaxLength",
         "avg_length" => "setAvgLength",
+        "cardinality" => "setCardinality",
+        "coverage" => "setCoverage",
+        "max_length" => "setMaxLength",
+        "min_length" => "setMinLength",
     ];
 
     /**
@@ -138,11 +138,11 @@ class QueryAggregateResultAnalysis implements
      * @var string[]
      */
     protected static $getters = [
-        "coverage" => "getCoverage",
-        "cardinality" => "getCardinality",
-        "min_length" => "getMinLength",
-        "max_length" => "getMaxLength",
         "avg_length" => "getAvgLength",
+        "cardinality" => "getCardinality",
+        "coverage" => "getCoverage",
+        "max_length" => "getMaxLength",
+        "min_length" => "getMinLength",
     ];
 
     /**
@@ -201,11 +201,11 @@ class QueryAggregateResultAnalysis implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["coverage"] = $data["coverage"] ?? null;
-        $this->container["cardinality"] = $data["cardinality"] ?? null;
-        $this->container["min_length"] = $data["min_length"] ?? null;
-        $this->container["max_length"] = $data["max_length"] ?? null;
         $this->container["avg_length"] = $data["avg_length"] ?? null;
+        $this->container["cardinality"] = $data["cardinality"] ?? null;
+        $this->container["coverage"] = $data["coverage"] ?? null;
+        $this->container["max_length"] = $data["max_length"] ?? null;
+        $this->container["min_length"] = $data["min_length"] ?? null;
     }
 
     /**
@@ -232,25 +232,25 @@ class QueryAggregateResultAnalysis implements
     }
 
     /**
-     * Gets coverage
+     * Gets avg_length
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getCoverage()
+    public function getAvgLength()
     {
-        return $this->container["coverage"];
+        return $this->container["avg_length"];
     }
 
     /**
-     * Sets coverage
+     * Sets avg_length
      *
-     * @param int|null $coverage Coverage is the number of records which have a value set.
+     * @param float|null $avg_length Average number of items in an array field.
      *
      * @return self
      */
-    public function setCoverage($coverage)
+    public function setAvgLength($avg_length)
     {
-        $this->container["coverage"] = $coverage;
+        $this->container["avg_length"] = $avg_length;
 
         return $this;
     }
@@ -280,25 +280,25 @@ class QueryAggregateResultAnalysis implements
     }
 
     /**
-     * Gets min_length
+     * Gets coverage
      *
      * @return int|null
      */
-    public function getMinLength()
+    public function getCoverage()
     {
-        return $this->container["min_length"];
+        return $this->container["coverage"];
     }
 
     /**
-     * Sets min_length
+     * Sets coverage
      *
-     * @param int|null $min_length Minimum length of an array field.
+     * @param int|null $coverage Coverage is the number of records which have a value set.
      *
      * @return self
      */
-    public function setMinLength($min_length)
+    public function setCoverage($coverage)
     {
-        $this->container["min_length"] = $min_length;
+        $this->container["coverage"] = $coverage;
 
         return $this;
     }
@@ -328,25 +328,25 @@ class QueryAggregateResultAnalysis implements
     }
 
     /**
-     * Gets avg_length
+     * Gets min_length
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getAvgLength()
+    public function getMinLength()
     {
-        return $this->container["avg_length"];
+        return $this->container["min_length"];
     }
 
     /**
-     * Sets avg_length
+     * Sets min_length
      *
-     * @param float|null $avg_length Average number of items in an array field.
+     * @param int|null $min_length Minimum length of an array field.
      *
      * @return self
      */
-    public function setAvgLength($avg_length)
+    public function setMinLength($min_length)
     {
-        $this->container["avg_length"] = $avg_length;
+        $this->container["min_length"] = $min_length;
 
         return $this;
     }
