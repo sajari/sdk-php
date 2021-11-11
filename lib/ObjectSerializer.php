@@ -2,7 +2,7 @@
 /**
  * ObjectSerializer
  *
- * PHP version 7.2
+ * PHP version 7.3
  *
  * @category Class
  * @package  Sajari
@@ -332,19 +332,17 @@ class ObjectSerializer
             return $values;
         }
 
-        // NOTE(jingram): This block has been modified to fix a bug in the
-        // generator whereby an empty JSON object {} is turned into an empty
-        // PHP array.
-        if (substr($class, 0, 4) === "map[") {
-            // for associative array e.g. map[string,int]
+        if (preg_match("/^(array<|map\[)/", $class)) {
+            // for associative array e.g. array<string,int>
             $data = is_string($data) ? json_decode($data) : $data;
+            settype($data, "array");
             $inner = substr($class, 4, -1);
-            $deserialized = new \stdClass();
+            $deserialized = [];
             if (strrpos($inner, ",") !== false) {
                 $subClass_array = explode(",", $inner, 2);
                 $subClass = $subClass_array[1];
                 foreach ($data as $key => $value) {
-                    $deserialized->{$key} = self::deserialize(
+                    $deserialized[$key] = self::deserialize(
                         $value,
                         $subClass,
                         null
@@ -357,6 +355,9 @@ class ObjectSerializer
         if ($class === "object") {
             settype($data, "array");
             return $data;
+        } elseif ($class === "mixed") {
+            settype($data, gettype($data));
+            return $data;
         }
 
         if ($class === "\DateTime") {
@@ -367,27 +368,18 @@ class ObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTime($data);
+                try {
+                    return new \DateTime($data);
+                } catch (\Exception $exception) {
+                    // Some API's return a date-time with too high nanosecond
+                    // precision for php's DateTime to handle. This conversion
+                    // (string -> unix timestamp -> DateTime) is a workaround
+                    // for the problem.
+                    return (new \DateTime())->setTimestamp(strtotime($data));
+                }
             } else {
                 return null;
             }
-        }
-
-        // NOTE(jingram): The original generated code passes invalid types to
-        // settype. See [1] for the valid types. This block has been introduced
-        // so that settype is not called for these types. I don't know if there
-        // needs to be some deserialization for these types, but for now this
-        // fixes the settype warning.
-        //
-        // [1] https://www.php.net/manual/en/function.settype.php#refsect1-function.settype-parameters
-        if (
-            in_array(
-                $class,
-                ["DateTime", "byte", "mixed", "number", "void"],
-                true
-            )
-        ) {
-            return $data;
         }
 
         /** @psalm-suppress ParadoxicalCondition */
@@ -395,14 +387,21 @@ class ObjectSerializer
             in_array(
                 $class,
                 [
+                    "\DateTime",
+                    "\SplFileObject",
+                    "array",
                     "bool",
                     "boolean",
+                    "byte",
                     "double",
                     "float",
                     "int",
                     "integer",
+                    "mixed",
+                    "number",
                     "object",
                     "string",
+                    "void",
                 ],
                 true
             )

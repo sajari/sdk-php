@@ -149,6 +149,7 @@ All URIs are relative to *https://api-gateway.sajari.com*
 - [PipelineStep](docs/Model/PipelineStep.md)
 - [PipelineStepParamBinding](docs/Model/PipelineStepParamBinding.md)
 - [PipelineType](docs/Model/PipelineType.md)
+- [PromotionFilterCondition](docs/Model/PromotionFilterCondition.md)
 - [ProtobufAny](docs/Model/ProtobufAny.md)
 - [ProtobufNullValue](docs/Model/ProtobufNullValue.md)
 - [QueryAggregateResult](docs/Model/QueryAggregateResult.md)

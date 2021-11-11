@@ -33,6 +33,7 @@ docs/Model/Pipeline.md
 docs/Model/PipelineStep.md
 docs/Model/PipelineStepParamBinding.md
 docs/Model/PipelineType.md
+docs/Model/PromotionFilterCondition.md
 docs/Model/ProtobufAny.md
 docs/Model/ProtobufNullValue.md
 docs/Model/QueryAggregateResult.md
@@ -101,6 +102,7 @@ lib/Model/Pipeline.php
 lib/Model/PipelineStep.php
 lib/Model/PipelineStepParamBinding.php
 lib/Model/PipelineType.php
+lib/Model/PromotionFilterCondition.php
 lib/Model/ProtobufAny.php
 lib/Model/ProtobufNullValue.php
 lib/Model/QueryAggregateResult.php
@@ -166,6 +168,7 @@ test/Model/PipelineStepParamBindingTest.php
 test/Model/PipelineStepTest.php
 test/Model/PipelineTest.php
 test/Model/PipelineTypeTest.php
+test/Model/PromotionFilterConditionTest.php
 test/Model/ProtobufAnyTest.php
 test/Model/ProtobufNullValueTest.php
 test/Model/QueryAggregateResultAnalysisTest.php
