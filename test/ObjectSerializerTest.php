@@ -13,7 +13,7 @@ class ObjectSerializerTest extends TestCase
         $content = '{"id": "test", "params": {}}';
         $want = new PipelineStep();
         $want->setId("test");
-        $want->setParams(new \stdClass());
+        $want->setParams(new \ArrayObject());
         $got = ObjectSerializer::deserialize(
             $content,
             "\Sajari\Model\PipelineStep",

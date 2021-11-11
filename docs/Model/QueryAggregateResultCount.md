@@ -2,8 +2,8 @@
 
 ## Properties
 
-| Name       | Type                  | Description | Notes      |
-| ---------- | --------------------- | ----------- | ---------- |
-| **counts** | **array<string,int>** |             | [optional] |
+| Name       | Type                | Description | Notes      |
+| ---------- | ------------------- | ----------- | ---------- |
+| **counts** | **map[string,int]** |             | [optional] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
