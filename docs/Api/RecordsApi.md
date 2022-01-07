@@ -1,14 +1,82 @@
 # Sajari\RecordsApi
 
-All URIs are relative to https://api-gateway.sajari.com.
+All URIs are relative to https://api.search.io.
 
 | Method                                                       | HTTP request                                                 | Description          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------- |
+| [**batchUpdateRecords()**](RecordsApi.md#batchUpdateRecords) | **POST** /v4/collections/{collection_id}/records:batchUpdate | Batch update records |
 | [**batchUpsertRecords()**](RecordsApi.md#batchUpsertRecords) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records |
 | [**deleteRecord()**](RecordsApi.md#deleteRecord)             | **POST** /v4/collections/{collection_id}/records:delete      | Delete record        |
 | [**getRecord()**](RecordsApi.md#getRecord)                   | **POST** /v4/collections/{collection_id}/records:get         | Get record           |
 | [**updateRecord()**](RecordsApi.md#updateRecord)             | **POST** /v4/collections/{collection_id}/records:update      | Update record        |
 | [**upsertRecord()**](RecordsApi.md#upsertRecord)             | **POST** /v4/collections/{collection_id}/records:upsert      | Upsert record        |
+
+## `batchUpdateRecords()`
+
+```php
+batchUpdateRecords($collection_id, $batch_update_records_request): \Sajari\Model\BatchUpdateRecordsResponse
+```
+
+Batch update records
+
+The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+
+### Example
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
+
+$apiInstance = new Sajari\Api\RecordsApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
+);
+$collection_id = "collection_id_example"; // string | The collection that contains the records to update, e.g. `my-collection`.
+$batch_update_records_request = new \Sajari\Model\BatchUpdateRecordsRequest(); // \Sajari\Model\BatchUpdateRecordsRequest
+
+try {
+  $result = $apiInstance->batchUpdateRecords(
+    $collection_id,
+    $batch_update_records_request
+  );
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling RecordsApi->batchUpdateRecords: ",
+    $e->getMessage(),
+    PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name                             | Type                                                                                 | Description                                                                         | Notes |
+| -------------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ----- |
+| **collection_id**                | **string**                                                                           | The collection that contains the records to update, e.g. &#x60;my-collection&#x60;. |
+| **batch_update_records_request** | [**\Sajari\Model\BatchUpdateRecordsRequest**](../Model/BatchUpdateRecordsRequest.md) |                                                                                     |
+
+### Return type
+
+[**\Sajari\Model\BatchUpdateRecordsResponse**](../Model/BatchUpdateRecordsResponse.md)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `batchUpsertRecords()`
 
