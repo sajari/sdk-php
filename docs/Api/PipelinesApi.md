@@ -1,6 +1,6 @@
 # Sajari\PipelinesApi
 
-All URIs are relative to https://api-gateway.sajari.com.
+All URIs are relative to https://api.search.io.
 
 | Method                                                         | HTTP request                                                                       | Description                  |
 | -------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------- |

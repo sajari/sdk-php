@@ -1,6 +1,6 @@
 # Sajari\CollectionsApi
 
-All URIs are relative to https://api-gateway.sajari.com.
+All URIs are relative to https://api.search.io.
 
 | Method                                                       | HTTP request                                             | Description       |
 | ------------------------------------------------------------ | -------------------------------------------------------- | ----------------- |
@@ -20,7 +20,7 @@ createCollection($collection_id, $collection): \Sajari\Model\Collection
 
 Create collection
 
-Create an empty collection. Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
+Create an empty collection. Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Search.io Console, which handles the creation of the schema and pipelines for you.
 
 ### Example
 
@@ -272,7 +272,7 @@ queryCollection($collection_id, $query_collection_request): \Sajari\Model\QueryC
 
 Query collection
 
-Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
 
 ### Example
 
@@ -339,7 +339,7 @@ queryCollection2($collection_id, $query_collection_request): \Sajari\Model\Query
 
 Query collection
 
-Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
 
 ### Example
 

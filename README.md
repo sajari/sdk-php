@@ -1,10 +1,10 @@
-# Sajari SDK for PHP
+# Search.io SDK for PHP
 
 [![Build status](https://github.com/sajari/sdk-php/workflows/Build/badge.svg?branch=master)](https://github.com/sajari/sdk-php/actions)
 
-The official [Sajari](https://www.sajari.com) PHP client library.
+The official [Search.io](https://www.sajari.com) PHP client library.
 
-Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
 
 ## Table of contents
 
@@ -90,7 +90,7 @@ try {
 
 ## API endpoints
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 | Class          | Method                                                                       | HTTP request                                                                       | Description                  |
 | -------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------- |
@@ -111,20 +111,36 @@ All URIs are relative to *https://api-gateway.sajari.com*
 | PipelinesApi   | [**listPipelines**](docs/Api/PipelinesApi.md#listpipelines)                  | **GET** /v4/collections/{collection_id}/pipelines                                  | List pipelines               |
 | PipelinesApi   | [**setDefaultPipeline**](docs/Api/PipelinesApi.md#setdefaultpipeline)        | **POST** /v4/collections/{collection_id}:setDefaultPipeline                        | Set default pipeline         |
 | PipelinesApi   | [**setDefaultVersion**](docs/Api/PipelinesApi.md#setdefaultversion)          | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version |
+| PromotionsApi  | [**createPromotion**](docs/Api/PromotionsApi.md#createpromotion)             | **POST** /v4/collections/{collection_id}/promotions                                | Create promotion             |
+| PromotionsApi  | [**deletePromotion**](docs/Api/PromotionsApi.md#deletepromotion)             | **DELETE** /v4/collections/{collection_id}/promotions/{promotion_id}               | Delete promotion             |
+| PromotionsApi  | [**getPromotion**](docs/Api/PromotionsApi.md#getpromotion)                   | **GET** /v4/collections/{collection_id}/promotions/{promotion_id}                  | Get promotion                |
+| PromotionsApi  | [**listPromotions**](docs/Api/PromotionsApi.md#listpromotions)               | **GET** /v4/collections/{collection_id}/promotions                                 | List promotions              |
+| PromotionsApi  | [**updatePromotion**](docs/Api/PromotionsApi.md#updatepromotion)             | **PATCH** /v4/collections/{collection_id}/promotions/{promotion_id}                | Update promotion             |
+| RecordsApi     | [**batchUpdateRecords**](docs/Api/RecordsApi.md#batchupdaterecords)          | **POST** /v4/collections/{collection_id}/records:batchUpdate                       | Batch update records         |
 | RecordsApi     | [**batchUpsertRecords**](docs/Api/RecordsApi.md#batchupsertrecords)          | **POST** /v4/collections/{collection_id}/records:batchUpsert                       | Batch upsert records         |
 | RecordsApi     | [**deleteRecord**](docs/Api/RecordsApi.md#deleterecord)                      | **POST** /v4/collections/{collection_id}/records:delete                            | Delete record                |
 | RecordsApi     | [**getRecord**](docs/Api/RecordsApi.md#getrecord)                            | **POST** /v4/collections/{collection_id}/records:get                               | Get record                   |
 | RecordsApi     | [**updateRecord**](docs/Api/RecordsApi.md#updaterecord)                      | **POST** /v4/collections/{collection_id}/records:update                            | Update record                |
 | RecordsApi     | [**upsertRecord**](docs/Api/RecordsApi.md#upsertrecord)                      | **POST** /v4/collections/{collection_id}/records:upsert                            | Upsert record                |
+| RedirectsApi   | [**createRedirect**](docs/Api/RedirectsApi.md#createredirect)                | **POST** /v4/collections/{collection_id}/redirects                                 | Create redirect              |
+| RedirectsApi   | [**deleteRedirect**](docs/Api/RedirectsApi.md#deleteredirect)                | **DELETE** /v4/collections/{collection_id}/redirects/{redirect_id}                 | Delete redirect              |
+| RedirectsApi   | [**getRedirect**](docs/Api/RedirectsApi.md#getredirect)                      | **GET** /v4/collections/{collection_id}/redirects/{redirect_id}                    | Get redirect                 |
+| RedirectsApi   | [**listRedirects**](docs/Api/RedirectsApi.md#listredirects)                  | **GET** /v4/collections/{collection_id}/redirects                                  | List redirects               |
+| RedirectsApi   | [**updateRedirect**](docs/Api/RedirectsApi.md#updateredirect)                | **PATCH** /v4/collections/{collection_id}/redirects/{redirect_id}                  | Update redirect              |
 | SchemaApi      | [**batchCreateSchemaFields**](docs/Api/SchemaApi.md#batchcreateschemafields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate                  | Batch create schema fields   |
 | SchemaApi      | [**createSchemaField**](docs/Api/SchemaApi.md#createschemafield)             | **POST** /v4/collections/{collection_id}/schemaFields                              | Create schema field          |
 | SchemaApi      | [**listSchemaFields**](docs/Api/SchemaApi.md#listschemafields)               | **GET** /v4/collections/{collection_id}/schemaFields                               | List schema fields           |
 
 ## Models
 
+- [ActivePromotion](docs/Model/ActivePromotion.md)
 - [BatchCreateSchemaFieldsRequest](docs/Model/BatchCreateSchemaFieldsRequest.md)
 - [BatchCreateSchemaFieldsResponse](docs/Model/BatchCreateSchemaFieldsResponse.md)
 - [BatchCreateSchemaFieldsResponseError](docs/Model/BatchCreateSchemaFieldsResponseError.md)
+- [BatchUpdateRecordsRequest](docs/Model/BatchUpdateRecordsRequest.md)
+- [BatchUpdateRecordsResponse](docs/Model/BatchUpdateRecordsResponse.md)
+- [BatchUpdateRecordsResponseError](docs/Model/BatchUpdateRecordsResponseError.md)
+- [BatchUpdateRecordsResponseRecord](docs/Model/BatchUpdateRecordsResponseRecord.md)
 - [BatchUpsertRecordsRequest](docs/Model/BatchUpsertRecordsRequest.md)
 - [BatchUpsertRecordsRequestPipeline](docs/Model/BatchUpsertRecordsRequestPipeline.md)
 - [BatchUpsertRecordsResponse](docs/Model/BatchUpsertRecordsResponse.md)
@@ -143,14 +159,23 @@ All URIs are relative to *https://api-gateway.sajari.com*
 - [ListCollectionsResponse](docs/Model/ListCollectionsResponse.md)
 - [ListPipelinesRequestView](docs/Model/ListPipelinesRequestView.md)
 - [ListPipelinesResponse](docs/Model/ListPipelinesResponse.md)
+- [ListPromotionsResponse](docs/Model/ListPromotionsResponse.md)
+- [ListRedirectsResponse](docs/Model/ListRedirectsResponse.md)
 - [ListSchemaFieldsResponse](docs/Model/ListSchemaFieldsResponse.md)
 - [PercentileDataPoint](docs/Model/PercentileDataPoint.md)
 - [Pipeline](docs/Model/Pipeline.md)
 - [PipelineStep](docs/Model/PipelineStep.md)
 - [PipelineStepParamBinding](docs/Model/PipelineStepParamBinding.md)
 - [PipelineType](docs/Model/PipelineType.md)
+- [Promotion](docs/Model/Promotion.md)
+- [PromotionCategory](docs/Model/PromotionCategory.md)
+- [PromotionExclusion](docs/Model/PromotionExclusion.md)
+- [PromotionFilterBoost](docs/Model/PromotionFilterBoost.md)
 - [PromotionFilterCondition](docs/Model/PromotionFilterCondition.md)
+- [PromotionPin](docs/Model/PromotionPin.md)
+- [PromotionRangeBoost](docs/Model/PromotionRangeBoost.md)
 - [ProtobufAny](docs/Model/ProtobufAny.md)
+- [ProtobufFieldMask](docs/Model/ProtobufFieldMask.md)
 - [ProtobufNullValue](docs/Model/ProtobufNullValue.md)
 - [QueryAggregateResult](docs/Model/QueryAggregateResult.md)
 - [QueryAggregateResultAnalysis](docs/Model/QueryAggregateResultAnalysis.md)
@@ -171,6 +196,8 @@ All URIs are relative to *https://api-gateway.sajari.com*
 - [QueryResultTokenClick](docs/Model/QueryResultTokenClick.md)
 - [QueryResultTokenPosNeg](docs/Model/QueryResultTokenPosNeg.md)
 - [RecordKey](docs/Model/RecordKey.md)
+- [Redirect](docs/Model/Redirect.md)
+- [RedirectResult](docs/Model/RedirectResult.md)
 - [SchemaField](docs/Model/SchemaField.md)
 - [SchemaFieldMode](docs/Model/SchemaFieldMode.md)
 - [SchemaFieldType](docs/Model/SchemaFieldType.md)
@@ -200,7 +227,7 @@ vendor/bin/phpunit
 
 ## Author
 
-support@sajari.com
+support@search.io
 
 ## About this package
 
