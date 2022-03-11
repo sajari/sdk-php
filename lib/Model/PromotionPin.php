@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -61,6 +61,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         "key" => "\Sajari\Model\RecordKey",
+        "mode" => "\Sajari\Model\PromotionPinMode",
         "position" => "int",
     ];
 
@@ -73,6 +74,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         "key" => null,
+        "mode" => null,
         "position" => "int32",
     ];
 
@@ -104,6 +106,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         "key" => "key",
+        "mode" => "mode",
         "position" => "position",
     ];
 
@@ -114,6 +117,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         "key" => "setKey",
+        "mode" => "setMode",
         "position" => "setPosition",
     ];
 
@@ -124,6 +128,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         "key" => "getKey",
+        "mode" => "getMode",
         "position" => "getPosition",
     ];
 
@@ -184,6 +189,7 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container["key"] = $data["key"] ?? null;
+        $this->container["mode"] = $data["mode"] ?? null;
         $this->container["position"] = $data["position"] ?? null;
     }
 
@@ -230,6 +236,30 @@ class PromotionPin implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setKey($key)
     {
         $this->container["key"] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return \Sajari\Model\PromotionPinMode|null
+     */
+    public function getMode()
+    {
+        return $this->container["mode"];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param \Sajari\Model\PromotionPinMode|null $mode mode
+     *
+     * @return self
+     */
+    public function setMode($mode)
+    {
+        $this->container["mode"] = $mode;
 
         return $this;
     }

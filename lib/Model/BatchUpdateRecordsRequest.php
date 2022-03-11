@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -63,8 +63,6 @@ class BatchUpdateRecordsRequest implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "account_id" => "string",
-        "collection_id" => "string",
         "requests" => "\Sajari\Model\UpdateRecordRequest[]",
         "update_mask" => "string",
     ];
@@ -77,8 +75,6 @@ class BatchUpdateRecordsRequest implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "account_id" => null,
-        "collection_id" => null,
         "requests" => null,
         "update_mask" => null,
     ];
@@ -110,8 +106,6 @@ class BatchUpdateRecordsRequest implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "account_id" => "account_id",
-        "collection_id" => "collection_id",
         "requests" => "requests",
         "update_mask" => "update_mask",
     ];
@@ -122,8 +116,6 @@ class BatchUpdateRecordsRequest implements
      * @var string[]
      */
     protected static $setters = [
-        "account_id" => "setAccountId",
-        "collection_id" => "setCollectionId",
         "requests" => "setRequests",
         "update_mask" => "setUpdateMask",
     ];
@@ -134,8 +126,6 @@ class BatchUpdateRecordsRequest implements
      * @var string[]
      */
     protected static $getters = [
-        "account_id" => "getAccountId",
-        "collection_id" => "getCollectionId",
         "requests" => "getRequests",
         "update_mask" => "getUpdateMask",
     ];
@@ -196,8 +186,6 @@ class BatchUpdateRecordsRequest implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["account_id"] = $data["account_id"] ?? null;
-        $this->container["collection_id"] = $data["collection_id"] ?? null;
         $this->container["requests"] = $data["requests"] ?? null;
         $this->container["update_mask"] = $data["update_mask"] ?? null;
     }
@@ -226,54 +214,6 @@ class BatchUpdateRecordsRequest implements
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
-    }
-
-    /**
-     * Gets account_id
-     *
-     * @return string|null
-     */
-    public function getAccountId()
-    {
-        return $this->container["account_id"];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string|null $account_id The account that owns the collection, e.g. `1618535966441231024`.
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        $this->container["account_id"] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets collection_id
-     *
-     * @return string|null
-     */
-    public function getCollectionId()
-    {
-        return $this->container["collection_id"];
-    }
-
-    /**
-     * Sets collection_id
-     *
-     * @param string|null $collection_id The collection that contains the records to update, e.g. `my-collection`.
-     *
-     * @return self
-     */
-    public function setCollectionId($collection_id)
-    {
-        $this->container["collection_id"] = $collection_id;
-
-        return $this;
     }
 
     /**

@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -60,10 +60,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        "banner" => "\Sajari\Model\Banner",
         "feature_score" => "double",
         "index_score" => "double",
         "neural_score" => "double",
         "record" => "object",
+        "relevance_score" => "double",
         "score" => "double",
         "token" => "\Sajari\Model\QueryResultToken",
     ];
@@ -76,10 +78,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        "banner" => null,
         "feature_score" => "double",
         "index_score" => "double",
         "neural_score" => "double",
         "record" => null,
+        "relevance_score" => "double",
         "score" => "double",
         "token" => null,
     ];
@@ -111,10 +115,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        "banner" => "banner",
         "feature_score" => "feature_score",
         "index_score" => "index_score",
         "neural_score" => "neural_score",
         "record" => "record",
+        "relevance_score" => "relevance_score",
         "score" => "score",
         "token" => "token",
     ];
@@ -125,10 +131,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        "banner" => "setBanner",
         "feature_score" => "setFeatureScore",
         "index_score" => "setIndexScore",
         "neural_score" => "setNeuralScore",
         "record" => "setRecord",
+        "relevance_score" => "setRelevanceScore",
         "score" => "setScore",
         "token" => "setToken",
     ];
@@ -139,10 +147,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        "banner" => "getBanner",
         "feature_score" => "getFeatureScore",
         "index_score" => "getIndexScore",
         "neural_score" => "getNeuralScore",
         "record" => "getRecord",
+        "relevance_score" => "getRelevanceScore",
         "score" => "getScore",
         "token" => "getToken",
     ];
@@ -203,10 +213,12 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container["banner"] = $data["banner"] ?? null;
         $this->container["feature_score"] = $data["feature_score"] ?? null;
         $this->container["index_score"] = $data["index_score"] ?? null;
         $this->container["neural_score"] = $data["neural_score"] ?? null;
         $this->container["record"] = $data["record"] ?? null;
+        $this->container["relevance_score"] = $data["relevance_score"] ?? null;
         $this->container["score"] = $data["score"] ?? null;
         $this->container["token"] = $data["token"] ?? null;
     }
@@ -232,6 +244,30 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets banner
+     *
+     * @return \Sajari\Model\Banner|null
+     */
+    public function getBanner()
+    {
+        return $this->container["banner"];
+    }
+
+    /**
+     * Sets banner
+     *
+     * @param \Sajari\Model\Banner|null $banner banner
+     *
+     * @return self
+     */
+    public function setBanner($banner)
+    {
+        $this->container["banner"] = $banner;
+
+        return $this;
     }
 
     /**
@@ -326,6 +362,30 @@ class QueryResult implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRecord($record)
     {
         $this->container["record"] = $record;
+
+        return $this;
+    }
+
+    /**
+     * Gets relevance_score
+     *
+     * @return double|null
+     */
+    public function getRelevanceScore()
+    {
+        return $this->container["relevance_score"];
+    }
+
+    /**
+     * Sets relevance_score
+     *
+     * @param double|null $relevance_score The relevance score of the result.  This is the best of `index_score` and `neural_score` with any index boosts applied on top.
+     *
+     * @return self
+     */
+    public function setRelevanceScore($relevance_score)
+    {
+        $this->container["relevance_score"] = $relevance_score;
 
         return $this;
     }

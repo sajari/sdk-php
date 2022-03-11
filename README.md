@@ -4,7 +4,7 @@
 
 The official [Search.io](https://www.sajari.com) PHP client library.
 
-Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
 
 ## Table of contents
 
@@ -96,10 +96,12 @@ All URIs are relative to *https://api.search.io*
 | -------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------- |
 | CollectionsApi | [**createCollection**](docs/Api/CollectionsApi.md#createcollection)          | **POST** /v4/collections                                                           | Create collection            |
 | CollectionsApi | [**deleteCollection**](docs/Api/CollectionsApi.md#deletecollection)          | **DELETE** /v4/collections/{collection_id}                                         | Delete collection            |
+| CollectionsApi | [**experiment**](docs/Api/CollectionsApi.md#experiment)                      | **POST** /v4/collections/{collection_id}:experiment                                | Experiment                   |
 | CollectionsApi | [**getCollection**](docs/Api/CollectionsApi.md#getcollection)                | **GET** /v4/collections/{collection_id}                                            | Get collection               |
 | CollectionsApi | [**listCollections**](docs/Api/CollectionsApi.md#listcollections)            | **GET** /v4/collections                                                            | List collections             |
 | CollectionsApi | [**queryCollection**](docs/Api/CollectionsApi.md#querycollection)            | **POST** /v4/collections/{collection_id}:query                                     | Query collection             |
 | CollectionsApi | [**queryCollection2**](docs/Api/CollectionsApi.md#querycollection2)          | **POST** /v4/collections/{collection_id}:queryCollection                           | Query collection             |
+| CollectionsApi | [**trackEvent**](docs/Api/CollectionsApi.md#trackevent)                      | **POST** /v4/collections/{collection_id}:trackEvent                                | Track event                  |
 | CollectionsApi | [**updateCollection**](docs/Api/CollectionsApi.md#updatecollection)          | **PATCH** /v4/collections/{collection_id}                                          | Update collection            |
 | EventsApi      | [**sendEvent**](docs/Api/EventsApi.md#sendevent)                             | **POST** /v4/events:send                                                           | Send event                   |
 | EventsApi      | [**sendEvent2**](docs/Api/EventsApi.md#sendevent2)                           | **POST** /v4/events:sendEvent                                                      | Send event                   |
@@ -134,6 +136,7 @@ All URIs are relative to *https://api.search.io*
 ## Models
 
 - [ActivePromotion](docs/Model/ActivePromotion.md)
+- [Banner](docs/Model/Banner.md)
 - [BatchCreateSchemaFieldsRequest](docs/Model/BatchCreateSchemaFieldsRequest.md)
 - [BatchCreateSchemaFieldsResponse](docs/Model/BatchCreateSchemaFieldsResponse.md)
 - [BatchCreateSchemaFieldsResponseError](docs/Model/BatchCreateSchemaFieldsResponseError.md)
@@ -150,6 +153,10 @@ All URIs are relative to *https://api.search.io*
 - [Collection](docs/Model/Collection.md)
 - [DeleteRecordRequest](docs/Model/DeleteRecordRequest.md)
 - [Error](docs/Model/Error.md)
+- [Event](docs/Model/Event.md)
+- [ExperimentRequest](docs/Model/ExperimentRequest.md)
+- [ExperimentRequestPipeline](docs/Model/ExperimentRequestPipeline.md)
+- [ExperimentResponse](docs/Model/ExperimentResponse.md)
 - [GeneratePipelinesRequest](docs/Model/GeneratePipelinesRequest.md)
 - [GeneratePipelinesResponse](docs/Model/GeneratePipelinesResponse.md)
 - [GetDefaultPipelineResponse](docs/Model/GetDefaultPipelineResponse.md)
@@ -159,6 +166,7 @@ All URIs are relative to *https://api.search.io*
 - [ListCollectionsResponse](docs/Model/ListCollectionsResponse.md)
 - [ListPipelinesRequestView](docs/Model/ListPipelinesRequestView.md)
 - [ListPipelinesResponse](docs/Model/ListPipelinesResponse.md)
+- [ListPromotionsRequestPromotionView](docs/Model/ListPromotionsRequestPromotionView.md)
 - [ListPromotionsResponse](docs/Model/ListPromotionsResponse.md)
 - [ListRedirectsResponse](docs/Model/ListRedirectsResponse.md)
 - [ListSchemaFieldsResponse](docs/Model/ListSchemaFieldsResponse.md)
@@ -173,6 +181,7 @@ All URIs are relative to *https://api.search.io*
 - [PromotionFilterBoost](docs/Model/PromotionFilterBoost.md)
 - [PromotionFilterCondition](docs/Model/PromotionFilterCondition.md)
 - [PromotionPin](docs/Model/PromotionPin.md)
+- [PromotionPinMode](docs/Model/PromotionPinMode.md)
 - [PromotionRangeBoost](docs/Model/PromotionRangeBoost.md)
 - [ProtobufAny](docs/Model/ProtobufAny.md)
 - [ProtobufFieldMask](docs/Model/ProtobufFieldMask.md)
@@ -205,6 +214,7 @@ All URIs are relative to *https://api.search.io*
 - [SetDefaultPipelineRequest](docs/Model/SetDefaultPipelineRequest.md)
 - [SetDefaultVersionRequest](docs/Model/SetDefaultVersionRequest.md)
 - [Status](docs/Model/Status.md)
+- [TextPosition](docs/Model/TextPosition.md)
 - [UpdateRecordRequest](docs/Model/UpdateRecordRequest.md)
 - [UpsertRecordRequest](docs/Model/UpsertRecordRequest.md)
 - [UpsertRecordRequestPipeline](docs/Model/UpsertRecordRequestPipeline.md)
@@ -234,5 +244,5 @@ support@search.io
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v4`
-  - Package version: `4.2.0`
+  - Package version: `5.0.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -244,7 +244,7 @@ class QueryCollectionRequestTracking implements
     /**
      * Sets data
      *
-     * @param map[string,string]|null $data Custom values to be included in tracking data.
+     * @param map[string,string]|null $data A set of custom values to be included in tracking data.
      *
      * @return self
      */
@@ -268,7 +268,7 @@ class QueryCollectionRequestTracking implements
     /**
      * Sets field
      *
-     * @param string|null $field Tracking field used to identify records in the collection.  Must be unique schema field.
+     * @param string|null $field The tracking field used to identify records in the collection.  Must be unique schema field.
      *
      * @return self
      */
@@ -292,7 +292,7 @@ class QueryCollectionRequestTracking implements
     /**
      * Sets query_id
      *
-     * @param string|null $query_id Query ID of the query. If this is empty, then one is generated.
+     * @param string|null $query_id The query ID of the query. If this is empty, then one is generated.
      *
      * @return self
      */
@@ -316,7 +316,7 @@ class QueryCollectionRequestTracking implements
     /**
      * Sets sequence
      *
-     * @param int|null $sequence Sequence number of query.
+     * @param int|null $sequence The sequence number of query.
      *
      * @return self
      */
