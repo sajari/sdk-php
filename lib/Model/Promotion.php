@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -61,6 +61,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        "banners" => "\Sajari\Model\Banner[]",
         "collection_id" => "string",
         "condition" => "string",
         "create_time" => "\DateTime",
@@ -85,6 +86,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        "banners" => null,
         "collection_id" => null,
         "condition" => null,
         "create_time" => "date-time",
@@ -128,6 +130,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        "banners" => "banners",
         "collection_id" => "collection_id",
         "condition" => "condition",
         "create_time" => "create_time",
@@ -150,6 +153,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        "banners" => "setBanners",
         "collection_id" => "setCollectionId",
         "condition" => "setCondition",
         "create_time" => "setCreateTime",
@@ -172,6 +176,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        "banners" => "getBanners",
         "collection_id" => "getCollectionId",
         "condition" => "getCondition",
         "create_time" => "getCreateTime",
@@ -244,6 +249,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container["banners"] = $data["banners"] ?? null;
         $this->container["collection_id"] = $data["collection_id"] ?? null;
         $this->container["condition"] = $data["condition"] ?? null;
         $this->container["create_time"] = $data["create_time"] ?? null;
@@ -288,6 +294,30 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets banners
+     *
+     * @return \Sajari\Model\Banner[]|null
+     */
+    public function getBanners()
+    {
+        return $this->container["banners"];
+    }
+
+    /**
+     * Sets banners
+     *
+     * @param \Sajari\Model\Banner[]|null $banners The banners that are injected into the result set when the promotion is triggered.
+     *
+     * @return self
+     */
+    public function setBanners($banners)
+    {
+        $this->container["banners"] = $banners;
+
+        return $this;
     }
 
     /**

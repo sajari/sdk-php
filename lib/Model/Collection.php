@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -269,7 +269,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authorized_query_domains
      *
-     * @param string[]|null $authorized_query_domains The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+     * @param string[]|null $authorized_query_domains The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
      *
      * @return self
      */

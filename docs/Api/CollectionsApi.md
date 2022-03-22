@@ -6,10 +6,12 @@ All URIs are relative to https://api.search.io.
 | ------------------------------------------------------------ | -------------------------------------------------------- | ----------------- |
 | [**createCollection()**](CollectionsApi.md#createCollection) | **POST** /v4/collections                                 | Create collection |
 | [**deleteCollection()**](CollectionsApi.md#deleteCollection) | **DELETE** /v4/collections/{collection_id}               | Delete collection |
+| [**experiment()**](CollectionsApi.md#experiment)             | **POST** /v4/collections/{collection_id}:experiment      | Experiment        |
 | [**getCollection()**](CollectionsApi.md#getCollection)       | **GET** /v4/collections/{collection_id}                  | Get collection    |
 | [**listCollections()**](CollectionsApi.md#listCollections)   | **GET** /v4/collections                                  | List collections  |
 | [**queryCollection()**](CollectionsApi.md#queryCollection)   | **POST** /v4/collections/{collection_id}:query           | Query collection  |
 | [**queryCollection2()**](CollectionsApi.md#queryCollection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection  |
+| [**trackEvent()**](CollectionsApi.md#trackEvent)             | **POST** /v4/collections/{collection_id}:trackEvent      | Track event       |
 | [**updateCollection()**](CollectionsApi.md#updateCollection) | **PATCH** /v4/collections/{collection_id}                | Update collection |
 
 ## `createCollection()`
@@ -138,6 +140,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `experiment()`
+
+```php
+experiment($collection_id, $experiment_request): \Sajari\Model\ExperimentResponse
+```
+
+Experiment
+
+Run a query on a collection with a hypothetical configuration to see what kinds of results it produces. Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled. The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion: `json { \"pipeline\": { \"name\": \"my-pipeline\" }, \"variables\": { \"q\": \"search terms\" }, \"promotions\": [{ \"id\": \"1234\", \"condition\": \"q = 'search terms'\", \"pins\": [{ \"key\": { \"field\": \"id\", \"value\": \"54hdc7h2334h\" }, \"position\": 1 }] }] } `
+
+### Example
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
+
+$apiInstance = new Sajari\Api\CollectionsApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
+);
+$collection_id = "collection_id_example"; // string | The collection to query, e.g. `my-collection`.
+$experiment_request = new \Sajari\Model\ExperimentRequest(); // \Sajari\Model\ExperimentRequest
+
+try {
+  $result = $apiInstance->experiment($collection_id, $experiment_request);
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling CollectionsApi->experiment: ",
+    $e->getMessage(),
+    PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name                   | Type                                                                 | Description                                              | Notes |
+| ---------------------- | -------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
+| **collection_id**      | **string**                                                           | The collection to query, e.g. &#x60;my-collection&#x60;. |
+| **experiment_request** | [**\Sajari\Model\ExperimentRequest**](../Model/ExperimentRequest.md) |                                                          |
+
+### Return type
+
+[**\Sajari\Model\ExperimentResponse**](../Model/ExperimentResponse.md)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getCollection()`
 
 ```php
@@ -228,7 +294,7 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   $config
 );
 $page_size = 56; // int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
-$page_token = "page_token_example"; // string | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token.
+$page_token = "page_token_example"; // string | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
 
 try {
   $result = $apiInstance->listCollections($page_size, $page_token);
@@ -242,10 +308,10 @@ try {
 
 ### Parameters
 
-| Name           | Type       | Description                                                                                                                                                                                                                                                                                        | Notes      |
-| -------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                     | [optional] |
-| **page_token** | **string** | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
+| Name           | Type       | Description                                                                                                                                                                                                                                                                                                  | Notes      |
+| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                               | [optional] |
+| **page_token** | **string** | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
 
 ### Return type
 
@@ -267,12 +333,12 @@ try {
 ## `queryCollection()`
 
 ```php
-queryCollection($collection_id, $query_collection_request): \Sajari\Model\QueryCollectionResponse
+queryCollection($collection_id, $query_collection_request, $account_id): \Sajari\Model\QueryCollectionResponse
 ```
 
 Query collection
 
-Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881) Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
 
 ### Example
 
@@ -293,11 +359,13 @@ $apiInstance = new Sajari\Api\CollectionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection to query, e.g. `my-collection`.
 $query_collection_request = new \Sajari\Model\QueryCollectionRequest(); // \Sajari\Model\QueryCollectionRequest
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.  Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
 
 try {
   $result = $apiInstance->queryCollection(
     $collection_id,
-    $query_collection_request
+    $query_collection_request,
+    $account_id
   );
   print_r($result);
 } catch (Exception $e) {
@@ -309,10 +377,11 @@ try {
 
 ### Parameters
 
-| Name                         | Type                                                                           | Description                                              | Notes |
-| ---------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------- | ----- |
-| **collection_id**            | **string**                                                                     | The collection to query, e.g. &#x60;my-collection&#x60;. |
-| **query_collection_request** | [**\Sajari\Model\QueryCollectionRequest**](../Model/QueryCollectionRequest.md) |                                                          |
+| Name                         | Type                                                                           | Description                                                                                                                                                                                                                                                          | Notes      |
+| ---------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **collection_id**            | **string**                                                                     | The collection to query, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                             |
+| **query_collection_request** | [**\Sajari\Model\QueryCollectionRequest**](../Model/QueryCollectionRequest.md) |                                                                                                                                                                                                                                                                      |
+| **account_id**               | **string**                                                                     | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. | [optional] |
 
 ### Return type
 
@@ -339,7 +408,7 @@ queryCollection2($collection_id, $query_collection_request): \Sajari\Model\Query
 
 Query collection
 
-Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records. The following example demonstrates how to run a simple search for a particular string: `json { \"variables\": { \"q\": \"search terms\" } } ` For more information: - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881) Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
 
 ### Example
 
@@ -398,10 +467,76 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `trackEvent()`
+
+```php
+trackEvent($account_id, $collection_id, $event): object
+```
+
+Track event
+
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request. An analytics event can be tracked for the following objects: - Results - Promotion banners - Redirects Note: You must pass an `Account-Id` header.
+
+### Example
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
+
+$apiInstance = new Sajari\Api\CollectionsApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
+);
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
+$collection_id = "collection_id_example"; // string | The collection to track the event against, e.g. `my-collection`.
+$event = new \Sajari\Model\Event(); // \Sajari\Model\Event | The details of the event to track.
+
+try {
+  $result = $apiInstance->trackEvent($account_id, $collection_id, $event);
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling CollectionsApi->trackEvent: ",
+    $e->getMessage(),
+    PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name              | Type                                         | Description                                                                 | Notes |
+| ----------------- | -------------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **account_id**    | **string**                                   | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. |
+| **collection_id** | **string**                                   | The collection to track the event against, e.g. &#x60;my-collection&#x60;.  |
+| **event**         | [**\Sajari\Model\Event**](../Model/Event.md) | The details of the event to track.                                          |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateCollection()`
 
 ```php
-updateCollection($collection_id, $update_mask, $collection): \Sajari\Model\Collection
+updateCollection($collection_id, $collection, $update_mask): \Sajari\Model\Collection
 ```
 
 Update collection
@@ -426,14 +561,14 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   $config
 );
 $collection_id = "collection_id_example"; // string | The collection to update, e.g. `my-collection`.
-$update_mask = "update_mask_example"; // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
-$collection = new \Sajari\Model\Collection(); // \Sajari\Model\Collection | Details of the collection to update.
+$collection = new \Sajari\Model\Collection(); // \Sajari\Model\Collection | The details of the collection to update.
+$update_mask = "update_mask_example"; // string | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
 
 try {
   $result = $apiInstance->updateCollection(
     $collection_id,
-    $update_mask,
-    $collection
+    $collection,
+    $update_mask
   );
   print_r($result);
 } catch (Exception $e) {
@@ -445,11 +580,11 @@ try {
 
 ### Parameters
 
-| Name              | Type                                                   | Description                                                                                                                                                                                                                                                                         | Notes |
-| ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **collection_id** | **string**                                             | The collection to update, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                           |
-| **update_mask**   | **string**                                             | The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;. Each field should be in snake case, e.g. &#x60;display_name&#x60;. For each field that you want to update, provide a corresponding value in the collection object containing the new value. |
-| **collection**    | [**\Sajari\Model\Collection**](../Model/Collection.md) | Details of the collection to update.                                                                                                                                                                                                                                                |
+| Name              | Type                                                   | Description                                                                                                                                                                                                                                                              | Notes      |
+| ----------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| **collection_id** | **string**                                             | The collection to update, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                |
+| **collection**    | [**\Sajari\Model\Collection**](../Model/Collection.md) | The details of the collection to update.                                                                                                                                                                                                                                 |
+| **update_mask**   | **string**                                             | The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;. Each field should be in snake case. For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] |
 
 ### Return type
 

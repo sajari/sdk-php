@@ -231,7 +231,7 @@ $apiInstance = new Sajari\Api\RedirectsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection that owns this set of redirects, e.g. `my-collection`.
 $page_size = 56; // int | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-$page_token = "page_token_example"; // string | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token.
+$page_token = "page_token_example"; // string | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
 
 try {
   $result = $apiInstance->listRedirects(
@@ -249,11 +249,11 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                                                                                                                                                                                                                                                                | Notes      |
-| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| **collection_id** | **string** | The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                            |
-| **page_size**     | **int**    | The maximum number of redirects to return. The service may return fewer than this value. If unspecified, at most 50 redirects are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                              | [optional] |
-| **page_token**    | **string** | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. | [optional] |
+| Name              | Type       | Description                                                                                                                                                                                                                                                                                          | Notes      |
+| ----------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string** | The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                      |
+| **page_size**     | **int**    | The maximum number of redirects to return. The service may return fewer than this value. If unspecified, at most 50 redirects are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                                        | [optional] |
+| **page_token**    | **string** | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional] |
 
 ### Return type
 

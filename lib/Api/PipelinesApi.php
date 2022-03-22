@@ -12,7 +12,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -1476,7 +1476,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1505,7 +1505,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1730,7 +1730,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1759,7 +1759,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1822,7 +1822,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1981,7 +1981,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2013,7 +2013,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2241,7 +2241,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2273,7 +2273,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2339,7 +2339,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
-     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2514,8 +2514,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2543,8 +2543,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2771,8 +2771,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2800,8 +2800,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2863,8 +2863,8 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
+     * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -66,9 +66,11 @@ class QueryCollectionResponse implements
         "active_promotions" => "\Sajari\Model\ActivePromotion[]",
         "aggregate_filters" => "map[string,\Sajari\Model\QueryAggregateResult]",
         "aggregates" => "map[string,\Sajari\Model\QueryAggregateResult]",
+        "banners" => "\Sajari\Model\Banner[]",
         "feature_score_weight" => "double",
         "pipeline" => "\Sajari\Model\QueryCollectionResponsePipeline",
         "processing_duration" => "string",
+        "query_id" => "string",
         "redirects" => "map[string,\Sajari\Model\RedirectResult]",
         "results" => "\Sajari\Model\QueryResult[]",
         "total_size" => "string",
@@ -86,9 +88,11 @@ class QueryCollectionResponse implements
         "active_promotions" => null,
         "aggregate_filters" => null,
         "aggregates" => null,
+        "banners" => null,
         "feature_score_weight" => "double",
         "pipeline" => null,
         "processing_duration" => null,
+        "query_id" => null,
         "redirects" => null,
         "results" => null,
         "total_size" => "int64",
@@ -125,9 +129,11 @@ class QueryCollectionResponse implements
         "active_promotions" => "active_promotions",
         "aggregate_filters" => "aggregate_filters",
         "aggregates" => "aggregates",
+        "banners" => "banners",
         "feature_score_weight" => "feature_score_weight",
         "pipeline" => "pipeline",
         "processing_duration" => "processing_duration",
+        "query_id" => "query_id",
         "redirects" => "redirects",
         "results" => "results",
         "total_size" => "total_size",
@@ -143,9 +149,11 @@ class QueryCollectionResponse implements
         "active_promotions" => "setActivePromotions",
         "aggregate_filters" => "setAggregateFilters",
         "aggregates" => "setAggregates",
+        "banners" => "setBanners",
         "feature_score_weight" => "setFeatureScoreWeight",
         "pipeline" => "setPipeline",
         "processing_duration" => "setProcessingDuration",
+        "query_id" => "setQueryId",
         "redirects" => "setRedirects",
         "results" => "setResults",
         "total_size" => "setTotalSize",
@@ -161,9 +169,11 @@ class QueryCollectionResponse implements
         "active_promotions" => "getActivePromotions",
         "aggregate_filters" => "getAggregateFilters",
         "aggregates" => "getAggregates",
+        "banners" => "getBanners",
         "feature_score_weight" => "getFeatureScoreWeight",
         "pipeline" => "getPipeline",
         "processing_duration" => "getProcessingDuration",
+        "query_id" => "getQueryId",
         "redirects" => "getRedirects",
         "results" => "getResults",
         "total_size" => "getTotalSize",
@@ -231,11 +241,13 @@ class QueryCollectionResponse implements
         $this->container["aggregate_filters"] =
             $data["aggregate_filters"] ?? null;
         $this->container["aggregates"] = $data["aggregates"] ?? null;
+        $this->container["banners"] = $data["banners"] ?? null;
         $this->container["feature_score_weight"] =
             $data["feature_score_weight"] ?? null;
         $this->container["pipeline"] = $data["pipeline"] ?? null;
         $this->container["processing_duration"] =
             $data["processing_duration"] ?? null;
+        $this->container["query_id"] = $data["query_id"] ?? null;
         $this->container["redirects"] = $data["redirects"] ?? null;
         $this->container["results"] = $data["results"] ?? null;
         $this->container["total_size"] = $data["total_size"] ?? null;
@@ -338,6 +350,30 @@ class QueryCollectionResponse implements
     }
 
     /**
+     * Gets banners
+     *
+     * @return \Sajari\Model\Banner[]|null
+     */
+    public function getBanners()
+    {
+        return $this->container["banners"];
+    }
+
+    /**
+     * Sets banners
+     *
+     * @param \Sajari\Model\Banner[]|null $banners Banners associated with this query.
+     *
+     * @return self
+     */
+    public function setBanners($banners)
+    {
+        $this->container["banners"] = $banners;
+
+        return $this;
+    }
+
+    /**
      * Gets feature_score_weight
      *
      * @return double|null
@@ -405,6 +441,30 @@ class QueryCollectionResponse implements
     public function setProcessingDuration($processing_duration)
     {
         $this->container["processing_duration"] = $processing_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_id
+     *
+     * @return string|null
+     */
+    public function getQueryId()
+    {
+        return $this->container["query_id"];
+    }
+
+    /**
+     * Sets query_id
+     *
+     * @param string|null $query_id The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.
+     *
+     * @return self
+     */
+    public function setQueryId($query_id)
+    {
+        $this->container["query_id"] = $query_id;
 
         return $this;
     }

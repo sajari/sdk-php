@@ -13,7 +13,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -231,7 +231,7 @@ class GeneratePipelinesRequest implements
     /**
      * Sets query_training_fields
      *
-     * @param string[]|null $query_training_fields List of fields to train query suggestions from.
+     * @param string[]|null $query_training_fields A list of fields to train query suggestions from.
      *
      * @return self
      */
@@ -255,7 +255,7 @@ class GeneratePipelinesRequest implements
     /**
      * Sets searchable_fields
      *
-     * @param string[] $searchable_fields Prioritized list of fields to search.
+     * @param string[] $searchable_fields A prioritized list of fields to search.
      *
      * @return self
      */

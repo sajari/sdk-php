@@ -12,7 +12,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -138,15 +138,19 @@ class EventsApi
      *
      * Send event
      *
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param  \Sajari\Model\SendEventRequest $send_event_request send_event_request (required)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function sendEvent($send_event_request)
+    public function sendEvent($account_id, $send_event_request)
     {
-        list($response) = $this->sendEventWithHttpInfo($send_event_request);
+        list($response) = $this->sendEventWithHttpInfo(
+            $account_id,
+            $send_event_request
+        );
         return $response;
     }
 
@@ -155,15 +159,16 @@ class EventsApi
      *
      * Send event
      *
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param  \Sajari\Model\SendEventRequest $send_event_request (required)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendEventWithHttpInfo($send_event_request)
+    public function sendEventWithHttpInfo($account_id, $send_event_request)
     {
-        $request = $this->sendEventRequest($send_event_request);
+        $request = $this->sendEventRequest($account_id, $send_event_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -388,18 +393,20 @@ class EventsApi
      *
      * Send event
      *
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param  \Sajari\Model\SendEventRequest $send_event_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendEventAsync($send_event_request)
+    public function sendEventAsync($account_id, $send_event_request)
     {
-        return $this->sendEventAsyncWithHttpInfo($send_event_request)->then(
-            function ($response) {
-                return $response[0];
-            }
-        );
+        return $this->sendEventAsyncWithHttpInfo(
+            $account_id,
+            $send_event_request
+        )->then(function ($response) {
+            return $response[0];
+        });
     }
 
     /**
@@ -407,15 +414,16 @@ class EventsApi
      *
      * Send event
      *
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param  \Sajari\Model\SendEventRequest $send_event_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendEventAsyncWithHttpInfo($send_event_request)
+    public function sendEventAsyncWithHttpInfo($account_id, $send_event_request)
     {
         $returnType = "object";
-        $request = $this->sendEventRequest($send_event_request);
+        $request = $this->sendEventRequest($account_id, $send_event_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -458,13 +466,23 @@ class EventsApi
     /**
      * Create request for operation 'sendEvent'
      *
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (required)
      * @param  \Sajari\Model\SendEventRequest $send_event_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendEventRequest($send_event_request)
+    public function sendEventRequest($account_id, $send_event_request)
     {
+        // verify the required parameter 'account_id' is set
+        if (
+            $account_id === null ||
+            (is_array($account_id) && count($account_id) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling sendEvent'
+            );
+        }
         // verify the required parameter 'send_event_request' is set
         if (
             $send_event_request === null ||
@@ -481,6 +499,13 @@ class EventsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart([

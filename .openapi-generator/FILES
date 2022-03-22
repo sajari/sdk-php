@@ -9,6 +9,7 @@ docs/Api/RecordsApi.md
 docs/Api/RedirectsApi.md
 docs/Api/SchemaApi.md
 docs/Model/ActivePromotion.md
+docs/Model/Banner.md
 docs/Model/BatchCreateSchemaFieldsRequest.md
 docs/Model/BatchCreateSchemaFieldsResponse.md
 docs/Model/BatchCreateSchemaFieldsResponseError.md
@@ -25,6 +26,10 @@ docs/Model/BatchUpsertRecordsResponseVariables.md
 docs/Model/Collection.md
 docs/Model/DeleteRecordRequest.md
 docs/Model/Error.md
+docs/Model/Event.md
+docs/Model/ExperimentRequest.md
+docs/Model/ExperimentRequestPipeline.md
+docs/Model/ExperimentResponse.md
 docs/Model/GeneratePipelinesRequest.md
 docs/Model/GeneratePipelinesResponse.md
 docs/Model/GetDefaultPipelineResponse.md
@@ -34,6 +39,7 @@ docs/Model/GetRecordRequest.md
 docs/Model/ListCollectionsResponse.md
 docs/Model/ListPipelinesRequestView.md
 docs/Model/ListPipelinesResponse.md
+docs/Model/ListPromotionsRequestPromotionView.md
 docs/Model/ListPromotionsResponse.md
 docs/Model/ListRedirectsResponse.md
 docs/Model/ListSchemaFieldsResponse.md
@@ -48,6 +54,7 @@ docs/Model/PromotionExclusion.md
 docs/Model/PromotionFilterBoost.md
 docs/Model/PromotionFilterCondition.md
 docs/Model/PromotionPin.md
+docs/Model/PromotionPinMode.md
 docs/Model/PromotionRangeBoost.md
 docs/Model/ProtobufAny.md
 docs/Model/ProtobufFieldMask.md
@@ -80,6 +87,7 @@ docs/Model/SendEventRequest.md
 docs/Model/SetDefaultPipelineRequest.md
 docs/Model/SetDefaultVersionRequest.md
 docs/Model/Status.md
+docs/Model/TextPosition.md
 docs/Model/UpdateRecordRequest.md
 docs/Model/UpsertRecordRequest.md
 docs/Model/UpsertRecordRequestPipeline.md
@@ -95,6 +103,7 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/ActivePromotion.php
+lib/Model/Banner.php
 lib/Model/BatchCreateSchemaFieldsRequest.php
 lib/Model/BatchCreateSchemaFieldsResponse.php
 lib/Model/BatchCreateSchemaFieldsResponseError.php
@@ -111,6 +120,10 @@ lib/Model/BatchUpsertRecordsResponseVariables.php
 lib/Model/Collection.php
 lib/Model/DeleteRecordRequest.php
 lib/Model/Error.php
+lib/Model/Event.php
+lib/Model/ExperimentRequest.php
+lib/Model/ExperimentRequestPipeline.php
+lib/Model/ExperimentResponse.php
 lib/Model/GeneratePipelinesRequest.php
 lib/Model/GeneratePipelinesResponse.php
 lib/Model/GetDefaultPipelineResponse.php
@@ -120,6 +133,7 @@ lib/Model/GetRecordRequest.php
 lib/Model/ListCollectionsResponse.php
 lib/Model/ListPipelinesRequestView.php
 lib/Model/ListPipelinesResponse.php
+lib/Model/ListPromotionsRequestPromotionView.php
 lib/Model/ListPromotionsResponse.php
 lib/Model/ListRedirectsResponse.php
 lib/Model/ListSchemaFieldsResponse.php
@@ -135,6 +149,7 @@ lib/Model/PromotionExclusion.php
 lib/Model/PromotionFilterBoost.php
 lib/Model/PromotionFilterCondition.php
 lib/Model/PromotionPin.php
+lib/Model/PromotionPinMode.php
 lib/Model/PromotionRangeBoost.php
 lib/Model/ProtobufAny.php
 lib/Model/ProtobufFieldMask.php
@@ -167,6 +182,7 @@ lib/Model/SendEventRequest.php
 lib/Model/SetDefaultPipelineRequest.php
 lib/Model/SetDefaultVersionRequest.php
 lib/Model/Status.php
+lib/Model/TextPosition.php
 lib/Model/UpdateRecordRequest.php
 lib/Model/UpsertRecordRequest.php
 lib/Model/UpsertRecordRequestPipeline.php
@@ -180,6 +196,7 @@ test/Api/RecordsApiTest.php
 test/Api/RedirectsApiTest.php
 test/Api/SchemaApiTest.php
 test/Model/ActivePromotionTest.php
+test/Model/BannerTest.php
 test/Model/BatchCreateSchemaFieldsRequestTest.php
 test/Model/BatchCreateSchemaFieldsResponseErrorTest.php
 test/Model/BatchCreateSchemaFieldsResponseTest.php
@@ -196,6 +213,10 @@ test/Model/BatchUpsertRecordsResponseVariablesTest.php
 test/Model/CollectionTest.php
 test/Model/DeleteRecordRequestTest.php
 test/Model/ErrorTest.php
+test/Model/EventTest.php
+test/Model/ExperimentRequestPipelineTest.php
+test/Model/ExperimentRequestTest.php
+test/Model/ExperimentResponseTest.php
 test/Model/GeneratePipelinesRequestTest.php
 test/Model/GeneratePipelinesResponseTest.php
 test/Model/GetDefaultPipelineResponseTest.php
@@ -205,6 +226,7 @@ test/Model/GetRecordRequestTest.php
 test/Model/ListCollectionsResponseTest.php
 test/Model/ListPipelinesRequestViewTest.php
 test/Model/ListPipelinesResponseTest.php
+test/Model/ListPromotionsRequestPromotionViewTest.php
 test/Model/ListPromotionsResponseTest.php
 test/Model/ListRedirectsResponseTest.php
 test/Model/ListSchemaFieldsResponseTest.php
@@ -217,6 +239,7 @@ test/Model/PromotionCategoryTest.php
 test/Model/PromotionExclusionTest.php
 test/Model/PromotionFilterBoostTest.php
 test/Model/PromotionFilterConditionTest.php
+test/Model/PromotionPinModeTest.php
 test/Model/PromotionPinTest.php
 test/Model/PromotionRangeBoostTest.php
 test/Model/PromotionTest.php
@@ -251,6 +274,7 @@ test/Model/SendEventRequestTest.php
 test/Model/SetDefaultPipelineRequestTest.php
 test/Model/SetDefaultVersionRequestTest.php
 test/Model/StatusTest.php
+test/Model/TextPositionTest.php
 test/Model/UpdateRecordRequestTest.php
 test/Model/UpsertRecordRequestPipelineTest.php
 test/Model/UpsertRecordRequestTest.php

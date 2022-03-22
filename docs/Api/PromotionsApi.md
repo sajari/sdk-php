@@ -205,7 +205,7 @@ try {
 ## `listPromotions()`
 
 ```php
-listPromotions($collection_id, $page_size, $page_token): \Sajari\Model\ListPromotionsResponse
+listPromotions($collection_id, $page_size, $page_token, $view): \Sajari\Model\ListPromotionsResponse
 ```
 
 List promotions
@@ -231,13 +231,15 @@ $apiInstance = new Sajari\Api\PromotionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection that owns this set of promotions, e.g. `my-collection`.
 $page_size = 56; // int | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-$page_token = "page_token_example"; // string | A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token.
+$page_token = "page_token_example"; // string | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
+$view = "PROMOTION_VIEW_UNSPECIFIED"; // string | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.
 
 try {
   $result = $apiInstance->listPromotions(
     $collection_id,
     $page_size,
-    $page_token
+    $page_token,
+    $view
   );
   print_r($result);
 } catch (Exception $e) {
@@ -249,11 +251,12 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                                                                                                                                                                                                                                                                    | Notes      |
-| ----------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **collection_id** | **string** | The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                               |
-| **page_size**     | **int**    | The maximum number of promotions to return. The service may return fewer than this value. If unspecified, at most 50 promotions are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                                | [optional] |
-| **page_token**    | **string** | A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. | [optional] |
+| Name              | Type       | Description                                                                                                                                                                                                                                                                                                                                                                                   | Notes                                                        |
+| ----------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| **collection_id** | **string** | The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                                                                                              |
+| **page_size**     | **int**    | The maximum number of promotions to return. The service may return fewer than this value. If unspecified, at most 50 promotions are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                                                                                                                               | [optional]                                                   |
+| **page_token**    | **string** | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.                                                                                      | [optional]                                                   |
+| **view**          | **string** | The amount of information to include in each retrieved promotion. - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view. - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects. - FULL: Returns all information about a promotion. This is the default value. | [optional] [default to &#39;PROMOTION_VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 

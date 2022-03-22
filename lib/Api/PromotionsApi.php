@@ -12,7 +12,7 @@
 /**
  * Search.io API
  *
- * Search.io is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications.
+ * Search.io offers a search and discovery service with Neuralsearch®, the world's first instant AI search technology. Businesses of all sizes use Search.io to build site search and discovery solutions that maximize e-commerce revenue, optimize on-site customer experience, and scale their online presence.
  *
  * The version of the OpenAPI document: v4
  * Contact: support@search.io
@@ -1448,7 +1448,8 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1457,12 +1458,14 @@ class PromotionsApi
     public function listPromotions(
         $collection_id,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         list($response) = $this->listPromotionsWithHttpInfo(
             $collection_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         );
         return $response;
     }
@@ -1474,7 +1477,8 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1483,12 +1487,14 @@ class PromotionsApi
     public function listPromotionsWithHttpInfo(
         $collection_id,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         $request = $this->listPromotionsRequest(
             $collection_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         );
 
         try {
@@ -1699,7 +1705,8 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1707,12 +1714,14 @@ class PromotionsApi
     public function listPromotionsAsync(
         $collection_id,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         return $this->listPromotionsAsyncWithHttpInfo(
             $collection_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         )->then(function ($response) {
             return $response[0];
         });
@@ -1725,7 +1734,8 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1733,13 +1743,15 @@ class PromotionsApi
     public function listPromotionsAsyncWithHttpInfo(
         $collection_id,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         $returnType = "\Sajari\Model\ListPromotionsResponse";
         $request = $this->listPromotionsRequest(
             $collection_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         );
 
         return $this->client
@@ -1785,7 +1797,8 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-     * @param  string $page_token A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1793,7 +1806,8 @@ class PromotionsApi
     public function listPromotionsRequest(
         $collection_id,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         // verify the required parameter 'collection_id' is set
         if (
@@ -1830,6 +1844,16 @@ class PromotionsApi
                 }
             } else {
                 $queryParams["page_token"] = $page_token;
+            }
+        }
+        // query params
+        if ($view !== null) {
+            if ("form" === "form" && is_array($view)) {
+                foreach ($view as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams["view"] = $view;
             }
         }
 
