@@ -140,16 +140,21 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Pipeline $pipeline The pipeline to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function createPipeline($collection_id, $pipeline)
-    {
+    public function createPipeline(
+        $collection_id,
+        $pipeline,
+        $account_id = null
+    ) {
         list($response) = $this->createPipelineWithHttpInfo(
             $collection_id,
-            $pipeline
+            $pipeline,
+            $account_id
         );
         return $response;
     }
@@ -161,14 +166,22 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Pipeline $pipeline The pipeline to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Pipeline|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPipelineWithHttpInfo($collection_id, $pipeline)
-    {
-        $request = $this->createPipelineRequest($collection_id, $pipeline);
+    public function createPipelineWithHttpInfo(
+        $collection_id,
+        $pipeline,
+        $account_id = null
+    ) {
+        $request = $this->createPipelineRequest(
+            $collection_id,
+            $pipeline,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -375,15 +388,20 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Pipeline $pipeline The pipeline to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPipelineAsync($collection_id, $pipeline)
-    {
+    public function createPipelineAsync(
+        $collection_id,
+        $pipeline,
+        $account_id = null
+    ) {
         return $this->createPipelineAsyncWithHttpInfo(
             $collection_id,
-            $pipeline
+            $pipeline,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -396,14 +414,22 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Pipeline $pipeline The pipeline to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPipelineAsyncWithHttpInfo($collection_id, $pipeline)
-    {
+    public function createPipelineAsyncWithHttpInfo(
+        $collection_id,
+        $pipeline,
+        $account_id = null
+    ) {
         $returnType = "\Sajari\Model\Pipeline";
-        $request = $this->createPipelineRequest($collection_id, $pipeline);
+        $request = $this->createPipelineRequest(
+            $collection_id,
+            $pipeline,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -448,12 +474,16 @@ class PipelinesApi
      *
      * @param  string $collection_id The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Pipeline $pipeline The pipeline to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPipelineRequest($collection_id, $pipeline)
-    {
+    public function createPipelineRequest(
+        $collection_id,
+        $pipeline,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -479,6 +509,13 @@ class PipelinesApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1476,6 +1513,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -1486,12 +1524,14 @@ class PipelinesApi
         $collection_id,
         $type,
         $name,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         list($response) = $this->getDefaultVersionWithHttpInfo(
             $collection_id,
             $type,
             $name,
+            $account_id,
             $view
         );
         return $response;
@@ -1505,6 +1545,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -1515,12 +1556,14 @@ class PipelinesApi
         $collection_id,
         $type,
         $name,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         $request = $this->getDefaultVersionRequest(
             $collection_id,
             $type,
             $name,
+            $account_id,
             $view
         );
 
@@ -1730,6 +1773,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -1739,12 +1783,14 @@ class PipelinesApi
         $collection_id,
         $type,
         $name,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         return $this->getDefaultVersionAsyncWithHttpInfo(
             $collection_id,
             $type,
             $name,
+            $account_id,
             $view
         )->then(function ($response) {
             return $response[0];
@@ -1759,6 +1805,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -1768,6 +1815,7 @@ class PipelinesApi
         $collection_id,
         $type,
         $name,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         $returnType = "\Sajari\Model\Pipeline";
@@ -1775,6 +1823,7 @@ class PipelinesApi
             $collection_id,
             $type,
             $name,
+            $account_id,
             $view
         );
 
@@ -1822,6 +1871,7 @@ class PipelinesApi
      * @param  string $collection_id The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $type The type of the pipeline to get the default version of. (required)
      * @param  string $name The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -1831,6 +1881,7 @@ class PipelinesApi
         $collection_id,
         $type,
         $name,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         // verify the required parameter 'collection_id' is set
@@ -1872,6 +1923,13 @@ class PipelinesApi
             } else {
                 $queryParams["view"] = $view;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
@@ -1981,6 +2039,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -1992,6 +2051,7 @@ class PipelinesApi
         $type,
         $name,
         $version,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         list($response) = $this->getPipelineWithHttpInfo(
@@ -1999,6 +2059,7 @@ class PipelinesApi
             $type,
             $name,
             $version,
+            $account_id,
             $view
         );
         return $response;
@@ -2013,6 +2074,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -2024,6 +2086,7 @@ class PipelinesApi
         $type,
         $name,
         $version,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         $request = $this->getPipelineRequest(
@@ -2031,6 +2094,7 @@ class PipelinesApi
             $type,
             $name,
             $version,
+            $account_id,
             $view
         );
 
@@ -2241,6 +2305,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -2251,6 +2316,7 @@ class PipelinesApi
         $type,
         $name,
         $version,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         return $this->getPipelineAsyncWithHttpInfo(
@@ -2258,6 +2324,7 @@ class PipelinesApi
             $type,
             $name,
             $version,
+            $account_id,
             $view
         )->then(function ($response) {
             return $response[0];
@@ -2273,6 +2340,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -2283,6 +2351,7 @@ class PipelinesApi
         $type,
         $name,
         $version,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         $returnType = "\Sajari\Model\Pipeline";
@@ -2291,6 +2360,7 @@ class PipelinesApi
             $type,
             $name,
             $version,
+            $account_id,
             $view
         );
 
@@ -2339,6 +2409,7 @@ class PipelinesApi
      * @param  string $type The type of the pipeline to retrieve. (required)
      * @param  string $name The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. (required)
      * @param  string $version The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
@@ -2349,6 +2420,7 @@ class PipelinesApi
         $type,
         $name,
         $version,
+        $account_id = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         // verify the required parameter 'collection_id' is set
@@ -2399,6 +2471,13 @@ class PipelinesApi
             } else {
                 $queryParams["view"] = $view;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
@@ -2513,6 +2592,7 @@ class PipelinesApi
      * List pipelines
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
@@ -2523,12 +2603,14 @@ class PipelinesApi
      */
     public function listPipelines(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         list($response) = $this->listPipelinesWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -2542,6 +2624,7 @@ class PipelinesApi
      * List pipelines
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
@@ -2552,12 +2635,14 @@ class PipelinesApi
      */
     public function listPipelinesWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         $request = $this->listPipelinesRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -2770,6 +2855,7 @@ class PipelinesApi
      * List pipelines
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
@@ -2779,12 +2865,14 @@ class PipelinesApi
      */
     public function listPipelinesAsync(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "VIEW_UNSPECIFIED"
     ) {
         return $this->listPipelinesAsyncWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -2799,6 +2887,7 @@ class PipelinesApi
      * List pipelines
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
@@ -2808,6 +2897,7 @@ class PipelinesApi
      */
     public function listPipelinesAsyncWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "VIEW_UNSPECIFIED"
@@ -2815,6 +2905,7 @@ class PipelinesApi
         $returnType = "\Sajari\Model\ListPipelinesResponse";
         $request = $this->listPipelinesRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -2862,6 +2953,7 @@ class PipelinesApi
      * Create request for operation 'listPipelines'
      *
      * @param  string $collection_id The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to 'VIEW_UNSPECIFIED')
@@ -2871,6 +2963,7 @@ class PipelinesApi
      */
     public function listPipelinesRequest(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "VIEW_UNSPECIFIED"
@@ -2921,6 +3014,13 @@ class PipelinesApi
             } else {
                 $queryParams["view"] = $view;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params

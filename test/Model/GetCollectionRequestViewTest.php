@@ -1,6 +1,6 @@
 <?php
 /**
- * PromotionFilterConditionTest
+ * GetCollectionRequestViewTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PromotionFilterConditionTest Class Doc Comment
+ * GetCollectionRequestViewTest Class Doc Comment
  *
  * @category    Class
- * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if all filters are present in that query.
+ * @description - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage.
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PromotionFilterConditionTest extends TestCase
+class GetCollectionRequestViewTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,18 +71,9 @@ class PromotionFilterConditionTest extends TestCase
     }
 
     /**
-     * Test "PromotionFilterCondition"
+     * Test "GetCollectionRequestView"
      */
-    public function testPromotionFilterCondition()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "filter"
-     */
-    public function testPropertyFilter()
+    public function testGetCollectionRequestView()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

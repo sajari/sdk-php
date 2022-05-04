@@ -2,11 +2,13 @@
 
 All URIs are relative to https://api.search.io.
 
-| Method                                                                | HTTP request                                                      | Description                |
-| --------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------- |
-| [**batchCreateSchemaFields()**](SchemaApi.md#batchCreateSchemaFields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields |
-| [**createSchemaField()**](SchemaApi.md#createSchemaField)             | **POST** /v4/collections/{collection_id}/schemaFields             | Create schema field        |
-| [**listSchemaFields()**](SchemaApi.md#listSchemaFields)               | **GET** /v4/collections/{collection_id}/schemaFields              | List schema fields         |
+| Method                                                                | HTTP request                                                                | Description                |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------- |
+| [**batchCreateSchemaFields()**](SchemaApi.md#batchCreateSchemaFields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate           | Batch create schema fields |
+| [**createSchemaField()**](SchemaApi.md#createSchemaField)             | **POST** /v4/collections/{collection_id}/schemaFields                       | Create schema field        |
+| [**deleteSchemaField()**](SchemaApi.md#deleteSchemaField)             | **DELETE** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Delete schema field        |
+| [**listSchemaFields()**](SchemaApi.md#listSchemaFields)               | **GET** /v4/collections/{collection_id}/schemaFields                        | List schema fields         |
+| [**updateSchemaField()**](SchemaApi.md#updateSchemaField)             | **PATCH** /v4/collections/{collection_id}/schemaFields/{schema_field_name}  | Update schema field        |
 
 ## `batchCreateSchemaFields()`
 
@@ -139,6 +141,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteSchemaField()`
+
+```php
+deleteSchemaField($collection_id, $schema_field_name): mixed
+```
+
+Delete schema field
+
+Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed. > Note: This operation cannot be reversed.
+
+### Example
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
+
+$apiInstance = new Sajari\Api\SchemaApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
+);
+$collection_id = "collection_id_example"; // string | The collection the schema field belongs to, e.g. `my-collection`.
+$schema_field_name = "schema_field_name_example"; // string | The name of the schema field to delete.
+
+try {
+  $result = $apiInstance->deleteSchemaField($collection_id, $schema_field_name);
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling SchemaApi->deleteSchemaField: ",
+    $e->getMessage(),
+    PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name                  | Type       | Description                                                                 | Notes |
+| --------------------- | ---------- | --------------------------------------------------------------------------- | ----- |
+| **collection_id**     | **string** | The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. |
+| **schema_field_name** | **string** | The name of the schema field to delete.                                     |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `listSchemaFields()`
 
 ```php
@@ -203,6 +269,79 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSchemaField()`
+
+```php
+updateSchemaField($collection_id, $schema_field_name, $schema_field, $update_mask): \Sajari\Model\SchemaField
+```
+
+Update schema field
+
+Update the details of a schema field. Only `name` and `description` can be updated.
+
+### Example
+
+```php
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+// Configure HTTP basic authorization: BasicAuth
+$config = Sajari\Configuration::getDefaultConfiguration()
+  ->setUsername("YOUR_USERNAME")
+  ->setPassword("YOUR_PASSWORD");
+
+$apiInstance = new Sajari\Api\SchemaApi(
+  // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+  // This is optional, `GuzzleHttp\Client` will be used as default.
+  new GuzzleHttp\Client(),
+  $config
+);
+$collection_id = "collection_id_example"; // string | The collection the schema field belongs to, e.g. `my-collection`.
+$schema_field_name = "schema_field_name_example"; // string | The name of the schema field to update.
+$schema_field = new \Sajari\Model\SchemaField(); // \Sajari\Model\SchemaField | The schema field details to update.
+$update_mask = "update_mask_example"; // string | The list of fields to update, separated by a comma, e.g. `name,description`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value.
+
+try {
+  $result = $apiInstance->updateSchemaField(
+    $collection_id,
+    $schema_field_name,
+    $schema_field,
+    $update_mask
+  );
+  print_r($result);
+} catch (Exception $e) {
+  echo "Exception when calling SchemaApi->updateSchemaField: ",
+    $e->getMessage(),
+    PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name                  | Type                                                     | Description                                                                                                                                                                                                                                           | Notes      |
+| --------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **collection_id**     | **string**                                               | The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                           |
+| **schema_field_name** | **string**                                               | The name of the schema field to update.                                                                                                                                                                                                               |
+| **schema_field**      | [**\Sajari\Model\SchemaField**](../Model/SchemaField.md) | The schema field details to update.                                                                                                                                                                                                                   |
+| **update_mask**       | **string**                                               | The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;. Each field should be in snake case. For each field that you want to update, provide a corresponding value in the schema field object containing the new value. | [optional] |
+
+### Return type
+
+[**\Sajari\Model\SchemaField**](../Model/SchemaField.md)
+
+### Authorization
+
+[BasicAuth](../../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

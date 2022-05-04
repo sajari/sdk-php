@@ -24,6 +24,7 @@ docs/Model/BatchUpsertRecordsResponseError.md
 docs/Model/BatchUpsertRecordsResponseKey.md
 docs/Model/BatchUpsertRecordsResponseVariables.md
 docs/Model/Collection.md
+docs/Model/CollectionType.md
 docs/Model/DeleteRecordRequest.md
 docs/Model/Error.md
 docs/Model/Event.md
@@ -32,10 +33,12 @@ docs/Model/ExperimentRequestPipeline.md
 docs/Model/ExperimentResponse.md
 docs/Model/GeneratePipelinesRequest.md
 docs/Model/GeneratePipelinesResponse.md
+docs/Model/GetCollectionRequestView.md
 docs/Model/GetDefaultPipelineResponse.md
 docs/Model/GetDefaultVersionRequestView.md
 docs/Model/GetPipelineRequestView.md
 docs/Model/GetRecordRequest.md
+docs/Model/ListCollectionsRequestView.md
 docs/Model/ListCollectionsResponse.md
 docs/Model/ListPipelinesRequestView.md
 docs/Model/ListPipelinesResponse.md
@@ -118,6 +121,7 @@ lib/Model/BatchUpsertRecordsResponseError.php
 lib/Model/BatchUpsertRecordsResponseKey.php
 lib/Model/BatchUpsertRecordsResponseVariables.php
 lib/Model/Collection.php
+lib/Model/CollectionType.php
 lib/Model/DeleteRecordRequest.php
 lib/Model/Error.php
 lib/Model/Event.php
@@ -126,10 +130,12 @@ lib/Model/ExperimentRequestPipeline.php
 lib/Model/ExperimentResponse.php
 lib/Model/GeneratePipelinesRequest.php
 lib/Model/GeneratePipelinesResponse.php
+lib/Model/GetCollectionRequestView.php
 lib/Model/GetDefaultPipelineResponse.php
 lib/Model/GetDefaultVersionRequestView.php
 lib/Model/GetPipelineRequestView.php
 lib/Model/GetRecordRequest.php
+lib/Model/ListCollectionsRequestView.php
 lib/Model/ListCollectionsResponse.php
 lib/Model/ListPipelinesRequestView.php
 lib/Model/ListPipelinesResponse.php
@@ -211,6 +217,7 @@ test/Model/BatchUpsertRecordsResponseKeyTest.php
 test/Model/BatchUpsertRecordsResponseTest.php
 test/Model/BatchUpsertRecordsResponseVariablesTest.php
 test/Model/CollectionTest.php
+test/Model/CollectionTypeTest.php
 test/Model/DeleteRecordRequestTest.php
 test/Model/ErrorTest.php
 test/Model/EventTest.php
@@ -219,10 +226,12 @@ test/Model/ExperimentRequestTest.php
 test/Model/ExperimentResponseTest.php
 test/Model/GeneratePipelinesRequestTest.php
 test/Model/GeneratePipelinesResponseTest.php
+test/Model/GetCollectionRequestViewTest.php
 test/Model/GetDefaultPipelineResponseTest.php
 test/Model/GetDefaultVersionRequestViewTest.php
 test/Model/GetPipelineRequestViewTest.php
 test/Model/GetRecordRequestTest.php
+test/Model/ListCollectionsRequestViewTest.php
 test/Model/ListCollectionsResponseTest.php
 test/Model/ListPipelinesRequestViewTest.php
 test/Model/ListPipelinesResponseTest.php

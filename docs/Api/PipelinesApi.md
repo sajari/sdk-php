@@ -16,7 +16,7 @@ All URIs are relative to https://api.search.io.
 ## `createPipeline()`
 
 ```php
-createPipeline($collection_id, $pipeline): \Sajari\Model\Pipeline
+createPipeline($collection_id, $pipeline, $account_id): \Sajari\Model\Pipeline
 ```
 
 Create pipeline
@@ -42,9 +42,14 @@ $apiInstance = new Sajari\Api\PipelinesApi(
 );
 $collection_id = "collection_id_example"; // string | The collection to create the pipeline in, e.g. `my-collection`.
 $pipeline = new \Sajari\Model\Pipeline(); // \Sajari\Model\Pipeline | The pipeline to create.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->createPipeline($collection_id, $pipeline);
+  $result = $apiInstance->createPipeline(
+    $collection_id,
+    $pipeline,
+    $account_id
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling PipelinesApi->createPipeline: ",
@@ -55,10 +60,11 @@ try {
 
 ### Parameters
 
-| Name              | Type                                               | Description                                                               | Notes |
-| ----------------- | -------------------------------------------------- | ------------------------------------------------------------------------- | ----- |
-| **collection_id** | **string**                                         | The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |
-| **pipeline**      | [**\Sajari\Model\Pipeline**](../Model/Pipeline.md) | The pipeline to create.                                                   |
+| Name              | Type                                               | Description                                                                 | Notes      |
+| ----------------- | -------------------------------------------------- | --------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string**                                         | The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;.   |
+| **pipeline**      | [**\Sajari\Model\Pipeline**](../Model/Pipeline.md) | The pipeline to create.                                                     |
+| **account_id**    | **string**                                         | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -211,7 +217,7 @@ try {
 ## `getDefaultVersion()`
 
 ```php
-getDefaultVersion($collection_id, $type, $name, $view): \Sajari\Model\Pipeline
+getDefaultVersion($collection_id, $type, $name, $account_id, $view): \Sajari\Model\Pipeline
 ```
 
 Get default pipeline version
@@ -238,6 +244,7 @@ $apiInstance = new Sajari\Api\PipelinesApi(
 $collection_id = "collection_id_example"; // string | The collection that owns the pipeline to get the default version of, e.g. `my-collection`.
 $type = "type_example"; // string | The type of the pipeline to get the default version of.
 $name = "name_example"; // string | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 $view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
 
 try {
@@ -245,6 +252,7 @@ try {
     $collection_id,
     $type,
     $name,
+    $account_id,
     $view
   );
   print_r($result);
@@ -262,6 +270,7 @@ try {
 | **collection_id** | **string** | The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | **type**          | **string** | The type of the pipeline to get the default version of.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | **name**          | **string** | The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                            | [optional]                                         |
 | **view**          | **string** | The amount of information to include in the retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
@@ -284,7 +293,7 @@ try {
 ## `getPipeline()`
 
 ```php
-getPipeline($collection_id, $type, $name, $version, $view): \Sajari\Model\Pipeline
+getPipeline($collection_id, $type, $name, $version, $account_id, $view): \Sajari\Model\Pipeline
 ```
 
 Get pipeline
@@ -312,6 +321,7 @@ $collection_id = "collection_id_example"; // string | The collection that owns t
 $type = "type_example"; // string | The type of the pipeline to retrieve.
 $name = "name_example"; // string | The name of the pipeline to retrieve, e.g. `my-pipeline`.
 $version = "version_example"; // string | The version of the pipeline to retrieve, e.g. `42`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 $view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
 
 try {
@@ -320,6 +330,7 @@ try {
     $type,
     $name,
     $version,
+    $account_id,
     $view
   );
   print_r($result);
@@ -338,6 +349,7 @@ try {
 | **type**          | **string** | The type of the pipeline to retrieve.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **name**          | **string** | The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **version**       | **string** | The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                            | [optional]                                         |
 | **view**          | **string** | The amount of information to include in the retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
@@ -360,7 +372,7 @@ try {
 ## `listPipelines()`
 
 ```php
-listPipelines($collection_id, $page_size, $page_token, $view): \Sajari\Model\ListPipelinesResponse
+listPipelines($collection_id, $account_id, $page_size, $page_token, $view): \Sajari\Model\ListPipelinesResponse
 ```
 
 List pipelines
@@ -385,6 +397,7 @@ $apiInstance = new Sajari\Api\PipelinesApi(
   $config
 );
 $collection_id = "collection_id_example"; // string | The collection that owns this set of pipelines, e.g. `my-collection`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 $page_size = 56; // int | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
 $page_token = "page_token_example"; // string | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.
 $view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
@@ -392,6 +405,7 @@ $view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in 
 try {
   $result = $apiInstance->listPipelines(
     $collection_id,
+    $account_id,
     $page_size,
     $page_token,
     $view
@@ -409,6 +423,7 @@ try {
 | Name              | Type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Notes                                              |
 | ----------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | **collection_id** | **string** | The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                             | [optional]                                         |
 | **page_size**     | **int**    | The maximum number of pipelines to return. The service may return fewer than this value. If unspecified, at most 50 pipelines are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                                                                                                                                                                                                                                                           | [optional]                                         |
 | **page_token**    | **string** | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.                                                                                                                                                                                                                    | [optional]                                         |
 | **view**          | **string** | The amount of information to include in each retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;] |

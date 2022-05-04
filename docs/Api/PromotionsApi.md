@@ -13,7 +13,7 @@ All URIs are relative to https://api.search.io.
 ## `createPromotion()`
 
 ```php
-createPromotion($collection_id, $promotion): \Sajari\Model\Promotion
+createPromotion($collection_id, $promotion, $account_id): \Sajari\Model\Promotion
 ```
 
 Create promotion
@@ -39,9 +39,14 @@ $apiInstance = new Sajari\Api\PromotionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection to create a promotion in, e.g. `my-collection`.
 $promotion = new \Sajari\Model\Promotion(); // \Sajari\Model\Promotion | The promotion to create.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->createPromotion($collection_id, $promotion);
+  $result = $apiInstance->createPromotion(
+    $collection_id,
+    $promotion,
+    $account_id
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling PromotionsApi->createPromotion: ",
@@ -52,10 +57,11 @@ try {
 
 ### Parameters
 
-| Name              | Type                                                 | Description                                                              | Notes |
-| ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ | ----- |
-| **collection_id** | **string**                                           | The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. |
-| **promotion**     | [**\Sajari\Model\Promotion**](../Model/Promotion.md) | The promotion to create.                                                 |
+| Name              | Type                                                 | Description                                                                 | Notes      |
+| ----------------- | ---------------------------------------------------- | --------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string**                                           | The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.    |
+| **promotion**     | [**\Sajari\Model\Promotion**](../Model/Promotion.md) | The promotion to create.                                                    |
+| **account_id**    | **string**                                           | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -77,7 +83,7 @@ try {
 ## `deletePromotion()`
 
 ```php
-deletePromotion($collection_id, $promotion_id): mixed
+deletePromotion($collection_id, $promotion_id, $account_id): mixed
 ```
 
 Delete promotion
@@ -103,9 +109,14 @@ $apiInstance = new Sajari\Api\PromotionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection the promotion belongs to, e.g. `my-collection`.
 $promotion_id = "promotion_id_example"; // string | The promotion to delete, e.g. `1234`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->deletePromotion($collection_id, $promotion_id);
+  $result = $apiInstance->deletePromotion(
+    $collection_id,
+    $promotion_id,
+    $account_id
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling PromotionsApi->deletePromotion: ",
@@ -116,10 +127,11 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                                              | Notes |
-| ----------------- | ---------- | ------------------------------------------------------------------------ | ----- |
-| **collection_id** | **string** | The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. |
-| **promotion_id**  | **string** | The promotion to delete, e.g. &#x60;1234&#x60;.                          |
+| Name              | Type       | Description                                                                 | Notes      |
+| ----------------- | ---------- | --------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string** | The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.    |
+| **promotion_id**  | **string** | The promotion to delete, e.g. &#x60;1234&#x60;.                             |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -141,7 +153,7 @@ try {
 ## `getPromotion()`
 
 ```php
-getPromotion($collection_id, $promotion_id): \Sajari\Model\Promotion
+getPromotion($collection_id, $promotion_id, $account_id): \Sajari\Model\Promotion
 ```
 
 Get promotion
@@ -167,9 +179,14 @@ $apiInstance = new Sajari\Api\PromotionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection that owns the promotion, e.g. `my-collection`.
 $promotion_id = "promotion_id_example"; // string | The promotion to retrieve, e.g. `1234`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->getPromotion($collection_id, $promotion_id);
+  $result = $apiInstance->getPromotion(
+    $collection_id,
+    $promotion_id,
+    $account_id
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling PromotionsApi->getPromotion: ",
@@ -180,10 +197,11 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                                             | Notes |
-| ----------------- | ---------- | ----------------------------------------------------------------------- | ----- |
-| **collection_id** | **string** | The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. |
-| **promotion_id**  | **string** | The promotion to retrieve, e.g. &#x60;1234&#x60;.                       |
+| Name              | Type       | Description                                                                 | Notes      |
+| ----------------- | ---------- | --------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string** | The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.     |
+| **promotion_id**  | **string** | The promotion to retrieve, e.g. &#x60;1234&#x60;.                           |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -205,7 +223,7 @@ try {
 ## `listPromotions()`
 
 ```php
-listPromotions($collection_id, $page_size, $page_token, $view): \Sajari\Model\ListPromotionsResponse
+listPromotions($collection_id, $account_id, $page_size, $page_token, $view): \Sajari\Model\ListPromotionsResponse
 ```
 
 List promotions
@@ -230,6 +248,7 @@ $apiInstance = new Sajari\Api\PromotionsApi(
   $config
 );
 $collection_id = "collection_id_example"; // string | The collection that owns this set of promotions, e.g. `my-collection`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 $page_size = 56; // int | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
 $page_token = "page_token_example"; // string | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
 $view = "PROMOTION_VIEW_UNSPECIFIED"; // string | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.
@@ -237,6 +256,7 @@ $view = "PROMOTION_VIEW_UNSPECIFIED"; // string | The amount of information to i
 try {
   $result = $apiInstance->listPromotions(
     $collection_id,
+    $account_id,
     $page_size,
     $page_token,
     $view
@@ -254,6 +274,7 @@ try {
 | Name              | Type       | Description                                                                                                                                                                                                                                                                                                                                                                                   | Notes                                                        |
 | ----------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | **collection_id** | **string** | The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                                                                                              |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                   | [optional]                                                   |
 | **page_size**     | **int**    | The maximum number of promotions to return. The service may return fewer than this value. If unspecified, at most 50 promotions are returned. The maximum value is 1000; values above 1000 are coerced to 1000.                                                                                                                                                                               | [optional]                                                   |
 | **page_token**    | **string** | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.                                                                                      | [optional]                                                   |
 | **view**          | **string** | The amount of information to include in each retrieved promotion. - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view. - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects. - FULL: Returns all information about a promotion. This is the default value. | [optional] [default to &#39;PROMOTION_VIEW_UNSPECIFIED&#39;] |
@@ -278,7 +299,7 @@ try {
 ## `updatePromotion()`
 
 ```php
-updatePromotion($collection_id, $promotion_id, $update_mask, $promotion): \Sajari\Model\Promotion
+updatePromotion($collection_id, $promotion_id, $update_mask, $promotion, $account_id): \Sajari\Model\Promotion
 ```
 
 Update promotion
@@ -306,13 +327,15 @@ $collection_id = "collection_id_example"; // string | The collection the promoti
 $promotion_id = "promotion_id_example"; // string | The promotion to update, e.g. `1234`.
 $update_mask = "update_mask_example"; // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`, `filter_boosts`.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
 $promotion = new \Sajari\Model\Promotion(); // \Sajari\Model\Promotion | Details of the promotion to update.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
   $result = $apiInstance->updatePromotion(
     $collection_id,
     $promotion_id,
     $update_mask,
-    $promotion
+    $promotion,
+    $account_id
   );
   print_r($result);
 } catch (Exception $e) {
@@ -324,12 +347,13 @@ try {
 
 ### Parameters
 
-| Name              | Type                                                 | Description                                                                                                                                                                                                                                                                                                   | Notes |
-| ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| Name              | Type                                                 | Description                                                                                                                                                                                                                                                                                                   | Notes      |
+| ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | **collection_id** | **string**                                           | The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                      |
 | **promotion_id**  | **string**                                           | The promotion to update, e.g. &#x60;1234&#x60;.                                                                                                                                                                                                                                                               |
 | **update_mask**   | **string**                                           | The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;. Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;. For each field that you want to update, provide a corresponding value in the promotion object containing the new value. |
 | **promotion**     | [**\Sajari\Model\Promotion**](../Model/Promotion.md) | Details of the promotion to update.                                                                                                                                                                                                                                                                           |
+| **account_id**    | **string**                                           | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                   | [optional] |
 
 ### Return type
 

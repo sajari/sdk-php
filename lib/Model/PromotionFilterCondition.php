@@ -36,7 +36,7 @@ use Sajari\ObjectSerializer;
  * PromotionFilterCondition Class Doc Comment
  *
  * @category Class
- * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
+ * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if all filters are present in that query.
  * @package  Sajari
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -221,7 +221,7 @@ class PromotionFilterCondition implements
     /**
      * Sets filter
      *
-     * @param string[]|null $filter A filter of the form `field = 'value'`.
+     * @param string[]|null $filter A filter of the form `field = 'value'`. All of these filters must be present in a query's filter in order for the promotion to be considered active.
      *
      * @return self
      */

@@ -96,12 +96,36 @@ class SchemaApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteSchemaField
+     *
+     * Delete schema field.
+     *
+     */
+    public function testDeleteSchemaField()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
      * Test case for listSchemaFields
      *
      * List schema fields.
      *
      */
     public function testListSchemaFields()
+    {
+        // TODO: implement
+        $this->markTestIncomplete("Not implemented");
+    }
+
+    /**
+     * Test case for updateSchemaField
+     *
+     * Update schema field.
+     *
+     */
+    public function testUpdateSchemaField()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

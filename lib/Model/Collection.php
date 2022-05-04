@@ -295,7 +295,7 @@ class Collection implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets create_time
      *
-     * @param \DateTime|null $create_time Output only. Time the collection was created.
+     * @param \DateTime|null $create_time Output only. The time the collection was created.
      *
      * @return self
      */

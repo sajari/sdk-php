@@ -140,16 +140,21 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Promotion $promotion The promotion to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Promotion|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function createPromotion($collection_id, $promotion)
-    {
+    public function createPromotion(
+        $collection_id,
+        $promotion,
+        $account_id = null
+    ) {
         list($response) = $this->createPromotionWithHttpInfo(
             $collection_id,
-            $promotion
+            $promotion,
+            $account_id
         );
         return $response;
     }
@@ -161,14 +166,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Promotion $promotion The promotion to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Promotion|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPromotionWithHttpInfo($collection_id, $promotion)
-    {
-        $request = $this->createPromotionRequest($collection_id, $promotion);
+    public function createPromotionWithHttpInfo(
+        $collection_id,
+        $promotion,
+        $account_id = null
+    ) {
+        $request = $this->createPromotionRequest(
+            $collection_id,
+            $promotion,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -375,15 +388,20 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Promotion $promotion The promotion to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPromotionAsync($collection_id, $promotion)
-    {
+    public function createPromotionAsync(
+        $collection_id,
+        $promotion,
+        $account_id = null
+    ) {
         return $this->createPromotionAsyncWithHttpInfo(
             $collection_id,
-            $promotion
+            $promotion,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -396,14 +414,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Promotion $promotion The promotion to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPromotionAsyncWithHttpInfo($collection_id, $promotion)
-    {
+    public function createPromotionAsyncWithHttpInfo(
+        $collection_id,
+        $promotion,
+        $account_id = null
+    ) {
         $returnType = "\Sajari\Model\Promotion";
-        $request = $this->createPromotionRequest($collection_id, $promotion);
+        $request = $this->createPromotionRequest(
+            $collection_id,
+            $promotion,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -448,12 +474,16 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Promotion $promotion The promotion to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPromotionRequest($collection_id, $promotion)
-    {
+    public function createPromotionRequest(
+        $collection_id,
+        $promotion,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -479,6 +509,13 @@ class PromotionsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -576,16 +613,21 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function deletePromotion($collection_id, $promotion_id)
-    {
+    public function deletePromotion(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         list($response) = $this->deletePromotionWithHttpInfo(
             $collection_id,
-            $promotion_id
+            $promotion_id,
+            $account_id
         );
         return $response;
     }
@@ -597,14 +639,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePromotionWithHttpInfo($collection_id, $promotion_id)
-    {
-        $request = $this->deletePromotionRequest($collection_id, $promotion_id);
+    public function deletePromotionWithHttpInfo(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
+        $request = $this->deletePromotionRequest(
+            $collection_id,
+            $promotion_id,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -807,15 +857,20 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePromotionAsync($collection_id, $promotion_id)
-    {
+    public function deletePromotionAsync(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         return $this->deletePromotionAsyncWithHttpInfo(
             $collection_id,
-            $promotion_id
+            $promotion_id,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -828,16 +883,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deletePromotionAsyncWithHttpInfo(
         $collection_id,
-        $promotion_id
+        $promotion_id,
+        $account_id = null
     ) {
         $returnType = "mixed";
-        $request = $this->deletePromotionRequest($collection_id, $promotion_id);
+        $request = $this->deletePromotionRequest(
+            $collection_id,
+            $promotion_id,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -882,12 +943,16 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePromotionRequest($collection_id, $promotion_id)
-    {
+    public function deletePromotionRequest(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -914,6 +979,13 @@ class PromotionsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1011,16 +1083,21 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Promotion|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function getPromotion($collection_id, $promotion_id)
-    {
+    public function getPromotion(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         list($response) = $this->getPromotionWithHttpInfo(
             $collection_id,
-            $promotion_id
+            $promotion_id,
+            $account_id
         );
         return $response;
     }
@@ -1032,14 +1109,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Promotion|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPromotionWithHttpInfo($collection_id, $promotion_id)
-    {
-        $request = $this->getPromotionRequest($collection_id, $promotion_id);
+    public function getPromotionWithHttpInfo(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
+        $request = $this->getPromotionRequest(
+            $collection_id,
+            $promotion_id,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -1246,15 +1331,20 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPromotionAsync($collection_id, $promotion_id)
-    {
+    public function getPromotionAsync(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         return $this->getPromotionAsyncWithHttpInfo(
             $collection_id,
-            $promotion_id
+            $promotion_id,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -1267,14 +1357,22 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPromotionAsyncWithHttpInfo($collection_id, $promotion_id)
-    {
+    public function getPromotionAsyncWithHttpInfo(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         $returnType = "\Sajari\Model\Promotion";
-        $request = $this->getPromotionRequest($collection_id, $promotion_id);
+        $request = $this->getPromotionRequest(
+            $collection_id,
+            $promotion_id,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1319,12 +1417,16 @@ class PromotionsApi
      *
      * @param  string $collection_id The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $promotion_id The promotion to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPromotionRequest($collection_id, $promotion_id)
-    {
+    public function getPromotionRequest(
+        $collection_id,
+        $promotion_id,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -1351,6 +1453,13 @@ class PromotionsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1447,6 +1556,7 @@ class PromotionsApi
      * List promotions
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -1457,12 +1567,14 @@ class PromotionsApi
      */
     public function listPromotions(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         list($response) = $this->listPromotionsWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -1476,6 +1588,7 @@ class PromotionsApi
      * List promotions
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -1486,12 +1599,14 @@ class PromotionsApi
      */
     public function listPromotionsWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         $request = $this->listPromotionsRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -1704,6 +1819,7 @@ class PromotionsApi
      * List promotions
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -1713,12 +1829,14 @@ class PromotionsApi
      */
     public function listPromotionsAsync(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "PROMOTION_VIEW_UNSPECIFIED"
     ) {
         return $this->listPromotionsAsyncWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -1733,6 +1851,7 @@ class PromotionsApi
      * List promotions
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -1742,6 +1861,7 @@ class PromotionsApi
      */
     public function listPromotionsAsyncWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "PROMOTION_VIEW_UNSPECIFIED"
@@ -1749,6 +1869,7 @@ class PromotionsApi
         $returnType = "\Sajari\Model\ListPromotionsResponse";
         $request = $this->listPromotionsRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token,
             $view
@@ -1796,6 +1917,7 @@ class PromotionsApi
      * Create request for operation 'listPromotions'
      *
      * @param  string $collection_id The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
      * @param  string $view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -1805,6 +1927,7 @@ class PromotionsApi
      */
     public function listPromotionsRequest(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null,
         $view = "PROMOTION_VIEW_UNSPECIFIED"
@@ -1855,6 +1978,13 @@ class PromotionsApi
             } else {
                 $queryParams["view"] = $view;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
@@ -1947,6 +2077,7 @@ class PromotionsApi
      * @param  string $promotion_id The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param  \Sajari\Model\Promotion $promotion Details of the promotion to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1956,13 +2087,15 @@ class PromotionsApi
         $collection_id,
         $promotion_id,
         $update_mask,
-        $promotion
+        $promotion,
+        $account_id = null
     ) {
         list($response) = $this->updatePromotionWithHttpInfo(
             $collection_id,
             $promotion_id,
             $update_mask,
-            $promotion
+            $promotion,
+            $account_id
         );
         return $response;
     }
@@ -1976,6 +2109,7 @@ class PromotionsApi
      * @param  string $promotion_id The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param  \Sajari\Model\Promotion $promotion Details of the promotion to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1985,13 +2119,15 @@ class PromotionsApi
         $collection_id,
         $promotion_id,
         $update_mask,
-        $promotion
+        $promotion,
+        $account_id = null
     ) {
         $request = $this->updatePromotionRequest(
             $collection_id,
             $promotion_id,
             $update_mask,
-            $promotion
+            $promotion,
+            $account_id
         );
 
         try {
@@ -2201,6 +2337,7 @@ class PromotionsApi
      * @param  string $promotion_id The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param  \Sajari\Model\Promotion $promotion Details of the promotion to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2209,13 +2346,15 @@ class PromotionsApi
         $collection_id,
         $promotion_id,
         $update_mask,
-        $promotion
+        $promotion,
+        $account_id = null
     ) {
         return $this->updatePromotionAsyncWithHttpInfo(
             $collection_id,
             $promotion_id,
             $update_mask,
-            $promotion
+            $promotion,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -2230,6 +2369,7 @@ class PromotionsApi
      * @param  string $promotion_id The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param  \Sajari\Model\Promotion $promotion Details of the promotion to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2238,14 +2378,16 @@ class PromotionsApi
         $collection_id,
         $promotion_id,
         $update_mask,
-        $promotion
+        $promotion,
+        $account_id = null
     ) {
         $returnType = "\Sajari\Model\Promotion";
         $request = $this->updatePromotionRequest(
             $collection_id,
             $promotion_id,
             $update_mask,
-            $promotion
+            $promotion,
+            $account_id
         );
 
         return $this->client
@@ -2293,6 +2435,7 @@ class PromotionsApi
      * @param  string $promotion_id The promotion to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. (required)
      * @param  \Sajari\Model\Promotion $promotion Details of the promotion to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2301,7 +2444,8 @@ class PromotionsApi
         $collection_id,
         $promotion_id,
         $update_mask,
-        $promotion
+        $promotion,
+        $account_id = null
     ) {
         // verify the required parameter 'collection_id' is set
         if (
@@ -2357,6 +2501,13 @@ class PromotionsApi
             } else {
                 $queryParams["update_mask"] = $update_mask;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
