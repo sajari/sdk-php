@@ -140,16 +140,21 @@ class CollectionsApi
      *
      * @param  string $collection_id The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection Details of the collection to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function createCollection($collection_id, $collection)
-    {
+    public function createCollection(
+        $collection_id,
+        $collection,
+        $account_id = null
+    ) {
         list($response) = $this->createCollectionWithHttpInfo(
             $collection_id,
-            $collection
+            $collection,
+            $account_id
         );
         return $response;
     }
@@ -161,14 +166,22 @@ class CollectionsApi
      *
      * @param  string $collection_id The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection Details of the collection to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCollectionWithHttpInfo($collection_id, $collection)
-    {
-        $request = $this->createCollectionRequest($collection_id, $collection);
+    public function createCollectionWithHttpInfo(
+        $collection_id,
+        $collection,
+        $account_id = null
+    ) {
+        $request = $this->createCollectionRequest(
+            $collection_id,
+            $collection,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -423,15 +436,20 @@ class CollectionsApi
      *
      * @param  string $collection_id The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection Details of the collection to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCollectionAsync($collection_id, $collection)
-    {
+    public function createCollectionAsync(
+        $collection_id,
+        $collection,
+        $account_id = null
+    ) {
         return $this->createCollectionAsyncWithHttpInfo(
             $collection_id,
-            $collection
+            $collection,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -444,16 +462,22 @@ class CollectionsApi
      *
      * @param  string $collection_id The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection Details of the collection to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCollectionAsyncWithHttpInfo(
         $collection_id,
-        $collection
+        $collection,
+        $account_id = null
     ) {
         $returnType = "\Sajari\Model\Collection";
-        $request = $this->createCollectionRequest($collection_id, $collection);
+        $request = $this->createCollectionRequest(
+            $collection_id,
+            $collection,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -498,12 +522,16 @@ class CollectionsApi
      *
      * @param  string $collection_id The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection Details of the collection to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCollectionRequest($collection_id, $collection)
-    {
+    public function createCollectionRequest(
+        $collection_id,
+        $collection,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -539,6 +567,13 @@ class CollectionsApi
             } else {
                 $queryParams["collection_id"] = $collection_id;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         if ($multipart) {
@@ -627,14 +662,18 @@ class CollectionsApi
      * Delete collection
      *
      * @param  string $collection_id The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function deleteCollection($collection_id)
+    public function deleteCollection($collection_id, $account_id = null)
     {
-        list($response) = $this->deleteCollectionWithHttpInfo($collection_id);
+        list($response) = $this->deleteCollectionWithHttpInfo(
+            $collection_id,
+            $account_id
+        );
         return $response;
     }
 
@@ -644,14 +683,17 @@ class CollectionsApi
      * Delete collection
      *
      * @param  string $collection_id The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCollectionWithHttpInfo($collection_id)
-    {
-        $request = $this->deleteCollectionRequest($collection_id);
+    public function deleteCollectionWithHttpInfo(
+        $collection_id,
+        $account_id = null
+    ) {
+        $request = $this->deleteCollectionRequest($collection_id, $account_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -853,17 +895,19 @@ class CollectionsApi
      * Delete collection
      *
      * @param  string $collection_id The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCollectionAsync($collection_id)
+    public function deleteCollectionAsync($collection_id, $account_id = null)
     {
-        return $this->deleteCollectionAsyncWithHttpInfo($collection_id)->then(
-            function ($response) {
-                return $response[0];
-            }
-        );
+        return $this->deleteCollectionAsyncWithHttpInfo(
+            $collection_id,
+            $account_id
+        )->then(function ($response) {
+            return $response[0];
+        });
     }
 
     /**
@@ -872,14 +916,17 @@ class CollectionsApi
      * Delete collection
      *
      * @param  string $collection_id The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCollectionAsyncWithHttpInfo($collection_id)
-    {
+    public function deleteCollectionAsyncWithHttpInfo(
+        $collection_id,
+        $account_id = null
+    ) {
         $returnType = "mixed";
-        $request = $this->deleteCollectionRequest($collection_id);
+        $request = $this->deleteCollectionRequest($collection_id, $account_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -923,11 +970,12 @@ class CollectionsApi
      * Create request for operation 'deleteCollection'
      *
      * @param  string $collection_id The collection to delete, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCollectionRequest($collection_id)
+    public function deleteCollectionRequest($collection_id, $account_id = null)
     {
         // verify the required parameter 'collection_id' is set
         if (
@@ -945,6 +993,13 @@ class CollectionsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1481,14 +1536,23 @@ class CollectionsApi
      * Get collection
      *
      * @param  string $collection_id The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function getCollection($collection_id)
-    {
-        list($response) = $this->getCollectionWithHttpInfo($collection_id);
+    public function getCollection(
+        $collection_id,
+        $account_id = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
+        list($response) = $this->getCollectionWithHttpInfo(
+            $collection_id,
+            $account_id,
+            $view
+        );
         return $response;
     }
 
@@ -1498,14 +1562,23 @@ class CollectionsApi
      * Get collection
      *
      * @param  string $collection_id The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Collection|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCollectionWithHttpInfo($collection_id)
-    {
-        $request = $this->getCollectionRequest($collection_id);
+    public function getCollectionWithHttpInfo(
+        $collection_id,
+        $account_id = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
+        $request = $this->getCollectionRequest(
+            $collection_id,
+            $account_id,
+            $view
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -1711,17 +1784,24 @@ class CollectionsApi
      * Get collection
      *
      * @param  string $collection_id The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCollectionAsync($collection_id)
-    {
-        return $this->getCollectionAsyncWithHttpInfo($collection_id)->then(
-            function ($response) {
-                return $response[0];
-            }
-        );
+    public function getCollectionAsync(
+        $collection_id,
+        $account_id = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
+        return $this->getCollectionAsyncWithHttpInfo(
+            $collection_id,
+            $account_id,
+            $view
+        )->then(function ($response) {
+            return $response[0];
+        });
     }
 
     /**
@@ -1730,14 +1810,23 @@ class CollectionsApi
      * Get collection
      *
      * @param  string $collection_id The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCollectionAsyncWithHttpInfo($collection_id)
-    {
+    public function getCollectionAsyncWithHttpInfo(
+        $collection_id,
+        $account_id = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
         $returnType = "\Sajari\Model\Collection";
-        $request = $this->getCollectionRequest($collection_id);
+        $request = $this->getCollectionRequest(
+            $collection_id,
+            $account_id,
+            $view
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1781,12 +1870,17 @@ class CollectionsApi
      * Create request for operation 'getCollection'
      *
      * @param  string $collection_id The collection to retrieve, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
+     * @param  string $view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCollectionRequest($collection_id)
-    {
+    public function getCollectionRequest(
+        $collection_id,
+        $account_id = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -1803,6 +1897,24 @@ class CollectionsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // query params
+        if ($view !== null) {
+            if ("form" === "form" && is_array($view)) {
+                foreach ($view as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams["view"] = $view;
+            }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1890,18 +2002,26 @@ class CollectionsApi
      *
      * List collections
      *
+     * @param  string $account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\ListCollectionsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function listCollections($page_size = null, $page_token = null)
-    {
+    public function listCollections(
+        $account_id = null,
+        $page_size = null,
+        $page_token = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
         list($response) = $this->listCollectionsWithHttpInfo(
+            $account_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         );
         return $response;
     }
@@ -1911,18 +2031,27 @@ class CollectionsApi
      *
      * List collections
      *
+     * @param  string $account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\ListCollectionsResponse|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCollectionsWithHttpInfo(
+        $account_id = null,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "VIEW_UNSPECIFIED"
     ) {
-        $request = $this->listCollectionsRequest($page_size, $page_token);
+        $request = $this->listCollectionsRequest(
+            $account_id,
+            $page_size,
+            $page_token,
+            $view
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -2130,17 +2259,25 @@ class CollectionsApi
      *
      * List collections
      *
+     * @param  string $account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCollectionsAsync($page_size = null, $page_token = null)
-    {
+    public function listCollectionsAsync(
+        $account_id = null,
+        $page_size = null,
+        $page_token = null,
+        $view = "VIEW_UNSPECIFIED"
+    ) {
         return $this->listCollectionsAsyncWithHttpInfo(
+            $account_id,
             $page_size,
-            $page_token
+            $page_token,
+            $view
         )->then(function ($response) {
             return $response[0];
         });
@@ -2151,18 +2288,27 @@ class CollectionsApi
      *
      * List collections
      *
+     * @param  string $account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function listCollectionsAsyncWithHttpInfo(
+        $account_id = null,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "VIEW_UNSPECIFIED"
     ) {
         $returnType = "\Sajari\Model\ListCollectionsResponse";
-        $request = $this->listCollectionsRequest($page_size, $page_token);
+        $request = $this->listCollectionsRequest(
+            $account_id,
+            $page_size,
+            $page_token,
+            $view
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2205,15 +2351,19 @@ class CollectionsApi
     /**
      * Create request for operation 'listCollections'
      *
+     * @param  string $account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
      * @param  string $page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+     * @param  string $view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to 'VIEW_UNSPECIFIED')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function listCollectionsRequest(
+        $account_id = null,
         $page_size = null,
-        $page_token = null
+        $page_token = null,
+        $view = "VIEW_UNSPECIFIED"
     ) {
         $resourcePath = "/v4/collections";
         $formParams = [];
@@ -2241,6 +2391,23 @@ class CollectionsApi
             } else {
                 $queryParams["page_token"] = $page_token;
             }
+        }
+        // query params
+        if ($view !== null) {
+            if ("form" === "form" && is_array($view)) {
+                foreach ($view as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams["view"] = $view;
+            }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         if ($multipart) {
@@ -3720,6 +3887,7 @@ class CollectionsApi
      *
      * @param  string $collection_id The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection The details of the collection to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -3729,11 +3897,13 @@ class CollectionsApi
     public function updateCollection(
         $collection_id,
         $collection,
+        $account_id = null,
         $update_mask = null
     ) {
         list($response) = $this->updateCollectionWithHttpInfo(
             $collection_id,
             $collection,
+            $account_id,
             $update_mask
         );
         return $response;
@@ -3746,6 +3916,7 @@ class CollectionsApi
      *
      * @param  string $collection_id The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection The details of the collection to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
@@ -3755,11 +3926,13 @@ class CollectionsApi
     public function updateCollectionWithHttpInfo(
         $collection_id,
         $collection,
+        $account_id = null,
         $update_mask = null
     ) {
         $request = $this->updateCollectionRequest(
             $collection_id,
             $collection,
+            $account_id,
             $update_mask
         );
 
@@ -3968,6 +4141,7 @@ class CollectionsApi
      *
      * @param  string $collection_id The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection The details of the collection to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3976,11 +4150,13 @@ class CollectionsApi
     public function updateCollectionAsync(
         $collection_id,
         $collection,
+        $account_id = null,
         $update_mask = null
     ) {
         return $this->updateCollectionAsyncWithHttpInfo(
             $collection_id,
             $collection,
+            $account_id,
             $update_mask
         )->then(function ($response) {
             return $response[0];
@@ -3994,6 +4170,7 @@ class CollectionsApi
      *
      * @param  string $collection_id The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection The details of the collection to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4002,12 +4179,14 @@ class CollectionsApi
     public function updateCollectionAsyncWithHttpInfo(
         $collection_id,
         $collection,
+        $account_id = null,
         $update_mask = null
     ) {
         $returnType = "\Sajari\Model\Collection";
         $request = $this->updateCollectionRequest(
             $collection_id,
             $collection,
+            $account_id,
             $update_mask
         );
 
@@ -4054,6 +4233,7 @@ class CollectionsApi
      *
      * @param  string $collection_id The collection to update, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Collection $collection The details of the collection to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
      *
      * @throws \InvalidArgumentException
@@ -4062,6 +4242,7 @@ class CollectionsApi
     public function updateCollectionRequest(
         $collection_id,
         $collection,
+        $account_id = null,
         $update_mask = null
     ) {
         // verify the required parameter 'collection_id' is set
@@ -4099,6 +4280,13 @@ class CollectionsApi
             } else {
                 $queryParams["update_mask"] = $update_mask;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params

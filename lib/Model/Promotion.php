@@ -525,7 +525,7 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filter_conditions
      *
-     * @param \Sajari\Model\PromotionFilterCondition[]|null $filter_conditions The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.
+     * @param \Sajari\Model\PromotionFilterCondition[]|null $filter_conditions The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form `field = value` and matches a query if all of those filters are present in the query.  For example, a query with the filter `productType = 'shirt' AND size = 'medium'` triggers a promotion with the filter condition `productType = 'shirt'`, but not one with both `productType = 'shirt', and `size = 'small'`.
      *
      * @return self
      */

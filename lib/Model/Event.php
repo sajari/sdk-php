@@ -374,7 +374,7 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type The type of event, e.g. `click`, `purchase`, `add_to_cart`.
+     * @param string $type The type of event, e.g. `click`, `redirect`, `purchase`, `add_to_cart`.
      *
      * @return self
      */

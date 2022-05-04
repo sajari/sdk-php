@@ -17,7 +17,7 @@ All URIs are relative to https://api.search.io.
 ## `createCollection()`
 
 ```php
-createCollection($collection_id, $collection): \Sajari\Model\Collection
+createCollection($collection_id, $collection, $account_id): \Sajari\Model\Collection
 ```
 
 Create collection
@@ -43,9 +43,14 @@ $apiInstance = new Sajari\Api\CollectionsApi(
 );
 $collection_id = "collection_id_example"; // string | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
 $collection = new \Sajari\Model\Collection(); // \Sajari\Model\Collection | Details of the collection to create.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->createCollection($collection_id, $collection);
+  $result = $apiInstance->createCollection(
+    $collection_id,
+    $collection,
+    $account_id
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling CollectionsApi->createCollection: ",
@@ -56,10 +61,11 @@ try {
 
 ### Parameters
 
-| Name              | Type                                                   | Description                                                                                                                                                                                                                                          | Notes |
-| ----------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| Name              | Type                                                   | Description                                                                                                                                                                                                                                          | Notes      |
+| ----------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | **collection_id** | **string**                                             | The ID to use for the collection. This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][a-za-z0-9\\-]\*\$&#x60;. |
 | **collection**    | [**\Sajari\Model\Collection**](../Model/Collection.md) | Details of the collection to create.                                                                                                                                                                                                                 |
+| **account_id**    | **string**                                             | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                          | [optional] |
 
 ### Return type
 
@@ -81,7 +87,7 @@ try {
 ## `deleteCollection()`
 
 ```php
-deleteCollection($collection_id): mixed
+deleteCollection($collection_id, $account_id): mixed
 ```
 
 Delete collection
@@ -106,9 +112,10 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   $config
 );
 $collection_id = "collection_id_example"; // string | The collection to delete, e.g. `my-collection`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 
 try {
-  $result = $apiInstance->deleteCollection($collection_id);
+  $result = $apiInstance->deleteCollection($collection_id, $account_id);
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling CollectionsApi->deleteCollection: ",
@@ -119,9 +126,10 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                               | Notes |
-| ----------------- | ---------- | --------------------------------------------------------- | ----- |
-| **collection_id** | **string** | The collection to delete, e.g. &#x60;my-collection&#x60;. |
+| Name              | Type       | Description                                                                 | Notes      |
+| ----------------- | ---------- | --------------------------------------------------------------------------- | ---------- |
+| **collection_id** | **string** | The collection to delete, e.g. &#x60;my-collection&#x60;.                   |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -207,7 +215,7 @@ try {
 ## `getCollection()`
 
 ```php
-getCollection($collection_id): \Sajari\Model\Collection
+getCollection($collection_id, $account_id, $view): \Sajari\Model\Collection
 ```
 
 Get collection
@@ -232,9 +240,11 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   $config
 );
 $collection_id = "collection_id_example"; // string | The collection to retrieve, e.g. `my-collection`.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
+$view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
 
 try {
-  $result = $apiInstance->getCollection($collection_id);
+  $result = $apiInstance->getCollection($collection_id, $account_id, $view);
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling CollectionsApi->getCollection: ",
@@ -245,9 +255,11 @@ try {
 
 ### Parameters
 
-| Name              | Type       | Description                                                 | Notes |
-| ----------------- | ---------- | ----------------------------------------------------------- | ----- |
-| **collection_id** | **string** | The collection to retrieve, e.g. &#x60;my-collection&#x60;. |
+| Name              | Type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Notes                                              |
+| ----------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **collection_id** | **string** | The collection to retrieve, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **account_id**    | **string** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                                     | [optional]                                         |
+| **view**          | **string** | The amount of information to include in the retrieved pipeline. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -269,7 +281,7 @@ try {
 ## `listCollections()`
 
 ```php
-listCollections($page_size, $page_token): \Sajari\Model\ListCollectionsResponse
+listCollections($account_id, $page_size, $page_token, $view): \Sajari\Model\ListCollectionsResponse
 ```
 
 List collections
@@ -293,11 +305,18 @@ $apiInstance = new Sajari\Api\CollectionsApi(
   new GuzzleHttp\Client(),
   $config
 );
+$account_id = "account_id_example"; // string | The account that owns this set of collections, e.g. `1618535966441231024`.
 $page_size = 56; // int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
 $page_token = "page_token_example"; // string | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+$view = "VIEW_UNSPECIFIED"; // string | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
 
 try {
-  $result = $apiInstance->listCollections($page_size, $page_token);
+  $result = $apiInstance->listCollections(
+    $account_id,
+    $page_size,
+    $page_token,
+    $view
+  );
   print_r($result);
 } catch (Exception $e) {
   echo "Exception when calling CollectionsApi->listCollections: ",
@@ -308,10 +327,12 @@ try {
 
 ### Parameters
 
-| Name           | Type       | Description                                                                                                                                                                                                                                                                                                  | Notes      |
-| -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                               | [optional] |
-| **page_token** | **string** | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
+| Name           | Type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Notes                                              |
+| -------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **account_id** | **string** | The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                                                                                                                                                                                                                                               | [optional]                                         |
+| **page_size**  | **int**    | The maximum number of collections to return. The service may return fewer than this value. If unspecified, at most 50 collections are returned. The maximum value is 100; values above 100 are coerced to 100.                                                                                                                                                                                                                                                                                     | [optional]                                         |
+| **page_token** | **string** | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.                                                                                                                                                                                       | [optional]                                         |
+| **view**       | **string** | The amount of information to include in each retrieved collection. - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view. - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)). - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -475,7 +496,7 @@ trackEvent($account_id, $collection_id, $event): object
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request. An analytics event can be tracked for the following objects: - Results - Promotion banners - Redirects Note: You must pass an `Account-Id` header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request. An analytics event can be tracked for the following objects: - Results - Promotion banners - Redirects When tracking redirect events, set `type` to `redirect`. Note: You must pass an `Account-Id` header.
 
 ### Example
 
@@ -536,7 +557,7 @@ try {
 ## `updateCollection()`
 
 ```php
-updateCollection($collection_id, $collection, $update_mask): \Sajari\Model\Collection
+updateCollection($collection_id, $collection, $account_id, $update_mask): \Sajari\Model\Collection
 ```
 
 Update collection
@@ -562,12 +583,14 @@ $apiInstance = new Sajari\Api\CollectionsApi(
 );
 $collection_id = "collection_id_example"; // string | The collection to update, e.g. `my-collection`.
 $collection = new \Sajari\Model\Collection(); // \Sajari\Model\Collection | The details of the collection to update.
+$account_id = "account_id_example"; // string | The account that owns the collection, e.g. `1618535966441231024`.
 $update_mask = "update_mask_example"; // string | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
 
 try {
   $result = $apiInstance->updateCollection(
     $collection_id,
     $collection,
+    $account_id,
     $update_mask
   );
   print_r($result);
@@ -584,6 +607,7 @@ try {
 | ----------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
 | **collection_id** | **string**                                             | The collection to update, e.g. &#x60;my-collection&#x60;.                                                                                                                                                                                                                |
 | **collection**    | [**\Sajari\Model\Collection**](../Model/Collection.md) | The details of the collection to update.                                                                                                                                                                                                                                 |
+| **account_id**    | **string**                                             | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.                                                                                                                                                                                              | [optional] |
 | **update_mask**   | **string**                                             | The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;. Each field should be in snake case. For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] |
 
 ### Return type

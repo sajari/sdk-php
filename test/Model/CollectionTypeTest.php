@@ -1,6 +1,6 @@
 <?php
 /**
- * PromotionFilterConditionTest
+ * CollectionTypeTest
  *
  * PHP version 7.2
  *
@@ -32,15 +32,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PromotionFilterConditionTest Class Doc Comment
+ * CollectionTypeTest Class Doc Comment
  *
  * @category    Class
- * @description A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if all filters are present in that query.
+ * @description - TYPE_UNSPECIFIED: Type not specified.  - WEBSITE: The type for website collections.  - SHOPIFY: The type for the collection backing a Shopify account.  - CUSTOM: The legacy custom type.
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PromotionFilterConditionTest extends TestCase
+class CollectionTypeTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -71,18 +71,9 @@ class PromotionFilterConditionTest extends TestCase
     }
 
     /**
-     * Test "PromotionFilterCondition"
+     * Test "CollectionType"
      */
-    public function testPromotionFilterCondition()
-    {
-        // TODO: implement
-        $this->markTestIncomplete("Not implemented");
-    }
-
-    /**
-     * Test attribute "filter"
-     */
-    public function testPropertyFilter()
+    public function testCollectionType()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

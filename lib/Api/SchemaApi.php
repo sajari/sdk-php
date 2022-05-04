@@ -1037,6 +1037,449 @@ class SchemaApi
     }
 
     /**
+     * Operation deleteSchemaField
+     *
+     * Delete schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to delete. (required)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
+     */
+    public function deleteSchemaField($collection_id, $schema_field_name)
+    {
+        list($response) = $this->deleteSchemaFieldWithHttpInfo(
+            $collection_id,
+            $schema_field_name
+        );
+        return $response;
+    }
+
+    /**
+     * Operation deleteSchemaFieldWithHttpInfo
+     *
+     * Delete schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to delete. (required)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteSchemaFieldWithHttpInfo(
+        $collection_id,
+        $schema_field_name
+    ) {
+        $request = $this->deleteSchemaFieldRequest(
+            $collection_id,
+            $schema_field_name
+        );
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()
+                        ? (string) $e->getResponse()->getBody()
+                        : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        "[%d] Error connecting to the API (%s)",
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch ($statusCode) {
+                case 200:
+                    if ("mixed" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, "mixed", []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 401:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                default:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = "mixed";
+            $responseBody = $response->getBody();
+            if ($returnType === "\SplFileObject") {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "mixed",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteSchemaFieldAsync
+     *
+     * Delete schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSchemaFieldAsync($collection_id, $schema_field_name)
+    {
+        return $this->deleteSchemaFieldAsyncWithHttpInfo(
+            $collection_id,
+            $schema_field_name
+        )->then(function ($response) {
+            return $response[0];
+        });
+    }
+
+    /**
+     * Operation deleteSchemaFieldAsyncWithHttpInfo
+     *
+     * Delete schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSchemaFieldAsyncWithHttpInfo(
+        $collection_id,
+        $schema_field_name
+    ) {
+        $returnType = "mixed";
+        $request = $this->deleteSchemaFieldRequest(
+            $collection_id,
+            $schema_field_name
+        );
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            $returnType,
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            "[%d] Error connecting to the API (%s)",
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteSchemaField'
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteSchemaFieldRequest($collection_id, $schema_field_name)
+    {
+        // verify the required parameter 'collection_id' is set
+        if (
+            $collection_id === null ||
+            (is_array($collection_id) && count($collection_id) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $collection_id when calling deleteSchemaField'
+            );
+        }
+        // verify the required parameter 'schema_field_name' is set
+        if (
+            $schema_field_name === null ||
+            (is_array($schema_field_name) && count($schema_field_name) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $schema_field_name when calling deleteSchemaField'
+            );
+        }
+
+        $resourcePath =
+            "/v4/collections/{collection_id}/schemaFields/{schema_field_name}";
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+
+        // path params
+        if ($collection_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "collection_id" . "}",
+                ObjectSerializer::toPathValue($collection_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($schema_field_name !== null) {
+            $resourcePath = str_replace(
+                "{" . "schema_field_name" . "}",
+                ObjectSerializer::toPathValue($schema_field_name),
+                $resourcePath
+            );
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart([
+                "application/json",
+            ]);
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ["application/json"],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue)
+                        ? $formParamValue
+                        : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            "name" => $formParamName,
+                            "contents" => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif ($headers["Content-Type"] === "application/json") {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (
+            !empty($this->config->getUsername()) ||
+            !empty($this->config->getPassword())
+        ) {
+            $headers["Authorization"] =
+                "Basic " .
+                base64_encode(
+                    $this->config->getUsername() .
+                        ":" .
+                        $this->config->getPassword()
+                );
+        }
+
+        $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge($defaultHeaders, $headerParams, $headers);
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            "DELETE",
+            $this->config->getHost() .
+                $resourcePath .
+                ($query ? "?{$query}" : ""),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listSchemaFields
      *
      * List schema fields
@@ -1501,6 +1944,515 @@ class SchemaApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             "GET",
+            $this->config->getHost() .
+                $resourcePath .
+                ($query ? "?{$query}" : ""),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSchemaField
+     *
+     * Update schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to update. (required)
+     * @param  \Sajari\Model\SchemaField $schema_field The schema field details to update. (required)
+     * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sajari\Model\SchemaField|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
+     */
+    public function updateSchemaField(
+        $collection_id,
+        $schema_field_name,
+        $schema_field,
+        $update_mask = null
+    ) {
+        list($response) = $this->updateSchemaFieldWithHttpInfo(
+            $collection_id,
+            $schema_field_name,
+            $schema_field,
+            $update_mask
+        );
+        return $response;
+    }
+
+    /**
+     * Operation updateSchemaFieldWithHttpInfo
+     *
+     * Update schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to update. (required)
+     * @param  \Sajari\Model\SchemaField $schema_field The schema field details to update. (required)
+     * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     *
+     * @throws \Sajari\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sajari\Model\SchemaField|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSchemaFieldWithHttpInfo(
+        $collection_id,
+        $schema_field_name,
+        $schema_field,
+        $update_mask = null
+    ) {
+        $request = $this->updateSchemaFieldRequest(
+            $collection_id,
+            $schema_field_name,
+            $schema_field,
+            $update_mask
+        );
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()
+                        ? (string) $e->getResponse()->getBody()
+                        : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        "[%d] Error connecting to the API (%s)",
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch ($statusCode) {
+                case 200:
+                    if ("\Sajari\Model\SchemaField" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\SchemaField",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 401:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 403:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 404:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                case 500:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                default:
+                    if ("\Sajari\Model\Error" === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            "\Sajari\Model\Error",
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = "\Sajari\Model\SchemaField";
+            $responseBody = $response->getBody();
+            if ($returnType === "\SplFileObject") {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\SchemaField",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        "\Sajari\Model\Error",
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSchemaFieldAsync
+     *
+     * Update schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to update. (required)
+     * @param  \Sajari\Model\SchemaField $schema_field The schema field details to update. (required)
+     * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSchemaFieldAsync(
+        $collection_id,
+        $schema_field_name,
+        $schema_field,
+        $update_mask = null
+    ) {
+        return $this->updateSchemaFieldAsyncWithHttpInfo(
+            $collection_id,
+            $schema_field_name,
+            $schema_field,
+            $update_mask
+        )->then(function ($response) {
+            return $response[0];
+        });
+    }
+
+    /**
+     * Operation updateSchemaFieldAsyncWithHttpInfo
+     *
+     * Update schema field
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to update. (required)
+     * @param  \Sajari\Model\SchemaField $schema_field The schema field details to update. (required)
+     * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSchemaFieldAsyncWithHttpInfo(
+        $collection_id,
+        $schema_field_name,
+        $schema_field,
+        $update_mask = null
+    ) {
+        $returnType = "\Sajari\Model\SchemaField";
+        $request = $this->updateSchemaFieldRequest(
+            $collection_id,
+            $schema_field_name,
+            $schema_field,
+            $update_mask
+        );
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === "\SplFileObject") {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize(
+                            $content,
+                            $returnType,
+                            []
+                        ),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            "[%d] Error connecting to the API (%s)",
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSchemaField'
+     *
+     * @param  string $collection_id The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $schema_field_name The name of the schema field to update. (required)
+     * @param  \Sajari\Model\SchemaField $schema_field The schema field details to update. (required)
+     * @param  string $update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSchemaFieldRequest(
+        $collection_id,
+        $schema_field_name,
+        $schema_field,
+        $update_mask = null
+    ) {
+        // verify the required parameter 'collection_id' is set
+        if (
+            $collection_id === null ||
+            (is_array($collection_id) && count($collection_id) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $collection_id when calling updateSchemaField'
+            );
+        }
+        // verify the required parameter 'schema_field_name' is set
+        if (
+            $schema_field_name === null ||
+            (is_array($schema_field_name) && count($schema_field_name) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $schema_field_name when calling updateSchemaField'
+            );
+        }
+        // verify the required parameter 'schema_field' is set
+        if (
+            $schema_field === null ||
+            (is_array($schema_field) && count($schema_field) === 0)
+        ) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $schema_field when calling updateSchemaField'
+            );
+        }
+
+        $resourcePath =
+            "/v4/collections/{collection_id}/schemaFields/{schema_field_name}";
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+
+        // query params
+        if ($update_mask !== null) {
+            if ("form" === "form" && is_array($update_mask)) {
+                foreach ($update_mask as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams["update_mask"] = $update_mask;
+            }
+        }
+
+        // path params
+        if ($collection_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "collection_id" . "}",
+                ObjectSerializer::toPathValue($collection_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($schema_field_name !== null) {
+            $resourcePath = str_replace(
+                "{" . "schema_field_name" . "}",
+                ObjectSerializer::toPathValue($schema_field_name),
+                $resourcePath
+            );
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart([
+                "application/json",
+            ]);
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ["application/json"],
+                ["application/json"]
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($schema_field)) {
+            if ($headers["Content-Type"] === "application/json") {
+                $httpBody = \GuzzleHttp\json_encode(
+                    ObjectSerializer::sanitizeForSerialization($schema_field)
+                );
+            } else {
+                $httpBody = $schema_field;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue)
+                        ? $formParamValue
+                        : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            "name" => $formParamName,
+                            "contents" => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif ($headers["Content-Type"] === "application/json") {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (
+            !empty($this->config->getUsername()) ||
+            !empty($this->config->getPassword())
+        ) {
+            $headers["Authorization"] =
+                "Basic " .
+                base64_encode(
+                    $this->config->getUsername() .
+                        ":" .
+                        $this->config->getPassword()
+                );
+        }
+
+        $defaultHeaders = [];
+        if ($this->clientUserAgent) {
+            $defaultHeaders["Sajari-Client-User-Agent"] =
+                $this->clientUserAgent;
+        }
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders["User-Agent"] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge($defaultHeaders, $headerParams, $headers);
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            "PATCH",
             $this->config->getHost() .
                 $resourcePath .
                 ($query ? "?{$query}" : ""),

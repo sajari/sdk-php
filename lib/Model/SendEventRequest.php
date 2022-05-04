@@ -266,7 +266,7 @@ class SendEventRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name The name of event, e.g. `click`, `purchase`.
+     * @param string $name The name of event, e.g. `click`, `redirect`, `purchase`.
      *
      * @return self
      */

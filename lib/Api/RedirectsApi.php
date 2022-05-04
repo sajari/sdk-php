@@ -140,16 +140,21 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Redirect $redirect The redirect to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Redirect|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function createRedirect($collection_id, $redirect)
-    {
+    public function createRedirect(
+        $collection_id,
+        $redirect,
+        $account_id = null
+    ) {
         list($response) = $this->createRedirectWithHttpInfo(
             $collection_id,
-            $redirect
+            $redirect,
+            $account_id
         );
         return $response;
     }
@@ -161,14 +166,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Redirect $redirect The redirect to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Redirect|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRedirectWithHttpInfo($collection_id, $redirect)
-    {
-        $request = $this->createRedirectRequest($collection_id, $redirect);
+    public function createRedirectWithHttpInfo(
+        $collection_id,
+        $redirect,
+        $account_id = null
+    ) {
+        $request = $this->createRedirectRequest(
+            $collection_id,
+            $redirect,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -375,15 +388,20 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Redirect $redirect The redirect to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRedirectAsync($collection_id, $redirect)
-    {
+    public function createRedirectAsync(
+        $collection_id,
+        $redirect,
+        $account_id = null
+    ) {
         return $this->createRedirectAsyncWithHttpInfo(
             $collection_id,
-            $redirect
+            $redirect,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -396,14 +414,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Redirect $redirect The redirect to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRedirectAsyncWithHttpInfo($collection_id, $redirect)
-    {
+    public function createRedirectAsyncWithHttpInfo(
+        $collection_id,
+        $redirect,
+        $account_id = null
+    ) {
         $returnType = "\Sajari\Model\Redirect";
-        $request = $this->createRedirectRequest($collection_id, $redirect);
+        $request = $this->createRedirectRequest(
+            $collection_id,
+            $redirect,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -448,12 +474,16 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. (required)
      * @param  \Sajari\Model\Redirect $redirect The redirect to create. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRedirectRequest($collection_id, $redirect)
-    {
+    public function createRedirectRequest(
+        $collection_id,
+        $redirect,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -479,6 +509,13 @@ class RedirectsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -576,16 +613,21 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function deleteRedirect($collection_id, $redirect_id)
-    {
+    public function deleteRedirect(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         list($response) = $this->deleteRedirectWithHttpInfo(
             $collection_id,
-            $redirect_id
+            $redirect_id,
+            $account_id
         );
         return $response;
     }
@@ -597,14 +639,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of mixed|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteRedirectWithHttpInfo($collection_id, $redirect_id)
-    {
-        $request = $this->deleteRedirectRequest($collection_id, $redirect_id);
+    public function deleteRedirectWithHttpInfo(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
+        $request = $this->deleteRedirectRequest(
+            $collection_id,
+            $redirect_id,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -807,15 +857,20 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteRedirectAsync($collection_id, $redirect_id)
-    {
+    public function deleteRedirectAsync(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         return $this->deleteRedirectAsyncWithHttpInfo(
             $collection_id,
-            $redirect_id
+            $redirect_id,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -828,16 +883,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deleteRedirectAsyncWithHttpInfo(
         $collection_id,
-        $redirect_id
+        $redirect_id,
+        $account_id = null
     ) {
         $returnType = "mixed";
-        $request = $this->deleteRedirectRequest($collection_id, $redirect_id);
+        $request = $this->deleteRedirectRequest(
+            $collection_id,
+            $redirect_id,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -882,12 +943,16 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to delete, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteRedirectRequest($collection_id, $redirect_id)
-    {
+    public function deleteRedirectRequest(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -914,6 +979,13 @@ class RedirectsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1011,16 +1083,21 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sajari\Model\Redirect|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error
      */
-    public function getRedirect($collection_id, $redirect_id)
-    {
+    public function getRedirect(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         list($response) = $this->getRedirectWithHttpInfo(
             $collection_id,
-            $redirect_id
+            $redirect_id,
+            $account_id
         );
         return $response;
     }
@@ -1032,14 +1109,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sajari\Model\Redirect|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error|\Sajari\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRedirectWithHttpInfo($collection_id, $redirect_id)
-    {
-        $request = $this->getRedirectRequest($collection_id, $redirect_id);
+    public function getRedirectWithHttpInfo(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
+        $request = $this->getRedirectRequest(
+            $collection_id,
+            $redirect_id,
+            $account_id
+        );
 
         try {
             $options = $this->createHttpClientOption();
@@ -1246,15 +1331,20 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRedirectAsync($collection_id, $redirect_id)
-    {
+    public function getRedirectAsync(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         return $this->getRedirectAsyncWithHttpInfo(
             $collection_id,
-            $redirect_id
+            $redirect_id,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -1267,14 +1357,22 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRedirectAsyncWithHttpInfo($collection_id, $redirect_id)
-    {
+    public function getRedirectAsyncWithHttpInfo(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         $returnType = "\Sajari\Model\Redirect";
-        $request = $this->getRedirectRequest($collection_id, $redirect_id);
+        $request = $this->getRedirectRequest(
+            $collection_id,
+            $redirect_id,
+            $account_id
+        );
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1319,12 +1417,16 @@ class RedirectsApi
      *
      * @param  string $collection_id The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. (required)
      * @param  string $redirect_id The redirect to retrieve, e.g. &#x60;1234&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRedirectRequest($collection_id, $redirect_id)
-    {
+    public function getRedirectRequest(
+        $collection_id,
+        $redirect_id,
+        $account_id = null
+    ) {
         // verify the required parameter 'collection_id' is set
         if (
             $collection_id === null ||
@@ -1351,6 +1453,13 @@ class RedirectsApi
         $headerParams = [];
         $httpBody = "";
         $multipart = false;
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
+        }
 
         // path params
         if ($collection_id !== null) {
@@ -1447,6 +1556,7 @@ class RedirectsApi
      * List redirects
      *
      * @param  string $collection_id The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      *
@@ -1456,11 +1566,13 @@ class RedirectsApi
      */
     public function listRedirects(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null
     ) {
         list($response) = $this->listRedirectsWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token
         );
@@ -1473,6 +1585,7 @@ class RedirectsApi
      * List redirects
      *
      * @param  string $collection_id The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      *
@@ -1482,11 +1595,13 @@ class RedirectsApi
      */
     public function listRedirectsWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null
     ) {
         $request = $this->listRedirectsRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token
         );
@@ -1698,6 +1813,7 @@ class RedirectsApi
      * List redirects
      *
      * @param  string $collection_id The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      *
@@ -1706,11 +1822,13 @@ class RedirectsApi
      */
     public function listRedirectsAsync(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null
     ) {
         return $this->listRedirectsAsyncWithHttpInfo(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token
         )->then(function ($response) {
@@ -1724,6 +1842,7 @@ class RedirectsApi
      * List redirects
      *
      * @param  string $collection_id The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      *
@@ -1732,12 +1851,14 @@ class RedirectsApi
      */
     public function listRedirectsAsyncWithHttpInfo(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null
     ) {
         $returnType = "\Sajari\Model\ListRedirectsResponse";
         $request = $this->listRedirectsRequest(
             $collection_id,
+            $account_id,
             $page_size,
             $page_token
         );
@@ -1784,6 +1905,7 @@ class RedirectsApi
      * Create request for operation 'listRedirects'
      *
      * @param  string $collection_id The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      * @param  int $page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
      * @param  string $page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
      *
@@ -1792,6 +1914,7 @@ class RedirectsApi
      */
     public function listRedirectsRequest(
         $collection_id,
+        $account_id = null,
         $page_size = null,
         $page_token = null
     ) {
@@ -1831,6 +1954,13 @@ class RedirectsApi
             } else {
                 $queryParams["page_token"] = $page_token;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
@@ -1923,6 +2053,7 @@ class RedirectsApi
      * @param  string $redirect_id The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param  \Sajari\Model\Redirect $redirect Details of the redirect to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1932,13 +2063,15 @@ class RedirectsApi
         $collection_id,
         $redirect_id,
         $update_mask,
-        $redirect
+        $redirect,
+        $account_id = null
     ) {
         list($response) = $this->updateRedirectWithHttpInfo(
             $collection_id,
             $redirect_id,
             $update_mask,
-            $redirect
+            $redirect,
+            $account_id
         );
         return $response;
     }
@@ -1952,6 +2085,7 @@ class RedirectsApi
      * @param  string $redirect_id The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param  \Sajari\Model\Redirect $redirect Details of the redirect to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \Sajari\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1961,13 +2095,15 @@ class RedirectsApi
         $collection_id,
         $redirect_id,
         $update_mask,
-        $redirect
+        $redirect,
+        $account_id = null
     ) {
         $request = $this->updateRedirectRequest(
             $collection_id,
             $redirect_id,
             $update_mask,
-            $redirect
+            $redirect,
+            $account_id
         );
 
         try {
@@ -2177,6 +2313,7 @@ class RedirectsApi
      * @param  string $redirect_id The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param  \Sajari\Model\Redirect $redirect Details of the redirect to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2185,13 +2322,15 @@ class RedirectsApi
         $collection_id,
         $redirect_id,
         $update_mask,
-        $redirect
+        $redirect,
+        $account_id = null
     ) {
         return $this->updateRedirectAsyncWithHttpInfo(
             $collection_id,
             $redirect_id,
             $update_mask,
-            $redirect
+            $redirect,
+            $account_id
         )->then(function ($response) {
             return $response[0];
         });
@@ -2206,6 +2345,7 @@ class RedirectsApi
      * @param  string $redirect_id The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param  \Sajari\Model\Redirect $redirect Details of the redirect to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2214,14 +2354,16 @@ class RedirectsApi
         $collection_id,
         $redirect_id,
         $update_mask,
-        $redirect
+        $redirect,
+        $account_id = null
     ) {
         $returnType = "\Sajari\Model\Redirect";
         $request = $this->updateRedirectRequest(
             $collection_id,
             $redirect_id,
             $update_mask,
-            $redirect
+            $redirect,
+            $account_id
         );
 
         return $this->client
@@ -2269,6 +2411,7 @@ class RedirectsApi
      * @param  string $redirect_id The redirect to update, e.g. &#x60;1234&#x60;. (required)
      * @param  string $update_mask The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. (required)
      * @param  \Sajari\Model\Redirect $redirect Details of the redirect to update. (required)
+     * @param  string $account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2277,7 +2420,8 @@ class RedirectsApi
         $collection_id,
         $redirect_id,
         $update_mask,
-        $redirect
+        $redirect,
+        $account_id = null
     ) {
         // verify the required parameter 'collection_id' is set
         if (
@@ -2333,6 +2477,13 @@ class RedirectsApi
             } else {
                 $queryParams["update_mask"] = $update_mask;
             }
+        }
+
+        // header params
+        if ($account_id !== null) {
+            $headerParams["Account-Id"] = ObjectSerializer::toHeaderValue(
+                $account_id
+            );
         }
 
         // path params
