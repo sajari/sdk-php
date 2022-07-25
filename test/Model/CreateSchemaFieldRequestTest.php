@@ -1,6 +1,6 @@
 <?php
 /**
- * PromotionPinTest
+ * CreateSchemaFieldRequestTest
  *
  * PHP version 7.2
  *
@@ -29,15 +29,15 @@ namespace Sajari\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PromotionPinTest Class Doc Comment
+ * CreateSchemaFieldRequestTest Class Doc Comment
  *
  * @category    Class
- * @description PromotionPin
+ * @description CreateSchemaFieldRequest
  * @package     Sajari
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PromotionPinTest extends TestCase
+class CreateSchemaFieldRequestTest extends TestCase
 {
     /**
      * Setup before running any test case
@@ -68,36 +68,36 @@ class PromotionPinTest extends TestCase
     }
 
     /**
-     * Test "PromotionPin"
+     * Test "CreateSchemaFieldRequest"
      */
-    public function testPromotionPin()
+    public function testCreateSchemaFieldRequest()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "key"
+     * Test attribute "account_id"
      */
-    public function testPropertyKey()
+    public function testPropertyAccountId()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "mode"
+     * Test attribute "collection_id"
      */
-    public function testPropertyMode()
+    public function testPropertyCollectionId()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");
     }
 
     /**
-     * Test attribute "position"
+     * Test attribute "schema_field"
      */
-    public function testPropertyPosition()
+    public function testPropertySchemaField()
     {
         // TODO: implement
         $this->markTestIncomplete("Not implemented");

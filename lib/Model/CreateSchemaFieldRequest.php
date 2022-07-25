@@ -1,6 +1,6 @@
 <?php
 /**
- * PromotionCategory
+ * CreateSchemaFieldRequest
  *
  * PHP version 7.2
  *
@@ -30,7 +30,7 @@ use \ArrayAccess;
 use Sajari\ObjectSerializer;
 
 /**
- * PromotionCategory Class Doc Comment
+ * CreateSchemaFieldRequest Class Doc Comment
  *
  * @category Class
  * @package  Sajari
@@ -40,7 +40,7 @@ use Sajari\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PromotionCategory implements
+class CreateSchemaFieldRequest implements
     ModelInterface,
     ArrayAccess,
     \JsonSerializable
@@ -52,7 +52,7 @@ class PromotionCategory implements
      *
      * @var string
      */
-    protected static $openAPIModelName = "PromotionCategory";
+    protected static $openAPIModelName = "CreateSchemaFieldRequest";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,9 @@ class PromotionCategory implements
      * @var string[]
      */
     protected static $openAPITypes = [
-        "id_field" => "string",
-        "mapping_field" => "string",
+        "account_id" => "string",
+        "collection_id" => "string",
+        "schema_field" => "\Sajari\Model\SchemaField",
     ];
 
     /**
@@ -72,8 +73,9 @@ class PromotionCategory implements
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        "id_field" => null,
-        "mapping_field" => null,
+        "account_id" => null,
+        "collection_id" => null,
+        "schema_field" => null,
     ];
 
     /**
@@ -103,8 +105,9 @@ class PromotionCategory implements
      * @var string[]
      */
     protected static $attributeMap = [
-        "id_field" => "id_field",
-        "mapping_field" => "mapping_field",
+        "account_id" => "account_id",
+        "collection_id" => "collection_id",
+        "schema_field" => "schema_field",
     ];
 
     /**
@@ -113,8 +116,9 @@ class PromotionCategory implements
      * @var string[]
      */
     protected static $setters = [
-        "id_field" => "setIdField",
-        "mapping_field" => "setMappingField",
+        "account_id" => "setAccountId",
+        "collection_id" => "setCollectionId",
+        "schema_field" => "setSchemaField",
     ];
 
     /**
@@ -123,8 +127,9 @@ class PromotionCategory implements
      * @var string[]
      */
     protected static $getters = [
-        "id_field" => "getIdField",
-        "mapping_field" => "getMappingField",
+        "account_id" => "getAccountId",
+        "collection_id" => "getCollectionId",
+        "schema_field" => "getSchemaField",
     ];
 
     /**
@@ -183,8 +188,9 @@ class PromotionCategory implements
      */
     public function __construct(array $data = null)
     {
-        $this->container["id_field"] = $data["id_field"] ?? null;
-        $this->container["mapping_field"] = $data["mapping_field"] ?? null;
+        $this->container["account_id"] = $data["account_id"] ?? null;
+        $this->container["collection_id"] = $data["collection_id"] ?? null;
+        $this->container["schema_field"] = $data["schema_field"] ?? null;
     }
 
     /**
@@ -211,49 +217,73 @@ class PromotionCategory implements
     }
 
     /**
-     * Gets id_field
+     * Gets account_id
      *
      * @return string|null
      */
-    public function getIdField()
+    public function getAccountId()
     {
-        return $this->container["id_field"];
+        return $this->container["account_id"];
     }
 
     /**
-     * Sets id_field
+     * Sets account_id
      *
-     * @param string|null $id_field The logical field that specifies a record's category, e.g. \"product_type\".
+     * @param string|null $account_id The account that owns the collection, e.g. `1618535966441231024`.
      *
      * @return self
      */
-    public function setIdField($id_field)
+    public function setAccountId($account_id)
     {
-        $this->container["id_field"] = $id_field;
+        $this->container["account_id"] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets mapping_field
+     * Gets collection_id
      *
      * @return string|null
      */
-    public function getMappingField()
+    public function getCollectionId()
     {
-        return $this->container["mapping_field"];
+        return $this->container["collection_id"];
     }
 
     /**
-     * Sets mapping_field
+     * Sets collection_id
      *
-     * @param string|null $mapping_field The field that contains a human-readable rendering of a record's category, e.g. \"product_type_name\". When creating promotions, this field's text value is displayed instead of the `id_field`. If `mapping_field` is not provided, the text value of the record's `id_field` is displayed.
+     * @param string|null $collection_id The collection to create a schema field in, e.g. `my-collection`.
      *
      * @return self
      */
-    public function setMappingField($mapping_field)
+    public function setCollectionId($collection_id)
     {
-        $this->container["mapping_field"] = $mapping_field;
+        $this->container["collection_id"] = $collection_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets schema_field
+     *
+     * @return \Sajari\Model\SchemaField|null
+     */
+    public function getSchemaField()
+    {
+        return $this->container["schema_field"];
+    }
+
+    /**
+     * Sets schema_field
+     *
+     * @param \Sajari\Model\SchemaField|null $schema_field schema_field
+     *
+     * @return self
+     */
+    public function setSchemaField($schema_field)
+    {
+        $this->container["schema_field"] = $schema_field;
 
         return $this;
     }

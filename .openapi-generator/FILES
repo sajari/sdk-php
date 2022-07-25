@@ -25,6 +25,7 @@ docs/Model/BatchUpsertRecordsResponseKey.md
 docs/Model/BatchUpsertRecordsResponseVariables.md
 docs/Model/Collection.md
 docs/Model/CollectionType.md
+docs/Model/CreateSchemaFieldRequest.md
 docs/Model/DeleteRecordRequest.md
 docs/Model/Error.md
 docs/Model/Event.md
@@ -122,6 +123,7 @@ lib/Model/BatchUpsertRecordsResponseKey.php
 lib/Model/BatchUpsertRecordsResponseVariables.php
 lib/Model/Collection.php
 lib/Model/CollectionType.php
+lib/Model/CreateSchemaFieldRequest.php
 lib/Model/DeleteRecordRequest.php
 lib/Model/Error.php
 lib/Model/Event.php
@@ -218,6 +220,7 @@ test/Model/BatchUpsertRecordsResponseTest.php
 test/Model/BatchUpsertRecordsResponseVariablesTest.php
 test/Model/CollectionTest.php
 test/Model/CollectionTypeTest.php
+test/Model/CreateSchemaFieldRequestTest.php
 test/Model/DeleteRecordRequestTest.php
 test/Model/ErrorTest.php
 test/Model/EventTest.php
